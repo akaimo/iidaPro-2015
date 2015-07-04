@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CostomTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *tableName;
 @property (weak, nonatomic) IBOutlet UIImageView *tableUIimage;
-@property (weak, nonatomic) IBOutlet UILabel *tablename;
 +(CGFloat)rowHeight;
 @end

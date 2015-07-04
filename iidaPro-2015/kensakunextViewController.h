@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface kensakunextViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextView *nexttext;
-@property (nonatomic, copy) NSString *nextimagename;
-@property (nonatomic, copy) NSString *nextlabelname;
+
+@property (weak, nonatomic) IBOutlet UITextView *nextText;
+@property (nonatomic, copy) NSString *nextImageName;
+@property (nonatomic, copy) NSString *nextLabelName;
 
 @end

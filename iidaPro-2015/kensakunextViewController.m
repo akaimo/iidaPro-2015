@@ -10,8 +10,8 @@
 
 @interface kensakunextViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *labelname;
-@property (weak, nonatomic) IBOutlet UIImageView *imagename;
+@property (weak, nonatomic) IBOutlet UILabel *labelName;
+@property (strong, nonatomic) IBOutlet UIImageView *imageName;
 
 @end
 
@@ -19,16 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imagename.image = [UIImage imageNamed:_nextimagename];
-    self.labelname.text = _nextlabelname;
+    self.imageName.image = [UIImage imageNamed:_nextImageName];
+    self.labelName.text = _nextLabelName;
     
-    if([_nextimagename isEqual: @"trushicon1"]){
-        _nexttext.text = @"ゴミの種類1個目は\nこうやって\n捨てます。";
+    if([_nextImageName isEqual: @"trushicon1"]){
+        _nextText.text = @"ゴミの種類1個目は\nこうやって\n捨てます。";
     }
-    _nexttext.textColor = [UIColor blackColor];
-    _nexttext.backgroundColor = [UIColor yellowColor];
-    _nexttext.textAlignment = NSTextAlignmentCenter;
-    _nexttext.editable = NO;
+    _nextText.textColor = [UIColor blackColor];
+    _nextText.backgroundColor = [UIColor yellowColor];
+    _nextText.textAlignment = NSTextAlignmentCenter;
+    _nextText.editable = NO;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -12,7 +12,7 @@
 #import "kensakunextViewController.h"
 
 @interface kensakutableTableViewController ()
-@property (strong, nonatomic) IBOutlet UITableView *kensakutableview;
+@property (strong, nonatomic) IBOutlet UITableView *kensakuTableView;
 @property (nonatomic, strong) NSArray *dataSourcename;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
@@ -50,7 +50,7 @@
     static NSString *CellIdentifier = @"Cell";
     CostomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.tableUIimage.image = [UIImage imageNamed:@"trushicon1"];
-    cell.tablename.text = self.dataSourcename[indexPath.row];
+    cell.tableName.text = self.dataSourcename[indexPath.row];
     return cell;
 }
 
@@ -68,7 +68,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     kensakunextViewController *kensakunextViewController = segue.destinationViewController;
-    kensakunextViewController.nextimagename = @"trushicon1";
-    kensakunextViewController.nextlabelname = _dataSourcename[_selectedIndexPath.row];
+    kensakunextViewController.nextImageName = @"trushicon1";
+    kensakunextViewController.nextLabelName = _dataSourcename[_selectedIndexPath.row];
 }
 @end

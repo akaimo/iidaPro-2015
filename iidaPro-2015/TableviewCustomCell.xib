@@ -18,14 +18,14 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftq-Z4-Hw1">
                         <rect key="frame" x="80" y="12" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="tableUIimage" destination="Jlh-B4-n7g" id="tBc-2T-yrN"/>
-                <outlet property="tablekabelname" destination="Ftq-Z4-Hw1" id="Ks5-OI-QVD"/>
+                <outlet property="tableName" destination="Ftq-Z4-Hw1" id="YJx-IX-ttg"/>
+                <outlet property="tableUIimage" destination="Jlh-B4-n7g" id="9eR-fE-UEG"/>
             </connections>
             <point key="canvasLocation" x="219.5" y="139"/>
         </tableViewCell>

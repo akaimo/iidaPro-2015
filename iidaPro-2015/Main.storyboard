@@ -133,7 +133,7 @@
         <!--table1-->
         <scene sceneID="NvI-OS-7su">
             <objects>
-                <tableViewController id="wP7-Bq-9ev" customClass="kensakutableTableViewController" sceneMemberID="viewController">
+                <tableViewController id="wP7-Bq-9ev" customClass="SerchTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zhC-ov-1lT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,7 +146,8 @@
                     <navigationItem key="navigationItem" title="table1" id="dMG-zO-7vP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="aZf-ni-TtJ" kind="push" identifier="pushDetailView" id="6gZ-sB-J75"/>
+                        <outlet property="SerchTableView" destination="zhC-ov-1lT" id="nnY-SI-Ybv"/>
+                        <segue destination="aZf-ni-TtJ" kind="push" identifier="pushDetailView" id="Llr-52-WaK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5e-bz-BxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,21 +155,10 @@
             </objects>
             <point key="canvasLocation" x="1611.5" y="233.5"/>
         </scene>
-        <!--Mamenext View Controller-->
-        <scene sceneID="wpF-uX-V44">
-            <objects>
-                <viewController id="RaA-AK-amv" customClass="mamenextViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ujP-sN-LJ5"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qG4-qX-Pbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2076.5" y="1055.5"/>
-        </scene>
-        <!--Kensakunext View Controller-->
+        <!--Serch Next View Controller-->
         <scene sceneID="D1J-l8-ESk">
             <objects>
-                <viewController id="aZf-ni-TtJ" customClass="kensakunextViewController" sceneMemberID="viewController">
+                <viewController id="aZf-ni-TtJ" customClass="SerchNextViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dm5-Gx-N1u"/>
                         <viewControllerLayoutGuide type="bottom" id="aRR-KA-bpx"/>
@@ -223,7 +213,7 @@
                     <navigationItem key="navigationItem" id="wjG-wh-ZOf"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="imageName" destination="JDw-eO-9SG" id="1KS-RO-Coe"/>
+                        <outlet property="imageName" destination="JDw-eO-9SG" id="wTm-1w-Mw5"/>
                         <outlet property="labelName" destination="M7i-Z7-5w5" id="vCs-Jx-qB7"/>
                         <outlet property="nextText" destination="4SN-hp-Tm9" id="iXG-kM-mYV"/>
                     </connections>

@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface kensakutableTableViewController : UITableViewController
+@interface SerchTableViewController : UITableViewController
 @end

@@ -6,19 +6,19 @@
 //  Copyright (c) 2015年 akaimo. All rights reserved.
 //
 
-#import "kensakutableTableViewController.h"
+#import "SerchTableViewController.h"
 #import "tableviewconst.h"
 #import "CostomTableViewCell.h"
-#import "kensakunextViewController.h"
+#import "SerchNextViewController.h"
 
-@interface kensakutableTableViewController ()
-@property (strong, nonatomic) IBOutlet UITableView *kensakuTableView;
+@interface SerchTableViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *SerchTableView;
 @property (nonatomic, strong) NSArray *dataSourcename;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 @end
 
-@implementation kensakutableTableViewController
+@implementation SerchTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,7 +49,7 @@
 {
     static NSString *CellIdentifier = @"Cell";
     CostomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.tableUIimage.image = [UIImage imageNamed:@"trushicon1"];
+    cell.tableUIimage.image = [UIImage imageNamed:@"trashicon1"];
     cell.tableName.text = self.dataSourcename[indexPath.row];
     return cell;
 }
@@ -67,8 +67,8 @@
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    kensakunextViewController *kensakunextViewController = segue.destinationViewController;
-    kensakunextViewController.nextImageName = @"trushicon1";
-    kensakunextViewController.nextLabelName = _dataSourcename[_selectedIndexPath.row];
+    SerchNextViewController*serchnextviewcontroller = segue.destinationViewController;
+    serchnextviewcontroller.nextImageName = @"trashicon1";
+    serchnextviewcontroller.nextLabelName = _dataSourcename[_selectedIndexPath.row];
 }
 @end

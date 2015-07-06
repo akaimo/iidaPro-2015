@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1851B467B5A0060BF02 /* Main.storyboard */; };
-		8B18F18B1B467B710060BF02 /* kensakunextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B18F1881B467B710060BF02 /* kensakunextViewController.m */; };
-		8B18F18C1B467B710060BF02 /* kensakutableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B18F18A1B467B710060BF02 /* kensakutableTableViewController.m */; };
+		8B18F18B1B467B710060BF02 /* SerchNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B18F1881B467B710060BF02 /* SerchNextViewController.m */; };
+		8B18F18C1B467B710060BF02 /* SerchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B18F18A1B467B710060BF02 /* SerchTableViewController.m */; };
 		8B18F18F1B467B850060BF02 /* CostomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B18F18E1B467B850060BF02 /* CostomTableViewCell.m */; };
 		8B18F1911B467BD90060BF02 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1901B467BD90060BF02 /* icon.png */; };
-		8B18F1931B467BEB0060BF02 /* trushicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1921B467BEB0060BF02 /* trushicon1.png */; };
+		8B18F1931B467BEB0060BF02 /* trashicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1921B467BEB0060BF02 /* trashicon1.png */; };
 		8B18F1951B467C900060BF02 /* TableviewCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1941B467C900060BF02 /* TableviewCustomCell.xib */; };
 		998992881B33B6A5000B7FD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992871B33B6A5000B7FD2 /* main.m */; };
 		9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928A1B33B6A5000B7FD2 /* AppDelegate.m */; };
@@ -34,14 +34,14 @@
 
 /* Begin PBXFileReference section */
 		8B18F1851B467B5A0060BF02 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8B18F1871B467B710060BF02 /* kensakunextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kensakunextViewController.h; sourceTree = "<group>"; };
-		8B18F1881B467B710060BF02 /* kensakunextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kensakunextViewController.m; sourceTree = "<group>"; };
-		8B18F1891B467B710060BF02 /* kensakutableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kensakutableTableViewController.h; sourceTree = "<group>"; };
-		8B18F18A1B467B710060BF02 /* kensakutableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kensakutableTableViewController.m; sourceTree = "<group>"; };
+		8B18F1871B467B710060BF02 /* SerchNextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerchNextViewController.h; sourceTree = "<group>"; };
+		8B18F1881B467B710060BF02 /* SerchNextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerchNextViewController.m; sourceTree = "<group>"; };
+		8B18F1891B467B710060BF02 /* SerchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerchTableViewController.h; sourceTree = "<group>"; };
+		8B18F18A1B467B710060BF02 /* SerchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerchTableViewController.m; sourceTree = "<group>"; };
 		8B18F18D1B467B850060BF02 /* CostomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostomTableViewCell.h; sourceTree = "<group>"; };
 		8B18F18E1B467B850060BF02 /* CostomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostomTableViewCell.m; sourceTree = "<group>"; };
 		8B18F1901B467BD90060BF02 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../icon.png; sourceTree = "<group>"; };
-		8B18F1921B467BEB0060BF02 /* trushicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trushicon1.png; path = ../../../trushicon1.png; sourceTree = "<group>"; };
+		8B18F1921B467BEB0060BF02 /* trashicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trashicon1.png; path = ../../../trashicon1.png; sourceTree = "<group>"; };
 		8B18F1941B467C900060BF02 /* TableviewCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableviewCustomCell.xib; sourceTree = "<group>"; };
 		8BB061401B463C7800400738 /* tableviewconst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tableviewconst.h; path = ../../projecttest2/tableviewconst.h; sourceTree = "<group>"; };
 		998992821B33B6A5000B7FD2 /* iidaPro-2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iidaPro-2015.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,8 +82,8 @@
 				8B18F1941B467C900060BF02 /* TableviewCustomCell.xib */,
 				8B18F18D1B467B850060BF02 /* CostomTableViewCell.h */,
 				8B18F18E1B467B850060BF02 /* CostomTableViewCell.m */,
-				8B18F1891B467B710060BF02 /* kensakutableTableViewController.h */,
-				8B18F18A1B467B710060BF02 /* kensakutableTableViewController.m */,
+				8B18F1891B467B710060BF02 /* SerchTableViewController.h */,
+				8B18F18A1B467B710060BF02 /* SerchTableViewController.m */,
 				8BB061401B463C7800400738 /* tableviewconst.h */,
 				8BB0613C1B4634F900400738 /* kensakunext */,
 			);
@@ -93,8 +93,8 @@
 		8BB0613C1B4634F900400738 /* kensakunext */ = {
 			isa = PBXGroup;
 			children = (
-				8B18F1871B467B710060BF02 /* kensakunextViewController.h */,
-				8B18F1881B467B710060BF02 /* kensakunextViewController.m */,
+				8B18F1871B467B710060BF02 /* SerchNextViewController.h */,
+				8B18F1881B467B710060BF02 /* SerchNextViewController.m */,
 			);
 			name = kensakunext;
 			sourceTree = "<group>";
@@ -125,7 +125,6 @@
 				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
 				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
-				8B18F1921B467BEB0060BF02 /* trushicon1.png */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
 				998992851B33B6A5000B7FD2 /* Supporting Files */,
@@ -137,6 +136,7 @@
 		998992851B33B6A5000B7FD2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8B18F1921B467BEB0060BF02 /* trashicon1.png */,
 				8B18F1901B467BD90060BF02 /* icon.png */,
 				998992861B33B6A5000B7FD2 /* Info.plist */,
 				998992871B33B6A5000B7FD2 /* main.m */,
@@ -242,7 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B18F1911B467BD90060BF02 /* icon.png in Resources */,
-				8B18F1931B467BEB0060BF02 /* trushicon1.png in Resources */,
+				8B18F1931B467BEB0060BF02 /* trashicon1.png in Resources */,
 				8B18F1951B467C900060BF02 /* TableviewCustomCell.xib in Resources */,
 				8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */,
 				998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */,
@@ -267,8 +267,8 @@
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
 				8B18F18F1B467B850060BF02 /* CostomTableViewCell.m in Sources */,
-				8B18F18B1B467B710060BF02 /* kensakunextViewController.m in Sources */,
-				8B18F18C1B467B710060BF02 /* kensakutableTableViewController.m in Sources */,
+				8B18F18B1B467B710060BF02 /* SerchNextViewController.m in Sources */,
+				8B18F18C1B467B710060BF02 /* SerchTableViewController.m in Sources */,
 				998992881B33B6A5000B7FD2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

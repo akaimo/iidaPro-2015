@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface kensakunextViewController : UIViewController
+@interface SerchNextViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextView *nextText;
 @property (nonatomic, copy) NSString *nextImageName;

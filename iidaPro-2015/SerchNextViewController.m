@@ -6,23 +6,22 @@
 //  Copyright (c) 2015年 akaimo. All rights reserved.
 //
 
-#import "kensakunextViewController.h"
+#import "SerchNextViewController.h"
 
-@interface kensakunextViewController ()
-
+@interface SerchNextViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
 @property (strong, nonatomic) IBOutlet UIImageView *imageName;
 
 @end
 
-@implementation kensakunextViewController
+@implementation SerchNextViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.imageName.image = [UIImage imageNamed:_nextImageName];
     self.labelName.text = _nextLabelName;
     
-    if([_nextImageName isEqual: @"trushicon1"]){
+    if([_nextImageName isEqual: @"trashicon1"]){
         _nextText.text = @"ゴミの種類1個目は\nこうやって\n捨てます。";
     }
     _nextText.textColor = [UIColor blackColor];

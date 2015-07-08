@@ -1,25 +1,22 @@
 //
-//  AlarmViewController.m
+//  DatePickerAlertController.m
 //  iidaPro-2015
 //
-//  Created by Rath on 07/02.
+//  Created by Rath on 07/07.
 //  Copyright (c) 2015年 akaimo. All rights reserved.
 //
 
-#import "AlarmViewController.h"
-#import "DatePickerViewController.h"
+#import "DatePickerAlertController.h"
 
+@interface DatePickerAlertController ()
 
-@interface AlarmViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *NightTimerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *MorningTimerLabel;
 @end
 
-@implementation AlarmViewController
+@implementation DatePickerAlertController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,9 +34,4 @@
 }
 */
 
-
-#pragma mark - datePickerViewDelegate methods
--(void)sendDate:(NSDate *)date{
-  NSLog(@"%@",date);
-}
 @end

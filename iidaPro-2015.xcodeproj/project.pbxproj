@@ -14,6 +14,10 @@
 		998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998992921B33B6A5000B7FD2 /* Images.xcassets */; };
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
+		D939181D1B437B43008B77A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D939181C1B437B43008B77A3 /* MapKit.framework */; };
+		D93918201B45558F008B77A3 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D939181F1B45558F008B77A3 /* AlarmViewController.m */; };
+		D93918231B4555FB008B77A3 /* informationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D93918221B4555FB008B77A3 /* informationViewController.m */; };
+		D9CE66461B4C2B2600672FDE /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE66451B4C2B2600672FDE /* DatePickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,13 @@
 		9989929B1B33B6A5000B7FD2 /* iidaPro-2015Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iidaPro-2015Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992A01B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iidaPro_2015Tests.m; sourceTree = "<group>"; };
+		D939181C1B437B43008B77A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D939181E1B45558F008B77A3 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
+		D939181F1B45558F008B77A3 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
+		D93918211B4555FB008B77A3 /* informationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = informationViewController.h; sourceTree = "<group>"; };
+		D93918221B4555FB008B77A3 /* informationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = informationViewController.m; sourceTree = "<group>"; };
+		D9CE66441B4C2B2600672FDE /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
+		D9CE66451B4C2B2600672FDE /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D939181D1B437B43008B77A3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +75,7 @@
 		998992791B33B6A5000B7FD2 = {
 			isa = PBXGroup;
 			children = (
+				D939181C1B437B43008B77A3 /* MapKit.framework */,
 				998992841B33B6A5000B7FD2 /* iidaPro-2015 */,
 				9989929E1B33B6A5000B7FD2 /* iidaPro-2015Tests */,
 				998992831B33B6A5000B7FD2 /* Products */,
@@ -85,7 +98,13 @@
 				9989928A1B33B6A5000B7FD2 /* AppDelegate.m */,
 				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
 				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
+				D9CE66441B4C2B2600672FDE /* DatePickerViewController.h */,
+				D9CE66451B4C2B2600672FDE /* DatePickerViewController.m */,
 				9989928F1B33B6A5000B7FD2 /* Main.storyboard */,
+				D93918211B4555FB008B77A3 /* informationViewController.h */,
+				D93918221B4555FB008B77A3 /* informationViewController.m */,
+				D939181E1B45558F008B77A3 /* AlarmViewController.h */,
+				D939181F1B45558F008B77A3 /* AlarmViewController.m */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
 				998992851B33B6A5000B7FD2 /* Supporting Files */,
@@ -219,8 +238,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D93918201B45558F008B77A3 /* AlarmViewController.m in Sources */,
+				D93918231B4555FB008B77A3 /* informationViewController.m in Sources */,
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
+				D9CE66461B4C2B2600672FDE /* DatePickerViewController.m in Sources */,
 				998992881B33B6A5000B7FD2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +438,7 @@
 				998992A71B33B6A5000B7FD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		998992A81B33B6A5000B7FD2 /* Build configuration list for PBXNativeTarget "iidaPro-2015Tests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +447,7 @@
 				998992AA1B33B6A5000B7FD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

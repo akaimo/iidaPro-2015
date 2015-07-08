@@ -1,25 +1,34 @@
 //
-//  AlarmViewController.m
+//  DatePickerViewController.m
 //  iidaPro-2015
 //
-//  Created by Rath on 07/02.
+//  Created by Tatsuhito Hirai on 07/08.
 //  Copyright (c) 2015年 akaimo. All rights reserved.
 //
 
-#import "AlarmViewController.h"
 #import "DatePickerViewController.h"
 
-
-@interface AlarmViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *NightTimerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *MorningTimerLabel;
+@interface DatePickerViewController ()
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property(nonatomic,assign) NSDate *selectedDate;
 @end
 
-@implementation AlarmViewController
+@implementation DatePickerViewController
+@synthesize delegate;
+
+-(void)send{
+  if([self.delegate respondsToSelector:@selector(sendDate:)]){
+    [self.delegate sendDate: _selectedDate];
+  }
+}
+
+
+#pragma mark - Lifecycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +36,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - IBAction method
+
+- (IBAction)valueChanged:(id)sender {
+  _selectedDate = _datePicker.date;
+  self.send;
+}
+
+@end
 /*
 #pragma mark - Navigation
 
@@ -38,8 +55,4 @@
 */
 
 
-#pragma mark - datePickerViewDelegate methods
--(void)sendDate:(NSDate *)date{
-  NSLog(@"%@",date);
-}
-@end
+

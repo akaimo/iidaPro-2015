@@ -9,13 +9,11 @@
 #import "SerchTableViewController.h"
 #import "tableviewconst.h"
 #import "CostomTableViewCell.h"
-#import "SerchNextViewController.h"
 
 @interface SerchTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *SerchTableView;
 @property (nonatomic, strong) NSArray *dataSourcename;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
-
 @end
 
 @implementation SerchTableViewController
@@ -54,21 +52,9 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    _selectedIndexPath = indexPath;
-    [self performSegueWithIdentifier:@"pushDetailView" sender:self];
-}
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [CostomTableViewCell rowHeight];
-}
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    SerchNextViewController*serchnextviewcontroller = segue.destinationViewController;
-    serchnextviewcontroller.nextImageName = @"trashicon1";
-    serchnextviewcontroller.nextLabelName = _dataSourcename[_selectedIndexPath.row];
 }
 @end

@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1851B467B5A0060BF02 /* Main.storyboard */; };
+		8B18F1911B467BD90060BF02 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1901B467BD90060BF02 /* icon.png */; };
+		8B18F1931B467BEB0060BF02 /* trashicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1921B467BEB0060BF02 /* trashicon1.png */; };
+		8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */; };
+		8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */; };
+		8B88A8811B4C9B94000D970B /* TipsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A8801B4C9B94000D970B /* TipsTableViewController.m */; };
+		8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */; };
 		998992881B33B6A5000B7FD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992871B33B6A5000B7FD2 /* main.m */; };
 		9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928A1B33B6A5000B7FD2 /* AppDelegate.m */; };
 		9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928D1B33B6A5000B7FD2 /* ViewController.m */; };
-		998992911B33B6A5000B7FD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9989928F1B33B6A5000B7FD2 /* Main.storyboard */; };
 		998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998992921B33B6A5000B7FD2 /* Images.xcassets */; };
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
@@ -27,6 +33,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B18F1851B467B5A0060BF02 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8B18F1901B467BD90060BF02 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../icon.png; sourceTree = "<group>"; };
+		8B18F1921B467BEB0060BF02 /* trashicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trashicon1.png; path = ../../../trashicon1.png; sourceTree = "<group>"; };
+		8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsCustomCell.xib; sourceTree = "<group>"; };
+		8B88A87B1B4C949E000D970B /* TipsCustomTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsCustomTableCell.h; sourceTree = "<group>"; };
+		8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsCustomTableCell.m; sourceTree = "<group>"; };
+		8B88A87E1B4C95AF000D970B /* tipstableviewconst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tipstableviewconst.h; sourceTree = "<group>"; };
+		8B88A87F1B4C9B94000D970B /* TipsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsTableViewController.h; sourceTree = "<group>"; };
+		8B88A8801B4C9B94000D970B /* TipsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsTableViewController.m; sourceTree = "<group>"; };
+		8B88A8831B4C9FFE000D970B /* TipsNextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsNextViewController.h; sourceTree = "<group>"; };
+		8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsNextViewController.m; sourceTree = "<group>"; };
 		998992821B33B6A5000B7FD2 /* iidaPro-2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iidaPro-2015.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992861B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		998992871B33B6A5000B7FD2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,7 +51,6 @@
 		9989928A1B33B6A5000B7FD2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9989928C1B33B6A5000B7FD2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9989928D1B33B6A5000B7FD2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		998992901B33B6A5000B7FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		998992921B33B6A5000B7FD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		998992951B33B6A5000B7FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9989929B1B33B6A5000B7FD2 /* iidaPro-2015Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iidaPro-2015Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +76,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B7F9CCD1B4B8711008A825F /* tips */ = {
+			isa = PBXGroup;
+			children = (
+				8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */,
+				8B88A87F1B4C9B94000D970B /* TipsTableViewController.h */,
+				8B88A8801B4C9B94000D970B /* TipsTableViewController.m */,
+				8B88A87B1B4C949E000D970B /* TipsCustomTableCell.h */,
+				8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */,
+				8B88A87E1B4C95AF000D970B /* tipstableviewconst.h */,
+				8B88A8821B4C9FAF000D970B /* TipNext */,
+			);
+			name = tips;
+			sourceTree = "<group>";
+		};
+		8B88A8821B4C9FAF000D970B /* TipNext */ = {
+			isa = PBXGroup;
+			children = (
+				8B88A8831B4C9FFE000D970B /* TipsNextViewController.h */,
+				8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */,
+			);
+			name = TipNext;
+			sourceTree = "<group>";
+		};
 		998992791B33B6A5000B7FD2 = {
 			isa = PBXGroup;
 			children = (
@@ -85,9 +124,10 @@
 				9989928A1B33B6A5000B7FD2 /* AppDelegate.m */,
 				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
 				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
-				9989928F1B33B6A5000B7FD2 /* Main.storyboard */,
+				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
+				8B7F9CCD1B4B8711008A825F /* tips */,
 				998992851B33B6A5000B7FD2 /* Supporting Files */,
 			);
 			path = "iidaPro-2015";
@@ -96,6 +136,8 @@
 		998992851B33B6A5000B7FD2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8B18F1921B467BEB0060BF02 /* trashicon1.png */,
+				8B18F1901B467BD90060BF02 /* icon.png */,
 				998992861B33B6A5000B7FD2 /* Info.plist */,
 				998992871B33B6A5000B7FD2 /* main.m */,
 			);
@@ -199,9 +241,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				998992911B33B6A5000B7FD2 /* Main.storyboard in Resources */,
+				8B18F1911B467BD90060BF02 /* icon.png in Resources */,
+				8B18F1931B467BEB0060BF02 /* trashicon1.png in Resources */,
+				8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */,
 				998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */,
 				998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */,
+				8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
+				8B88A8811B4C9B94000D970B /* TipsTableViewController.m in Sources */,
+				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
+				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,
 				998992881B33B6A5000B7FD2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +292,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9989928F1B33B6A5000B7FD2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				998992901B33B6A5000B7FD2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		998992941B33B6A5000B7FD2 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -416,6 +456,7 @@
 				998992A71B33B6A5000B7FD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		998992A81B33B6A5000B7FD2 /* Build configuration list for PBXNativeTarget "iidaPro-2015Tests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +465,7 @@
 				998992AA1B33B6A5000B7FD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

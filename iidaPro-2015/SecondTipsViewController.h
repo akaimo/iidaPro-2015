@@ -8,5 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TipsTableViewController : UITableViewController
+@interface SecondTipsViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *SecondTipsTable;
+
 @end

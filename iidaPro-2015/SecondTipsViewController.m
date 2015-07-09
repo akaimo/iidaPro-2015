@@ -1,32 +1,31 @@
 //
-//  TipsTableViewCell.m
+//  SecondTipsViewController.m
 //  iidaPro-2015
 //
-//  Created by 岩村圭太 on 2015/07/08.
+//  Created by 岩村圭太 on 2015/07/09.
 //  Copyright (c) 2015年 akaimo. All rights reserved.
 //
 
-#import "TipsTableViewController.h"
+#import "SecondTipsViewController.h"
 #import "tipstableviewconst.h"
 #import "TipsCustomTableCell.h"
 #import "TipsNextViewController.h"
 
-@interface TipsTableViewController()
-@property (strong, nonatomic) IBOutlet UITableView *TipsTableView;
-@property (nonatomic, strong) NSArray *TipsDataSourcename;
+@interface SecondTipsViewController()
+@property (nonatomic, strong) NSArray *SecondTipsDataSourcename;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @end
 
-@implementation TipsTableViewController
+@implementation SecondTipsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.TipsDataSourcename = @[@"test", @"testt", @"testtt"];
+    self.SecondTipsTable.delegate = self;
+    self.SecondTipsTable.dataSource = self;
+    self.SecondTipsDataSourcename = @[@"2test", @"2testt", @"2testtt"];
     
     UINib *nib = [UINib nibWithNibName:TipsCustomCellIdentifier bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"Cell"];
+    [self.SecondTipsTable registerNib:nib forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +39,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger dataCount;
-    dataCount = self.TipsDataSourcename.count;
+    dataCount = self.SecondTipsDataSourcename.count;
     return dataCount;
 }
 
@@ -49,7 +48,7 @@
     static NSString *CellIdentifier = @"Cell";
     TipsCustomTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.TipsUIImage.image = [UIImage imageNamed:@"trashicon1"];
-    cell.TipsTitleLabel.text = self.TipsDataSourcename[indexPath.row];
+    cell.TipsTitleLabel.text = self.SecondTipsDataSourcename[indexPath.row];
     cell.TipsNum.text = [NSString stringWithFormat:@"No.%ld", (long)indexPath.row + 1];
     return cell;
 }
@@ -69,7 +68,7 @@
 {
     TipsNextViewController*tipsnextviewcontroller = segue.destinationViewController;
     tipsnextviewcontroller.TipsNextImageName = @"trashicon1";
-    tipsnextviewcontroller.TipsNextTitle = _TipsDataSourcename[_selectedIndexPath.row];
+    tipsnextviewcontroller.TipsNextTitle = _SecondTipsDataSourcename[_selectedIndexPath.row];
 }
 
 @end

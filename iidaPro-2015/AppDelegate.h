@@ -10,8 +10,29 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+{
+  /*ここよりHiraiが実装した部分*/
+  /*書かなくても動く？*/
+
+  NSDate *AlarmTime;
+  NSString *AlarmTimeStr;
+  NSString *NightOrMoning;
+  
+  /*ここまで*/
+}
+
 @property (strong, nonatomic) UIWindow *window;
 
 
+/*ここよりHiraiが実装した部分*/
+/*書かなくても動く？*/
+
+@property (strong, nonatomic) NSDate *AlarmTime;
+@property (strong, nonatomic) NSString *AlarmTimeStr;
+@property (strong, nonatomic) NSString *NightOrMorning;
+
+/*↑夜と昼用どちらのタイマーかを示す。とる値はNightかNightOrMorningのみ*/
+
+/*ここまで*/
 @end
 

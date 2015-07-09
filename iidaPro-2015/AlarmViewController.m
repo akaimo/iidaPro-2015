@@ -7,8 +7,7 @@
 //
 
 #import "AlarmViewController.h"
-#import "DatePickerViewController.h"
-
+#import "AppDelegate.h"
 
 @interface AlarmViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *NightTimerLabel;
@@ -19,12 +18,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+  
+  AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+  if ([appDelegate.NightOrMorning isEqualToString: @"Night"]) {
+    /*夜のタイマーの時間を反映させる(あとで実装)*/
+  }
+  if([appDelegate.NightOrMorning isEqualToString: @"Morning"]){
+    /*朝のタイマーの時間を反映させる(あとで実装)*/
+  }
+  /*必要そうなら使う
+  [appDelegate setNightOrMorning: NULL];
+   一度反映させたらリセットしておく
+  */
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)NightTimerSetting:(id)sender {
+  AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+  [appDelegate setNightOrMorning: @"Night"];
+  
+  /*コードでDatePickerVCに遷移(あとで実装)*/
+}
+- (IBAction)MorningTimerSetting:(id)sender {
+  AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+  [appDelegate setNightOrMorning: @"Morning"];
+  
+  /*コードでDatePickerVCに遷移(あとで実装)*/
 }
 
 /*
@@ -37,9 +59,4 @@
 }
 */
 
-
-#pragma mark - datePickerViewDelegate methods
--(void)sendDate:(NSDate *)date{
-  NSLog(@"%@",date);
-}
 @end

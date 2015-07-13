@@ -14,13 +14,18 @@
 
 @implementation AppDelegate
 
-@synthesize AlarmTime = _AlarmTime;
-@synthesize AlarmTimeStr = _AlarmTimeStr;
-@synthesize NightOrMorning = _NightOrMorning;
-
+/*↓無くても動くけど注意が出るので一応・・・*/
+@synthesize appDlgDict = _appDlgDict;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+  /*以下Hiraiが実装した部分*/
+  self.appDlgDict = [[NSMutableDictionary alloc] init];
+  [self.appDlgDict setValue:@"21:00" forKey:@"nightAlarmTimeStr"];
+  [self.appDlgDict setValue:@"09:00" forKey:@"morningAlarmTimeStr"];
+  [self.appDlgDict setValue:@"on" forKey:@"nightAlarmOnOff"];
+  [self.appDlgDict setValue:@"on" forKey:@"morningAlarmOnOff"];
+  /**/
     return YES;
 }
 
@@ -43,6 +48,61 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    // Called when the application is about to terminate. Save data if appropriate. Seealso applicationDidEnterBackground:.
 }
+
+/*ここよりHIRAIが実装した部分*/
+-(void)setNightAlarmTime:(NSDate *)date{
+  [self.appDlgDict setValue:date forKey:@"nightAlarmTime"];
+}
+-(NSDate *)getNightAlarmTime{
+  return [self.appDlgDict objectForKey:@"nightAlarmTime"];
+}
+
+-(void)setMorningAlarmTime:(NSDate *)date{
+  [self.appDlgDict setValue:date forKey:@"MorningAlarmTime"];
+}
+-(NSDate *)getMorningAlarmTime{
+  return [self.appDlgDict objectForKey:@"MorningAlarmTime"];
+}
+
+-(void)setNightAlarmTimeStr:(NSString *)str{
+  [self.appDlgDict setValue:str forKey:@"nightAlarmTimeStr"];
+}
+-(NSString *)getNightAlarmTimeStr{
+  return [self.appDlgDict objectForKey:@"nightAlarmTimeStr"];
+}
+
+-(void)setMorningAlarmTimeStr:(NSString *)str{
+  [self.appDlgDict setValue:str forKey:@"morningAlarmTimeStr"];
+}
+-(NSString *)getMorningAlarmTimeStr{
+  return [self.appDlgDict objectForKey:@"morningAlarmTimeStr"];
+}
+
+-(void)setNightOrMorning:(NSString *)str{
+  [self.appDlgDict setValue:str forKey:@"nightOrMorning"];
+}
+-(NSString *)getNightOrMorning{
+  return [self.appDlgDict objectForKey:@"nightOrMorning"];
+}
+
+-(void)setNightAlarmOnOff:(BOOL)onOff{
+  [self.appDlgDict setValue:[NSNumber numberWithBool:onOff] forKey:@"nightAlarmOnOff"];
+}
+
+-(BOOL)getNightAlarmOnOff{
+  return  [[self.appDlgDict objectForKey:@"nightAlarmOnOff"] boolValue];
+}
+
+-(void)setMorningAlarmOnOff:(BOOL)onOff{
+  [self.appDlgDict setValue:[NSNumber numberWithBool:onOff] forKey:@"morningAlarmOnOff"];
+}
+
+-(BOOL)getMorningAlarmOnOff{
+  return  [[self.appDlgDict objectForKey:@"morningAlarmOnOff"] boolValue];
+}
+/*ここまで*/
+
+
 @end

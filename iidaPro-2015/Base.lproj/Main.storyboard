@@ -80,6 +80,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ID-Oc-W06">
                                 <rect key="frame" x="515" y="167" width="51" height="31"/>
+                                <connections>
+                                    <action selector="morningAlarmSwitchChanged:" destination="YOx-UK-WSS" eventType="valueChanged" id="LfL-7e-nrH"/>
+                                </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="rmP-Tj-56K">
                                 <rect key="frame" x="26" y="158" width="50" height="50"/>
@@ -97,23 +100,17 @@
                             </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zZh-yW-Qvj">
                                 <rect key="frame" x="515" y="96" width="51" height="31"/>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-BB-l0a">
-                                <rect key="frame" x="455" y="97" width="30" height="30"/>
-                                <state key="normal" title="編集">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <action selector="NightTimerSetting:" destination="YOx-UK-WSS" eventType="touchUpInside" id="RHv-b7-IML"/>
+                                    <action selector="nightAlarmSwitchChanged:" destination="YOx-UK-WSS" eventType="valueChanged" id="yFY-2h-7AP"/>
                                 </connections>
-                            </button>
+                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXu-JT-F4j">
                                 <rect key="frame" x="455" y="168" width="30" height="30"/>
                                 <state key="normal" title="編集">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="MorningTimerSetting:" destination="YOx-UK-WSS" eventType="touchUpInside" id="yMn-1H-Iu7"/>
+                                    <action selector="morningAlarmSetting:" destination="YOx-UK-WSS" eventType="touchUpInside" id="zFC-yL-POm"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここに説明文を書き込む" translatesAutoresizingMaskIntoConstraints="NO" id="Ll9-EK-v1P">
@@ -137,6 +134,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-BB-l0a">
+                                <rect key="frame" x="455" y="97" width="30" height="30"/>
+                                <state key="normal" title="編集">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nightAlarmSetting:" destination="YOx-UK-WSS" eventType="touchUpInside" id="uAq-S0-HZ4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -171,8 +177,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="16A-X6-Md5"/>
                     <connections>
-                        <outlet property="MorningTimerLabel" destination="Btd-3A-3IU" id="K9Q-Im-etj"/>
-                        <outlet property="NightTimerLabel" destination="aCy-nh-PwK" id="mrr-ca-sfT"/>
+                        <outlet property="morningAlarmLabel" destination="Btd-3A-3IU" id="6aw-PZ-1xT"/>
+                        <outlet property="morningAlarmSwitch" destination="2ID-Oc-W06" id="E3R-kG-VhN"/>
+                        <outlet property="nightAlarmLabel" destination="aCy-nh-PwK" id="Onm-sf-LTl"/>
+                        <outlet property="nightAlarmSwitch" destination="zZh-yW-Qvj" id="2pj-dg-LbV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdx-jI-8DS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,24 +268,17 @@
                         <viewControllerLayoutGuide type="top" id="CFL-2a-bWO"/>
                         <viewControllerLayoutGuide type="bottom" id="KDe-0Z-c65"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Dd8-uM-LXo">
+                    <view key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" id="Dd8-uM-LXo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNK-Oe-JzE">
-                                <rect key="frame" x="0.0" y="20" width="600" height="380"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="oNh-me-i3y" appends="YES" id="O4T-v6-M53"/>
-                                </connections>
-                            </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mt-r0-1bO">
                                 <rect key="frame" x="0.0" y="400" width="600" height="200"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bhB-BI-ysF">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JLU-IJ-ROK">
+                                        <datePicker opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JLU-IJ-ROK">
                                             <rect key="frame" x="0.0" y="38" width="600" height="162"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="162" id="xCg-vO-5nn"/>
@@ -287,8 +288,7 @@
                                             </date>
                                             <locale key="locale" localeIdentifier="ja_JP"/>
                                             <connections>
-                                                <action selector="EditingDidEnd:" destination="3rR-pq-gfU" eventType="editingDidEnd" id="RhV-be-HDt"/>
-                                                <action selector="valueChanged:" destination="3rR-pq-gfU" eventType="valueChanged" id="uOg-nc-SQu"/>
+                                                <action selector="valueChanged:" destination="3rR-pq-gfU" eventType="valueChanged" id="xMO-45-kuZ"/>
                                             </connections>
                                         </datePicker>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0C-XZ-jEq">
@@ -315,8 +315,14 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNK-Oe-JzE">
+                                <rect key="frame" x="0.0" y="20" width="600" height="380"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="oNh-me-i3y" appends="YES" id="O4T-v6-M53"/>
+                                </connections>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6Mt-r0-1bO" firstAttribute="leading" secondItem="Dd8-uM-LXo" secondAttribute="leadingMargin" constant="-16" id="C3M-rC-2QH"/>
                             <constraint firstItem="hNK-Oe-JzE" firstAttribute="top" secondItem="CFL-2a-bWO" secondAttribute="bottom" id="KD5-l9-UKR"/>
@@ -329,17 +335,24 @@
                     </view>
                     <keyCommands/>
                     <connections>
-                        <outlet property="datePicker" destination="JLU-IJ-ROK" id="8wO-H1-yro"/>
+                        <outlet property="datePicker" destination="JLU-IJ-ROK" id="uVn-hY-Oh0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEd-rU-3FC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="oNh-me-i3y"/>
+                <tapGestureRecognizer id="oNh-me-i3y">
+                    <connections>
+                        <segue destination="YOx-UK-WSS" kind="presentation" id="hqI-9o-2BI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1702" y="1015"/>
+            <point key="canvasLocation" x="2042" y="208"/>
         </scene>
     </scenes>
     <resources>
         <image name="moon" width="100" height="100"/>
         <image name="sun" width="100" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hqI-9o-2BI"/>
+    </inferredMetricsTieBreakers>
 </document>

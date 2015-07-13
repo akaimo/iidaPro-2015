@@ -12,11 +12,8 @@
 
 {
   /*ここよりHiraiが実装した部分*/
-  /*書かなくても動く？*/
-
-  NSDate *AlarmTime;
-  NSString *AlarmTimeStr;
-  NSString *NightOrMoning;
+ 
+  NSMutableDictionary *appDlgDict;
   
   /*ここまで*/
 }
@@ -25,13 +22,30 @@
 
 
 /*ここよりHiraiが実装した部分*/
-/*書かなくても動く？*/
 
-@property (strong, nonatomic) NSDate *AlarmTime;
-@property (strong, nonatomic) NSString *AlarmTimeStr;
-@property (strong, nonatomic) NSString *NightOrMorning;
+@property (strong, nonatomic) NSMutableDictionary *appDlgDict;
 
-/*↑夜と昼用どちらのタイマーかを示す。とる値はNightかNightOrMorningのみ*/
+-(void)setNightAlarmTime:(NSDate *)date;
+-(NSDate *)getNightAlarmTime;
+
+-(void)setMorningAlarmTime:(NSDate *)date;
+-(NSDate *)getMorningAlarmTime;
+
+-(void)setNightAlarmTimeStr:(NSString * )str;
+-(NSString *)getNightAlarmTimeStr;
+
+-(void)setMorningAlarmTimeStr:(NSString * )str;
+-(NSString *)getMorningAlarmTimeStr;
+
+-(void)setNightOrMorning:(NSString *)str;
+-(NSString *)getNightOrMorning;
+
+//内部的にはNSNumberで管理している
+-(void)setNightAlarmOnOff:(BOOL)onOff;
+-(BOOL)getNightAlarmOnOff;
+
+-(void)setMorningAlarmOnOff:(BOOL)onOff;
+-(BOOL)getMorningAlarmOnOff;
 
 /*ここまで*/
 @end

@@ -15,6 +15,8 @@
 @end
 
 @implementation DatePickerViewController
+
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
@@ -28,8 +30,13 @@
 - (IBAction)valueChanged:(id)sender {
   
   AppDelegate *appDelegete = [[UIApplication sharedApplication]delegate];
-  [appDelegete setAlarmTime: _datePicker.date];
   
+  if ([[appDelegete getNightOrMorning] isEqualToString: @"night"]) {
+    [appDelegete setNightAlarmTime: _datePicker.date];
+  }
+  if ([[appDelegete getNightOrMorning] isEqualToString: @"morning"]) {
+    [appDelegete setMorningAlarmTime: _datePicker.date];
+  }
 }
 
 /*

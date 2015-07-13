@@ -8,10 +8,14 @@
 
 #import "AlarmViewController.h"
 #import "AppDelegate.h"
+#import "DatePickerViewController.h"
 
 @interface AlarmViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *NightTimerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *MorningTimerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nightAlarmLabel;
+@property (weak, nonatomic) IBOutlet UILabel *morningAlarmLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *nightAlarmSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *morningAlarmSwitch;
+
 @end
 
 @implementation AlarmViewController
@@ -20,33 +24,48 @@
     // Do any additional setup after loading the view.
   
   AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-  if ([appDelegate.NightOrMorning isEqualToString: @"Night"]) {
-    /*夜のタイマーの時間を反映させる(あとで実装)*/
-  }
-  if([appDelegate.NightOrMorning isEqualToString: @"Morning"]){
-    /*朝のタイマーの時間を反映させる(あとで実装)*/
-  }
-  /*必要そうなら使う
-  [appDelegate setNightOrMorning: NULL];
-   一度反映させたらリセットしておく
-  */
+    _nightAlarmLabel.text = [appDelegate getNightAlarmTimeStr];
+    _morningAlarmLabel.text = [appDelegate getMorningAlarmTimeStr];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)NightTimerSetting:(id)sender {
+
+- (IBAction)nightAlarmSetting:(id)sender {
+ 
   AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-  [appDelegate setNightOrMorning: @"Night"];
+  [appDelegate setNightOrMorning: @"night"];
+ 
+  //コードでDatePickerVCに遷移するはずなんだけど・・・できない
+  DatePickerViewController *dPVC = [[DatePickerViewController alloc] init];
+  dPVC.modalPresentationStyle = UIModalPresentationCurrentContext;
+  [self presentViewController:dPVC animated:YES completion:nil];
   
-  /*コードでDatePickerVCに遷移(あとで実装)*/
 }
-- (IBAction)MorningTimerSetting:(id)sender {
+
+- (IBAction)morningAlarmSetting:(id)sender {
   AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-  [appDelegate setNightOrMorning: @"Morning"];
+  [appDelegate setNightOrMorning: @"morning"];
   
-  /*コードでDatePickerVCに遷移(あとで実装)*/
+  //コードでDatePickerVCに遷移するはずなんだけど・・・できない
+  DatePickerViewController *dPVC = [[DatePickerViewController alloc] init];
+  dPVC.modalPresentationStyle = UIModalPresentationCurrentContext;
+  [self presentViewController:dPVC animated:YES completion:nil];
+}
+
+
+- (IBAction)nightAlarmSwitchChanged:(id)sender {
+  AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+  [appDelegate setNightAlarmOnOff: _nightAlarmSwitch];
+  _nightAlarmLabel.enabled = _nightAlarmSwitch;
+}
+
+- (IBAction)morningAlarmSwitchChanged:(id)sender {
+  AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+  [appDelegate setMorningAlarmOnOff: _nightAlarmSwitch];
+  _morningAlarmLabel.enabled = _morningAlarmSwitch;
 }
 
 /*

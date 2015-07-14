@@ -54,7 +54,7 @@
         <!--Alarm View Controller-->
         <scene sceneID="7S5-Ok-KVF">
             <objects>
-                <viewController id="YOx-UK-WSS" customClass="AlarmViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlarmViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YOx-UK-WSS" customClass="AlarmViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iDM-eB-Tw5"/>
                         <viewControllerLayoutGuide type="bottom" id="dTi-C2-WXa"/>
@@ -122,13 +122,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCy-nh-PwK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="night" text="20:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCy-nh-PwK">
                                 <rect key="frame" x="98" y="100" width="50" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btd-3A-3IU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="morning" text="08:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btd-3A-3IU">
                                 <rect key="frame" x="98" y="171" width="50" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdx-jI-8DS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="202"/>
+            <point key="canvasLocation" x="1560" y="208"/>
         </scene>
         <!--Information View Controller-->
         <scene sceneID="dvQ-A4-El3">
@@ -263,12 +263,12 @@
         <!--Date Picker View Controller-->
         <scene sceneID="gax-J4-NTF">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="3rR-pq-gfU" customClass="DatePickerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DatePickerViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3rR-pq-gfU" customClass="DatePickerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CFL-2a-bWO"/>
                         <viewControllerLayoutGuide type="bottom" id="KDe-0Z-c65"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" id="Dd8-uM-LXo">
+                    <view key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" id="Dd8-uM-LXo" customClass="UIButton">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -298,7 +298,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <outletCollection property="gestureRecognizers" destination="oNh-me-i3y" appends="YES" id="wpD-Uu-CFt"/>
+                                                <action selector="closeDP:" destination="3rR-pq-gfU" eventType="touchUpInside" id="e3E-Hv-gmz"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -315,21 +315,25 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNK-Oe-JzE">
+                            <visualEffectView opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEe-GA-CfZ">
                                 <rect key="frame" x="0.0" y="20" width="600" height="380"/>
-                                <gestureRecognizers/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GBF-72-mza">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="extraLight"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="oNh-me-i3y" appends="YES" id="O4T-v6-M53"/>
+                                    <outletCollection property="gestureRecognizers" destination="weG-7G-2cu" appends="YES" id="ACC-Aa-taZ"/>
                                 </connections>
-                            </view>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="PEe-GA-CfZ" firstAttribute="top" secondItem="CFL-2a-bWO" secondAttribute="bottom" id="3Tk-ys-Zry"/>
                             <constraint firstItem="6Mt-r0-1bO" firstAttribute="leading" secondItem="Dd8-uM-LXo" secondAttribute="leadingMargin" constant="-16" id="C3M-rC-2QH"/>
-                            <constraint firstItem="hNK-Oe-JzE" firstAttribute="top" secondItem="CFL-2a-bWO" secondAttribute="bottom" id="KD5-l9-UKR"/>
-                            <constraint firstItem="KDe-0Z-c65" firstAttribute="top" secondItem="hNK-Oe-JzE" secondAttribute="bottom" constant="200" id="P8y-GD-LZm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Mt-r0-1bO" secondAttribute="trailing" constant="-16" id="QoH-3u-CQS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hNK-Oe-JzE" secondAttribute="trailing" constant="-16" id="gDl-hx-k7j"/>
-                            <constraint firstItem="hNK-Oe-JzE" firstAttribute="leading" secondItem="Dd8-uM-LXo" secondAttribute="leadingMargin" constant="-16" id="gLZ-Z5-py7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PEe-GA-CfZ" secondAttribute="trailing" constant="-16" id="UVV-Bt-09t"/>
+                            <constraint firstItem="6Mt-r0-1bO" firstAttribute="top" secondItem="PEe-GA-CfZ" secondAttribute="bottom" id="iZr-3J-3Wr"/>
+                            <constraint firstItem="PEe-GA-CfZ" firstAttribute="leading" secondItem="Dd8-uM-LXo" secondAttribute="leadingMargin" constant="-16" id="r1D-Ku-9U7"/>
                             <constraint firstItem="KDe-0Z-c65" firstAttribute="top" secondItem="6Mt-r0-1bO" secondAttribute="bottom" id="y88-pc-f5e"/>
                         </constraints>
                     </view>
@@ -339,20 +343,17 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEd-rU-3FC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="oNh-me-i3y">
+                <tapGestureRecognizer id="weG-7G-2cu">
                     <connections>
-                        <segue destination="YOx-UK-WSS" kind="presentation" id="hqI-9o-2BI"/>
+                        <action selector="closeDP:" destination="3rR-pq-gfU" id="IG6-P1-WxG"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2042" y="208"/>
+            <point key="canvasLocation" x="2216" y="208"/>
         </scene>
     </scenes>
     <resources>
         <image name="moon" width="100" height="100"/>
         <image name="sun" width="100" height="100"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="hqI-9o-2BI"/>
-    </inferredMetricsTieBreakers>
 </document>

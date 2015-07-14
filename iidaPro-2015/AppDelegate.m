@@ -52,6 +52,8 @@
 }
 
 /*ここよりHIRAIが実装した部分*/
+
+
 -(void)setNightAlarmTime:(NSDate *)date{
   [self.appDlgDict setValue:date forKey:@"nightAlarmTime"];
 }
@@ -60,10 +62,10 @@
 }
 
 -(void)setMorningAlarmTime:(NSDate *)date{
-  [self.appDlgDict setValue:date forKey:@"MorningAlarmTime"];
+  [self.appDlgDict setValue:date forKey:@"morningAlarmTime"];
 }
 -(NSDate *)getMorningAlarmTime{
-  return [self.appDlgDict objectForKey:@"MorningAlarmTime"];
+  return [self.appDlgDict objectForKey:@"morningAlarmTime"];
 }
 
 -(void)setNightAlarmTimeStr:(NSString *)str{
@@ -87,6 +89,8 @@
   return [self.appDlgDict objectForKey:@"nightOrMorning"];
 }
 
+
+ 
 -(void)setNightAlarmOnOff:(BOOL)onOff{
   [self.appDlgDict setValue:[NSNumber numberWithBool:onOff] forKey:@"nightAlarmOnOff"];
 }

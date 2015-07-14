@@ -10,5 +10,5 @@
 
 
 @interface AlarmViewController : UIViewController
-
+-(void)sendAlarmTime;
 @end

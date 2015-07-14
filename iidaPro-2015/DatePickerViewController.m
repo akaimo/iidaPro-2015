@@ -8,6 +8,10 @@
 
 #import "DatePickerViewController.h"
 #import "AppDelegate.h"
+//#import "AlarmViewController.h"
+
+
+
 
 @interface DatePickerViewController ()
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
@@ -31,12 +35,22 @@
   
   AppDelegate *appDelegete = [[UIApplication sharedApplication]delegate];
   
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  dateFormatter.dateFormat = @"HH:mm";
+  
   if ([[appDelegete getNightOrMorning] isEqualToString: @"night"]) {
     [appDelegete setNightAlarmTime: _datePicker.date];
+    [appDelegete setNightAlarmTimeStr: [dateFormatter stringFromDate:_datePicker.date]];
+    
   }
   if ([[appDelegete getNightOrMorning] isEqualToString: @"morning"]) {
     [appDelegete setMorningAlarmTime: _datePicker.date];
+    [appDelegete setMorningAlarmTimeStr: [dateFormatter stringFromDate:_datePicker.date]];
+
   }
+}
+- (IBAction)closeDP:(id)sender {
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

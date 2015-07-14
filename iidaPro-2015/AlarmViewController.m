@@ -23,9 +23,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
   
+}
+
+-(void)viewDidAppear:(BOOL)animated{
   AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    _nightAlarmLabel.text = [appDelegate getNightAlarmTimeStr];
-    _morningAlarmLabel.text = [appDelegate getMorningAlarmTimeStr];
+  NSLog(@"%@",[appDelegate getMorningAlarmTimeStr]);
+  _nightAlarmLabel.text = [appDelegate getNightAlarmTimeStr];
+  _morningAlarmLabel.text = [appDelegate getMorningAlarmTimeStr];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,9 +42,10 @@
   AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
   [appDelegate setNightOrMorning: @"night"];
  
-  //コードでDatePickerVCに遷移するはずなんだけど・・・できない
-  DatePickerViewController *dPVC = [[DatePickerViewController alloc] init];
-  dPVC.modalPresentationStyle = UIModalPresentationCurrentContext;
+  //コードでDatePickerVCに遷移!
+  DatePickerViewController *dPVC = [[self storyboard] instantiateViewControllerWithIdentifier:@"DatePickerViewController"];
+  dPVC.modalPresentationStyle = UIModalPresentationPopover;
+  dPVC.preferredContentSize = dPVC.view.frame.size;
   [self presentViewController:dPVC animated:YES completion:nil];
   
 }
@@ -49,9 +54,9 @@
   AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
   [appDelegate setNightOrMorning: @"morning"];
   
-  //コードでDatePickerVCに遷移するはずなんだけど・・・できない
-  DatePickerViewController *dPVC = [[DatePickerViewController alloc] init];
-  dPVC.modalPresentationStyle = UIModalPresentationCurrentContext;
+  DatePickerViewController *dPVC = [[self storyboard] instantiateViewControllerWithIdentifier:@"DatePickerViewController"];
+  dPVC.modalPresentationStyle = UIModalPresentationPopover;
+  dPVC.preferredContentSize = dPVC.view.frame.size;
   [self presentViewController:dPVC animated:YES completion:nil];
 }
 
@@ -66,7 +71,8 @@
   AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
   [appDelegate setMorningAlarmOnOff: _nightAlarmSwitch];
   _morningAlarmLabel.enabled = _morningAlarmSwitch;
-}
+ }
+
 
 /*
 #pragma mark - Navigation

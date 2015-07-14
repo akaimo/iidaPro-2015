@@ -25,6 +25,7 @@
 
 @property (strong, nonatomic) NSMutableDictionary *appDlgDict;
 
+
 -(void)setNightAlarmTime:(NSDate *)date;
 -(NSDate *)getNightAlarmTime;
 
@@ -39,7 +40,7 @@
 
 -(void)setNightOrMorning:(NSString *)str;
 -(NSString *)getNightOrMorning;
-
+ 
 //内部的にはNSNumberで管理している
 -(void)setNightAlarmOnOff:(BOOL)onOff;
 -(BOOL)getNightAlarmOnOff;

@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "TipsTabViewController.h"
 
 @interface ViewController ()
+
+-(IBAction)TipsTabView:(id)sender;
 
 @end
 
@@ -22,6 +25,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)TipsTabView:(id)sender{
+    TipsTabViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TipsTabView"];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 @end

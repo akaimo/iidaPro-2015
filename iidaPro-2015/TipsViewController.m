@@ -11,7 +11,7 @@
 #import "TipsCustomTableCell.h"
 #import "TipsNextViewController.h"
 
-@interface TipsViewController()
+@interface TipsViewController()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *TipsDataSourcename;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @end

@@ -11,19 +11,17 @@
 #import "TipsCustomTableCell.h"
 #import "TipsNextViewController.h"
 
-@interface SecondTipsViewController()
+@interface SecondTipsViewController()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *SecondTipsDataSourcename;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 @end
 
 @implementation SecondTipsViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.SecondTipsTable.delegate = self;
     self.SecondTipsTable.dataSource = self;
-    self.SecondTipsDataSourcename = @[@"2test", @"2testt", @"2testtt"];
-    
+    self.SecondTipsDataSourcename = @[@"2test", @"2testt", @"2testtt",@"tttt",@"ttttt",@"ttttttt",@"ttttttt",@"ttttttttt",@"ttttttttt",@"tttttttttt",@"ttttttttttt",@"ttttttttttt",@"tttttttttttt"];
     UINib *nib = [UINib nibWithNibName:TipsCustomCellIdentifier bundle:nil];
     [self.SecondTipsTable registerNib:nib forCellReuseIdentifier:@"Cell"];
 }
@@ -33,11 +31,13 @@
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     NSInteger dataCount;
     dataCount = self.SecondTipsDataSourcename.count;
     return dataCount;
@@ -49,23 +49,23 @@
     TipsCustomTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.TipsUIImage.image = [UIImage imageNamed:@"trashicon1"];
     cell.TipsTitleLabel.text = self.SecondTipsDataSourcename[indexPath.row];
-    cell.TipsNum.text = [NSString stringWithFormat:@"No.%ld", (long)indexPath.row + 1];
+    cell.TipsNum.text = [NSString stringWithFormat:@"No.%ld", (long)indexPath.row+1];
+    NSLog(@"%ld",indexPath.row);
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%ld",indexPath.row);
     _selectedIndexPath = indexPath;
     [self performSegueWithIdentifier:@"pushDetailView" sender:self];
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [TipsCustomTableCell rowHeight];
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     TipsNextViewController*tipsnextviewcontroller = segue.destinationViewController;
     tipsnextviewcontroller.TipsNextImageName = @"trashicon1";
     tipsnextviewcontroller.TipsNextTitle = _SecondTipsDataSourcename[_selectedIndexPath.row];

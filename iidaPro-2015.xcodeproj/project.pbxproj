@@ -10,6 +10,7 @@
 		8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1851B467B5A0060BF02 /* Main.storyboard */; };
 		8B18F1911B467BD90060BF02 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1901B467BD90060BF02 /* icon.png */; };
 		8B18F1931B467BEB0060BF02 /* trashicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1921B467BEB0060BF02 /* trashicon1.png */; };
+		8B2BF8DC1B555BF200EB650B /* TipsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2BF8DB1B555BF200EB650B /* TipsTabViewController.m */; };
 		8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */; };
 		8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */; };
 		8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */; };
@@ -37,6 +38,8 @@
 		8B18F1851B467B5A0060BF02 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B18F1901B467BD90060BF02 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../icon.png; sourceTree = "<group>"; };
 		8B18F1921B467BEB0060BF02 /* trashicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trashicon1.png; path = ../../../trashicon1.png; sourceTree = "<group>"; };
+		8B2BF8DA1B555BF200EB650B /* TipsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsTabViewController.h; sourceTree = "<group>"; };
+		8B2BF8DB1B555BF200EB650B /* TipsTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsTabViewController.m; sourceTree = "<group>"; };
 		8B3E08DA1B4E5EE1001EE9B4 /* SecondTipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTipsViewController.h; sourceTree = "<group>"; };
 		8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTipsViewController.m; sourceTree = "<group>"; };
 		8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsCustomCell.xib; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
 				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
+				8B2BF8DA1B555BF200EB650B /* TipsTabViewController.h */,
+				8B2BF8DB1B555BF200EB650B /* TipsTabViewController.m */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
 				8B7F9CCD1B4B8711008A825F /* tips */,
@@ -269,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2BF8DC1B555BF200EB650B /* TipsTabViewController.m in Sources */,
 				8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */,
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,

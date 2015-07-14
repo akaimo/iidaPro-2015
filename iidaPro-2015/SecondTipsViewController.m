@@ -50,12 +50,10 @@
     cell.TipsUIImage.image = [UIImage imageNamed:@"trashicon1"];
     cell.TipsTitleLabel.text = self.SecondTipsDataSourcename[indexPath.row];
     cell.TipsNum.text = [NSString stringWithFormat:@"No.%ld", (long)indexPath.row+1];
-    NSLog(@"%ld",indexPath.row);
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%ld",indexPath.row);
     _selectedIndexPath = indexPath;
     [self performSegueWithIdentifier:@"pushDetailView" sender:self];
 }

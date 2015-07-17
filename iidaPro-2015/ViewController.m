@@ -30,6 +30,7 @@
 -(IBAction)TipsTabView:(id)sender{
     TipsTabViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TipsTabView"];
     [self presentViewController:controller animated:YES completion:nil];
+    
 }
 
 @end

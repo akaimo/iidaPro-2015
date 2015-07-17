@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TipsViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
 @property (weak, nonatomic) IBOutlet UITableView *TipsTableView;
 
 @end

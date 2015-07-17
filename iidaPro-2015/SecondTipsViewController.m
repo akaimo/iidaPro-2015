@@ -19,17 +19,22 @@
 @implementation SecondTipsViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title=@"豆知識2";
     self.SecondTipsTable.delegate = self;
     self.SecondTipsTable.dataSource = self;
     self.SecondTipsDataSourcename = @[@"2test", @"2testt", @"2testtt",@"tttt",@"ttttt",@"ttttttt",@"ttttttt",@"ttttttttt",@"ttttttttt",@"tttttttttt",@"ttttttttttt",@"ttttttttttt",@"tttttttttttt"];
     UINib *nib = [UINib nibWithNibName:TipsCustomCellIdentifier bundle:nil];
     [self.SecondTipsTable registerNib:nib forCellReuseIdentifier:@"Cell"];
 }
+- (IBAction)backBtm:(UITabBarItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

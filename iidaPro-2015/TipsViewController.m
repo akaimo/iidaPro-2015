@@ -18,33 +18,36 @@
 
 @implementation TipsViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad{
     [super viewDidLoad];
+    self.navigationItem.title=@"豆知識1";
     self.TipsTableView.delegate = self;
     self.TipsTableView.dataSource = self;
     self.TipsDataSourcename = @[@"test", @"testt", @"testtt"];
-    
     UINib *nib = [UINib nibWithNibName:TipsCustomCellIdentifier bundle:nil];
     [self.TipsTableView registerNib:nib forCellReuseIdentifier:@"Cell"];
 }
 
-- (void)didReceiveMemoryWarning {
+- (IBAction)backBtm:(UITabBarItem *)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger dataCount;
     dataCount = self.TipsDataSourcename.count;
     return dataCount;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"Cell";
     TipsCustomTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.TipsUIImage.image = [UIImage imageNamed:@"trashicon1"];
@@ -53,22 +56,21 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     _selectedIndexPath = indexPath;
     [self performSegueWithIdentifier:@"pushDetailView" sender:self];
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [TipsCustomTableCell rowHeight];
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     TipsNextViewController*tipsnextviewcontroller = segue.destinationViewController;
     tipsnextviewcontroller.TipsNextImageName = @"trashicon1";
     tipsnextviewcontroller.TipsNextTitle = _TipsDataSourcename[_selectedIndexPath.row];
 }
+
 
 @end

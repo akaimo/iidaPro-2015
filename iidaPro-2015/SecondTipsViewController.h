@@ -10,5 +10,6 @@
 
 @interface SecondTipsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *SecondTipsTable;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
 
 @end

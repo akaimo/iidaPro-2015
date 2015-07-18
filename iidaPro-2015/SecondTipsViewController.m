@@ -10,6 +10,7 @@
 #import "tipstableviewconst.h"
 #import "TipsCustomTableCell.h"
 #import "TipsNextViewController.h"
+#import "TipsViewController.h"
 
 @interface SecondTipsViewController()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *SecondTipsDataSourcename;
@@ -22,7 +23,7 @@
     self.navigationItem.title=@"豆知識2";
     self.SecondTipsTable.delegate = self;
     self.SecondTipsTable.dataSource = self;
-    self.SecondTipsDataSourcename = @[@"2test", @"2testt", @"2testtt",@"tttt",@"ttttt",@"ttttttt",@"ttttttt",@"ttttttttt",@"ttttttttt",@"tttttttttt",@"ttttttttttt",@"ttttttttttt",@"tttttttttttt"];
+    self.SecondTipsDataSourcename = @[@"かわるんについて", @"川崎市のごみ処理場", @"夜間はごみをださないで"];
     UINib *nib = [UINib nibWithNibName:TipsCustomCellIdentifier bundle:nil];
     [self.SecondTipsTable registerNib:nib forCellReuseIdentifier:@"Cell"];
 }
@@ -30,7 +31,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -52,7 +52,7 @@
 {
     static NSString *CellIdentifier = @"Cell";
     TipsCustomTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.TipsUIImage.image = [UIImage imageNamed:@"trashicon1"];
+    cell.TipsUIImage.image = [UIImage imageNamed:@"tipsCellIcon"];
     cell.TipsTitleLabel.text = self.SecondTipsDataSourcename[indexPath.row];
     cell.TipsNum.text = [NSString stringWithFormat:@"No.%ld", (long)indexPath.row+1];
     return cell;
@@ -70,7 +70,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     TipsNextViewController*tipsnextviewcontroller = segue.destinationViewController;
-    tipsnextviewcontroller.TipsNextImageName = @"trashicon1";
+    tipsnextviewcontroller.TipsNextNum = self.selectedIndexPath.row+3+1;
     tipsnextviewcontroller.TipsNextTitle = _SecondTipsDataSourcename[_selectedIndexPath.row];
 }
 

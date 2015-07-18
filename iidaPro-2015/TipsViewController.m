@@ -14,6 +14,7 @@
 @interface TipsViewController()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *TipsDataSourcename;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+
 @end
 
 @implementation TipsViewController
@@ -23,7 +24,7 @@
     self.navigationItem.title=@"豆知識1";
     self.TipsTableView.delegate = self;
     self.TipsTableView.dataSource = self;
-    self.TipsDataSourcename = @[@"test", @"testt", @"testtt"];
+    self.TipsDataSourcename = @[@"袋は二重にいれないで", @"普通ごみとの違い", @"プラスチック容器出し方のコツ"];
     UINib *nib = [UINib nibWithNibName:TipsCustomCellIdentifier bundle:nil];
     [self.TipsTableView registerNib:nib forCellReuseIdentifier:@"Cell"];
 }
@@ -50,7 +51,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"Cell";
     TipsCustomTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.TipsUIImage.image = [UIImage imageNamed:@"trashicon1"];
+    cell.TipsUIImage.image = [UIImage imageNamed:@"tipsCellIcon"];
     cell.TipsTitleLabel.text = self.TipsDataSourcename[indexPath.row];
     cell.TipsNum.text = [NSString stringWithFormat:@"No.%ld", (long)indexPath.row + 1];
     return cell;
@@ -68,7 +69,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     TipsNextViewController*tipsnextviewcontroller = segue.destinationViewController;
-    tipsnextviewcontroller.TipsNextImageName = @"trashicon1";
+    tipsnextviewcontroller.TipsNextNum = self.selectedIndexPath.row+1;
     tipsnextviewcontroller.TipsNextTitle = _TipsDataSourcename[_selectedIndexPath.row];
 }
 

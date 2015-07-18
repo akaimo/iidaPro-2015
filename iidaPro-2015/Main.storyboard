@@ -122,11 +122,11 @@
             </objects>
             <point key="canvasLocation" x="1215.5" y="223.5"/>
         </scene>
-        <!--Item-->
+        <!--ごみの出し方-->
         <scene sceneID="d2g-xc-CEK">
             <objects>
                 <navigationController id="TEG-mc-BoT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="pSd-v2-SeN"/>
+                    <tabBarItem key="tabBarItem" title="ごみの出し方" id="pSd-v2-SeN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1x7-vM-8Tw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -139,7 +139,7 @@
             </objects>
             <point key="canvasLocation" x="2191.5" y="-218.5"/>
         </scene>
-        <!--Item-->
+        <!--ごみのだしかた-->
         <scene sceneID="Sd7-pW-jkC">
             <objects>
                 <viewController id="HN8-PE-Zbx" customClass="TipsViewController" sceneMemberID="viewController">
@@ -168,9 +168,9 @@
                             <constraint firstAttribute="trailing" secondItem="WCQ-KH-zWv" secondAttribute="trailing" id="MnL-Zg-E8L"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6HQ-AW-WcH"/>
+                    <tabBarItem key="tabBarItem" title="ごみのだしかた" id="6HQ-AW-WcH"/>
                     <navigationItem key="navigationItem" id="ixG-jb-N18">
-                        <barButtonItem key="leftBarButtonItem" title="Back1" id="ywz-dL-4J8">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="ywz-dL-4J8">
                             <connections>
                                 <action selector="backBtm:" destination="HN8-PE-Zbx" id="6ta-uY-NQp"/>
                             </connections>
@@ -186,10 +186,10 @@
             </objects>
             <point key="canvasLocation" x="2689.5" y="-218.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tips Tabbar Controller-->
         <scene sceneID="9uQ-0B-J3b">
             <objects>
-                <tabBarController storyboardIdentifier="TipsTabView" id="Kcg-sk-aIW" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TipsTabView" id="Kcg-sk-aIW" customClass="TipsTabbarController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="dR6-Pb-CwK"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -207,11 +207,11 @@
             </objects>
             <point key="canvasLocation" x="1700.5" y="223.5"/>
         </scene>
-        <!--Item-->
+        <!--川崎市のいろいろ-->
         <scene sceneID="7Vk-m6-r2D">
             <objects>
                 <navigationController id="wbe-6m-h1w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0pI-2i-rVZ"/>
+                    <tabBarItem key="tabBarItem" title="川崎市のいろいろ" id="0pI-2i-rVZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6e0-JS-FLO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -224,7 +224,7 @@
             </objects>
             <point key="canvasLocation" x="2191" y="610"/>
         </scene>
-        <!--Item-->
+        <!--川崎市のごみいろいろ-->
         <scene sceneID="8fs-Do-7io">
             <objects>
                 <viewController id="3cd-ff-SDe" customClass="SecondTipsViewController" sceneMemberID="viewController">
@@ -253,9 +253,9 @@
                             <constraint firstItem="na6-Wq-Jwe" firstAttribute="bottom" secondItem="RaH-Kw-qKq" secondAttribute="top" id="uy4-SE-Cm9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="kOs-17-bb8"/>
+                    <tabBarItem key="tabBarItem" title="川崎市のごみいろいろ" id="kOs-17-bb8"/>
                     <navigationItem key="navigationItem" id="bIO-Sb-DbN">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="p0Y-L6-Xg2">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="p0Y-L6-Xg2">
                             <connections>
                                 <action selector="backBtm:" destination="3cd-ff-SDe" id="M5l-ar-9qA"/>
                             </connections>
@@ -275,7 +275,7 @@
         <!--Tips Next View Controller-->
         <scene sceneID="D5F-Nr-nc3">
             <objects>
-                <viewController id="JBd-KT-tjW" customClass="TipsNextViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TipsNextView" id="JBd-KT-tjW" customClass="TipsNextViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1zq-ec-bgU"/>
                         <viewControllerLayoutGuide type="bottom" id="6zR-iC-zi0"/>
@@ -285,30 +285,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-r2-3PC">
-                                <rect key="frame" x="88" y="125" width="200" height="200"/>
+                                <rect key="frame" x="128" y="125" width="120" height="120"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="2Ym-Kd-9nC"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="5sY-3b-mSP"/>
                                     <constraint firstAttribute="width" secondItem="fzN-r2-3PC" secondAttribute="height" multiplier="1:1" id="H8j-Y4-QhD"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="Mwn-mQ-ZZk"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="R2o-sJ-dVk"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="R2o-sJ-dVk"/>
                                     <constraint firstAttribute="width" secondItem="fzN-r2-3PC" secondAttribute="height" multiplier="1:1" id="TDN-5x-zMX"/>
                                     <constraint firstAttribute="height" constant="200" id="bYi-qS-N7d"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="5sY-3b-mSP"/>
                                         <exclude reference="H8j-Y4-QhD"/>
                                         <exclude reference="Mwn-mQ-ZZk"/>
+                                        <exclude reference="R2o-sJ-dVk"/>
                                         <exclude reference="bYi-qS-N7d"/>
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="番号とタイトルが入る" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRf-x4-Tab">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="番号とタイトルが入る" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRf-x4-Tab">
                                 <rect key="frame" x="103" y="84" width="170" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="テキストが入る" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-2w-1Mi">
-                                <rect key="frame" x="87" y="350" width="200" height="200"/>
+                                <rect key="frame" x="88" y="270" width="200" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="8Lh-3i-635"/>
@@ -384,13 +388,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRu-yl-DHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3260.5" y="195.5"/>
+            <point key="canvasLocation" x="3434" y="151"/>
         </scene>
     </scenes>
     <resources>
         <image name="icon.png" width="121" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vVm-39-T7Z"/>
+        <segue reference="kxZ-Qe-yiX"/>
     </inferredMetricsTieBreakers>
 </document>

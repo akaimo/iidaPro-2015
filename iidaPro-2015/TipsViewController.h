@@ -11,5 +11,6 @@
 @interface TipsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
 @property (weak, nonatomic) IBOutlet UITableView *TipsTableView;
+@property NSInteger *TipsDataNum;
 
 @end

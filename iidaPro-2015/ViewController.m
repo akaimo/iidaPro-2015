@@ -38,6 +38,11 @@ const CGFloat iconWidth = 60.0;
     // adjust the size of the navigationBar and statusBar
     _scrollView.contentInset=UIEdgeInsetsMake(-64.0, 0.0, 0.0, 0.0);
     _scrollView.scrollIndicatorInsets=UIEdgeInsetsMake(-64.0,0.0, 0.0,0.0);
+    
+    // navigationControllerを透明にする
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
 }
 
 - (void)didReceiveMemoryWarning {

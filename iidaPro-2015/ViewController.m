@@ -13,6 +13,10 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIImageView *trashImageView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventLabel;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *blurEffectView;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *vibrancyEffectView;
 
 @end
 
@@ -29,6 +33,8 @@ const CGFloat iconMargin = 20.0;
     
     [self setBackgroundImage];
     [self setTrashImage];
+    [self setDate];
+    [self setEvent];
     
     for (int i=0; i < iconNum; i++) {
         NSString *imageName = [NSString stringWithFormat:@"Image-%d", i];
@@ -59,8 +65,8 @@ const CGFloat iconMargin = 20.0;
 - (void)setBackgroundImage {
     UIGraphicsBeginImageContext(self.view.frame.size);
 //    [[UIImage imageNamed:@"Sunny"] drawInRect:self.view.bounds];
-    [[UIImage imageNamed:@"Cloudy"] drawInRect:self.view.bounds];
-//    [[UIImage imageNamed:@"Rainy"] drawInRect:self.view.bounds];
+//    [[UIImage imageNamed:@"Cloudy"] drawInRect:self.view.bounds];
+    [[UIImage imageNamed:@"Rainy"] drawInRect:self.view.bounds];
 //    [[UIImage imageNamed:@"Snowy"] drawInRect:self.view.bounds];
     UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -71,6 +77,22 @@ const CGFloat iconMargin = 20.0;
     _trashImageView.image = [UIImage imageNamed:@"Bottle"];
 }
 
+- (void)setDate {
+    NSDate *now = [NSDate date];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday fromDate:now];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
+    [formatter setDateFormat:@"M月dd日"];
+    NSString* now_str = [formatter stringFromDate:now];
+    NSString* weekDayStr = formatter.shortWeekdaySymbols[comps.weekday-1];
+    NSString* date_str = [NSString stringWithFormat:@"%@(%@)", now_str, weekDayStr];
+    _dateLabel.text = date_str;
+}
+
+- (void)setEvent {
+    _eventLabel.text = @"7月25日 中間発表";
+}
 
 - (void)setupScrollContent {
     UIImageView *view = nil;
@@ -104,6 +126,11 @@ const CGFloat iconMargin = 20.0;
             NSLog(@"%ld", (long)sender.tag);
             break;
     }
+}
+
+// statusbarの色を白に
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 

@@ -91,7 +91,26 @@ const CGFloat iconMargin = 20.0;
 }
 
 - (void)setEvent {
-    _eventLabel.text = @"7月25日 中間発表";
+    NSURL *url = [NSURL URLWithString:@"http://133.242.226.227/api/get"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    NSString *param = [NSString stringWithFormat:@"num=0"];
+    [request setHTTPBody:[param dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Error!");
+        return;
+    }
+    
+    NSError *e = nil;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
+    
+    NSString* event = [NSString stringWithFormat:@"%@ %@", [dict valueForKey:@"date"], [dict valueForKey:@"event"]];
+    _eventLabel.text = event;
 }
 
 - (void)setupScrollContent {

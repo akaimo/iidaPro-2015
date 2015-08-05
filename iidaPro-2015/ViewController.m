@@ -49,7 +49,7 @@ const CGFloat iconMargin = 20.0;
     
     // adjust the size of the navigationBar and statusBar
     _scrollView.contentInset=UIEdgeInsetsMake(-20.0, 0.0, 0.0, 0.0);
-    _scrollView.scrollIndicatorInsets=UIEdgeInsetsMake(-20.0,0.0, 0.0,0.0);
+    _scrollView.scrollIndicatorInsets=UIEdgeInsetsMake(-20.0, 0.0, 0.0, 0.0);
 }
 
 - (void)viewWillAppear:(BOOL)animated {

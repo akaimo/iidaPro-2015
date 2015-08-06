@@ -127,7 +127,6 @@
                         <outlet property="blurEffectView" destination="sAM-Le-kBQ" id="Wqp-YL-r39"/>
                         <outlet property="dateLabel" destination="7Jt-02-OIj" id="jgz-tZ-opO"/>
                         <outlet property="eventLabel" destination="G1u-g2-zDP" id="ZFa-fh-jpe"/>
-                        <outlet property="scrollView" destination="oxR-uE-HYA" id="gE5-gf-28p"/>
                         <outlet property="searchBar" destination="SVX-N1-dvH" id="rva-RE-ntA"/>
                         <outlet property="searchDisplayController" destination="3n8-b6-vdZ" id="kSu-dw-biO"/>
                         <outlet property="vibrancyEffectView" destination="ukC-9h-fcM" id="TnZ-7x-Iae"/>

@@ -10,22 +10,36 @@
 #import "TipsTabViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventLabel;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *blurEffectView;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *vibrancyEffectView;
 
+@property (retain, nonatomic) UIImageView *trashView;
+@property (retain, nonatomic) UIScrollView *btnScrollView;
+
+@property float screenWidth;    // 画面サイズ（横）
+@property float screenHeight;   // 画面サイズ（縦）
+@property float labelMargin;    // scrollBarとeventLabelのマージン
+@property float scrollHeight;   // ScrollBarの高さ
+
 @end
 
 const NSUInteger iconNum = 7;
+const CGFloat iconMargin = 20.0;
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    _screenWidth = screen.size.width;
+    _screenHeight = screen.size.height;
+    _labelMargin = _screenHeight * 1/32;
+    _scrollHeight = _screenHeight * 4/32;
     
     [self setBackgroundImage];
     [self setupTrashImage];
@@ -57,16 +71,14 @@ const NSUInteger iconNum = 7;
 }
 
 - (void)setupTrashImage {
-    UIImageView *trashView = [[UIImageView alloc] init];
-    CGRect screen = [[UIScreen mainScreen] bounds];
+    const float px = _screenWidth * 1/6;
+    const float py = _screenHeight * 2/8;
+    const float square = _screenWidth * 4/6;
     
-    float px = screen.size.width * 1/6;
-    float py = screen.size.height * 2/8;
-    float square = screen.size.width * 4/6;
-    
-    trashView.frame = CGRectMake(px, py, square, square);
-    trashView.image = [UIImage imageNamed:@"Bottle"];
-    [self.view addSubview:trashView];
+    _trashView = [[UIImageView alloc] init];
+    _trashView.frame = CGRectMake(px, py, square, square);
+    _trashView.image = [UIImage imageNamed:@"Bottle"];
+    [self.view addSubview:_trashView];
 }
 
 
@@ -125,22 +137,19 @@ const NSUInteger iconNum = 7;
 
 #pragma mark - ScrolllView
 - (void)setupScrollBar {
-    // TODO: スクロールバーの配置場所を計算によって指定する
-    UIScrollView *btnScrollView = [[UIScrollView alloc] init];
-    CGRect screen = [[UIScreen mainScreen] bounds];
-    
-    const float marginHeight = screen.size.height * 1/32;
-    const float labelHeight = screen.size.height * 4/32;
     const float px = 0.0;
-    const float py = screen.size.height - labelHeight - marginHeight;
+    const float py = _screenHeight - _scrollHeight - _labelMargin;
     
-    btnScrollView.frame = CGRectMake(px, py, screen.size.width, labelHeight);
-    [self.view addSubview:btnScrollView];
+    _btnScrollView = [[UIScrollView alloc] init];
+    _btnScrollView.frame = CGRectMake(px, py, _screenWidth, _scrollHeight);
+    [self.view addSubview:_btnScrollView];
     
-    [self setScrollContent:btnScrollView squareSide:labelHeight];
+    [self setScrollContent];
 }
 
-- (void)setScrollContent:(UIScrollView *)scrollView squareSide:(float)square {
+- (void)setScrollContent {
+    const float square = _scrollHeight;  // 正方形の一辺
+    
     for (int i=0; i < iconNum; i++) {
         NSString *imageName = [NSString stringWithFormat:@"Image-%d", i];
         UIImage *img = [UIImage imageNamed:imageName];
@@ -148,13 +157,12 @@ const NSUInteger iconNum = 7;
         [btn setBackgroundImage:img forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(nextPage:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = i + 1;
-        [scrollView addSubview:btn];
+        [_btnScrollView addSubview:btn];
     }
     
     UIImageView *view = nil;
-    NSArray *subviews = [scrollView subviews];
+    NSArray *subviews = [_btnScrollView subviews];
     // 描画開始の x,y 位置
-    const CGFloat iconMargin = 20.0;
     CGFloat px = iconMargin;
     CGFloat py = 0.0;
     for (view in subviews) {
@@ -168,7 +176,7 @@ const NSUInteger iconNum = 7;
     }
     
     // UIScrollViewのコンテンツサイズを計算
-    [scrollView setContentSize:CGSizeMake( square * iconNum + iconMargin * (iconNum + 1), square)];
+    [_btnScrollView setContentSize:CGSizeMake( square * iconNum + iconMargin * (iconNum + 1), square)];
 }
 
 

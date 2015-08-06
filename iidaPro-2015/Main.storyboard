@@ -130,7 +130,6 @@
                         <outlet property="scrollView" destination="oxR-uE-HYA" id="gE5-gf-28p"/>
                         <outlet property="searchBar" destination="SVX-N1-dvH" id="rva-RE-ntA"/>
                         <outlet property="searchDisplayController" destination="3n8-b6-vdZ" id="kSu-dw-biO"/>
-                        <outlet property="trashImageView" destination="9AY-OF-044" id="M0R-8v-r5d"/>
                         <outlet property="vibrancyEffectView" destination="ukC-9h-fcM" id="TnZ-7x-Iae"/>
                     </connections>
                 </viewController>

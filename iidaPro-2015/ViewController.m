@@ -12,7 +12,6 @@
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIImageView *trashImageView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventLabel;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *blurEffectView;
@@ -32,20 +31,10 @@ const CGFloat iconMargin = 20.0;
     // Do any additional setup after loading the view, typically from a nib.
     
     [self setBackgroundImage];
-    [self setTrashImage];
-    [self setDate];
-    [self setEvent];
-    
-    for (int i=0; i < iconNum; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"Image-%d", i];
-        UIImage *img = [UIImage imageNamed:imageName];
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, iconWidth, iconHeight)];
-        [btn setBackgroundImage:img forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(nextPage:) forControlEvents:UIControlEventTouchUpInside];
-        btn.tag = i + 1;
-        [_scrollView addSubview:btn];
-    }
-    [self setupScrollContent];
+    [self setupTrashImage];
+    [self setupDateLabel];
+    [self setupEventLabel];
+    [self setupScrollBar];
     
     // adjust the size of the navigationBar and statusBar
     _scrollView.contentInset=UIEdgeInsetsMake(-20.0, 0.0, 0.0, 0.0);
@@ -62,6 +51,7 @@ const CGFloat iconMargin = 20.0;
 }
 
 
+
 - (void)setBackgroundImage {
     UIGraphicsBeginImageContext(self.view.frame.size);
 //    [[UIImage imageNamed:@"Sunny"] drawInRect:self.view.bounds];
@@ -73,8 +63,23 @@ const CGFloat iconMargin = 20.0;
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
 }
 
-- (void)setTrashImage {
-    _trashImageView.image = [UIImage imageNamed:@"Bottle"];
+- (void)setupTrashImage {
+    UIImageView *trashView = [[UIImageView alloc] init];
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    
+    float px = screen.size.width * 1/6;
+    float py = screen.size.height * 2/8;
+    float square = screen.size.width * 4/6;
+    
+    trashView.frame = CGRectMake(px, py, square, square);
+    trashView.image = [UIImage imageNamed:@"Bottle"];
+    [self.view addSubview:trashView];
+}
+
+- (void)setupDateLabel {
+    // TODO: 日付の配置場所を計算によって指定する
+    
+    [self setDate];
 }
 
 - (void)setDate {
@@ -88,6 +93,12 @@ const CGFloat iconMargin = 20.0;
     NSString* weekDayStr = formatter.shortWeekdaySymbols[comps.weekday-1];
     NSString* date_str = [NSString stringWithFormat:@"%@(%@)", now_str, weekDayStr];
     _dateLabel.text = date_str;
+}
+
+- (void)setupEventLabel {
+    // TODO: イベントラベルの場所を計算によって指定する
+    
+    [self setEvent];
 }
 
 - (void)setEvent {
@@ -114,7 +125,23 @@ const CGFloat iconMargin = 20.0;
     _eventLabel.text = event;
 }
 
-- (void)setupScrollContent {
+- (void)setupScrollBar {
+    // TODO: スクロールバーの配置場所を計算によって指定する
+    
+    [self setScrollContent];
+}
+
+- (void)setScrollContent {
+    for (int i=0; i < iconNum; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"Image-%d", i];
+        UIImage *img = [UIImage imageNamed:imageName];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, iconWidth, iconHeight)];
+        [btn setBackgroundImage:img forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(nextPage:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = i + 1;
+        [_scrollView addSubview:btn];
+    }
+    
     UIImageView *view = nil;
     NSArray *subviews = [_scrollView subviews];
     // 描画開始の x,y 位置
@@ -133,6 +160,8 @@ const CGFloat iconMargin = 20.0;
     // UIScrollViewのコンテンツサイズを計算
     [_scrollView setContentSize:CGSizeMake( iconWidth * iconNum + iconMargin * (iconNum + 1), iconHeight)];
 }
+
+
 
 - (void)nextPage:(UIButton *)sender {
     switch (sender.tag) {

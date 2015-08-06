@@ -20,9 +20,6 @@
 @end
 
 const NSUInteger iconNum = 7;
-const CGFloat iconHeight = 72.0;
-const CGFloat iconWidth = 72.0;
-const CGFloat iconMargin = 20.0;
 
 @implementation ViewController
 
@@ -35,10 +32,6 @@ const CGFloat iconMargin = 20.0;
     [self setupDateLabel];
     [self setupEventLabel];
     [self setupScrollBar];
-    
-    // adjust the size of the navigationBar and statusBar
-    _scrollView.contentInset=UIEdgeInsetsMake(-20.0, 0.0, 0.0, 0.0);
-    _scrollView.scrollIndicatorInsets=UIEdgeInsetsMake(-20.0, 0.0, 0.0, 0.0);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,7 +44,7 @@ const CGFloat iconMargin = 20.0;
 }
 
 
-
+#pragma mark -
 - (void)setBackgroundImage {
     UIGraphicsBeginImageContext(self.view.frame.size);
 //    [[UIImage imageNamed:@"Sunny"] drawInRect:self.view.bounds];
@@ -76,6 +69,8 @@ const CGFloat iconMargin = 20.0;
     [self.view addSubview:trashView];
 }
 
+
+#pragma mark - DateLabel
 - (void)setupDateLabel {
     // TODO: 日付の配置場所を計算によって指定する
     
@@ -95,6 +90,8 @@ const CGFloat iconMargin = 20.0;
     _dateLabel.text = date_str;
 }
 
+
+#pragma mark - EventLavel
 - (void)setupEventLabel {
     // TODO: イベントラベルの場所を計算によって指定する
     
@@ -125,26 +122,39 @@ const CGFloat iconMargin = 20.0;
     _eventLabel.text = event;
 }
 
+
+#pragma mark - ScrolllView
 - (void)setupScrollBar {
     // TODO: スクロールバーの配置場所を計算によって指定する
+    UIScrollView *btnScrollView = [[UIScrollView alloc] init];
+    CGRect screen = [[UIScreen mainScreen] bounds];
     
-    [self setScrollContent];
+    const float marginHeight = screen.size.height * 1/32;
+    const float labelHeight = screen.size.height * 4/32;
+    const float px = 0.0;
+    const float py = screen.size.height - labelHeight - marginHeight;
+    
+    btnScrollView.frame = CGRectMake(px, py, screen.size.width, labelHeight);
+    [self.view addSubview:btnScrollView];
+    
+    [self setScrollContent:btnScrollView squareSide:labelHeight];
 }
 
-- (void)setScrollContent {
+- (void)setScrollContent:(UIScrollView *)scrollView squareSide:(float)square {
     for (int i=0; i < iconNum; i++) {
         NSString *imageName = [NSString stringWithFormat:@"Image-%d", i];
         UIImage *img = [UIImage imageNamed:imageName];
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, iconWidth, iconHeight)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, square, square)];
         [btn setBackgroundImage:img forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(nextPage:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = i + 1;
-        [_scrollView addSubview:btn];
+        [scrollView addSubview:btn];
     }
     
     UIImageView *view = nil;
-    NSArray *subviews = [_scrollView subviews];
+    NSArray *subviews = [scrollView subviews];
     // 描画開始の x,y 位置
+    const CGFloat iconMargin = 20.0;
     CGFloat px = iconMargin;
     CGFloat py = 0.0;
     for (view in subviews) {
@@ -153,16 +163,16 @@ const CGFloat iconMargin = 20.0;
             frame.origin = CGPointMake(px, py);
             view.frame = frame;
             
-            px += (iconWidth + iconMargin);
+            px += (square + iconMargin);
         }
     }
     
     // UIScrollViewのコンテンツサイズを計算
-    [_scrollView setContentSize:CGSizeMake( iconWidth * iconNum + iconMargin * (iconNum + 1), iconHeight)];
+    [scrollView setContentSize:CGSizeMake( square * iconNum + iconMargin * (iconNum + 1), square)];
 }
 
 
-
+#pragma mark -
 - (void)nextPage:(UIButton *)sender {
     switch (sender.tag) {
         case 3:{

@@ -12,9 +12,6 @@
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *eventLabel;
-@property (weak, nonatomic) IBOutlet UIVisualEffectView *blurEffectView;
-@property (weak, nonatomic) IBOutlet UIVisualEffectView *vibrancyEffectView;
 
 @property (retain, nonatomic) UIImageView *trashView;
 @property (retain, nonatomic) UIScrollView *btnScrollView;
@@ -23,6 +20,7 @@
 @property float screenHeight;   // 画面サイズ（縦）
 @property float labelMargin;    // scrollBarとeventLabelのマージン
 @property float scrollHeight;   // ScrollBarの高さ
+@property float eventHeight;
 
 @end
 
@@ -40,6 +38,7 @@ const CGFloat iconMargin = 20.0;
     _screenHeight = screen.size.height;
     _labelMargin = _screenHeight * 1/32;
     _scrollHeight = _screenHeight * 4/32;
+    _eventHeight = _screenHeight * 3/28;
     
     [self setBackgroundImage];
     [self setupTrashImage];
@@ -105,12 +104,28 @@ const CGFloat iconMargin = 20.0;
 
 #pragma mark - EventLavel
 - (void)setupEventLabel {
-    // TODO: イベントラベルの場所を計算によって指定する
+    const float px = 0.0;
+    const float py = _screenHeight - (2*_labelMargin + _scrollHeight + _eventHeight);
     
-    [self setEvent];
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurEffectView.frame = CGRectMake(px, py, _screenWidth, _eventHeight);
+    [self.view addSubview:blurEffectView];
+    
+    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
+    UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+    vibrancyEffectView.frame = CGRectMake(0.0, 0.0, blurEffectView.bounds.size.width, blurEffectView.bounds.size.height);
+    [blurEffectView.contentView addSubview:vibrancyEffectView];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = CGRectMake(0.0, 0.0, _screenWidth, _eventHeight);
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:22];
+    label.text = [self getEvent];
+    [vibrancyEffectView.contentView addSubview: label];
 }
 
-- (void)setEvent {
+- (NSString *)getEvent {
 //    NSURL *url = [NSURL URLWithString:@"http://133.242.226.227/api/get"];
 //    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
 //    [request setHTTPMethod:@"POST"];
@@ -131,7 +146,8 @@ const CGFloat iconMargin = 20.0;
 //    
 //    NSString *event = [NSString stringWithFormat:@"%@ %@", [dict valueForKey:@"date"], [dict valueForKey:@"event"]];
     NSString *event = @"7月25日 中間発表";
-    _eventLabel.text = event;
+    
+    return event;
 }
 
 

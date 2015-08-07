@@ -3,7 +3,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -41,24 +40,15 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="xjv-eK-3Mc"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jt-02-OIj">
-                                <rect key="frame" x="258" y="90" width="84" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="SVX-N1-dvH" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" id="1od-MY-1Ng"/>
-                            <constraint firstItem="7Jt-02-OIj" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="90" id="2AS-Rc-Fpg"/>
-                            <constraint firstAttribute="centerX" secondItem="7Jt-02-OIj" secondAttribute="centerX" id="FzT-1E-jyb"/>
                             <constraint firstItem="SVX-N1-dvH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="fkV-yE-DU6"/>
                             <constraint firstAttribute="trailing" secondItem="SVX-N1-dvH" secondAttribute="trailing" id="vlI-h3-r1f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8HQ-61-3kr"/>
                     <connections>
-                        <outlet property="dateLabel" destination="7Jt-02-OIj" id="jgz-tZ-opO"/>
                         <outlet property="searchBar" destination="SVX-N1-dvH" id="rva-RE-ntA"/>
                         <outlet property="searchDisplayController" destination="3n8-b6-vdZ" id="kSu-dw-biO"/>
                     </connections>

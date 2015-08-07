@@ -11,7 +11,6 @@
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (retain, nonatomic) UIImageView *trashView;
 @property (retain, nonatomic) UIScrollView *btnScrollView;
@@ -83,22 +82,34 @@ const CGFloat iconMargin = 20.0;
 
 #pragma mark - DateLabel
 - (void)setupDateLabel {
-    // TODO: 日付の配置場所を計算によって指定する
+    const float px = 0.0;
+    const float py = _screenHeight * 1/10;
+    const float labelHeight = _screenHeight * 1/8;
     
-    [self setDate];
+    UILabel *dateLabel = [[UILabel alloc] init];
+    dateLabel.frame = CGRectMake(px, py, _screenWidth, labelHeight);
+    dateLabel.textAlignment = NSTextAlignmentCenter;
+    dateLabel.font = [UIFont systemFontOfSize:38];
+    dateLabel.textColor = [UIColor whiteColor];
+    dateLabel.text = [self getDate];
+    
+    [self.view addSubview:dateLabel];
 }
 
-- (void)setDate {
+- (NSString *)getDate {
     NSDate *now = [NSDate date];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday fromDate:now];
+    
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
     [formatter setDateFormat:@"M月dd日"];
     NSString* now_str = [formatter stringFromDate:now];
     NSString* weekDayStr = formatter.shortWeekdaySymbols[comps.weekday-1];
+    
     NSString* date_str = [NSString stringWithFormat:@"%@(%@)", now_str, weekDayStr];
-    _dateLabel.text = date_str;
+    
+    return date_str;
 }
 
 

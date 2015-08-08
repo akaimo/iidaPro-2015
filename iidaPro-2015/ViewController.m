@@ -39,6 +39,8 @@ const CGFloat iconMargin = 20.0;
     _scrollHeight = _screenHeight * 4/32;
     _eventHeight = _screenHeight * 3/28;
     
+    // TODO: 端末情報から端末によりフォントサイズを調整
+    
     [self setBackgroundImage];
     [self setupTrashImage];
     [self setupDateLabel];
@@ -58,6 +60,7 @@ const CGFloat iconMargin = 20.0;
 
 #pragma mark -
 - (void)setBackgroundImage {
+    // TODO: 天気APIにより背景画像の切り替え
     UIGraphicsBeginImageContext(self.view.frame.size);
 //    [[UIImage imageNamed:@"Sunny"] drawInRect:self.view.bounds];
 //    [[UIImage imageNamed:@"Cloudy"] drawInRect:self.view.bounds];
@@ -69,13 +72,15 @@ const CGFloat iconMargin = 20.0;
 }
 
 - (void)setupTrashImage {
-    const float px = _screenWidth * 1/6;
-    const float py = _screenHeight * 2/8;
-    const float square = _screenWidth * 4/6;
+    // TODO: ゴミDBから当日のゴミマークを取得
+    const float px = _screenWidth * 1/8;
+    const float py = _screenHeight * 2/9;
+    const float square = _screenWidth * 6/8;
     
     _trashView = [[UIImageView alloc] init];
     _trashView.frame = CGRectMake(px, py, square, square);
     _trashView.image = [UIImage imageNamed:@"Bottle"];
+    
     [self.view addSubview:_trashView];
 }
 
@@ -83,13 +88,13 @@ const CGFloat iconMargin = 20.0;
 #pragma mark - DateLabel
 - (void)setupDateLabel {
     const float px = 0.0;
-    const float py = _screenHeight * 1/10;
+    const float py = _screenHeight * 1/9;
     const float labelHeight = _screenHeight * 1/8;
     
     UILabel *dateLabel = [[UILabel alloc] init];
     dateLabel.frame = CGRectMake(px, py, _screenWidth, labelHeight);
     dateLabel.textAlignment = NSTextAlignmentCenter;
-    dateLabel.font = [UIFont systemFontOfSize:38];
+    dateLabel.font = [UIFont systemFontOfSize:40];
     dateLabel.textColor = [UIColor whiteColor];
     dateLabel.text = [self getDate];
     

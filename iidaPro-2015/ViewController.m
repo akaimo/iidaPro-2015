@@ -10,19 +10,20 @@
 #import "TipsTabViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIImageView *trashImageView;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *eventLabel;
-@property (weak, nonatomic) IBOutlet UIVisualEffectView *blurEffectView;
-@property (weak, nonatomic) IBOutlet UIVisualEffectView *vibrancyEffectView;
+
+@property (retain, nonatomic) UIImageView *trashView;
+@property (retain, nonatomic) UIScrollView *btnScrollView;
+
+@property float screenWidth;    // 画面サイズ（横）
+@property float screenHeight;   // 画面サイズ（縦）
+@property float labelMargin;    // scrollBarとeventLabelのマージン
+@property float scrollHeight;   // ScrollBarの高さ
+@property float eventHeight;
 
 @end
 
 const NSUInteger iconNum = 7;
-const CGFloat iconHeight = 72.0;
-const CGFloat iconWidth = 72.0;
 const CGFloat iconMargin = 20.0;
 
 @implementation ViewController
@@ -31,25 +32,20 @@ const CGFloat iconMargin = 20.0;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    _screenWidth = screen.size.width;
+    _screenHeight = screen.size.height;
+    _labelMargin = _screenHeight * 1/32;
+    _scrollHeight = _screenHeight * 4/32;
+    _eventHeight = _screenHeight * 3/28;
+    
+    // TODO: 端末情報から端末によりフォントサイズを調整
+    
     [self setBackgroundImage];
-    [self setTrashImage];
-    [self setDate];
-    [self setEvent];
-    
-    for (int i=0; i < iconNum; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"Image-%d", i];
-        UIImage *img = [UIImage imageNamed:imageName];
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, iconWidth, iconHeight)];
-        [btn setBackgroundImage:img forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(nextPage:) forControlEvents:UIControlEventTouchUpInside];
-        btn.tag = i + 1;
-        [_scrollView addSubview:btn];
-    }
-    [self setupScrollContent];
-    
-    // adjust the size of the navigationBar and statusBar
-    _scrollView.contentInset=UIEdgeInsetsMake(-20.0, 0.0, 0.0, 0.0);
-    _scrollView.scrollIndicatorInsets=UIEdgeInsetsMake(-20.0, 0.0, 0.0, 0.0);
+    [self setupTrashImage];
+    [self setupDateLabel];
+    [self setupEventLabel];
+    [self setupScrollBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,7 +58,9 @@ const CGFloat iconMargin = 20.0;
 }
 
 
+#pragma mark -
 - (void)setBackgroundImage {
+    // TODO: 天気APIにより背景画像の切り替え
     UIGraphicsBeginImageContext(self.view.frame.size);
 //    [[UIImage imageNamed:@"Sunny"] drawInRect:self.view.bounds];
 //    [[UIImage imageNamed:@"Cloudy"] drawInRect:self.view.bounds];
@@ -73,24 +71,77 @@ const CGFloat iconMargin = 20.0;
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
 }
 
-- (void)setTrashImage {
-    _trashImageView.image = [UIImage imageNamed:@"Bottle"];
+- (void)setupTrashImage {
+    // TODO: ゴミDBから当日のゴミマークを取得
+    const float px = _screenWidth * 1/8;
+    const float py = _screenHeight * 2/9;
+    const float square = _screenWidth * 6/8;
+    
+    _trashView = [[UIImageView alloc] init];
+    _trashView.frame = CGRectMake(px, py, square, square);
+    _trashView.image = [UIImage imageNamed:@"Bottle"];
+    
+    [self.view addSubview:_trashView];
 }
 
-- (void)setDate {
+
+#pragma mark - DateLabel
+- (void)setupDateLabel {
+    const float px = 0.0;
+    const float py = _screenHeight * 1/9;
+    const float labelHeight = _screenHeight * 1/8;
+    
+    UILabel *dateLabel = [[UILabel alloc] init];
+    dateLabel.frame = CGRectMake(px, py, _screenWidth, labelHeight);
+    dateLabel.textAlignment = NSTextAlignmentCenter;
+    dateLabel.font = [UIFont systemFontOfSize:40];
+    dateLabel.textColor = [UIColor whiteColor];
+    dateLabel.text = [self getDate];
+    
+    [self.view addSubview:dateLabel];
+}
+
+- (NSString *)getDate {
     NSDate *now = [NSDate date];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday fromDate:now];
+    
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
     [formatter setDateFormat:@"M月dd日"];
     NSString* now_str = [formatter stringFromDate:now];
     NSString* weekDayStr = formatter.shortWeekdaySymbols[comps.weekday-1];
+    
     NSString* date_str = [NSString stringWithFormat:@"%@(%@)", now_str, weekDayStr];
-    _dateLabel.text = date_str;
+    
+    return date_str;
 }
 
-- (void)setEvent {
+
+#pragma mark - EventLavel
+- (void)setupEventLabel {
+    const float px = 0.0;
+    const float py = _screenHeight - (2*_labelMargin + _scrollHeight + _eventHeight);
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurEffectView.frame = CGRectMake(px, py, _screenWidth, _eventHeight);
+    [self.view addSubview:blurEffectView];
+    
+    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
+    UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+    vibrancyEffectView.frame = CGRectMake(0.0, 0.0, blurEffectView.bounds.size.width, blurEffectView.bounds.size.height);
+    [blurEffectView.contentView addSubview:vibrancyEffectView];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = CGRectMake(0.0, 0.0, _screenWidth, _eventHeight);
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:22];
+    label.text = [self getEvent];
+    [vibrancyEffectView.contentView addSubview: label];
+}
+
+- (NSString *)getEvent {
 //    NSURL *url = [NSURL URLWithString:@"http://133.242.226.227/api/get"];
 //    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
 //    [request setHTTPMethod:@"POST"];
@@ -111,12 +162,38 @@ const CGFloat iconMargin = 20.0;
 //    
 //    NSString *event = [NSString stringWithFormat:@"%@ %@", [dict valueForKey:@"date"], [dict valueForKey:@"event"]];
     NSString *event = @"7月25日 中間発表";
-    _eventLabel.text = event;
+    
+    return event;
 }
 
-- (void)setupScrollContent {
+
+#pragma mark - ScrolllView
+- (void)setupScrollBar {
+    const float px = 0.0;
+    const float py = _screenHeight - _scrollHeight - _labelMargin;
+    
+    _btnScrollView = [[UIScrollView alloc] init];
+    _btnScrollView.frame = CGRectMake(px, py, _screenWidth, _scrollHeight);
+    [self.view addSubview:_btnScrollView];
+    
+    [self setScrollContent];
+}
+
+- (void)setScrollContent {
+    const float square = _scrollHeight;  // 正方形の一辺
+    
+    for (int i=0; i < iconNum; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"Image-%d", i];
+        UIImage *img = [UIImage imageNamed:imageName];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, square, square)];
+        [btn setBackgroundImage:img forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(nextPage:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = i + 1;
+        [_btnScrollView addSubview:btn];
+    }
+    
     UIImageView *view = nil;
-    NSArray *subviews = [_scrollView subviews];
+    NSArray *subviews = [_btnScrollView subviews];
     // 描画開始の x,y 位置
     CGFloat px = iconMargin;
     CGFloat py = 0.0;
@@ -126,14 +203,16 @@ const CGFloat iconMargin = 20.0;
             frame.origin = CGPointMake(px, py);
             view.frame = frame;
             
-            px += (iconWidth + iconMargin);
+            px += (square + iconMargin);
         }
     }
     
     // UIScrollViewのコンテンツサイズを計算
-    [_scrollView setContentSize:CGSizeMake( iconWidth * iconNum + iconMargin * (iconNum + 1), iconHeight)];
+    [_btnScrollView setContentSize:CGSizeMake( square * iconNum + iconMargin * (iconNum + 1), square)];
 }
 
+
+#pragma mark -
 - (void)nextPage:(UIButton *)sender {
     switch (sender.tag) {
         case 3:{

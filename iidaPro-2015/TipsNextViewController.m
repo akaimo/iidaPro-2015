@@ -33,7 +33,7 @@
             _TipsNextImage.image=[UIImage imageNamed:@"trashicon1"];
             break;
         case 4:
-            _TipsNextText.text=@"かわるんは川崎市の3R推進キャラクターです\nごみの資源化、減量を目指す\nリデュース(発生・排出抑制)\nリユース(再使用)\nリサイクル(再生利用)\nのことです。";
+            _TipsNextText.text=@"かわるんは川崎市の3R推進キャラクターです\nごみの資源化、減量を目指す\nリデュース(発生・排出抑制)\nリユース(再使用)\nリサイクル(再生利用)\nのことです。\n業稼ぎ\n業稼ぎ\n業稼ぎ\n業稼ぎ\n業稼ぎ\n業稼ぎ\n業稼ぎ\n業稼ぎ\n";
             _TipsNextImage.image=[UIImage imageNamed:@"tips4"];
             break;
         case 5:
@@ -42,7 +42,7 @@
             break;
     }
     _TipsNextText.textColor = [UIColor blackColor];
-    _TipsNextText.backgroundColor = [UIColor yellowColor];
+    _TipsNextText.backgroundColor = [UIColor whiteColor];
     _TipsNextText.textAlignment = NSTextAlignmentCenter;
     _TipsNextText.editable = NO;
 }

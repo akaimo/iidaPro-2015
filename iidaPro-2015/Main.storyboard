@@ -39,6 +39,43 @@
             </objects>
             <point key="canvasLocation" x="1227" y="224"/>
         </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="pI3-BP-ugR">
+            <objects>
+                <viewController storyboardIdentifier="Search" id="Ecc-V6-wdr" customClass="SearchResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mYh-N8-UBj"/>
+                        <viewControllerLayoutGuide type="bottom" id="fYy-so-LVZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iRq-3Y-csp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EAn-PY-EQu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ecc-V6-wdr" id="wAG-Tq-HNH"/>
+                                    <outlet property="delegate" destination="Ecc-V6-wdr" id="mdJ-tv-cIL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EAn-PY-EQu" firstAttribute="bottom" secondItem="fYy-so-LVZ" secondAttribute="top" id="AC6-5k-LqU"/>
+                            <constraint firstItem="EAn-PY-EQu" firstAttribute="leading" secondItem="iRq-3Y-csp" secondAttribute="leading" id="IeT-Jg-pjF"/>
+                            <constraint firstAttribute="trailing" secondItem="EAn-PY-EQu" secondAttribute="trailing" id="SwP-LF-nHw"/>
+                            <constraint firstItem="EAn-PY-EQu" firstAttribute="top" secondItem="iRq-3Y-csp" secondAttribute="top" id="Tms-qt-mns"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchTableView" destination="EAn-PY-EQu" id="jTB-WY-85M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HaF-kv-4IJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1227" y="928"/>
+        </scene>
         <!--ごみの出し方-->
         <scene sceneID="d2g-xc-CEK">
             <objects>

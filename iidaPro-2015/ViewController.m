@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "TipsTabViewController.h"
+#import "SearchResultViewController.h"
 
 @interface ViewController () <UISearchBarDelegate>
 
@@ -74,6 +75,24 @@ const CGFloat iconMargin = 20.0;
 
 // 検索(enter)したとき
 - (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar {
+    // TODO: 検索ワードから検索をかけ、辞書で返す
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i=0; i<20; i++) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:@"hoge" forKey:@"name"];
+        [dic setObject:@"燃えるゴミ" forKey:@"trash"];
+        NSNumber *num = [NSNumber numberWithInt:i];
+        [dic setObject:num forKey:@"num"];
+        NSNumber *sepa = [NSNumber numberWithBool:NO];
+        [dic setObject:sepa forKey:@"separation"];
+        [array addObject:dic];
+    }
+    
+    SearchResultViewController *searchResultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Search"];
+    searchResultVC.resultArray = array;
+    searchResultVC.searchText = searchBar.text;
+    [self.navigationController pushViewController:searchResultVC animated:YES];
+    
     [_searchBar resignFirstResponder];  // キーボードを閉じる
 }
 

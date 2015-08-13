@@ -8,8 +8,10 @@
 
 #import "SearchResultViewController.h"
 
-@interface SearchResultViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SearchResultViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (retain, nonatomic) UIBarButtonItem *searchBtn;
 
 @end
 
@@ -19,7 +21,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = _searchText;
+    NSMutableString *searchTitle = [NSMutableString stringWithString:_searchText];
+    [searchTitle appendString:@"の検索結果"];
+    self.title = searchTitle;
+    
+    _searchBar.placeholder = @"Search";
+    _searchBar.text = _searchText;
+    
+    [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
+    _searchBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(tapSearch:)];
+    self.navigationItem.rightBarButtonItem = _searchBtn;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -29,6 +41,39 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - searchBar
+- (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar {
+    // TODO: 検索ワードから検索をかけ、辞書で返す
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i=0; i<20; i++) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:@"hogehoge" forKey:@"name"];
+        [dic setObject:@"燃えるゴミ" forKey:@"trash"];
+        NSNumber *num = [NSNumber numberWithInt:i];
+        [dic setObject:num forKey:@"num"];
+        NSNumber *sepa = [NSNumber numberWithBool:NO];
+        [dic setObject:sepa forKey:@"separation"];
+        [array addObject:dic];
+    }
+    
+    // TODO: 検索結果を表示するためにtableViewを更新する
+    
+    [_searchBar resignFirstResponder];
+    [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (void)tapSearch:(UIButton *)sender {
+    [_searchBar becomeFirstResponder];
+    [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
+}
+
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [_searchBar resignFirstResponder];
 }
 
 

@@ -60,6 +60,12 @@
     }
     
     // TODO: 検索結果を表示するためにtableViewを更新する
+    NSMutableString *searchTitle = [NSMutableString stringWithString:_searchBar.text];
+    [searchTitle appendString:@"の検索結果"];
+    self.title = searchTitle;
+    
+    _resultArray = array;
+    [_searchTableView reloadData];
     
     [_searchBar resignFirstResponder];
     [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];

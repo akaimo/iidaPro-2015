@@ -10,13 +10,116 @@
 
 @interface AlarmViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *morningAlarmLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nightAlarmLabel;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datepicker;
+@property (weak, nonatomic) IBOutlet UISwitch *morningAlarmSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *nightAlarmSwitch;
+@property (weak, nonatomic) IBOutlet UIView *dPView;
+@property (weak, nonatomic) IBOutlet UIView *dPOuterView;
+
+@property (weak, nonatomic) NSString *morningOrNight;
+@property (weak, nonatomic) NSDate *morningAlarmTime;
+@property (weak, nonatomic) NSDate *nightAlarmTime;
+@property (weak, nonatomic) NSNumber *morningAlarmActivity;
+@property (weak, nonatomic) NSNumber *nightAlarmActivity;
+
 @end
 
 @implementation AlarmViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
+  _dPView.hidden = true;
+  _dPOuterView.hidden = true;
+  
+  
+  
     // Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+
+  _dPView.hidden = true;
+  _dPOuterView.hidden = true;
+  
+  //初期化処理
+  _morningOrNight = @"neither";
+
+  _morningAlarmLabel.enabled = _morningAlarmActivity;
+  _morningAlarmSwitch.on = _morningAlarmActivity;
+  _nightAlarmLabel.enabled = _nightAlarmActivity;
+  _nightAlarmSwitch.on = _nightAlarmActivity;
+  
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  dateFormatter.dateFormat = @"HH:mm";
+  
+  _morningAlarmLabel.text = [dateFormatter stringFromDate:_morningAlarmTime];
+  _nightAlarmLabel.text = [dateFormatter stringFromDate:_nightAlarmTime];
+  
+}
+
+- (IBAction)morningAlarmEdit:(id)sender {
+  _morningOrNight = @"morning";
+  _dPView.hidden = false;
+  _dPOuterView.hidden = false;
+  
+  //ここにDP展開アニメーション
+  
+}
+- (IBAction)nightAlarmEdit:(id)sender {
+  _morningOrNight = @"night";
+  _dPView.hidden = false;
+  _dPOuterView.hidden = false;
+  
+   //ここにDP展開アニメーション
+}
+
+- (IBAction)morningAlarmOnOff:(id)sender {
+  _morningAlarmActivity = [NSNumber numberWithBool: _morningAlarmSwitch.on];
+  _morningAlarmLabel.enabled = _morningAlarmSwitch.on;
+  if (_morningAlarmSwitch.on){
+    [self setMorningAlarm: _morningAlarmTime];
+  }else{
+    [self deleteMorningAlarm];
+  }
+}
+- (IBAction)nightAlarmOnOff:(id)sender {
+  _nightAlarmActivity = [NSNumber numberWithBool: _nightAlarmSwitch.on];
+  _nightAlarmLabel.enabled = _nightAlarmSwitch.on;
+  if (_nightAlarmSwitch.on){
+    [self setNightAlarm: _nightAlarmTime];
+  }else{
+    [self deleteNightAlarm];
+  }
+}
+
+- (IBAction)dPValueChanged:(id)sender {
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  dateFormatter.dateFormat = @"HH:mm";
+  
+  if ([_morningOrNight isEqual:@"morning"]) {
+    _morningAlarmTime = _datepicker.date;
+    _morningAlarmLabel.text = [dateFormatter stringFromDate:_datepicker.date];
+    
+    [self setMorningAlarm: _datepicker.date];
+  }
+  if ([_morningOrNight isEqual:@"night"]) {
+    _nightAlarmTime = _datepicker.date;
+    _nightAlarmLabel.text = [dateFormatter stringFromDate:_datepicker.date];
+    
+    [self setNightAlarm: _datepicker.date];
+  }
+}
+
+- (IBAction)quitDP:(id)sender {
+  
+  //ここにDP格納アニメーション
+  
+  _dPView.hidden = true;
+  _dPOuterView.hidden = true;
+  _morningOrNight = @"neither";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +127,59 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setMorningAlarm:(NSDate*)date {
+  
+  if (date != nil && [date timeIntervalSinceNow] >0){
+  
+  //朝の通知がすでにある場合、削除する
+  [self deleteMorningAlarm];
+  
+  
+  //ここで朝の通知を設定
+  UILocalNotification *morningNote = [[UILocalNotification alloc] init];
+  morningNote.fireDate = date;
+  [morningNote.userInfo setValue:@"morning" forKey:@"id"];
+  morningNote.alertBody = @"朝のアラーム";
+  
+  }
+  
 }
-*/
+- (void)deleteMorningAlarm{
+  //朝の通知を消す設定。スイッチがOnOffされた時など用
+  
+  for(UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+    if([[notification.userInfo objectForKey:@"id"] isEqual: @"morning"]) {
+      [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    }
+  }
+  
+}
+
+- (void)setNightAlarm:(NSDate*)date {
+  //ここで夜の通知を設定
+  if (date != nil && [date timeIntervalSinceNow] >0){
+  
+  [self deleteNightAlarm];
+  
+  UILocalNotification *nightNote = [[UILocalNotification alloc] init];
+  nightNote.fireDate = date;
+  [nightNote.userInfo setValue:@"night" forKey:@"id"];
+  nightNote.alertBody = @"夜のアラーム";
+
+  }
+}
+- (void)deleteNightAlarm{
+  //夜の通知を消す設定。スイッチがOnOffされた時など用
+  
+  for(UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+    if([[notification.userInfo objectForKey:@"id"] isEqual: @"night"]) {
+      [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    }
+  }
+
+}
+
+
+
 
 @end

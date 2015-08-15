@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -229,7 +230,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4y-z0-Elm">
-                                <rect key="frame" x="17" y="335" width="342" height="242"/>
+                                <rect key="frame" x="16" y="334" width="343" height="244"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="342" id="3ep-uS-RsE"/>
@@ -238,9 +239,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3ep-uS-RsE"/>
+                                        <exclude reference="xdz-RF-iF3"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-r2-3PC">
-                                <rect key="frame" x="28" y="84" width="320" height="210"/>
+                                <rect key="frame" x="27" y="84" width="320" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="2Ym-Kd-9nC"/>
                                     <constraint firstAttribute="width" constant="320" id="3vL-cV-F45"/>
@@ -255,6 +262,7 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="2Ym-Kd-9nC"/>
+                                        <exclude reference="3vL-cV-F45"/>
                                         <exclude reference="5sY-3b-mSP"/>
                                         <exclude reference="H8j-Y4-QhD"/>
                                         <exclude reference="Mwn-mQ-ZZk"/>
@@ -265,13 +273,16 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番号とタイトルが入る" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRf-x4-Tab">
-                                <rect key="frame" x="103" y="304" width="170" height="21"/>
+                                <rect key="frame" x="103" y="304" width="170" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="zre-WG-pWf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="テキストが入る" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-2w-1Mi">
-                                <rect key="frame" x="18" y="336" width="340" height="240"/>
+                                <rect key="frame" x="17" y="335" width="341" height="242"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="8Lh-3i-635"/>
@@ -294,8 +305,10 @@
                                         <exclude reference="8Lh-3i-635"/>
                                         <exclude reference="FAl-vH-i3W"/>
                                         <exclude reference="HIP-Ua-mzA"/>
+                                        <exclude reference="L6H-SC-KXL"/>
                                         <exclude reference="Mtj-u7-6HJ"/>
                                         <exclude reference="Qcy-07-ipz"/>
+                                        <exclude reference="XuI-5C-vVR"/>
                                         <exclude reference="YhH-8w-6iG"/>
                                         <exclude reference="hx8-sT-EFb"/>
                                         <exclude reference="lHq-Hs-SXY"/>
@@ -307,10 +320,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fzN-r2-3PC" firstAttribute="leading" secondItem="3gi-mh-EkL" secondAttribute="leadingMargin" constant="11" id="1g0-Mi-8QO"/>
                             <constraint firstItem="6zR-iC-zi0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eW6-2w-1Mi" secondAttribute="bottom" constant="8" symbolic="YES" id="45t-W6-VYS"/>
                             <constraint firstItem="eW6-2w-1Mi" firstAttribute="top" relation="lessThanOrEqual" secondItem="fzN-r2-3PC" secondAttribute="bottom" constant="20" id="4yy-tr-klj"/>
                             <constraint firstAttribute="centerX" secondItem="eW6-2w-1Mi" secondAttribute="centerX" id="6ee-EH-Vtl"/>
                             <constraint firstItem="fzN-r2-3PC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kRf-x4-Tab" secondAttribute="bottom" constant="20" id="7AE-BR-cpf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fzN-r2-3PC" secondAttribute="trailing" constant="12" id="7en-cC-PZv"/>
                             <constraint firstItem="fzN-r2-3PC" firstAttribute="top" secondItem="1zq-ec-bgU" secondAttribute="bottom" constant="20" id="8dd-1b-WwJ"/>
                             <constraint firstAttribute="centerX" secondItem="eW6-2w-1Mi" secondAttribute="centerX" id="9sd-jX-ppm"/>
                             <constraint firstAttribute="centerX" secondItem="fzN-r2-3PC" secondAttribute="centerX" id="9sl-vX-uiu"/>
@@ -318,17 +333,23 @@
                             <constraint firstItem="fzN-r2-3PC" firstAttribute="top" relation="lessThanOrEqual" secondItem="kRf-x4-Tab" secondAttribute="bottom" constant="20" id="BqB-PN-oBu"/>
                             <constraint firstAttribute="centerX" secondItem="fzN-r2-3PC" secondAttribute="centerX" id="BxV-bj-6uO"/>
                             <constraint firstAttribute="centerX" secondItem="kRf-x4-Tab" secondAttribute="centerX" id="CMA-xs-X9p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eW6-2w-1Mi" secondAttribute="trailing" constant="1" id="GYU-TG-M8b"/>
                             <constraint firstAttribute="centerX" secondItem="eW6-2w-1Mi" secondAttribute="centerX" id="Hqf-eh-qVn"/>
                             <constraint firstItem="eW6-2w-1Mi" firstAttribute="top" relation="lessThanOrEqual" secondItem="fzN-r2-3PC" secondAttribute="bottom" constant="8" symbolic="YES" id="I7g-Xa-H2b"/>
                             <constraint firstAttribute="centerX" secondItem="eW6-2w-1Mi" secondAttribute="centerX" id="Kvw-gK-uei"/>
+                            <constraint firstItem="eW6-2w-1Mi" firstAttribute="leading" secondItem="3gi-mh-EkL" secondAttribute="leadingMargin" constant="1" id="PH6-SK-hOg"/>
                             <constraint firstAttribute="centerX" secondItem="D4y-z0-Elm" secondAttribute="centerX" id="Ptq-3j-zV8"/>
                             <constraint firstItem="kRf-x4-Tab" firstAttribute="top" secondItem="fzN-r2-3PC" secondAttribute="bottom" constant="10" id="TFy-mm-k56"/>
+                            <constraint firstItem="D4y-z0-Elm" firstAttribute="leading" secondItem="3gi-mh-EkL" secondAttribute="leadingMargin" id="V6M-cG-kWh"/>
+                            <constraint firstItem="6zR-iC-zi0" firstAttribute="top" secondItem="eW6-2w-1Mi" secondAttribute="bottom" constant="41" id="YED-Vt-0tR"/>
                             <constraint firstAttribute="centerX" secondItem="eW6-2w-1Mi" secondAttribute="centerX" id="YQa-pq-9KF"/>
                             <constraint firstItem="eW6-2w-1Mi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fzN-r2-3PC" secondAttribute="bottom" constant="20" id="afE-88-NFb"/>
                             <constraint firstAttribute="centerX" secondItem="kRf-x4-Tab" secondAttribute="centerX" id="b6r-OP-7bh"/>
                             <constraint firstItem="eW6-2w-1Mi" firstAttribute="top" secondItem="fzN-r2-3PC" secondAttribute="bottom" constant="20" id="bcy-5D-0Ce"/>
                             <constraint firstItem="eW6-2w-1Mi" firstAttribute="top" relation="lessThanOrEqual" secondItem="fzN-r2-3PC" secondAttribute="bottom" constant="20" id="ec2-3D-IZu"/>
                             <constraint firstItem="eW6-2w-1Mi" firstAttribute="top" secondItem="kRf-x4-Tab" secondAttribute="bottom" constant="11" id="fbk-9V-Tvg"/>
+                            <constraint firstItem="6zR-iC-zi0" firstAttribute="top" secondItem="D4y-z0-Elm" secondAttribute="bottom" constant="40" id="gKc-83-ZjS"/>
+                            <constraint firstItem="D4y-z0-Elm" firstAttribute="trailing" secondItem="3gi-mh-EkL" secondAttribute="trailingMargin" id="o4r-yF-Zze"/>
                             <constraint firstItem="kRf-x4-Tab" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1zq-ec-bgU" secondAttribute="bottom" constant="20" id="rDw-ax-HLl"/>
                             <constraint firstItem="eW6-2w-1Mi" firstAttribute="top" relation="lessThanOrEqual" secondItem="fzN-r2-3PC" secondAttribute="bottom" constant="25" id="tlj-O0-yPH"/>
                             <constraint firstItem="D4y-z0-Elm" firstAttribute="top" secondItem="kRf-x4-Tab" secondAttribute="bottom" constant="10" id="yLg-gN-ZE8"/>
@@ -339,8 +360,6 @@
                                 <exclude reference="9sl-vX-uiu"/>
                                 <exclude reference="BRs-vl-y7a"/>
                                 <exclude reference="BqB-PN-oBu"/>
-                                <exclude reference="b6r-OP-7bh"/>
-                                <exclude reference="rDw-ax-HLl"/>
                                 <exclude reference="4yy-tr-klj"/>
                                 <exclude reference="9sd-jX-ppm"/>
                                 <exclude reference="Hqf-eh-qVn"/>
@@ -351,6 +370,8 @@
                                 <exclude reference="bcy-5D-0Ce"/>
                                 <exclude reference="ec2-3D-IZu"/>
                                 <exclude reference="tlj-O0-yPH"/>
+                                <exclude reference="b6r-OP-7bh"/>
+                                <exclude reference="rDw-ax-HLl"/>
                                 <exclude reference="45t-W6-VYS"/>
                             </mask>
                         </variation>

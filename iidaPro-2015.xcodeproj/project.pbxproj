@@ -19,6 +19,7 @@
 		998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998992921B33B6A5000B7FD2 /* Images.xcassets */; };
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
+		D93E31861B765E29003B5FC5 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D93E31851B765E29003B5FC5 /* AlarmViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		9989929B1B33B6A5000B7FD2 /* iidaPro-2015Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iidaPro-2015Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992A01B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iidaPro_2015Tests.m; sourceTree = "<group>"; };
+		D93E31841B765E29003B5FC5 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
+		D93E31851B765E29003B5FC5 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
+				D93E31831B765D87003B5FC5 /* alarm */,
 				8B7F9CCD1B4B8711008A825F /* tips */,
 				998992851B33B6A5000B7FD2 /* Supporting Files */,
 			);
@@ -158,6 +162,15 @@
 				998992A01B33B6A5000B7FD2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D93E31831B765D87003B5FC5 /* alarm */ = {
+			isa = PBXGroup;
+			children = (
+				D93E31841B765E29003B5FC5 /* AlarmViewController.h */,
+				D93E31851B765E29003B5FC5 /* AlarmViewController.m */,
+			);
+			name = alarm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +278,7 @@
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */,
+				D93E31861B765E29003B5FC5 /* AlarmViewController.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
 				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,
 				998992881B33B6A5000B7FD2 /* main.m in Sources */,

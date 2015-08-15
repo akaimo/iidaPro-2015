@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *morningAlarmSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *nightAlarmSwitch;
 @property (weak, nonatomic) IBOutlet UIView *dPView;
+@property (weak, nonatomic) IBOutlet UIView *dPOuterView;
 
 @property (weak, nonatomic) NSString *morningOrNight;
 @property (weak, nonatomic) NSDate *morningAlarmTime;
@@ -29,16 +30,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
+  _dPView.hidden = true;
+  _dPOuterView.hidden = true;
+  
+  
+  
     // Do any additional setup after loading the view.
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+
+  _dPView.hidden = true;
+  _dPOuterView.hidden = true;
   
   //初期化処理
   _morningOrNight = @"neither";
 
   _morningAlarmLabel.enabled = _morningAlarmActivity;
+  _morningAlarmSwitch.on = _morningAlarmActivity;
   _nightAlarmLabel.enabled = _nightAlarmActivity;
+  _nightAlarmSwitch.on = _nightAlarmActivity;
   
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
   dateFormatter.dateFormat = @"HH:mm";
@@ -51,6 +63,7 @@
 - (IBAction)morningAlarmEdit:(id)sender {
   _morningOrNight = @"morning";
   _dPView.hidden = false;
+  _dPOuterView.hidden = false;
   
   //ここにDP展開アニメーション
   
@@ -58,6 +71,7 @@
 - (IBAction)nightAlarmEdit:(id)sender {
   _morningOrNight = @"night";
   _dPView.hidden = false;
+  _dPOuterView.hidden = false;
   
    //ここにDP展開アニメーション
 }
@@ -85,13 +99,13 @@
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
   dateFormatter.dateFormat = @"HH:mm";
   
-  if ([_dPView isEqual:@"morning"]) {
+  if ([_morningOrNight isEqual:@"morning"]) {
     _morningAlarmTime = _datepicker.date;
     _morningAlarmLabel.text = [dateFormatter stringFromDate:_datepicker.date];
     
     [self setMorningAlarm: _datepicker.date];
   }
-  if ([_dPView isEqual:@"night"]) {
+  if ([_morningOrNight isEqual:@"night"]) {
     _nightAlarmTime = _datepicker.date;
     _nightAlarmLabel.text = [dateFormatter stringFromDate:_datepicker.date];
     
@@ -104,6 +118,7 @@
   //ここにDP格納アニメーション
   
   _dPView.hidden = true;
+  _dPOuterView.hidden = true;
   _morningOrNight = @"neither";
 }
 

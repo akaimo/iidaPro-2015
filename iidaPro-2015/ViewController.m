@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "TipsTabViewController.h"
+#import "AlarmViewController.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -141,7 +142,12 @@ const CGFloat iconMargin = 20.0;
             [self presentViewController:controller animated:YES completion:nil];
             break;
         }
-            
+        case 4:{
+          AlarmViewController *controller= [self.storyboard instantiateViewControllerWithIdentifier:@"AlarmView"];
+          [self presentViewController:controller animated:YES completion:nil];
+          break;
+        }
+        
         default:
             NSLog(@"%ld", (long)sender.tag);
             break;

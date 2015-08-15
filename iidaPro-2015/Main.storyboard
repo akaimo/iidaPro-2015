@@ -275,7 +275,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番号とタイトルが入る" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRf-x4-Tab">
                                 <rect key="frame" x="103" y="304" width="170" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="zre-WG-pWf"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="zre-WG-pWf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -360,6 +360,8 @@
                                 <exclude reference="9sl-vX-uiu"/>
                                 <exclude reference="BRs-vl-y7a"/>
                                 <exclude reference="BqB-PN-oBu"/>
+                                <exclude reference="b6r-OP-7bh"/>
+                                <exclude reference="rDw-ax-HLl"/>
                                 <exclude reference="4yy-tr-klj"/>
                                 <exclude reference="9sd-jX-ppm"/>
                                 <exclude reference="Hqf-eh-qVn"/>
@@ -370,8 +372,6 @@
                                 <exclude reference="bcy-5D-0Ce"/>
                                 <exclude reference="ec2-3D-IZu"/>
                                 <exclude reference="tlj-O0-yPH"/>
-                                <exclude reference="b6r-OP-7bh"/>
-                                <exclude reference="rDw-ax-HLl"/>
                                 <exclude reference="45t-W6-VYS"/>
                             </mask>
                         </variation>

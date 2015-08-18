@@ -16,6 +16,7 @@
 		8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9387851B4DF37E004E70E2 /* TipsViewController.m */; };
 		99781C5C1B8355910083CC7D /* Classification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5B1B8355910083CC7D /* Classification.m */; };
 		99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5E1B835AAB0083CC7D /* Knowledge.m */; };
+		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
 		998992881B33B6A5000B7FD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992871B33B6A5000B7FD2 /* main.m */; };
 		9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928A1B33B6A5000B7FD2 /* AppDelegate.m */; };
 		9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928D1B33B6A5000B7FD2 /* ViewController.m */; };
@@ -56,6 +57,8 @@
 		99781C5B1B8355910083CC7D /* Classification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classification.m; sourceTree = "<group>"; };
 		99781C5D1B835AAB0083CC7D /* Knowledge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knowledge.h; sourceTree = "<group>"; };
 		99781C5E1B835AAB0083CC7D /* Knowledge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knowledge.m; sourceTree = "<group>"; };
+		99781C601B835D3C0083CC7D /* RealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmController.h; sourceTree = "<group>"; };
+		99781C611B835D3C0083CC7D /* RealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmController.m; sourceTree = "<group>"; };
 		998992821B33B6A5000B7FD2 /* iidaPro-2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iidaPro-2015.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992861B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		998992871B33B6A5000B7FD2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 		99781C591B8355540083CC7D /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				99781C601B835D3C0083CC7D /* RealmController.h */,
+				99781C611B835D3C0083CC7D /* RealmController.m */,
 				99781C5A1B8355910083CC7D /* Classification.h */,
 				99781C5B1B8355910083CC7D /* Classification.m */,
 				99781C5D1B835AAB0083CC7D /* Knowledge.h */,
@@ -387,6 +392,7 @@
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				99781C5C1B8355910083CC7D /* Classification.m in Sources */,
+				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
 				99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */,
 				99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */,
 				8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */,

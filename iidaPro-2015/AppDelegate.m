@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RealmController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    RealmController *rc = [[RealmController alloc] init];
+    [rc createTestTable];
+//    [rc deleteTestTable];
+    
     return YES;
 }
 

@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 #import "TipsTabViewController.h"
+#import "SearchResultViewController.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@interface ViewController () <UISearchBarDelegate>
 
+@property (retain, nonatomic) UISearchBar *searchBar;
 @property (retain, nonatomic) UIImageView *trashView;
 @property (retain, nonatomic) UIScrollView *btnScrollView;
 
@@ -41,11 +42,15 @@ const CGFloat iconMargin = 20.0;
     
     // TODO: 端末情報から端末によりフォントサイズを調整
     
+    [self setupSearchBar];
     [self setBackgroundImage];
     [self setupTrashImage];
     [self setupDateLabel];
     [self setupEventLabel];
     [self setupScrollBar];
+    
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+    [self.view addGestureRecognizer:tgr];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,6 +60,56 @@ const CGFloat iconMargin = 20.0;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - searchBar
+- (void)setupSearchBar {
+    _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, 44)];
+    _searchBar.delegate = self;
+    _searchBar.placeholder = @"Search";
+    _searchBar.backgroundImage = [UIImage imageNamed:@"empty"];
+    
+    [self.view addSubview:_searchBar];
+}
+
+// 検索(enter)したとき
+- (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar {
+    // TODO: 検索ワードから検索をかけ、辞書で返す
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i=0; i<20; i++) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:@"hoge" forKey:@"name"];
+        [dic setObject:@"燃えるゴミ" forKey:@"trash"];
+        NSNumber *num = [NSNumber numberWithInt:i];
+        [dic setObject:num forKey:@"num"];
+        NSNumber *sepa = [NSNumber numberWithBool:NO];
+        [dic setObject:sepa forKey:@"separation"];
+        [array addObject:dic];
+    }
+    
+    SearchResultViewController *searchResultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Search"];
+    searchResultVC.resultArray = array;
+    searchResultVC.searchText = searchBar.text;
+    [self.navigationController pushViewController:searchResultVC animated:YES];
+    
+    [_searchBar resignFirstResponder];  // キーボードを閉じる
+}
+
+// キャンセルボタンがタップされたとき
+- (void)searchBarCancelButtonClicked:(UISearchBar*)searchBar {
+}
+
+// 値が変更されたとき
+- (void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)searchText {
+}
+
+// テキスト入力を開始したとき
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+}
+
+- (void)singleTap:(UITapGestureRecognizer *)sender {
+    [_searchBar resignFirstResponder];
 }
 
 
@@ -230,53 +285,6 @@ const CGFloat iconMargin = 20.0;
 // statusbarの色を白に
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
-}
-
-
-
-#pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger count;
-    count = 10;
-    return count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    tableView.separatorColor = [UIColor clearColor];
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.textLabel.text = @"hogehoge";
-    
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%ld", (long)indexPath.row);
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // 画面遷移
-}
-
-
-#pragma mark - UISearchDisplayControllerDelegate
-- (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContainsWithSearchText:searchString];
-    return YES;
-}
-
-- (void)filterContainsWithSearchText:(NSString *)searchText {
-    // searchTextをもとに検索する
 }
 
 @end

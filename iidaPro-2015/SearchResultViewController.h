@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Classification.h"
 
 @interface SearchResultViewController : UIViewController
 
-@property (strong, nonatomic) NSMutableArray *resultArray;
+@property (strong, nonatomic) RLMResults *resultArray;
 @property (strong, nonatomic) NSString *searchText;
 
 @end

@@ -252,23 +252,27 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="2Ym-Kd-9nC"/>
                                     <constraint firstAttribute="width" constant="320" id="3vL-cV-F45"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="5sY-3b-mSP"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="210" id="DHG-iN-qxB"/>
                                     <constraint firstAttribute="width" secondItem="fzN-r2-3PC" secondAttribute="height" multiplier="1:1" id="H8j-Y4-QhD"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="Mwn-mQ-ZZk"/>
+                                    <constraint firstAttribute="width" secondItem="fzN-r2-3PC" secondAttribute="height" multiplier="32:21" id="ORM-yv-tSP"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="R2o-sJ-dVk"/>
                                     <constraint firstAttribute="width" secondItem="fzN-r2-3PC" secondAttribute="height" multiplier="1:1" id="TDN-5x-zMX"/>
                                     <constraint firstAttribute="height" constant="200" id="bYi-qS-N7d"/>
-                                    <constraint firstAttribute="height" constant="210" id="sIf-MK-8ci"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="210" id="sIf-MK-8ci"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="2Ym-Kd-9nC"/>
                                         <exclude reference="3vL-cV-F45"/>
                                         <exclude reference="5sY-3b-mSP"/>
+                                        <exclude reference="DHG-iN-qxB"/>
                                         <exclude reference="H8j-Y4-QhD"/>
                                         <exclude reference="Mwn-mQ-ZZk"/>
                                         <exclude reference="R2o-sJ-dVk"/>
                                         <exclude reference="TDN-5x-zMX"/>
                                         <exclude reference="bYi-qS-N7d"/>
+                                        <exclude reference="sIf-MK-8ci"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -281,7 +285,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="テキストが入る" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-2w-1Mi">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="tipsText" text="テキストが入る" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-2w-1Mi">
                                 <rect key="frame" x="17" y="335" width="341" height="242"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -393,6 +397,6 @@
         <image name="empty" width="1" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vVm-39-T7Z"/>
+        <segue reference="kxZ-Qe-yiX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,7 +21,7 @@
     self.TipsNextLabel.text = _TipsNextTitle;
     switch(_TipsNextNum){
         case 1:
-            _TipsNextText.text = @"レジ袋などに入れた\nプラスチック容器は\nさらに大きな袋に入れて\nごみに出さないでください";
+            _TipsNextText.text = @"レジ袋などに入れた\nプラスチック容器は\nさらに大きな袋に入れて\nごみに出さないでください\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ\nあ";
             _TipsNextImage.image=[UIImage imageNamed:@"tips1"];
             break;
         case 2:
@@ -45,6 +45,7 @@
     _TipsNextText.backgroundColor = [UIColor whiteColor];
     _TipsNextText.textAlignment = NSTextAlignmentCenter;
     _TipsNextText.editable = NO;
+    [_TipsNextText flashScrollIndicators];
 }
 
 - (void)didReceiveMemoryWarning {

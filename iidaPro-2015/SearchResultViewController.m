@@ -21,9 +21,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"%@", _resultArray);
-    NSLog(@"%lu", (unsigned long)_resultArray.count);
-    
     NSMutableString *searchTitle = [NSMutableString stringWithString:_searchText];
     [searchTitle appendString:@"の検索結果"];
     self.title = searchTitle;
@@ -81,6 +78,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (_resultArray.count == 0) {
+        return 1;
+    }
     return _resultArray.count;
 }
 
@@ -94,7 +94,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
+    if (_resultArray.count == 0) {
+        cell.textLabel.text = @"該当する品目はありません";
+    } else {
+        cell.textLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
+    }
     
     return cell;
 }

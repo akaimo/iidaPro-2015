@@ -42,9 +42,10 @@
             break;
     }
     _TipsNextText.textColor = [UIColor blackColor];
-    _TipsNextText.backgroundColor = [UIColor yellowColor];
+    _TipsNextText.backgroundColor = [UIColor whiteColor];
     _TipsNextText.textAlignment = NSTextAlignmentCenter;
     _TipsNextText.editable = NO;
+    [_TipsNextText flashScrollIndicators];
 }
 
 - (void)didReceiveMemoryWarning {

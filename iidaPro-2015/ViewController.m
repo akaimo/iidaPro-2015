@@ -207,7 +207,7 @@ const CGFloat iconMargin = 20.0;
 //    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
 //    
 //    NSString *event = [NSString stringWithFormat:@"%@ %@", [dict valueForKey:@"date"], [dict valueForKey:@"event"]];
-    NSString *event = @"7月25日 中間発表";
+    NSString *event = @"00月00日 hogehoge";
     
     return event;
 }

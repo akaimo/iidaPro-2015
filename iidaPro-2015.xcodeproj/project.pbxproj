@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		389A44213B0286BBE29D4676 /* libPods-iidaPro-2015Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD91141394A64D343873CB7 /* libPods-iidaPro-2015Tests.a */; };
 		8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1851B467B5A0060BF02 /* Main.storyboard */; };
 		8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */; };
 		8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */; };
 		8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */; };
 		8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */; };
 		8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9387851B4DF37E004E70E2 /* TipsViewController.m */; };
+		99781C5C1B8355910083CC7D /* Classification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5B1B8355910083CC7D /* Classification.m */; };
+		99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5E1B835AAB0083CC7D /* Knowledge.m */; };
+		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
 		998992881B33B6A5000B7FD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992871B33B6A5000B7FD2 /* main.m */; };
 		9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928A1B33B6A5000B7FD2 /* AppDelegate.m */; };
 		9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928D1B33B6A5000B7FD2 /* ViewController.m */; };
@@ -20,6 +24,7 @@
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
 		99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */; };
+		FFB5FC4A92362B27A409D612 /* libPods-iidaPro-2015.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AD91141394A64D343873CB7 /* libPods-iidaPro-2015Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iidaPro-2015Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BB2B62595F38D5333CA39A7 /* Pods-iidaPro-2015.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015.debug.xcconfig"; sourceTree = "<group>"; };
+		46F83707640A8F08C706D118 /* Pods-iidaPro-2015Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015Tests/Pods-iidaPro-2015Tests.release.xcconfig"; sourceTree = "<group>"; };
+		59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iidaPro-2015.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B18F1851B467B5A0060BF02 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B3E08DA1B4E5EE1001EE9B4 /* SecondTipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTipsViewController.h; sourceTree = "<group>"; };
 		8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTipsViewController.m; sourceTree = "<group>"; };
@@ -44,6 +53,12 @@
 		8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsNextViewController.m; sourceTree = "<group>"; };
 		8B9387841B4DF37E004E70E2 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
 		8B9387851B4DF37E004E70E2 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
+		99781C5A1B8355910083CC7D /* Classification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Classification.h; sourceTree = "<group>"; };
+		99781C5B1B8355910083CC7D /* Classification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classification.m; sourceTree = "<group>"; };
+		99781C5D1B835AAB0083CC7D /* Knowledge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knowledge.h; sourceTree = "<group>"; };
+		99781C5E1B835AAB0083CC7D /* Knowledge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knowledge.m; sourceTree = "<group>"; };
+		99781C601B835D3C0083CC7D /* RealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmController.h; sourceTree = "<group>"; };
+		99781C611B835D3C0083CC7D /* RealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmController.m; sourceTree = "<group>"; };
 		998992821B33B6A5000B7FD2 /* iidaPro-2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iidaPro-2015.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992861B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		998992871B33B6A5000B7FD2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,6 +73,8 @@
 		998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iidaPro_2015Tests.m; sourceTree = "<group>"; };
 		99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
+		B724D6246FB52462BBC8C540 /* Pods-iidaPro-2015.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015.release.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015.release.xcconfig"; sourceTree = "<group>"; };
+		BEDB9DFAF44AABBF0346C543 /* Pods-iidaPro-2015Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015Tests/Pods-iidaPro-2015Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB5FC4A92362B27A409D612 /* libPods-iidaPro-2015.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +90,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				389A44213B0286BBE29D4676 /* libPods-iidaPro-2015Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50BB014282667F8487AEB368 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */,
+				1AD91141394A64D343873CB7 /* libPods-iidaPro-2015Tests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6803BDFF8FBEE7421D415586 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1BB2B62595F38D5333CA39A7 /* Pods-iidaPro-2015.debug.xcconfig */,
+				B724D6246FB52462BBC8C540 /* Pods-iidaPro-2015.release.xcconfig */,
+				BEDB9DFAF44AABBF0346C543 /* Pods-iidaPro-2015Tests.debug.xcconfig */,
+				46F83707640A8F08C706D118 /* Pods-iidaPro-2015Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8B7F9CCD1B4B8711008A825F /* tips */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +142,27 @@
 			name = TipNext;
 			sourceTree = "<group>";
 		};
+		99781C591B8355540083CC7D /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				99781C601B835D3C0083CC7D /* RealmController.h */,
+				99781C611B835D3C0083CC7D /* RealmController.m */,
+				99781C5A1B8355910083CC7D /* Classification.h */,
+				99781C5B1B8355910083CC7D /* Classification.m */,
+				99781C5D1B835AAB0083CC7D /* Knowledge.h */,
+				99781C5E1B835AAB0083CC7D /* Knowledge.m */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
 		998992791B33B6A5000B7FD2 = {
 			isa = PBXGroup;
 			children = (
 				998992841B33B6A5000B7FD2 /* iidaPro-2015 */,
 				9989929E1B33B6A5000B7FD2 /* iidaPro-2015Tests */,
 				998992831B33B6A5000B7FD2 /* Products */,
+				6803BDFF8FBEE7421D415586 /* Pods */,
+				50BB014282667F8487AEB368 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +184,7 @@
 				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
 				99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */,
 				99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */,
+				99781C591B8355540083CC7D /* Realm */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
@@ -172,9 +227,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 998992A51B33B6A5000B7FD2 /* Build configuration list for PBXNativeTarget "iidaPro-2015" */;
 			buildPhases = (
+				BB7130A464909E4C2CABF593 /* Check Pods Manifest.lock */,
 				9989927E1B33B6A5000B7FD2 /* Sources */,
 				9989927F1B33B6A5000B7FD2 /* Frameworks */,
 				998992801B33B6A5000B7FD2 /* Resources */,
+				DEFBDCEDC184DF27BF3C98A4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,9 +246,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 998992A81B33B6A5000B7FD2 /* Build configuration list for PBXNativeTarget "iidaPro-2015Tests" */;
 			buildPhases = (
+				4B6C51B85EFA73FA43D64627 /* Check Pods Manifest.lock */,
 				998992971B33B6A5000B7FD2 /* Sources */,
 				998992981B33B6A5000B7FD2 /* Frameworks */,
 				998992991B33B6A5000B7FD2 /* Resources */,
+				F156255AE37934D233A21C90 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,6 +320,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4B6C51B85EFA73FA43D64627 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB7130A464909E4C2CABF593 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DEFBDCEDC184DF27BF3C98A4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F156255AE37934D233A21C90 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iidaPro-2015Tests/Pods-iidaPro-2015Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9989927E1B33B6A5000B7FD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -269,7 +391,10 @@
 				8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */,
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
+				99781C5C1B8355910083CC7D /* Classification.m in Sources */,
+				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
 				99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */,
+				99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */,
 				8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
 				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,
@@ -389,6 +514,7 @@
 		};
 		998992A61B33B6A5000B7FD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BB2B62595F38D5333CA39A7 /* Pods-iidaPro-2015.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "iidaPro-2015/Info.plist";
@@ -399,6 +525,7 @@
 		};
 		998992A71B33B6A5000B7FD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B724D6246FB52462BBC8C540 /* Pods-iidaPro-2015.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "iidaPro-2015/Info.plist";
@@ -409,6 +536,7 @@
 		};
 		998992A91B33B6A5000B7FD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEDB9DFAF44AABBF0346C543 /* Pods-iidaPro-2015Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -428,6 +556,7 @@
 		};
 		998992AA1B33B6A5000B7FD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46F83707640A8F08C706D118 /* Pods-iidaPro-2015Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

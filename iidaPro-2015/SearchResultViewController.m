@@ -46,25 +46,14 @@
 
 #pragma mark - searchBar
 - (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar {
-    // TODO: 検索ワードから検索をかけ、辞書で返す
-    NSMutableArray *array = [NSMutableArray array];
-    for (int i=0; i<20; i++) {
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        [dic setObject:@"hogehoge" forKey:@"name"];
-        [dic setObject:@"燃えるゴミ" forKey:@"trash"];
-        NSNumber *num = [NSNumber numberWithInt:i];
-        [dic setObject:num forKey:@"num"];
-        NSNumber *sepa = [NSNumber numberWithBool:NO];
-        [dic setObject:sepa forKey:@"separation"];
-        [array addObject:dic];
-    }
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS %@ OR read CONTAINS %@", searchBar.text, searchBar.text];
+    RLMResults *results = [Classification objectsWithPredicate:pred];
     
-    // TODO: 検索結果を表示するためにtableViewを更新する
     NSMutableString *searchTitle = [NSMutableString stringWithString:_searchBar.text];
     [searchTitle appendString:@"の検索結果"];
     self.title = searchTitle;
     
-    _resultArray = array;
+    _resultArray = results;
     [_searchTableView reloadData];
     
     [_searchBar resignFirstResponder];
@@ -89,6 +78,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (_resultArray.count == 0) {
+        return 1;
+    }
     return _resultArray.count;
 }
 
@@ -102,7 +94,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [_resultArray[indexPath.row] valueForKey:@"name"];
+    if (_resultArray.count == 0) {
+        cell.textLabel.text = @"該当する品目はありません";
+    } else {
+        cell.textLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
+    }
     
     return cell;
 }

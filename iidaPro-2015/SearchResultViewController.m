@@ -7,6 +7,7 @@
 //
 
 #import "SearchResultViewController.h"
+#import "SearchTableViewCell.h"
 
 @interface SearchResultViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
@@ -32,6 +33,9 @@
     
     _searchBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(tapSearch:)];
     self.navigationItem.rightBarButtonItem = _searchBtn;
+    
+    UINib *nib = [UINib nibWithNibName:@"SearchTableViewCell" bundle:nil];
+    [_searchTableView registerNib:nib forCellReuseIdentifier:@"Trash"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -86,24 +90,43 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: ゴミ分別マークとゴミの名前を表示
-    tableView.separatorColor = [UIColor clearColor];
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+//    tableView.separatorColor = [UIColor clearColor];
+//    static NSString *CellIdentifier = @"Cell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    }
+//    
+//    if (_resultArray.count == 0) {
+//        cell.textLabel.text = @"該当する品目はありません";
+//    } else {
+//        cell.textLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
+//    }
     
     if (_resultArray.count == 0) {
+        static NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.textLabel.text = @"該当する品目はありません";
-    } else {
-        cell.textLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
+        return cell;
     }
+    
+    SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
+    cell.trashLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
+    // TODO: ゴミの種別によりアイコンを変える
+    cell.trashImage.image = [UIImage imageNamed:@"sun"];
+    // TODO: 豆知識があればアイコンを表示する
+    cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];
     
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 66.0;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: 豆知識がある場合は豆知識ページへ遷移
     NSLog(@"%ld", (long)indexPath.row);

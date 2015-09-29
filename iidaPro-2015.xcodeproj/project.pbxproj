@@ -14,6 +14,8 @@
 		8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */; };
 		8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */; };
 		8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9387851B4DF37E004E70E2 /* TipsViewController.m */; };
+		991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 991997FE1B889FE9005DD65F /* SearchTableViewCell.m */; };
+		991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */; };
 		99781C5C1B8355910083CC7D /* Classification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5B1B8355910083CC7D /* Classification.m */; };
 		99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5E1B835AAB0083CC7D /* Knowledge.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
@@ -53,6 +55,9 @@
 		8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsNextViewController.m; sourceTree = "<group>"; };
 		8B9387841B4DF37E004E70E2 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
 		8B9387851B4DF37E004E70E2 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
+		991997FD1B889FE9005DD65F /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		991997FE1B889FE9005DD65F /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		99781C5A1B8355910083CC7D /* Classification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Classification.h; sourceTree = "<group>"; };
 		99781C5B1B8355910083CC7D /* Classification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classification.m; sourceTree = "<group>"; };
 		99781C5D1B835AAB0083CC7D /* Knowledge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knowledge.h; sourceTree = "<group>"; };
@@ -142,6 +147,18 @@
 			name = TipNext;
 			sourceTree = "<group>";
 		};
+		991998021B88A239005DD65F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */,
+				99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */,
+				991997FD1B889FE9005DD65F /* SearchTableViewCell.h */,
+				991997FE1B889FE9005DD65F /* SearchTableViewCell.m */,
+				991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		99781C591B8355540083CC7D /* Realm */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,8 +199,7 @@
 				9989928A1B33B6A5000B7FD2 /* AppDelegate.m */,
 				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
 				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
-				99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */,
-				99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */,
+				991998021B88A239005DD65F /* Search */,
 				99781C591B8355540083CC7D /* Realm */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
@@ -308,6 +324,7 @@
 				998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */,
 				998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */,
 				8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */,
+				991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +410,7 @@
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				99781C5C1B8355910083CC7D /* Classification.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
+				991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */,
 				99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */,
 				99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */,
 				8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */,

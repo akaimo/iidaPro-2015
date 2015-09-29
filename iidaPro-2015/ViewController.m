@@ -25,7 +25,7 @@
 
 @end
 
-const NSUInteger iconNum = 7;
+const NSUInteger iconNum = 6;
 const CGFloat iconMargin = 20.0;
 
 @implementation ViewController

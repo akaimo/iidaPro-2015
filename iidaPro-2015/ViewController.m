@@ -261,7 +261,7 @@ const CGFloat iconMargin = 20.0;
 #pragma mark -
 - (void)nextPage:(UIButton *)sender {
     switch (sender.tag) {
-        case 3:{
+        case 1:{
             TipsTabViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TipsTabView"];
             [self presentViewController:controller animated:YES completion:nil];
             break;

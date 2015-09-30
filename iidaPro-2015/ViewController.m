@@ -13,9 +13,10 @@
 
 @interface ViewController () <UISearchBarDelegate>
 
-@property (retain, nonatomic) UISearchBar *searchBar;
+//@property (retain, nonatomic) UISearchBar *searchBar;
 @property (retain, nonatomic) UIImageView *trashView;
 @property (retain, nonatomic) UIScrollView *btnScrollView;
+@property (retain, nonatomic) UIView *bottomView;
 
 @property float screenWidth;    // 画面サイズ（横）
 @property float screenHeight;   // 画面サイズ（縦）
@@ -32,7 +33,6 @@ const CGFloat iconMargin = 20.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
     CGRect screen = [[UIScreen mainScreen] bounds];
     _screenWidth = screen.size.width;
@@ -43,11 +43,8 @@ const CGFloat iconMargin = 20.0;
     
     // TODO: 端末情報から端末によりフォントサイズを調整
     
-    [self setupSearchBar];
     [self setBackgroundImage];
     [self setupTrashImage];
-    [self setupDateLabel];
-    [self setupEventLabel];
     [self setupScrollBar];
     
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
@@ -61,46 +58,6 @@ const CGFloat iconMargin = 20.0;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-#pragma mark - searchBar
-- (void)setupSearchBar {
-    _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, 44)];
-    _searchBar.delegate = self;
-    _searchBar.placeholder = @"Search";
-    _searchBar.backgroundImage = [UIImage imageNamed:@"empty"];
-    
-    [self.view addSubview:_searchBar];
-}
-
-// 検索(enter)したとき
-- (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar {
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS %@ OR read CONTAINS %@", searchBar.text, searchBar.text];
-    RLMResults *results = [Classification objectsWithPredicate:pred];
-    
-    SearchResultViewController *searchResultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Search"];
-    searchResultVC.resultArray = results;
-    searchResultVC.searchText = searchBar.text;
-    [self.navigationController pushViewController:searchResultVC animated:YES];
-    
-    [_searchBar resignFirstResponder];  // キーボードを閉じる
-}
-
-// キャンセルボタンがタップされたとき
-- (void)searchBarCancelButtonClicked:(UISearchBar*)searchBar {
-}
-
-// 値が変更されたとき
-- (void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)searchText {
-}
-
-// テキスト入力を開始したとき
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-}
-
-- (void)singleTap:(UITapGestureRecognizer *)sender {
-    [_searchBar resignFirstResponder];
 }
 
 
@@ -131,86 +88,7 @@ const CGFloat iconMargin = 20.0;
 }
 
 
-#pragma mark - DateLabel
-- (void)setupDateLabel {
-    const float px = 0.0;
-    const float py = _screenHeight * 1/9;
-    const float labelHeight = _screenHeight * 1/8;
-    
-    UILabel *dateLabel = [[UILabel alloc] init];
-    dateLabel.frame = CGRectMake(px, py, _screenWidth, labelHeight);
-    dateLabel.textAlignment = NSTextAlignmentCenter;
-    dateLabel.font = [UIFont systemFontOfSize:40];
-    dateLabel.textColor = [UIColor whiteColor];
-    dateLabel.text = [self getDate];
-    
-    [self.view addSubview:dateLabel];
-}
-
-- (NSString *)getDate {
-    NSDate *now = [NSDate date];
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday fromDate:now];
-    
-    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
-    [formatter setDateFormat:@"M月dd日"];
-    NSString* now_str = [formatter stringFromDate:now];
-    NSString* weekDayStr = formatter.shortWeekdaySymbols[comps.weekday-1];
-    
-    NSString* date_str = [NSString stringWithFormat:@"%@(%@)", now_str, weekDayStr];
-    
-    return date_str;
-}
-
-
 #pragma mark - EventLavel
-- (void)setupEventLabel {
-    const float px = 0.0;
-    const float py = _screenHeight - (2*_labelMargin + _scrollHeight + _eventHeight);
-    
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    blurEffectView.frame = CGRectMake(px, py, _screenWidth, _eventHeight);
-    [self.view addSubview:blurEffectView];
-    
-    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
-    UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
-    vibrancyEffectView.frame = CGRectMake(0.0, 0.0, blurEffectView.bounds.size.width, blurEffectView.bounds.size.height);
-    [blurEffectView.contentView addSubview:vibrancyEffectView];
-    
-    UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake(0.0, 0.0, _screenWidth, _eventHeight);
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont systemFontOfSize:22];
-    label.text = [self getEvent];
-    [vibrancyEffectView.contentView addSubview: label];
-}
-
-- (NSString *)getEvent {
-//    NSURL *url = [NSURL URLWithString:@"http://133.242.226.227/api/get"];
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-//    [request setHTTPMethod:@"POST"];
-//    NSString *param = [NSString stringWithFormat:@"num=0"];
-//    [request setHTTPBody:[param dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    NSURLResponse *response = nil;
-//    NSError *error = nil;
-//    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//    
-//    if (error != nil) {
-//        NSLog(@"Error!");
-//        return;
-//    }
-//    
-//    NSError *e = nil;
-//    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&e];
-//    
-//    NSString *event = [NSString stringWithFormat:@"%@ %@", [dict valueForKey:@"date"], [dict valueForKey:@"event"]];
-    NSString *event = @"00月00日 hogehoge";
-    
-    return event;
-}
 
 
 #pragma mark - ScrolllView

@@ -95,7 +95,7 @@ const CGFloat iconMargin = 20.0;
 #pragma mark - ScrolllView
 - (void)setupBottomView {
     _bottomView = [[UIView alloc] init];
-    _bottomView.frame = CGRectMake(0, _screenHeight * 4/5, _screenWidth, _screenHeight * 1/5);
+    _bottomView.frame = CGRectMake(0, _screenHeight * 9/11, _screenWidth, _screenHeight * 2/11);
     _bottomView.backgroundColor = [UIColor blueColor];
     [self.view addSubview:_bottomView];
 }

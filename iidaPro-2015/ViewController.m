@@ -44,6 +44,7 @@ const CGFloat iconMargin = 20.0;
     // TODO: 端末情報から端末によりフォントサイズを調整
     
     [self setBackgroundImage];
+    [self setupBottomView];
     [self setupTrashImage];
     [self setupScrollBar];
     
@@ -92,6 +93,13 @@ const CGFloat iconMargin = 20.0;
 
 
 #pragma mark - ScrolllView
+- (void)setupBottomView {
+    _bottomView = [[UIView alloc] init];
+    _bottomView.frame = CGRectMake(0, _screenHeight * 4/5, _screenWidth, _screenHeight * 1/5);
+    _bottomView.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:_bottomView];
+}
+
 - (void)setupScrollBar {
     const float px = 0.0;
     const float py = _screenHeight - _scrollHeight - _labelMargin;

@@ -45,6 +45,8 @@ const CGFloat iconMargin = 20.0;
     
     [self setBackgroundImage];
     [self setupBottomView];
+    
+    [self setupLabel];
     [self setupTrashImage];
     [self setupScrollBar];
     
@@ -90,6 +92,15 @@ const CGFloat iconMargin = 20.0;
 
 
 #pragma mark - EventLavel
+- (void)setupLabel {
+    UILabel *locationLabel = [[UILabel alloc] init];
+    locationLabel.frame = CGRectMake(0, _screenHeight * 1/13, _screenWidth, _screenHeight * 1/13);
+    locationLabel.textAlignment = NSTextAlignmentCenter;
+    locationLabel.font = [UIFont boldSystemFontOfSize:36];
+    locationLabel.textColor = [UIColor whiteColor];
+    locationLabel.text = @"多摩区";
+    [self.view addSubview:locationLabel];
+}
 
 
 #pragma mark - ScrolllView

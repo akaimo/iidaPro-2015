@@ -44,6 +44,7 @@ const CGFloat iconMargin = 20.0;
     // TODO: 端末情報から端末によりフォントサイズを調整
     
     [self setBackgroundImage];
+    [self setupTopView];
     [self setupBottomView];
     
     [self setupLabel];
@@ -64,7 +65,15 @@ const CGFloat iconMargin = 20.0;
 }
 
 
-#pragma mark -
+#pragma mark - TopView
+- (void)setupTopView {
+    UIView *topView = [[UIView alloc] init];
+    topView.frame = CGRectMake(0, 0, _screenWidth, _screenHeight * 7/10);
+    // TODO: 天気ごとに色を変える
+    topView.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:topView];
+}
+
 - (void)setBackgroundImage {
     // TODO: 天気APIにより背景画像の切り替え
     UIGraphicsBeginImageContext(self.view.frame.size);

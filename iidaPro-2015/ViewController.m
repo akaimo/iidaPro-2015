@@ -50,9 +50,6 @@ const CGFloat iconMargin = 20.0;
     [self setupLabel];
     [self setupTrashImage];
     [self setupScrollBar];
-    
-    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
-    [self.view addGestureRecognizer:tgr];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -107,6 +104,7 @@ const CGFloat iconMargin = 20.0;
     locationLabel.textAlignment = NSTextAlignmentCenter;
     locationLabel.font = [UIFont boldSystemFontOfSize:36];
     locationLabel.textColor = [UIColor whiteColor];
+    // TODO: 登録されている地域名を取得
     locationLabel.text = @"多摩区";
     [self.view addSubview:locationLabel];
 }
@@ -116,6 +114,7 @@ const CGFloat iconMargin = 20.0;
 - (void)setupBottomView {
     _bottomView = [[UIView alloc] init];
     _bottomView.frame = CGRectMake(0, _screenHeight * 9/11, _screenWidth, _screenHeight * 2/11);
+    // TODO: 天気によって色を変える
     _bottomView.backgroundColor = [UIColor blueColor];
     [self.view addSubview:_bottomView];
 }

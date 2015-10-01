@@ -88,9 +88,9 @@ const CGFloat iconMargin = 20.0;
 
 - (void)setupTrashImage {
     // TODO: ゴミDBから当日のゴミマークを取得
-    const float px = _screenWidth * 1/6;
-    const float py = _screenHeight * 2/9;
-    const float square = _screenWidth * 4/6;
+    const float px = _screenWidth * 2/11;
+    const float py = _screenHeight * 2/10;
+    const float square = _screenWidth * 7/11;
     
     _trashView = [[UIImageView alloc] init];
     _trashView.frame = CGRectMake(px, py, square, square);
@@ -103,7 +103,7 @@ const CGFloat iconMargin = 20.0;
 #pragma mark - EventLavel
 - (void)setupLabel {
     UILabel *locationLabel = [[UILabel alloc] init];
-    locationLabel.frame = CGRectMake(0, _screenHeight * 1/13, _screenWidth, _screenHeight * 1/13);
+    locationLabel.frame = CGRectMake(0, _screenHeight * 1/15, _screenWidth, _screenHeight * 1/15);
     locationLabel.textAlignment = NSTextAlignmentCenter;
     locationLabel.font = [UIFont boldSystemFontOfSize:36];
     locationLabel.textColor = [UIColor whiteColor];
@@ -112,7 +112,7 @@ const CGFloat iconMargin = 20.0;
     [self.view addSubview:locationLabel];
     
     UILabel *eventLabel = [[UILabel alloc] init];
-    eventLabel.frame = CGRectMake(0, _screenHeight * 2/13, _screenWidth, _screenHeight * 1/15);
+    eventLabel.frame = CGRectMake(0, _screenHeight * 2/15, _screenWidth, _screenHeight * 1/17);
     eventLabel.textAlignment = NSTextAlignmentCenter;
     eventLabel.font = [UIFont systemFontOfSize:18];
     eventLabel.textColor = [UIColor whiteColor];

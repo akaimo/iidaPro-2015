@@ -85,9 +85,9 @@ const CGFloat iconMargin = 20.0;
 
 - (void)setupTrashImage {
     // TODO: ゴミDBから当日のゴミマークを取得
-    const float px = _screenWidth * 1/8;
+    const float px = _screenWidth * 1/6;
     const float py = _screenHeight * 2/9;
-    const float square = _screenWidth * 6/8;
+    const float square = _screenWidth * 4/6;
     
     _trashView = [[UIImageView alloc] init];
     _trashView.frame = CGRectMake(px, py, square, square);

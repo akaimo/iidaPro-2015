@@ -67,7 +67,13 @@ const CGFloat iconMargin = 20.0;
     UIView *topView = [[UIView alloc] init];
     topView.frame = CGRectMake(0, 0, _screenWidth, _screenHeight * 7/10);
     // TODO: 天気ごとに色を変える
-    topView.backgroundColor = [UIColor blueColor];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = topView.bounds;
+    gradient.colors = @[
+                        (id)[UIColor colorWithRed:71/255.0 green:117/255.0 blue:192/255.0 alpha:1].CGColor,
+                        (id)[UIColor colorWithRed:21/255.0 green:39/255.0 blue:69/255.0 alpha:1].CGColor
+                        ];
+    [topView.layer insertSublayer:gradient atIndex:0];
     [self.view addSubview:topView];
 }
 
@@ -121,7 +127,7 @@ const CGFloat iconMargin = 20.0;
     _bottomView = [[UIView alloc] init];
     _bottomView.frame = CGRectMake(0, _screenHeight * 9/11, _screenWidth, _screenHeight * 2/11);
     // TODO: 天気によって色を変える
-    _bottomView.backgroundColor = [UIColor blueColor];
+    _bottomView.backgroundColor = [UIColor colorWithRed:74/255.0 green:144/255.0 blue:226/255.0 alpha:1.0];
     [self.view addSubview:_bottomView];
 }
 

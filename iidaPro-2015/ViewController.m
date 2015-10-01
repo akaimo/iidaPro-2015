@@ -107,6 +107,15 @@ const CGFloat iconMargin = 20.0;
     // TODO: 登録されている地域名を取得
     locationLabel.text = @"多摩区";
     [self.view addSubview:locationLabel];
+    
+    UILabel *eventLabel = [[UILabel alloc] init];
+    eventLabel.frame = CGRectMake(0, _screenHeight * 2/13, _screenWidth, _screenHeight * 1/15);
+    eventLabel.textAlignment = NSTextAlignmentCenter;
+    eventLabel.font = [UIFont systemFontOfSize:18];
+    eventLabel.textColor = [UIColor whiteColor];
+    // TODO: イベントAPIからtextを取得
+    eventLabel.text = @"00月00日にhogehogehogehoge";
+    [self.view addSubview:eventLabel];
 }
 
 

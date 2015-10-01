@@ -43,9 +43,9 @@ const CGFloat iconMargin = 20.0;
     
     // TODO: 端末情報から端末によりフォントサイズを調整
     
-    [self setBackgroundImage];
     [self setupTopView];
     [self setupBottomView];
+    [self setBackgroundImage];
     
     [self setupLabel];
     [self setupTrashImage];
@@ -73,14 +73,11 @@ const CGFloat iconMargin = 20.0;
 
 - (void)setBackgroundImage {
     // TODO: 天気APIにより背景画像の切り替え
-    UIGraphicsBeginImageContext(self.view.frame.size);
-//    [[UIImage imageNamed:@"Sunny"] drawInRect:self.view.bounds];
-//    [[UIImage imageNamed:@"Cloudy"] drawInRect:self.view.bounds];
-    [[UIImage imageNamed:@"Rainy"] drawInRect:self.view.bounds];
-//    [[UIImage imageNamed:@"Snowy"] drawInRect:self.view.bounds];
-    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    UIImageView *weatherImageView = [[UIImageView alloc] init];
+    weatherImageView.image = [UIImage imageNamed:@"Rainy"];
+    // TODO: 要調整
+    weatherImageView.frame = CGRectMake(0, _screenHeight * 9/11 - 150, _screenWidth, 150);
+    [self.view addSubview:weatherImageView];
 }
 
 - (void)setupTrashImage {

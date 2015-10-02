@@ -20,9 +20,7 @@
 
 @property float screenWidth;    // 画面サイズ（横）
 @property float screenHeight;   // 画面サイズ（縦）
-@property float labelMargin;    // scrollBarとeventLabelのマージン
 @property float scrollHeight;   // ScrollBarの高さ
-@property float eventHeight;
 
 @end
 
@@ -37,9 +35,7 @@ const CGFloat iconMargin = 20.0;
     CGRect screen = [[UIScreen mainScreen] bounds];
     _screenWidth = screen.size.width;
     _screenHeight = screen.size.height;
-    _labelMargin = _screenHeight * 1/32;
     _scrollHeight = _screenHeight * 4/32;
-    _eventHeight = _screenHeight * 3/28;
     
     // TODO: 端末情報から端末によりフォントサイズを調整
     
@@ -132,8 +128,9 @@ const CGFloat iconMargin = 20.0;
 }
 
 - (void)setupScrollBar {
+    const float labelMargin = _screenHeight * 1/32;
     const float px = 0.0;
-    const float py = _screenHeight - _scrollHeight - _labelMargin;
+    const float py = _screenHeight - _scrollHeight - labelMargin;
     
     _btnScrollView = [[UIScrollView alloc] init];
     _btnScrollView.frame = CGRectMake(px, py, _screenWidth, _scrollHeight);

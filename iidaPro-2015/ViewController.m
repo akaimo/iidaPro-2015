@@ -134,6 +134,7 @@ const CGFloat iconMargin = 20.0;
     
     _btnScrollView = [[UIScrollView alloc] init];
     _btnScrollView.frame = CGRectMake(px, py, _screenWidth, _scrollHeight);
+    [_btnScrollView setShowsHorizontalScrollIndicator:NO];
     [self.view addSubview:_btnScrollView];
     
     [self setScrollContent];
@@ -205,7 +206,7 @@ const CGFloat iconMargin = 20.0;
         case 6:{
             // 設定
             break;
-        } 
+        }
             
         default:
             NSLog(@"%ld", (long)sender.tag);

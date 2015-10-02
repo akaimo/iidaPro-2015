@@ -12,6 +12,7 @@
 #import "Classification.h"
 #import "CalendarViewController.h"
 #import "AlarmViewController.h"
+#import "ContactViewController.h"
 
 @interface ViewController () <UISearchBarDelegate>
 
@@ -206,6 +207,8 @@ const CGFloat iconMargin = 20.0;
             
         case 5:{
             // 問い合わせ
+            ContactViewController *contact = [self.storyboard instantiateViewControllerWithIdentifier:@"Contact"];
+            [self.navigationController pushViewController:contact animated:YES];
             break;
         }
             

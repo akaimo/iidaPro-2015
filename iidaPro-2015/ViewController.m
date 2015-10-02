@@ -10,6 +10,7 @@
 #import "TipsTabViewController.h"
 #import "SearchResultViewController.h"
 #import "Classification.h"
+#import "CalendarViewController.h"
 
 @interface ViewController () <UISearchBarDelegate>
 
@@ -190,6 +191,8 @@ const CGFloat iconMargin = 20.0;
             
         case 3:{
             // カレンダー
+            CalendarViewController *calendar = [self.storyboard instantiateViewControllerWithIdentifier:@"Calendar"];
+            [self.navigationController pushViewController:calendar animated:YES];
             break;
         }
             

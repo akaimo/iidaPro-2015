@@ -13,6 +13,7 @@
 #import "CalendarViewController.h"
 #import "AlarmViewController.h"
 #import "ContactViewController.h"
+#import "SettingViewController.h"
 
 @interface ViewController () <UISearchBarDelegate>
 
@@ -214,11 +215,13 @@ const CGFloat iconMargin = 20.0;
             
         case 6:{
             // 設定
+            SettingViewController *setting = [self.storyboard instantiateViewControllerWithIdentifier:@"Setting"];
+            [self.navigationController pushViewController:setting animated:YES];
             break;
         }
             
         default:
-            NSLog(@"%ld", (long)sender.tag);
+            NSLog(@"Error");
             break;
     }
 }

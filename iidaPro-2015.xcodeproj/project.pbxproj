@@ -152,11 +152,19 @@
 			children = (
 				99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */,
 				99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */,
+				9976453A1BBE8C3E007A5C78 /* Cell */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		9976453A1BBE8C3E007A5C78 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				991997FD1B889FE9005DD65F /* SearchTableViewCell.h */,
 				991997FE1B889FE9005DD65F /* SearchTableViewCell.m */,
 				991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */,
 			);
-			name = Search;
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		99781C591B8355540083CC7D /* Realm */ = {
@@ -200,11 +208,11 @@
 				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
 				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
 				991998021B88A239005DD65F /* Search */,
+				8B7F9CCD1B4B8711008A825F /* tips */,
 				99781C591B8355540083CC7D /* Realm */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
-				8B7F9CCD1B4B8711008A825F /* tips */,
 				998992851B33B6A5000B7FD2 /* Supporting Files */,
 			);
 			path = "iidaPro-2015";

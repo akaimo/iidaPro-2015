@@ -19,7 +19,7 @@
 @property (retain, nonatomic) UIView *bottomView;
 
 @property float screenWidth;    // 画面サイズ（横）
-@property float screenHeight;   // 画面サイズ（縦）
+@property float screenHeight;   // 画面サイズ（縦） 
 @property float scrollHeight;   // ScrollBarの高さ
 
 @end
@@ -176,10 +176,36 @@ const CGFloat iconMargin = 20.0;
 - (void)nextPage:(UIButton *)sender {
     switch (sender.tag) {
         case 1:{
+            // 検索
+            break;
+        }
+            
+        case 2:{
+            // 豆知識
             TipsTabViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TipsTabView"];
             [self presentViewController:controller animated:YES completion:nil];
             break;
         }
+            
+        case 3:{
+            // カレンダー
+            break;
+        }
+            
+        case 4:{
+            // アラーム
+            break;
+        }
+            
+        case 5:{
+            // 問い合わせ
+            break;
+        }
+            
+        case 6:{
+            // 設定
+            break;
+        } 
             
         default:
             NSLog(@"%ld", (long)sender.tag);

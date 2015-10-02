@@ -17,6 +17,7 @@
 		991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 991997FE1B889FE9005DD65F /* SearchTableViewCell.m */; };
 		991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */; };
 		9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453C1BBEADCB007A5C78 /* CalendarViewController.m */; settings = {ASSET_TAGS = (); }; };
+		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; settings = {ASSET_TAGS = (); }; };
 		99781C5C1B8355910083CC7D /* Classification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5B1B8355910083CC7D /* Classification.m */; };
 		99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5E1B835AAB0083CC7D /* Knowledge.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
@@ -61,6 +62,8 @@
 		991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		9976453B1BBEADCB007A5C78 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		9976453C1BBEADCB007A5C78 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
+		9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		99781C5A1B8355910083CC7D /* Classification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Classification.h; sourceTree = "<group>"; };
 		99781C5B1B8355910083CC7D /* Classification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classification.m; sourceTree = "<group>"; };
 		99781C5D1B835AAB0083CC7D /* Knowledge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knowledge.h; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				99781C591B8355540083CC7D /* Realm */,
 				9976453B1BBEADCB007A5C78 /* CalendarViewController.h */,
 				9976453C1BBEADCB007A5C78 /* CalendarViewController.m */,
+				9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */,
+				9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
@@ -422,6 +427,7 @@
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				99781C5C1B8355910083CC7D /* Classification.m in Sources */,
+				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
 				991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */,
 				9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */,

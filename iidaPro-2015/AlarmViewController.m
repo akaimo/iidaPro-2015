@@ -2,8 +2,8 @@
 //  AlarmViewController.m
 //  iidaPro-2015
 //
-//  Created by Rath on 07/02.
-//  Copyright (c) 2015年 akaimo. All rights reserved.
+//  Created by akaimo on 2015/10/02.
+//  Copyright © 2015年 akaimo. All rights reserved.
 //
 
 #import "AlarmViewController.h"
@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = @"Alarm";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {

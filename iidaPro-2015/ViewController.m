@@ -11,6 +11,7 @@
 #import "SearchResultViewController.h"
 #import "Classification.h"
 #import "CalendarViewController.h"
+#import "AlarmViewController.h"
 
 @interface ViewController () <UISearchBarDelegate>
 
@@ -198,6 +199,8 @@ const CGFloat iconMargin = 20.0;
             
         case 4:{
             // アラーム
+            AlarmViewController *alarm = [self.storyboard instantiateViewControllerWithIdentifier:@"Alarm"];
+            [self.navigationController pushViewController:alarm animated:YES];
             break;
         }
             

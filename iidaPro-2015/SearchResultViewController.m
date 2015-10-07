@@ -54,33 +54,19 @@
 
 
 #pragma mark - searchBar
-//- (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar {
-//    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS %@ OR read CONTAINS %@", searchBar.text, searchBar.text];
-//    RLMResults *results = [Classification objectsWithPredicate:pred];
-//    
-//    NSMutableString *searchTitle = [NSMutableString stringWithString:_searchBar.text];
-//    [searchTitle appendString:@"の検索結果"];
-//    self.title = searchTitle;
-//    
-//    _resultArray = results;
-//    [_searchTableView reloadData];
-//    
-//    [_searchBar resignFirstResponder];
-//    [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-//}
-
 - (void)tapSearch:(UIButton *)sender {
     [_searchBar becomeFirstResponder];
     [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
 }
 
 - (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContainsWithSearchText:searchString];       // 検索
+    // 検索
+    // TODO: 大文字小文字の区別なく検索できるようにする
+    // TODO: あいうえお順に並び替える
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS %@ OR read CONTAINS %@", searchString, searchString];
+    _reSearchArray = [Classification objectsWithPredicate:pred];
+    
     return YES;     // リロード
-}
-
-- (void)filterContainsWithSearchText:(NSString *)searchText {
-    // TODO: 検索する
 }
 
 
@@ -120,7 +106,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: ゴミ分別マークとゴミの名前を表示
     if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
-        tableView.separatorColor = [UIColor clearColor];
+//        tableView.separatorColor = [UIColor clearColor];
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
@@ -139,7 +125,7 @@
     }
     
     else {  // 検索前
-        tableView.separatorColor = [UIColor clearColor];
+//        tableView.separatorColor = [UIColor clearColor];
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         

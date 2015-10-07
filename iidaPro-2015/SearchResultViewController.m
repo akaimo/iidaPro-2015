@@ -41,6 +41,7 @@
     
     UINib *nib = [UINib nibWithNibName:@"SearchTableViewCell" bundle:nil];
     [_searchTableView registerNib:nib forCellReuseIdentifier:@"Trash"];
+    [self.searchDisplayController.searchResultsTableView registerNib:nib forCellReuseIdentifier:@"Trash"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -107,18 +108,20 @@
     // TODO: ゴミ分別マークとゴミの名前を表示
     if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
 //        tableView.separatorColor = [UIColor clearColor];
-        static NSString *CellIdentifier = @"Cell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        }
-        
         if (_reSearchArray.count == 0) {
+            static NSString *CellIdentifier = @"Cell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             cell.textLabel.text = @"該当する品目はありません";
-        } else {
-            cell.textLabel.text = [_reSearchArray[indexPath.row] valueForKey:@"title"];
+            return cell;
         }
+        
+        SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
+        cell.trashLabel.text = [_defaultArray[indexPath.row] valueForKey:@"title"];
+        // TODO: ゴミの種別によりアイコンを変える
+        cell.trashImage.image = [UIImage imageNamed:@"sun"];
+        // TODO: 豆知識があればアイコンを表示する
+        cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];
         
         return cell;
         
@@ -143,7 +146,7 @@
 //        cell.textLabel.text = @"該当する品目はありません";
 //        return cell;
 //    }
-//    
+//
 //    SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
 //    cell.trashLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
 //    // TODO: ゴミの種別によりアイコンを変える

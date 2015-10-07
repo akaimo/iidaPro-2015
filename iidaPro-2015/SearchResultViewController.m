@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (retain, nonatomic) UIBarButtonItem *searchBtn;
 
-@property (strong, nonatomic) RLMResults *resultArray;
+@property (strong, nonatomic) RLMResults *defaultArray;
+@property (strong, nonatomic) RLMResults *reSearchArray;
 @property (strong, nonatomic) NSString *searchText;
 
 @end
@@ -30,8 +31,8 @@
 //    self.title = searchTitle;
     
     _searchBar.placeholder = @"Search";
-    _resultArray = [[Classification allObjects] sortedResultsUsingProperty:@"read" ascending:YES];
-    NSLog(@"%@", _resultArray);
+    // TODO: 検索結果を「あかさたな...」というようにsectionに分ける
+    _defaultArray = [[Classification allObjects] sortedResultsUsingProperty:@"read" ascending:YES];
     
     [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     
@@ -73,6 +74,15 @@
     [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
 }
 
+- (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterContainsWithSearchText:searchString];       // 検索
+    return YES;     // リロード
+}
+
+- (void)filterContainsWithSearchText:(NSString *)searchText {
+    // TODO: 検索する
+}
+
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -82,48 +92,80 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
+        return 1;
+    }
+    
+    else {  // 検索前
+        // section分けをする
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (_resultArray.count == 0) {
-        return 1;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        if (_reSearchArray.count == 0) {  // 検索後
+            return 1;
+        } else {
+            return _reSearchArray.count;
+        }
+        
     }
-    return _resultArray.count;
+    
+    else {  // 検索前
+        return _defaultArray.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: ゴミ分別マークとゴミの名前を表示
-//    tableView.separatorColor = [UIColor clearColor];
-//    static NSString *CellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
-//    
-//    if (_resultArray.count == 0) {
-//        cell.textLabel.text = @"該当する品目はありません";
-//    } else {
-//        cell.textLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
-//    }
-    
-    if (_resultArray.count == 0) {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
+        tableView.separatorColor = [UIColor clearColor];
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.textLabel.text = @"該当する品目はありません";
+        
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        if (_reSearchArray.count == 0) {
+            cell.textLabel.text = @"該当する品目はありません";
+        } else {
+            cell.textLabel.text = [_reSearchArray[indexPath.row] valueForKey:@"title"];
+        }
+        
+        return cell;
+        
+    }
+    
+    else {  // 検索前
+        tableView.separatorColor = [UIColor clearColor];
+        static NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        cell.textLabel.text = [_defaultArray[indexPath.row] valueForKey:@"title"];
+        
         return cell;
     }
     
-    SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
-    cell.trashLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
-    // TODO: ゴミの種別によりアイコンを変える
-    cell.trashImage.image = [UIImage imageNamed:@"sun"];
-    // TODO: 豆知識があればアイコンを表示する
-    cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];
-    
-    return cell;
+//    if (_resultArray.count == 0) {
+//        static NSString *CellIdentifier = @"Cell";
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//        cell.textLabel.text = @"該当する品目はありません";
+//        return cell;
+//    }
+//    
+//    SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
+//    cell.trashLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
+//    // TODO: ゴミの種別によりアイコンを変える
+//    cell.trashImage.image = [UIImage imageNamed:@"sun"];
+//    // TODO: 豆知識があればアイコンを表示する
+//    cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];
 }
 
 #pragma mark - UITableViewDelegate

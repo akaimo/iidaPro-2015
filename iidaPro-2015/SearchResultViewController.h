@@ -11,7 +11,4 @@
 
 @interface SearchResultViewController : UIViewController
 
-@property (strong, nonatomic) RLMResults *resultArray;
-@property (strong, nonatomic) NSString *searchText;
-
 @end

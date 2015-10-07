@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (retain, nonatomic) UIBarButtonItem *searchBtn;
 
+@property (strong, nonatomic) RLMResults *resultArray;
+@property (strong, nonatomic) NSString *searchText;
+
 @end
 
 @implementation SearchResultViewController
@@ -22,9 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSMutableString *searchTitle = [NSMutableString stringWithString:_searchText];
-    [searchTitle appendString:@"の検索結果"];
-    self.title = searchTitle;
+//    NSMutableString *searchTitle = [NSMutableString stringWithString:_searchText];
+//    [searchTitle appendString:@"の検索結果"];
+//    self.title = searchTitle;
     
     _searchBar.placeholder = @"Search";
     _searchBar.text = _searchText;
@@ -49,25 +52,25 @@
 
 
 #pragma mark - searchBar
-- (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar {
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS %@ OR read CONTAINS %@", searchBar.text, searchBar.text];
-    RLMResults *results = [Classification objectsWithPredicate:pred];
-    
-    NSMutableString *searchTitle = [NSMutableString stringWithString:_searchBar.text];
-    [searchTitle appendString:@"の検索結果"];
-    self.title = searchTitle;
-    
-    _resultArray = results;
-    [_searchTableView reloadData];
-    
-    [_searchBar resignFirstResponder];
-    [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-}
-
-- (void)tapSearch:(UIButton *)sender {
-    [_searchBar becomeFirstResponder];
-    [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
-}
+//- (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar {
+//    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS %@ OR read CONTAINS %@", searchBar.text, searchBar.text];
+//    RLMResults *results = [Classification objectsWithPredicate:pred];
+//    
+//    NSMutableString *searchTitle = [NSMutableString stringWithString:_searchBar.text];
+//    [searchTitle appendString:@"の検索結果"];
+//    self.title = searchTitle;
+//    
+//    _resultArray = results;
+//    [_searchTableView reloadData];
+//    
+//    [_searchBar resignFirstResponder];
+//    [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//}
+//
+//- (void)tapSearch:(UIButton *)sender {
+//    [_searchBar becomeFirstResponder];
+//    [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
+//}
 
 
 #pragma mark - UIScrollViewDelegate

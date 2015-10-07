@@ -58,13 +58,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="251-F6-NKL">
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="H0I-p7-2gE">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <animations/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <outlet property="delegate" destination="Ecc-V6-wdr" id="xEk-ff-aTL"/>
+                                        <outlet property="delegate" destination="Ecc-V6-wdr" id="UdU-Ec-eoT"/>
                                     </connections>
                                 </searchBar>
                                 <prototypes>
@@ -95,13 +95,23 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="251-F6-NKL" id="qG5-al-ykg"/>
+                        <outlet property="searchBar" destination="H0I-p7-2gE" id="CE6-pu-skn"/>
+                        <outlet property="searchDisplayController" destination="HpR-zV-72s" id="i5n-cA-am7"/>
                         <outlet property="searchTableView" destination="EAn-PY-EQu" id="jTB-WY-85M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HaF-kv-4IJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="HpR-zV-72s">
+                    <connections>
+                        <outlet property="delegate" destination="Ecc-V6-wdr" id="8sC-rB-Wh1"/>
+                        <outlet property="searchBar" destination="H0I-p7-2gE" id="ahn-8C-giB"/>
+                        <outlet property="searchContentsController" destination="Ecc-V6-wdr" id="xlX-0v-Dya"/>
+                        <outlet property="searchResultsDataSource" destination="Ecc-V6-wdr" id="23U-9j-8Ym"/>
+                        <outlet property="searchResultsDelegate" destination="Ecc-V6-wdr" id="Vo5-47-5WY"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1227" y="932"/>
+            <point key="canvasLocation" x="1227" y="929"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="hqa-M0-fLW">

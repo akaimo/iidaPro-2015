@@ -66,11 +66,11 @@
 //    [_searchBar resignFirstResponder];
 //    [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 //}
-//
-//- (void)tapSearch:(UIButton *)sender {
-//    [_searchBar becomeFirstResponder];
-//    [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
-//}
+
+- (void)tapSearch:(UIButton *)sender {
+    [_searchBar becomeFirstResponder];
+    [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
+}
 
 
 #pragma mark - UIScrollViewDelegate

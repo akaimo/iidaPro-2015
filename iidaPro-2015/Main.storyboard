@@ -95,7 +95,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="H0I-p7-2gE" id="CE6-pu-skn"/>
+                        <outlet property="searchBar" destination="H0I-p7-2gE" id="zzn-76-6PV"/>
                         <outlet property="searchDisplayController" destination="HpR-zV-72s" id="i5n-cA-am7"/>
                         <outlet property="searchTableView" destination="EAn-PY-EQu" id="jTB-WY-85M"/>
                     </connections>
@@ -104,7 +104,6 @@
                 <searchDisplayController id="HpR-zV-72s">
                     <connections>
                         <outlet property="delegate" destination="Ecc-V6-wdr" id="8sC-rB-Wh1"/>
-                        <outlet property="searchBar" destination="H0I-p7-2gE" id="ahn-8C-giB"/>
                         <outlet property="searchContentsController" destination="Ecc-V6-wdr" id="xlX-0v-Dya"/>
                         <outlet property="searchResultsDataSource" destination="Ecc-V6-wdr" id="23U-9j-8Ym"/>
                         <outlet property="searchResultsDelegate" destination="Ecc-V6-wdr" id="Vo5-47-5WY"/>

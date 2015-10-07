@@ -30,7 +30,8 @@
 //    self.title = searchTitle;
     
     _searchBar.placeholder = @"Search";
-    _searchBar.text = _searchText;
+    _resultArray = [[Classification allObjects] sortedResultsUsingProperty:@"read" ascending:YES];
+    NSLog(@"%@", _resultArray);
     
     [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     

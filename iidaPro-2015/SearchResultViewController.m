@@ -26,9 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    NSMutableString *searchTitle = [NSMutableString stringWithString:_searchText];
-//    [searchTitle appendString:@"の検索結果"];
-//    self.title = searchTitle;
+    self.title = @"分別辞典";
     
     _searchBar.placeholder = @"Search";
     // TODO: 検索結果を「あかさたな...」というようにsectionに分ける
@@ -124,7 +122,6 @@
         cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];
         
         return cell;
-        
     }
     
     else {  // 検索前
@@ -138,21 +135,6 @@
         
         return cell;
     }
-    
-//    if (_resultArray.count == 0) {
-//        static NSString *CellIdentifier = @"Cell";
-//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//        cell.textLabel.text = @"該当する品目はありません";
-//        return cell;
-//    }
-//
-//    SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
-//    cell.trashLabel.text = [_resultArray[indexPath.row] valueForKey:@"title"];
-//    // TODO: ゴミの種別によりアイコンを変える
-//    cell.trashImage.image = [UIImage imageNamed:@"sun"];
-//    // TODO: 豆知識があればアイコンを表示する
-//    cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];
 }
 
 #pragma mark - UITableViewDelegate

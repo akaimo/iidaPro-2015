@@ -126,14 +126,12 @@
     
     else {  // 検索前
 //        tableView.separatorColor = [UIColor clearColor];
-        static NSString *CellIdentifier = @"Cell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        }
-        
-        cell.textLabel.text = [_defaultArray[indexPath.row] valueForKey:@"title"];
+        SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
+        cell.trashLabel.text = [_defaultArray[indexPath.row] valueForKey:@"title"];
+        // TODO: ゴミの種別によりアイコンを変える
+        cell.trashImage.image = [UIImage imageNamed:@"sun"];
+        // TODO: 豆知識があればアイコンを表示する
+        cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];
         
         return cell;
     }

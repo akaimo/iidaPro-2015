@@ -101,7 +101,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO: ゴミ分別マークとゴミの名前を表示
     if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
 //        tableView.separatorColor = [UIColor clearColor];
         if (_reSearchArray.count == 0) {
@@ -116,8 +115,10 @@
         cell.trashLabel.text = [_reSearchArray[indexPath.row] valueForKey:@"title"];
         // TODO: ゴミの種別によりアイコンを変える
         cell.trashImage.image = [UIImage imageNamed:@"sun"];
-        // TODO: 豆知識があればアイコンを表示する
-        cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];
+        
+        if ([_reSearchArray[indexPath.row] valueForKey:@"knowledge"] != nil) {
+            cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];    // icon修正
+        }
         
         return cell;
     }
@@ -128,8 +129,10 @@
         cell.trashLabel.text = [_defaultArray[indexPath.row] valueForKey:@"title"];
         // TODO: ゴミの種別によりアイコンを変える
         cell.trashImage.image = [UIImage imageNamed:@"sun"];
-        // TODO: 豆知識があればアイコンを表示する
-        cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];
+        
+        if ([_defaultArray[indexPath.row] valueForKey:@"knowledge"] != nil) {
+            cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];    // icon修正
+        }
         
         return cell;
     }

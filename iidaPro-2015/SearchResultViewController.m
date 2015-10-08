@@ -59,11 +59,9 @@
 }
 
 - (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
-    // 検索
-    // TODO: 大文字小文字の区別なく検索できるようにする
+    // リアルタイム検索
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS[c] %@ OR read CONTAINS %@", searchString, searchString];
-    _reSearchArray = [Classification objectsWithPredicate:pred];
-    NSLog(@"%@", _reSearchArray);
+    _reSearchArray = [[Classification objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
     
     return YES;     // リロード
 }

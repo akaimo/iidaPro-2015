@@ -61,9 +61,10 @@
 - (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
     // 検索
     // TODO: 大文字小文字の区別なく検索できるようにする
-    // TODO: あいうえお順に並び替える
+    NSLog(@"%@", searchString);
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS %@ OR read CONTAINS %@", searchString, searchString];
     _reSearchArray = [Classification objectsWithPredicate:pred];
+    NSLog(@"%@", _reSearchArray);
     
     return YES;     // リロード
 }
@@ -115,7 +116,7 @@
         }
         
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
-        cell.trashLabel.text = [_defaultArray[indexPath.row] valueForKey:@"title"];
+        cell.trashLabel.text = [_reSearchArray[indexPath.row] valueForKey:@"title"];
         // TODO: ゴミの種別によりアイコンを変える
         cell.trashImage.image = [UIImage imageNamed:@"sun"];
         // TODO: 豆知識があればアイコンを表示する

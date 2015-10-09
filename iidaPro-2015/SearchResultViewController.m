@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) RLMResults *defaultArray;
 @property (strong, nonatomic) NSMutableArray *sectionArray;
+@property (strong, nonatomic) NSArray *sectionList;
 @property (strong, nonatomic) RLMResults *reSearchArray;
 @property (strong, nonatomic) NSString *searchText;
 
@@ -32,13 +33,14 @@
     _searchBar.placeholder = @"Search";
     // TODO: 検索結果を「あかさたな...」というようにsectionに分ける
     _defaultArray = [[Classification allObjects] sortedResultsUsingProperty:@"read" ascending:YES];
+    _sectionList =  [NSArray arrayWithObjects:@"あ", @"か", @"さ", @"た", @"な", @"は", @"ま", @"や", @"ら", @"わ", nil];
     _sectionArray = [NSMutableArray array];
     for (int i=0; i<10; i++) {
         [_sectionArray addObject:[self section:i]];
     }
-    for (int i=0; i<10; i++) {
-        NSLog(@"%@", _sectionArray[i]);
-    }
+//    for (int i=0; i<10; i++) {
+//        NSLog(@"%@", _sectionArray[i]);
+//    }
     
     [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     
@@ -89,8 +91,12 @@
     
     else {  // 検索前
         // section分けをする
-        return 1;
+        return _sectionArray.count;
     }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [_sectionList objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -104,7 +110,7 @@
     }
     
     else {  // 検索前
-        return _defaultArray.count;
+        return [_sectionArray[section] count];
     }
 }
 
@@ -134,11 +140,11 @@
     else {  // 検索前
 //        tableView.separatorColor = [UIColor clearColor];
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
-        cell.trashLabel.text = [_defaultArray[indexPath.row] valueForKey:@"title"];
+        cell.trashLabel.text = [_sectionArray[indexPath.section][indexPath.row] valueForKey:@"title"];
         // TODO: ゴミの種別によりアイコンを変える
         cell.trashImage.image = [UIImage imageNamed:@"sun"];
         
-        if ([_defaultArray[indexPath.row] valueForKey:@"knowledge"] != nil) {
+        if ([_sectionArray[indexPath.section][indexPath.row] valueForKey:@"knowledge"] != nil) {
             cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];    // icon修正
         }
         

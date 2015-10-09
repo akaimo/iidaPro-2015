@@ -15,7 +15,7 @@
 
 - (void)createTestTable {
     RLMRealm *realm;
-    NSLog(@"%@", [RLMRealm defaultRealmPath]);
+    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
     
     for (int i=0; i<20; i++) {
         // 豆知識

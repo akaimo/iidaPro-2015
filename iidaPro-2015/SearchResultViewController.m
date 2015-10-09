@@ -15,6 +15,7 @@
 @property (retain, nonatomic) UIBarButtonItem *searchBtn;
 
 @property (strong, nonatomic) RLMResults *defaultArray;
+@property (strong, nonatomic) NSMutableArray *sectionArray;
 @property (strong, nonatomic) RLMResults *reSearchArray;
 @property (strong, nonatomic) NSString *searchText;
 
@@ -31,6 +32,13 @@
     _searchBar.placeholder = @"Search";
     // TODO: 検索結果を「あかさたな...」というようにsectionに分ける
     _defaultArray = [[Classification allObjects] sortedResultsUsingProperty:@"read" ascending:YES];
+    _sectionArray = [NSMutableArray array];
+    for (int i=0; i<10; i++) {
+        [_sectionArray addObject:[self section:i]];
+    }
+    for (int i=0; i<10; i++) {
+        NSLog(@"%@", _sectionArray[i]);
+    }
     
     [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     
@@ -150,6 +158,59 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // 画面遷移
+}
+
+
+
+- (RLMResults *)section:(int)num {
+    NSPredicate *pred;
+    
+    switch (num) {
+        case 0:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"あ", @"い", @"う", @"え", @"お"];
+            break;
+            
+        case 1:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"か", @"き", @"く", @"け", @"こ"];
+            break;
+            
+        case 2:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"さ", @"し", @"す", @"せ", @"そ"];
+            break;
+            
+        case 3:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"た", @"ち", @"つ", @"て", @"と"];
+            break;
+            
+        case 4:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"な", @"に", @"ぬ", @"ね", @"の"];
+            break;
+            
+        case 5:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"は", @"ひ", @"ふ", @"へ", @"ほ"];
+            break;
+            
+        case 6:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"ま", @"み", @"む", @"め", @"も"];
+            break;
+            
+        case 7:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"や", @"ゆ", @"よ"];
+            break;
+            
+        case 8:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"ら", @"り", @"る", @"れ", @"ろ"];
+            break;
+            
+        case 9:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@", @"わ", @"を"];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return [[Classification objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
 }
 
 @end

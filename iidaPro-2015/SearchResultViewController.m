@@ -103,6 +103,20 @@
     }
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
+        return nil;
+    }
+    
+    else {  // 検索前
+        return _sectionList;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [_sectionList indexOfObject:title];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         if (_reSearchArray.count == 0) {  // 検索後

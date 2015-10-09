@@ -31,7 +31,6 @@
     self.title = @"分別辞典";
     
     _searchBar.placeholder = @"Search";
-    // TODO: 検索結果を「あかさたな...」というようにsectionに分ける
     _defaultArray = [[Classification allObjects] sortedResultsUsingProperty:@"read" ascending:YES];
     _sectionList =  [NSArray arrayWithObjects:@"あ", @"か", @"さ", @"た", @"な", @"は", @"ま", @"や", @"ら", @"わ", nil];
     _sectionArray = [NSMutableArray array];
@@ -65,7 +64,7 @@
 #pragma mark - searchBar
 - (void)tapSearch:(UIButton *)sender {
     [_searchBar becomeFirstResponder];
-    [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
+//    [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
 }
 
 - (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
@@ -90,13 +89,18 @@
     }
     
     else {  // 検索前
-        // section分けをする
         return _sectionArray.count;
     }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [_sectionList objectAtIndex:section];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
+        return @"";
+    }
+    
+    else {  // 検索前
+        return [_sectionList objectAtIndex:section];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

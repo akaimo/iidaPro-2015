@@ -31,15 +31,12 @@
     self.title = @"分別辞典";
     
     _searchBar.placeholder = @"Search";
-    _defaultArray = [[Classification allObjects] sortedResultsUsingProperty:@"read" ascending:YES];
+    
     _sectionList =  [NSArray arrayWithObjects:@"あ", @"か", @"さ", @"た", @"な", @"は", @"ま", @"や", @"ら", @"わ", nil];
     _sectionArray = [NSMutableArray array];
     for (int i=0; i<10; i++) {
         [_sectionArray addObject:[self section:i]];
     }
-//    for (int i=0; i<10; i++) {
-//        NSLog(@"%@", _sectionArray[i]);
-//    }
     
     [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     

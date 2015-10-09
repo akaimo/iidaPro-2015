@@ -37,6 +37,11 @@
             classifi.read = @"びん";
             classifi.classification = @"空きびん";
             classifi.knowledge = nil;
+        } else if (i == 2) {
+            classifi.title = @"缶";
+            classifi.read = @"かん";
+            classifi.classification = @"空き缶";
+            classifi.knowledge = nil;
         } else {
             classifi.title = @"hoge";
             classifi.read = @"ほげ";

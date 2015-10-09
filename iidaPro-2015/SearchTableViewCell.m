@@ -20,4 +20,10 @@
     // Configure the view for the selected state
 }
 
+- (void)prepareForReuse {
+    _trashImage.image = nil;
+    _trashLabel.text = nil;
+    _knowledgeImage.image = nil;
+}
+
 @end

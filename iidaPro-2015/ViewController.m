@@ -182,6 +182,9 @@ const CGFloat iconMargin = 20.0;
     switch (sender.tag) {
         case 1:{
             // 検索
+            SearchResultViewController *search = [self.storyboard instantiateViewControllerWithIdentifier:@"Search"];
+            [self.navigationController pushViewController:search animated:YES];
+
             break;
         }
             

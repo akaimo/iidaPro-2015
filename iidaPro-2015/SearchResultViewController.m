@@ -15,6 +15,8 @@
 @property (retain, nonatomic) UIBarButtonItem *searchBtn;
 
 @property (strong, nonatomic) RLMResults *defaultArray;
+@property (strong, nonatomic) NSMutableArray *sectionArray;
+@property (strong, nonatomic) NSArray *sectionList;
 @property (strong, nonatomic) RLMResults *reSearchArray;
 @property (strong, nonatomic) NSString *searchText;
 
@@ -29,8 +31,12 @@
     self.title = @"分別辞典";
     
     _searchBar.placeholder = @"Search";
-    // TODO: 検索結果を「あかさたな...」というようにsectionに分ける
-    _defaultArray = [[Classification allObjects] sortedResultsUsingProperty:@"read" ascending:YES];
+    
+    _sectionList =  [NSArray arrayWithObjects:@"あ", @"か", @"さ", @"た", @"な", @"は", @"ま", @"や", @"ら", @"わ", nil];
+    _sectionArray = [NSMutableArray array];
+    for (int i=0; i<10; i++) {
+        [_sectionArray addObject:[self section:i]];
+    }
     
     [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     
@@ -55,7 +61,7 @@
 #pragma mark - searchBar
 - (void)tapSearch:(UIButton *)sender {
     [_searchBar becomeFirstResponder];
-    [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
+//    [_searchTableView setContentOffset:CGPointMake(0.0f, -64.0f) animated:YES];
 }
 
 - (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
@@ -80,9 +86,32 @@
     }
     
     else {  // 検索前
-        // section分けをする
-        return 1;
+        return _sectionArray.count;
     }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
+        return @"";
+    }
+    
+    else {  // 検索前
+        return [_sectionList objectAtIndex:section];
+    }
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
+        return nil;
+    }
+    
+    else {  // 検索前
+        return _sectionList;
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [_sectionList indexOfObject:title];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -96,7 +125,7 @@
     }
     
     else {  // 検索前
-        return _defaultArray.count;
+        return [_sectionArray[section] count];
     }
 }
 
@@ -126,11 +155,11 @@
     else {  // 検索前
 //        tableView.separatorColor = [UIColor clearColor];
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
-        cell.trashLabel.text = [_defaultArray[indexPath.row] valueForKey:@"title"];
+        cell.trashLabel.text = [_sectionArray[indexPath.section][indexPath.row] valueForKey:@"title"];
         // TODO: ゴミの種別によりアイコンを変える
         cell.trashImage.image = [UIImage imageNamed:@"sun"];
         
-        if ([_defaultArray[indexPath.row] valueForKey:@"knowledge"] != nil) {
+        if ([_sectionArray[indexPath.section][indexPath.row] valueForKey:@"knowledge"] != nil) {
             cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];    // icon修正
         }
         
@@ -150,6 +179,59 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // 画面遷移
+}
+
+
+
+- (RLMResults *)section:(int)num {
+    NSPredicate *pred;
+    
+    switch (num) {
+        case 0:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"あ", @"い", @"う", @"え", @"お"];
+            break;
+            
+        case 1:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"か", @"き", @"く", @"け", @"こ"];
+            break;
+            
+        case 2:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"さ", @"し", @"す", @"せ", @"そ"];
+            break;
+            
+        case 3:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"た", @"ち", @"つ", @"て", @"と"];
+            break;
+            
+        case 4:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"な", @"に", @"ぬ", @"ね", @"の"];
+            break;
+            
+        case 5:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"は", @"ひ", @"ふ", @"へ", @"ほ"];
+            break;
+            
+        case 6:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"ま", @"み", @"む", @"め", @"も"];
+            break;
+            
+        case 7:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"や", @"ゆ", @"よ"];
+            break;
+            
+        case 8:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"ら", @"り", @"る", @"れ", @"ろ"];
+            break;
+            
+        case 9:
+            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@", @"わ", @"を"];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return [[Classification objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
 }
 
 @end

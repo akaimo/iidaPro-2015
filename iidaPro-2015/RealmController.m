@@ -15,7 +15,7 @@
 
 - (void)createTestTable {
     RLMRealm *realm;
-    NSLog(@"%@", [RLMRealm defaultRealmPath]);
+//    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
     
     for (int i=0; i<20; i++) {
         // 豆知識
@@ -41,6 +41,26 @@
             classifi.title = @"缶";
             classifi.read = @"かん";
             classifi.classification = @"空き缶";
+            classifi.knowledge = nil;
+        } else if (i == 3) {
+            classifi.title = @"ああ";
+            classifi.read = @"ああ";
+            classifi.classification = @"燃えるごみ";
+            classifi.knowledge = nil;
+        } else if (i == 4) {
+            classifi.title = @"あい";
+            classifi.read = @"あい";
+            classifi.classification = @"燃えるごみ";
+            classifi.knowledge = nil;
+        } else if (i == 5) {
+            classifi.title = @"うい";
+            classifi.read = @"うい";
+            classifi.classification = @"燃えるごみ";
+            classifi.knowledge = nil;
+        } else if (i == 6) {
+            classifi.title = @"いい";
+            classifi.read = @"いい";
+            classifi.classification = @"燃えるごみ";
             classifi.knowledge = nil;
         } else {
             classifi.title = @"hoge";

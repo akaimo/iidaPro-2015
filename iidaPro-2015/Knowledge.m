@@ -16,16 +16,8 @@
     return @"num";
 }
 
-//+ (NSDictionary *)defaultPropertyValues
-//{
-//    return @{};
-//}
-
-// Specify properties to ignore (Realm won't persist these)
-
-//+ (NSArray *)ignoredProperties
-//{
-//    return @[];
-//}
++ (NSArray *)requiredProperties {
+    return @[@"title", @"detail"];
+}
 
 @end

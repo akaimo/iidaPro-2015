@@ -18,16 +18,20 @@
 //    RLMRealm *realm;
 //    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
     
+    NSLog(@"HTTPRequest");
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"JSON: %@", responseObject);
         NSLog(@"Realm更新開始");
-        for (int i=0; i<[responseObject count]; i++) {
+        int count = (int)[responseObject count];
+        for (int i=0; i<count; i++) {
+            if (i % (count/10) == 0) {
+                NSLog(@"%d/%d", i, count);
+            }
             Classification *classifi = [[Classification alloc] init];
             classifi.num = i;
             classifi.title = [responseObject[i] valueForKey:@"title"];
             classifi.read = [responseObject[i] valueForKey:@"read"];
-            classifi.classification = @"燃えるごみ";
+            classifi.classification = [responseObject[i] valueForKey:@"category"];
             classifi.knowledge = nil;
             
             RLMRealm *realm = [RLMRealm defaultRealm];

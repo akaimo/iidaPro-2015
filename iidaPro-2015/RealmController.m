@@ -10,12 +10,20 @@
 #import <Realm/Realm.h>
 #import "Classification.h"
 #import "Knowledge.h"
+#import "AFNetworking.h"
 
 @implementation RealmController
 
 - (void)createTestTable {
     RLMRealm *realm;
 //    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
     
     for (int i=0; i<20; i++) {
         // 豆知識

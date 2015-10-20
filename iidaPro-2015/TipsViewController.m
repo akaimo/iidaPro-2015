@@ -22,6 +22,7 @@
 }
 
 - (void)viewDidLoad{
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     [super viewDidLoad];
     _selectedDataNum=1;
     self.navigationItem.title=@"豆知識1";

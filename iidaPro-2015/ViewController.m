@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TipsTabViewController.h"
+#import "TipsViewController.h"
 #import "SearchResultViewController.h"
 #import "Classification.h"
 #import "CalendarViewController.h"
@@ -190,8 +190,8 @@ const CGFloat iconMargin = 20.0;
             
         case 2:{
             // 豆知識
-            TipsTabViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TipsTabView"];
-            [self presentViewController:controller animated:YES completion:nil];
+            TipsViewController *tips = [self.storyboard instantiateViewControllerWithIdentifier:@"tips"];
+            [self.navigationController pushViewController:tips animated:YES];
             break;
         }
             

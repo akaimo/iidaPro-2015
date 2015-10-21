@@ -10,71 +10,39 @@
 #import <Realm/Realm.h>
 #import "Classification.h"
 #import "Knowledge.h"
+#import "AFNetworking.h"
 
 @implementation RealmController
 
 - (void)createTestTable {
-    RLMRealm *realm;
+//    RLMRealm *realm;
 //    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
     
-    for (int i=0; i<20; i++) {
-        // 豆知識
-        Knowledge *knowledge = [[Knowledge alloc] init];
-        knowledge.num = i;
-        knowledge.title = @"huga";
-        knowledge.detail = @"hugahuga";
-        
-        // 分別辞典
-        Classification *classifi = [[Classification alloc] init];
-        classifi.num = i;
-        if (i == 0) {
-            classifi.title = @"トレー";
-            classifi.read = @"とれー";
-            classifi.classification = @"プラスチック製容器包装";
-            classifi.knowledge = knowledge;
-        } else if (i == 1) {
-            classifi.title = @"ビン";
-            classifi.read = @"びん";
-            classifi.classification = @"空きびん";
+    NSLog(@"HTTPRequest");
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Realm更新開始");
+        int count = (int)[responseObject count];
+        for (int i=0; i<count; i++) {
+            if (i % (count/10) == 0) {
+                NSLog(@"%d/%d", i, count);
+            }
+            Classification *classifi = [[Classification alloc] init];
+            classifi.num = i;
+            classifi.title = [responseObject[i] valueForKey:@"title"];
+            classifi.read = [responseObject[i] valueForKey:@"read"];
+            classifi.classification = [responseObject[i] valueForKey:@"category"];
             classifi.knowledge = nil;
-        } else if (i == 2) {
-            classifi.title = @"缶";
-            classifi.read = @"かん";
-            classifi.classification = @"空き缶";
-            classifi.knowledge = nil;
-        } else if (i == 3) {
-            classifi.title = @"ああ";
-            classifi.read = @"ああ";
-            classifi.classification = @"燃えるごみ";
-            classifi.knowledge = nil;
-        } else if (i == 4) {
-            classifi.title = @"あい";
-            classifi.read = @"あい";
-            classifi.classification = @"燃えるごみ";
-            classifi.knowledge = nil;
-        } else if (i == 5) {
-            classifi.title = @"うい";
-            classifi.read = @"うい";
-            classifi.classification = @"燃えるごみ";
-            classifi.knowledge = nil;
-        } else if (i == 6) {
-            classifi.title = @"いい";
-            classifi.read = @"いい";
-            classifi.classification = @"燃えるごみ";
-            classifi.knowledge = nil;
-        } else {
-            classifi.title = @"hoge";
-            classifi.read = @"ほげ";
-            classifi.classification = @"hogehoge";
-            classifi.knowledge = nil;
+            
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            [realm beginWriteTransaction];
+            [Classification createOrUpdateInRealm:realm withValue:classifi];
+            [realm commitWriteTransaction];
         }
-        
-        realm = [RLMRealm defaultRealm];
-        [realm beginWriteTransaction];
-        [Knowledge createOrUpdateInRealm:realm withValue:knowledge];
-        [Classification createOrUpdateInRealm:realm withValue:classifi];
-        [realm commitWriteTransaction];
-    }
+        NSLog(@"Realm更新完了");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (void)deleteTestTable {

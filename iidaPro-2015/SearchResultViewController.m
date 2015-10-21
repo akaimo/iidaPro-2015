@@ -38,7 +38,7 @@
         [_sectionArray addObject:[self section:i]];
     }
     
-    [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+//    [_searchTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     
     _searchBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(tapSearch:)];
     self.navigationItem.rightBarButtonItem = _searchBtn;
@@ -174,7 +174,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: 豆知識がある場合は豆知識ページへ遷移
-    NSLog(@"%ld", (long)indexPath.row);
+//    NSLog(@"%ld", (long)indexPath.row);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -131,7 +131,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
-//        tableView.separatorColor = [UIColor clearColor];
+        tableView.separatorColor = [UIColor clearColor];
         if (_reSearchArray.count == 0) {
             static NSString *CellIdentifier = @"Cell";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -153,7 +153,7 @@
     }
     
     else {  // 検索前
-//        tableView.separatorColor = [UIColor clearColor];
+        tableView.separatorColor = [UIColor clearColor];
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
         cell.trashLabel.text = [_sectionArray[indexPath.section][indexPath.row] valueForKey:@"title"];
         // TODO: ゴミの種別によりアイコンを変える

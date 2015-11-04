@@ -19,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    RealmController *rc = [[RealmController alloc] init];
-    [rc createTestTable];
+//    RealmController *rc = [[RealmController alloc] init];
+//    [rc createTestTable];
 //    [rc deleteTestTable];
     
     return YES;

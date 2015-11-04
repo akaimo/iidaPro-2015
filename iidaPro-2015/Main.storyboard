@@ -151,9 +151,37 @@
                     <view key="view" contentMode="scaleToFill" id="56e-Gh-6oR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xjo-AH-Wpw">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EhU-hB-EbK" id="ja0-Q1-PWM"/>
+                                    <outlet property="delegate" destination="EhU-hB-EbK" id="aDH-Qw-Mez"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xjo-AH-Wpw" firstAttribute="top" secondItem="56e-Gh-6oR" secondAttribute="topMargin" id="7pG-6y-z4h"/>
+                            <constraint firstItem="Xjo-AH-Wpw" firstAttribute="bottom" secondItem="56e-Gh-6oR" secondAttribute="bottomMargin" id="BGi-08-jUq"/>
+                            <constraint firstAttribute="trailing" secondItem="Xjo-AH-Wpw" secondAttribute="trailing" id="IfL-35-9Ku"/>
+                            <constraint firstItem="Xjo-AH-Wpw" firstAttribute="top" secondItem="3wt-Nu-KgT" secondAttribute="bottom" id="QfV-dU-Jxj"/>
+                            <constraint firstItem="Xjo-AH-Wpw" firstAttribute="leading" secondItem="56e-Gh-6oR" secondAttribute="leading" id="WS4-qI-GQ2"/>
+                            <constraint firstItem="nc3-jr-dN4" firstAttribute="top" secondItem="Xjo-AH-Wpw" secondAttribute="bottom" id="c00-1Q-3od"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="QfV-dU-Jxj"/>
+                                <exclude reference="c00-1Q-3od"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="alarmTableView" destination="Xjo-AH-Wpw" id="2e2-0O-ouP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAp-mQ-tEm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

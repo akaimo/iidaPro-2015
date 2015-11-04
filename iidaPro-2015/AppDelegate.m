@@ -24,12 +24,14 @@
 //    [rc deleteTestTable];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSArray *array = @[@"普通ごみ1", @"普通ごみ2", @"びん・缶・ペットボトル", @"ミックスペーパー", @"プラスチック製容器包装", @"小物金属"];
     NSDictionary *dict = @{@"普通ごみ1":@"水",
                            @"普通ごみ2":@"土",
                            @"びん・缶・ペットボトル":@"金",
                            @"ミックスペーパー":@"月",
                            @"プラスチック製容器包装":@"火",
-                           @"小物金属":@"第1・3回目 月"};
+                           @"小物金属":@"第１・３月"};
+    [ud setObject:array forKey:@"title"];
     [ud setObject:dict forKey:@"trash"];
     [ud synchronize];
     

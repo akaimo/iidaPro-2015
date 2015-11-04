@@ -21,25 +21,30 @@
     NSLog(@"HTTPRequest");
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Realm更新開始");
-        int count = (int)[responseObject count];
-        for (int i=0; i<count; i++) {
-            if (i % (count/10) == 0) {
-                NSLog(@"%d/%d", i, count);
+        dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
+        dispatch_async(queue, ^{
+            @autoreleasepool {
+                NSLog(@"Realm更新開始");
+                int count = (int)[responseObject count];
+                for (int i=0; i<count; i++) {
+                    if (i % (count/10) == 0) {
+                        NSLog(@"%d/%d", i, count);
+                    }
+                    Classification *classifi = [[Classification alloc] init];
+                    classifi.num = i;
+                    classifi.title = [responseObject[i] valueForKey:@"title"];
+                    classifi.read = [responseObject[i] valueForKey:@"read"];
+                    classifi.classification = [responseObject[i] valueForKey:@"category"];
+                    classifi.knowledge = nil;
+                    
+                    RLMRealm *realm = [RLMRealm defaultRealm];
+                    [realm beginWriteTransaction];
+                    [Classification createOrUpdateInRealm:realm withValue:classifi];
+                    [realm commitWriteTransaction];
+                }
+                NSLog(@"Realm更新完了");
             }
-            Classification *classifi = [[Classification alloc] init];
-            classifi.num = i;
-            classifi.title = [responseObject[i] valueForKey:@"title"];
-            classifi.read = [responseObject[i] valueForKey:@"read"];
-            classifi.classification = [responseObject[i] valueForKey:@"category"];
-            classifi.knowledge = nil;
-            
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            [realm beginWriteTransaction];
-            [Classification createOrUpdateInRealm:realm withValue:classifi];
-            [realm commitWriteTransaction];
-        }
-        NSLog(@"Realm更新完了");
+        });
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

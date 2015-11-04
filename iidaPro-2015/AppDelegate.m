@@ -23,6 +23,16 @@
 //    [rc createTestTable];
 //    [rc deleteTestTable];
     
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary *dict = @{@"普通ごみ1":@"水",
+                           @"普通ごみ2":@"土",
+                           @"びん・缶・ペットボトル":@"金",
+                           @"ミックスペーパー":@"月",
+                           @"プラスチック製容器包装":@"火",
+                           @"小物金属":@"第1・3回目 月"};
+    [ud setObject:dict forKey:@"trash"];
+    [ud synchronize];
+    
     return YES;
 }
 

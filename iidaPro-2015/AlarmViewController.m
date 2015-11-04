@@ -14,6 +14,7 @@
 @property (retain, nonatomic) UIBarButtonItem *addBtn;
 
 @property (strong, nonatomic) NSArray *sectionArray;
+@property (strong, nonatomic) NSDictionary *trashDict;
 
 @end
 
@@ -25,6 +26,12 @@
     
     self.title = @"Alarm";
     _sectionArray = @[@"ごみ収集通知", @"My通知"];
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    _trashDict = [ud objectForKey:@"trash"];
+    for (id key in _trashDict){
+        NSLog(@"%@,%@", key, [_trashDict valueForKey:key]);
+    }
     
     _addBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tapAdd:)];
     self.navigationItem.rightBarButtonItem = _addBtn;
@@ -55,7 +62,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 8;
+        return _trashDict.count;
     } else if (section == 1) {
         return 1;
     } else {

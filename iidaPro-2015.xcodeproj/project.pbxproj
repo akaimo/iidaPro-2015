@@ -619,6 +619,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1BB2B62595F38D5333CA39A7 /* Pods-iidaPro-2015.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "iidaPro-2015/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -632,6 +633,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B724D6246FB52462BBC8C540 /* Pods-iidaPro-2015.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "iidaPro-2015/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

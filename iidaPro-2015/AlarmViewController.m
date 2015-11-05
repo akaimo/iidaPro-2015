@@ -7,6 +7,7 @@
 //
 
 #import "AlarmViewController.h"
+#import "AppDelegate.h"
 #import "TrashAlarmCell.h"
 #import "noMyAlarmCell.h"
 #import "MyAlarmCell.h"
@@ -67,7 +68,9 @@
     NSLog(@"add");
     AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame];
 //    popup.frame = CGRectMake(100, 100, 100, 100);
-    [self.view addSubview:popup];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.window addSubview:popup];
+//    [self.view addSubview:popup];
 }
 
 

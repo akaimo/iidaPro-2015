@@ -8,6 +8,7 @@
 
 #import "AlarmViewController.h"
 #import "TrashAlarmCell.h"
+#import "noMyAlarmCell.h"
 
 @interface AlarmViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *alarmTableView;
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) NSArray *sectionArray;
 @property (strong, nonatomic) NSDictionary *trashDict;
 @property (strong, nonatomic) NSArray *trashKeyArray;
+@property (strong, nonatomic) NSMutableArray *myAlarm;
 
 @end
 
@@ -31,12 +33,15 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     _trashDict = [ud objectForKey:@"trash"];
     _trashKeyArray = [ud objectForKey:@"title"];
+    _myAlarm = [ud objectForKey:@"myAlarm"];
     
     _addBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tapAdd:)];
     self.navigationItem.rightBarButtonItem = _addBtn;
     
     UINib *nib = [UINib nibWithNibName:@"TrashAlarmCell" bundle:nil];
     [_alarmTableView registerNib:nib forCellReuseIdentifier:@"Alarm"];
+    UINib *nonib = [UINib nibWithNibName:@"noMyAlarmCell" bundle:nil];
+    [_alarmTableView registerNib:nonib forCellReuseIdentifier:@"noAlarm"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,7 +70,11 @@
     if (section == 0) {
         return _trashDict.count;
     } else if (section == 1) {
-        return 1;
+        if (_myAlarm.count == 0) {
+            return 1;
+        } else {
+            return  _myAlarm.count;
+        }
     } else {
         return 0;
     }
@@ -80,13 +89,18 @@
         
         return cell;
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cid"];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                          reuseIdentifier: @"cid"];
+        if (_myAlarm == NULL) {
+            noMyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noAlarm" forIndexPath:indexPath];
+            return cell;
+        } else {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cid"];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                              reuseIdentifier: @"cid"];
+            }
+            cell.textLabel.text = [[NSString alloc] initWithFormat:@"%ld行目のセル", indexPath.row + 1];
+            return cell;
         }
-        cell.textLabel.text = [[NSString alloc] initWithFormat:@"%ld行目のセル", indexPath.row + 1];
-        return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cid"];
         if (cell == nil) {
@@ -99,6 +113,9 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && _myAlarm == NULL) {
+        return 124;
+    }
     return 44.0;
 }
 

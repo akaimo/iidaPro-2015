@@ -35,6 +35,7 @@
 		99F743921BEB354800AF8195 /* noMyAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F743901BEB354800AF8195 /* noMyAlarmCell.xib */; };
 		99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743941BEB3BB500AF8195 /* MyAlarmCell.m */; };
 		99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */; };
+		99F7439A1BEB50BB00AF8195 /* AlarmPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */; };
 		99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */; };
 		FFB5FC4A92362B27A409D612 /* libPods-iidaPro-2015.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,8 @@
 		99F743931BEB3BB500AF8195 /* MyAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlarmCell.h; sourceTree = "<group>"; };
 		99F743941BEB3BB500AF8195 /* MyAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlarmCell.m; sourceTree = "<group>"; };
 		99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAlarmCell.xib; sourceTree = "<group>"; };
+		99F743981BEB50BB00AF8195 /* AlarmPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmPopUpView.h; sourceTree = "<group>"; };
+		99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmPopUpView.m; sourceTree = "<group>"; };
 		99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		B724D6246FB52462BBC8C540 /* Pods-iidaPro-2015.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015.release.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015.release.xcconfig"; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 			children = (
 				9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */,
 				9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */,
+				99F743981BEB50BB00AF8195 /* AlarmPopUpView.h */,
+				99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */,
 				99F7438D1BEA3F0500AF8195 /* Cell */,
 			);
 			name = Alarm;
@@ -483,6 +488,7 @@
 				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
 				991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */,
+				99F7439A1BEB50BB00AF8195 /* AlarmPopUpView.m in Sources */,
 				9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */,
 				99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */,
 				99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */,

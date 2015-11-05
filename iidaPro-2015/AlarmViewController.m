@@ -10,6 +10,7 @@
 #import "TrashAlarmCell.h"
 #import "noMyAlarmCell.h"
 #import "MyAlarmCell.h"
+#import "AlarmPopUpView.h"
 
 @interface AlarmViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *alarmTableView;
@@ -64,6 +65,9 @@
 
 - (void)tapAdd:(UIButton *)sender {
     NSLog(@"add");
+    AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame];
+//    popup.frame = CGRectMake(100, 100, 100, 100);
+    [self.view addSubview:popup];
 }
 
 

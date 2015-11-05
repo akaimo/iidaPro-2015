@@ -33,6 +33,8 @@
 		99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */; };
 		99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F7438F1BEB354800AF8195 /* noMyAlarmCell.m */; };
 		99F743921BEB354800AF8195 /* noMyAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F743901BEB354800AF8195 /* noMyAlarmCell.xib */; };
+		99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743941BEB3BB500AF8195 /* MyAlarmCell.m */; };
+		99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */; };
 		99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */; };
 		FFB5FC4A92362B27A409D612 /* libPods-iidaPro-2015.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */; };
 /* End PBXBuildFile section */
@@ -98,6 +100,9 @@
 		99F7438E1BEB354800AF8195 /* noMyAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noMyAlarmCell.h; sourceTree = "<group>"; };
 		99F7438F1BEB354800AF8195 /* noMyAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = noMyAlarmCell.m; sourceTree = "<group>"; };
 		99F743901BEB354800AF8195 /* noMyAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = noMyAlarmCell.xib; sourceTree = "<group>"; };
+		99F743931BEB3BB500AF8195 /* MyAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlarmCell.h; sourceTree = "<group>"; };
+		99F743941BEB3BB500AF8195 /* MyAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlarmCell.m; sourceTree = "<group>"; };
+		99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAlarmCell.xib; sourceTree = "<group>"; };
 		99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		B724D6246FB52462BBC8C540 /* Pods-iidaPro-2015.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015.release.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015.release.xcconfig"; sourceTree = "<group>"; };
@@ -292,6 +297,9 @@
 				99F7438E1BEB354800AF8195 /* noMyAlarmCell.h */,
 				99F7438F1BEB354800AF8195 /* noMyAlarmCell.m */,
 				99F743901BEB354800AF8195 /* noMyAlarmCell.xib */,
+				99F743931BEB3BB500AF8195 /* MyAlarmCell.h */,
+				99F743941BEB3BB500AF8195 /* MyAlarmCell.m */,
+				99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -383,6 +391,7 @@
 				99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */,
 				8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */,
 				99F743921BEB354800AF8195 /* noMyAlarmCell.xib in Resources */,
+				99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */,
 				998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */,
 				998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */,
 				8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */,
@@ -482,6 +491,7 @@
 				997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */,
 				8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
+				99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */,
 				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,
 				998992881B33B6A5000B7FD2 /* main.m in Sources */,
 				997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */,

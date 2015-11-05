@@ -9,6 +9,7 @@
 #import "AlarmViewController.h"
 #import "TrashAlarmCell.h"
 #import "noMyAlarmCell.h"
+#import "MyAlarmCell.h"
 
 @interface AlarmViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *alarmTableView;
@@ -34,14 +35,22 @@
     _trashDict = [ud objectForKey:@"trash"];
     _trashKeyArray = [ud objectForKey:@"title"];
     _myAlarm = [ud objectForKey:@"myAlarm"];
+    _myAlarm = [NSMutableArray arrayWithArray:@[@{@"title":@"アラーム1",
+                                                  @"date":@"12/24",
+                                                  @"time":@"08:30"},
+                                                @{@"title":@"アラーム2",
+                                                  @"date":@"12/25",
+                                                  @"time":@"08:45"}]];
     
     _addBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tapAdd:)];
     self.navigationItem.rightBarButtonItem = _addBtn;
     
     UINib *nib = [UINib nibWithNibName:@"TrashAlarmCell" bundle:nil];
-    [_alarmTableView registerNib:nib forCellReuseIdentifier:@"Alarm"];
     UINib *nonib = [UINib nibWithNibName:@"noMyAlarmCell" bundle:nil];
+    UINib *mynib = [UINib nibWithNibName:@"MyAlarmCell" bundle:nil];
+    [_alarmTableView registerNib:nib forCellReuseIdentifier:@"Alarm"];
     [_alarmTableView registerNib:nonib forCellReuseIdentifier:@"noAlarm"];
+    [_alarmTableView registerNib:mynib forCellReuseIdentifier:@"myAlarm"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -86,21 +95,21 @@
         cell.titleLabel.text = _trashKeyArray[indexPath.row];
         cell.dayLabel.text = [_trashDict valueForKey:_trashKeyArray[indexPath.row]];
         cell.timeLabel.text = @"08:00";
-        
         return cell;
+        
     } else if (indexPath.section == 1) {
         if (_myAlarm == NULL) {
             noMyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noAlarm" forIndexPath:indexPath];
             return cell;
+            
         } else {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cid"];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                              reuseIdentifier: @"cid"];
-            }
-            cell.textLabel.text = [[NSString alloc] initWithFormat:@"%ld行目のセル", indexPath.row + 1];
+            MyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myAlarm" forIndexPath:indexPath];
+            cell.titleLabel.text = [_myAlarm[indexPath.row] valueForKey:@"title"];
+            cell.dateLabel.text = [_myAlarm[indexPath.row] valueForKey:@"date"];
+            cell.timeLabel.text = [_myAlarm[indexPath.row] valueForKey:@"time"];
             return cell;
         }
+        
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cid"];
         if (cell == nil) {

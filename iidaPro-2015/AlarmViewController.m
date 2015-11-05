@@ -51,6 +51,7 @@
     [_alarmTableView registerNib:nib forCellReuseIdentifier:@"Alarm"];
     [_alarmTableView registerNib:nonib forCellReuseIdentifier:@"noAlarm"];
     [_alarmTableView registerNib:mynib forCellReuseIdentifier:@"myAlarm"];
+    _alarmTableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -126,6 +127,33 @@
         return 124;
     }
     return 44.0;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSMutableArray *array = [NSMutableArray array];
+    if (indexPath.section == 1) {
+        UITableViewRowAction *delete =[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
+                                                                         title:@"Delete"
+                                                                       handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                                                           // delete action
+                                                                           NSLog(@"delete");
+                                                                       }];
+        delete.backgroundColor = [UIColor redColor];
+        [array addObject:delete];
+    }
+    UITableViewRowAction *edit =[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
+                                                                   title:@"Edit"
+                                                                 handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                                                     // own action
+                                                                     NSLog(@"edit");
+                                                                 }];
+    edit.backgroundColor = [UIColor greenColor];
+    [array addObject:edit];
+    
+    return array;
 }
 
 @end

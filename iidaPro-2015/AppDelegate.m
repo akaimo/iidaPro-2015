@@ -24,15 +24,31 @@
 //    [rc deleteTestTable];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    // ごみのリスト
     NSArray *array = @[@"普通ごみ1", @"普通ごみ2", @"びん・缶・ペットボトル", @"ミックスペーパー", @"プラスチック製容器包装", @"小物金属"];
+    // ex. 多摩区のデータ
     NSDictionary *dict = @{@"普通ごみ1":@"水",
                            @"普通ごみ2":@"土",
                            @"びん・缶・ペットボトル":@"金",
                            @"ミックスペーパー":@"月",
                            @"プラスチック製容器包装":@"火",
                            @"小物金属":@"第１・３月"};
+    // default alarm
+    NSArray *alarm = @[@{@"title":@"普通ごみ1",
+                         @"time":@"08:00"},
+                       @{@"title":@"普通ごみ2",
+                         @"time":@"08:00"},
+                       @{@"title":@"びん・缶・ペットボトル",
+                         @"time":@"08:00"},
+                       @{@"title":@"ミックスペーパー",
+                         @"time":@"08:00"},
+                       @{@"title":@"プラスチック製容器包装",
+                         @"time":@"08:00"},
+                       @{@"title":@"小物金属",
+                         @"time":@"08:00"}];
     [ud setObject:array forKey:@"title"];
     [ud setObject:dict forKey:@"trash"];
+    [ud setObject:alarm forKey:@"defaultAlarm"];
     [ud synchronize];
     
     return YES;

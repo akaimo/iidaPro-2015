@@ -11,28 +11,36 @@
 
 @interface AlarmPopUpView ()
 @property (retain, nonatomic) UIView *popup;
+@property (retain, nonatomic) UILabel *titleLabel;
+@property (retain, nonatomic) UILabel *alarmTitleLabel;
+@property (retain, nonatomic) UIDatePicker *datePicker;
+@property (retain, nonatomic) UIButton *enterBtn;
+@property (retain, nonatomic) UIButton *cancelBtn;
+
+@property (retain, nonatomic) NSMutableArray *alarmArray;
 @property (nonatomic) PopupStyle style;
+@property (nonatomic) NSInteger selectedRow;
 
 @end
 
 @implementation AlarmPopUpView
 
 - (id)init {
-    return [self initWithFrame:CGRectMake(0, 0, 0, 0) style:PopupDefaultStyle];
+    return [self initWithFrame:CGRectMake(0, 0, 0, 0) style:PopupDefaultStyle row:0];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    return [self initWithFrame:CGRectMake(0, 0, 0, 0) style:PopupDefaultStyle];
+    return [self initWithFrame:CGRectMake(0, 0, 0, 0) style:PopupDefaultStyle row:0];
 }
 
 - (id)initWithFrame:(CGRect)frame {
-    return [self initWithFrame:frame style:PopupDefaultStyle];
+    return [self initWithFrame:frame style:PopupDefaultStyle row:0];
 }
 
-- (id)initWithFrame:(CGRect)frame style:(PopupStyle)style {
+- (id)initWithFrame:(CGRect)frame style:(PopupStyle)style row:(NSInteger)row {
     if (self = [super initWithFrame:frame]) {
         _style = style;
-        NSLog(@"%ld", (long)_style);
+        _selectedRow = row;
         [self setup:frame];
     }
     return self;
@@ -52,6 +60,33 @@
     _popup.backgroundColor = [UIColor whiteColor];
     _popup.userInteractionEnabled = YES;
     [self addSubview:_popup];
+    
+    switch (_style) {
+        case PopupDefaultStyle:
+            [self setupDefaultStyle];
+            break;
+            
+        case PopupEditMyAlarmStyle:
+            // myAlarm - edit
+            break;
+            
+        case PopupNewMyAlarmStyle:
+            // myAlarm - new
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setupDefaultStyle {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    _alarmArray = [ud objectForKey:@"defaultAlarm"];
+    NSLog(@"%@", _alarmArray[_selectedRow]);
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _popup.frame.size.width, 50)];
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.text = [_alarmArray[_selectedRow] valueForKey:@"title"];
+    [_popup addSubview:_titleLabel];
 }
 
 

@@ -16,6 +16,6 @@ typedef NS_ENUM(NSInteger, PopupStyle){
 
 @interface AlarmPopUpView : UIView
 
-- (id)initWithFrame:(CGRect)frame style:(PopupStyle)style;
+- (id)initWithFrame:(CGRect)frame style:(PopupStyle)style row:(NSInteger)row;
 
 @end

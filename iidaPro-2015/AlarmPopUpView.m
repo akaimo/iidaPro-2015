@@ -11,34 +11,33 @@
 
 @interface AlarmPopUpView ()
 @property (retain, nonatomic) UIView *popup;
+@property (nonatomic) PopupStyle style;
 
 @end
 
 @implementation AlarmPopUpView
 
 - (id)init {
-    self = [super init];
-    if (self) {
-        [self setup:CGRectMake(0, 0, 0, 0)];
-    }
-    return self;
+    return [self initWithFrame:CGRectMake(0, 0, 0, 0) style:PopupDefaultStyle];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self setup:CGRectMake(0, 0, 0, 0)];
-    }
-    return self;
+    return [self initWithFrame:CGRectMake(0, 0, 0, 0) style:PopupDefaultStyle];
 }
 
 - (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
+    return [self initWithFrame:frame style:PopupDefaultStyle];
+}
+
+- (id)initWithFrame:(CGRect)frame style:(PopupStyle)style {
+    if (self = [super initWithFrame:frame]) {
+        _style = style;
+        NSLog(@"%ld", (long)_style);
         [self setup:frame];
     }
     return self;
 }
+
 
 - (void)setup:(CGRect)frame {
     self.frame = frame;
@@ -55,6 +54,10 @@
     [self addSubview:_popup];
 }
 
+
+
+
+#pragma mark - UIView
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([event touchesForView:self]) {
         [self removeFromSuperview];

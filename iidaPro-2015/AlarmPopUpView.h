@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, PopupStyle){
+    PopupDefaultStyle = 0, // default
+    PopupNewMyAlarmStyle,
+    PopupEditMyAlarmStyle
+};
+
 @interface AlarmPopUpView : UIView
+
+- (id)initWithFrame:(CGRect)frame style:(PopupStyle)style;
 
 @end

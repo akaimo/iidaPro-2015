@@ -65,7 +65,7 @@
 }
 
 - (void)tapAdd:(UIButton *)sender {
-    AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame];
+    AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame style:PopupDefaultStyle];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.window addSubview:popup];
 }

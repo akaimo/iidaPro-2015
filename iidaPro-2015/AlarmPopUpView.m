@@ -100,6 +100,17 @@
     _datePicker.date = inputDate;
     [_datePicker addTarget:self action:@selector(changeDatePicker:) forControlEvents:UIControlEventValueChanged];
     [_popup addSubview:_datePicker];
+    
+    [self setupButton];
+}
+
+- (void)setupButton {
+    _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _cancelBtn.frame = CGRectMake(0, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
+    [_cancelBtn setTitle:@"キャンセル" forState:UIControlStateNormal];
+    [_cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_cancelBtn addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchDown];
+    [_popup addSubview:_cancelBtn];
 }
 
 
@@ -107,6 +118,10 @@
 - (void)changeDatePicker:(id)sender {
     UIDatePicker *picker = (UIDatePicker *)sender;
     _tempData = picker.date;
+}
+
+- (void)cancelButtonTapped:(UIButton *)button {
+    NSLog(@"cancel");
 }
 
 #pragma mark - UIView

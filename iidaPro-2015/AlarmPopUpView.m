@@ -18,6 +18,7 @@
 @property (retain, nonatomic) UIButton *cancelBtn;
 
 @property (retain, nonatomic) NSMutableArray *alarmArray;
+@property (retain, nonatomic) NSDate *tempData;
 @property (nonatomic) PopupStyle style;
 @property (nonatomic) NSInteger selectedRow;
 
@@ -53,7 +54,7 @@
     
     CGFloat width = frame.size.width * 0.8;
     CGFloat wMargin = frame.size.width * 0.1;
-    CGFloat height = 300.0;
+    CGFloat height = 250.0;
     CGFloat hMargin = (frame.size.height - 300) / 2;
     _popup = [[UIView alloc] init];
     _popup.frame = CGRectMake(wMargin, hMargin, width, height);
@@ -82,15 +83,31 @@
 - (void)setupDefaultStyle {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     _alarmArray = [ud objectForKey:@"defaultAlarm"];
-    NSLog(@"%@", _alarmArray[_selectedRow]);
+    
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _popup.frame.size.width, 50)];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     _titleLabel.text = [_alarmArray[_selectedRow] valueForKey:@"title"];
     [_popup addSubview:_titleLabel];
+    
+    NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"];
+    [inputDateFormatter setLocale:locale];
+    [inputDateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]];
+    [inputDateFormatter setDateFormat:@"H:mm"];
+    NSDate *inputDate = [inputDateFormatter dateFromString:[_alarmArray[_selectedRow] valueForKey:@"time"]];
+    _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 50, _popup.frame.size.width, 150)];
+    _datePicker.datePickerMode = UIDatePickerModeTime;
+    _datePicker.date = inputDate;
+    [_datePicker addTarget:self action:@selector(changeDatePicker:) forControlEvents:UIControlEventValueChanged];
+    [_popup addSubview:_datePicker];
 }
 
 
 
+- (void)changeDatePicker:(id)sender {
+    UIDatePicker *picker = (UIDatePicker *)sender;
+    _tempData = picker.date;
+}
 
 #pragma mark - UIView
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

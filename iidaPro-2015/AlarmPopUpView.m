@@ -6,6 +6,7 @@
 //  Copyright © 2015年 akaimo. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "AlarmPopUpView.h"
 #import "AppDelegate.h"
 
@@ -59,6 +60,8 @@
     _popup = [[UIView alloc] init];
     _popup.frame = CGRectMake(wMargin, hMargin, width, height);
     _popup.backgroundColor = [UIColor whiteColor];
+    _popup.layer.cornerRadius = 6;
+    _popup.clipsToBounds = YES;
     _popup.userInteractionEnabled = YES;
     [self addSubview:_popup];
     
@@ -87,6 +90,7 @@
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _popup.frame.size.width, 50)];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     _titleLabel.text = [_alarmArray[_selectedRow] valueForKey:@"title"];
+    _titleLabel.font = [UIFont boldSystemFontOfSize:17];
     [_popup addSubview:_titleLabel];
     
     NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
@@ -118,6 +122,8 @@
     [_enterBtn setTitleColor:[UIColor colorWithRed:3/255.0 green:122/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
     [_enterBtn addTarget:self action:@selector(enterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [_popup addSubview:_enterBtn];
+    
+    // TODO: add line
 }
 
 

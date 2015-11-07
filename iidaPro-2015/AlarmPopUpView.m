@@ -108,9 +108,16 @@
     _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _cancelBtn.frame = CGRectMake(0, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
     [_cancelBtn setTitle:@"キャンセル" forState:UIControlStateNormal];
-    [_cancelBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_cancelBtn addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchDown];
+    [_cancelBtn setTitleColor:[UIColor colorWithRed:3/255.0 green:122/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [_cancelBtn addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [_popup addSubview:_cancelBtn];
+    
+    _enterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _enterBtn.frame = CGRectMake(_popup.frame.size.width / 2, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
+    [_enterBtn setTitle:@"登録" forState:UIControlStateNormal];
+    [_enterBtn setTitleColor:[UIColor colorWithRed:3/255.0 green:122/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [_enterBtn addTarget:self action:@selector(enterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [_popup addSubview:_enterBtn];
 }
 
 
@@ -122,6 +129,13 @@
 
 - (void)cancelButtonTapped:(UIButton *)button {
     NSLog(@"cancel");
+    [self removeFromSuperview];
+}
+
+- (void)enterButtonTapped:(UIButton *)button {
+    NSLog(@"enter");
+    // TODO: Update userDefault
+    [self removeFromSuperview];
 }
 
 #pragma mark - UIView

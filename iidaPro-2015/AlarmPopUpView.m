@@ -134,6 +134,10 @@
 
 - (void)setAlarmTime {
     // TODO: suport myAlarm
+    if (_tempData == NULL) {
+        return;
+    }
+    
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"hh:mm"];

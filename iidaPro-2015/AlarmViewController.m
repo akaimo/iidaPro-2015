@@ -19,9 +19,9 @@
 @property (retain, nonatomic) UIBarButtonItem *addBtn;
 
 @property (strong, nonatomic) NSArray *sectionArray;
-@property (strong, nonatomic) NSDictionary *trashDict;
-@property (strong, nonatomic) NSArray *trashKeyArray;
+@property (strong, nonatomic) NSArray *trashArray;
 @property (strong, nonatomic) NSMutableArray *myAlarm;
+@property (strong, nonatomic) NSArray *defaultAlarmArray;
 
 @end
 
@@ -34,8 +34,8 @@
     _sectionArray = @[@"ごみ収集通知", @"My通知"];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    _trashDict = [ud objectForKey:@"trash"];
-    _trashKeyArray = [ud objectForKey:@"title"];
+    _trashArray = [ud objectForKey:@"trash"];
+    _defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
     _myAlarm = [ud objectForKey:@"myAlarm"];
     _myAlarm = [NSMutableArray arrayWithArray:@[@{@"title":@"アラーム1",
                                                   @"date":@"12/24",
@@ -82,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return _trashDict.count;
+        return _trashArray.count;
     } else if (section == 1) {
         if (_myAlarm.count == 0) {
             return 1;
@@ -97,9 +97,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         TrashAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Alarm" forIndexPath:indexPath];
-        cell.titleLabel.text = _trashKeyArray[indexPath.row];
-        cell.dayLabel.text = [_trashDict valueForKey:_trashKeyArray[indexPath.row]];
-        cell.timeLabel.text = @"08:00";
+        cell.titleLabel.text = [_trashArray[indexPath.row] valueForKey:@"title"];
+        cell.dayLabel.text = [_trashArray[indexPath.row] valueForKey:@"date"];
+        cell.timeLabel.text = [_defaultAlarmArray[indexPath.row] valueForKey:@"time"];
         return cell;
         
     } else if (indexPath.section == 1) {

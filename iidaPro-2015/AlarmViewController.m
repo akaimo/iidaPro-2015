@@ -65,6 +65,7 @@
 }
 
 - (void)tapAdd:(UIButton *)sender {
+    // TODO: edit default alarm -> new myAlarm
     AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame style:PopupDefaultStyle row:0];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.window addSubview:popup];
@@ -138,24 +139,36 @@
 
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *array = [NSMutableArray array];
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
+        UITableViewRowAction *edit =[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
+                                                                       title:@"Edit"
+                                                                     handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                                                         // edit default alarm
+                                                                         AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame style:PopupDefaultStyle row:indexPath.row];
+                                                                         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                                                                         [appDelegate.window addSubview:popup];
+                                                                     }];
+        edit.backgroundColor = [UIColor greenColor];
+        [array addObject:edit];
+    } else if (indexPath.section == 1) {
         UITableViewRowAction *delete =[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
                                                                          title:@"Delete"
                                                                        handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                                                           // delete action
+                                                                           // delete my alarm
                                                                            NSLog(@"delete");
                                                                        }];
         delete.backgroundColor = [UIColor redColor];
         [array addObject:delete];
+        
+        UITableViewRowAction *edit =[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
+                                                                       title:@"Edit"
+                                                                     handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                                                         // edit my alarm
+                                                                         NSLog(@"edit");
+                                                                     }];
+        edit.backgroundColor = [UIColor greenColor];
+        [array addObject:edit];
     }
-    UITableViewRowAction *edit =[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal
-                                                                   title:@"Edit"
-                                                                 handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                                                     // own action
-                                                                     NSLog(@"edit");
-                                                                 }];
-    edit.backgroundColor = [UIColor greenColor];
-    [array addObject:edit];
     
     return array;
 }

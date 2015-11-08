@@ -71,11 +71,11 @@
             break;
             
         case PopupEditMyAlarmStyle:
-            // myAlarm - edit
+            [self setupMyAlarmStyle];
             break;
             
         case PopupNewMyAlarmStyle:
-            // myAlarm - new
+            [self setupMyAlarmStyle];
             break;
             
         default:
@@ -108,6 +108,10 @@
     [self setupButton];
 }
 
+- (void)setupMyAlarmStyle {
+    // TODO: myAlarm
+}
+
 - (void)setupButton {
     _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _cancelBtn.frame = CGRectMake(0, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
@@ -129,6 +133,7 @@
 
 
 - (void)setAlarmTime {
+    // TODO: suport myAlarm
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"hh:mm"];
@@ -147,13 +152,10 @@
 }
 
 - (void)cancelButtonTapped:(UIButton *)button {
-    NSLog(@"cancel");
     [self removeFromSuperview];
 }
 
 - (void)enterButtonTapped:(UIButton *)button {
-    NSLog(@"enter");
-    // TODO: Update userDefault
     [self setAlarmTime];
     [self removeFromSuperview];
 }

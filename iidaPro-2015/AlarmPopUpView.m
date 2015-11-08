@@ -128,6 +128,19 @@
 
 
 
+- (void)setAlarmTime {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mm"];
+    NSString *str = [formatter stringFromDate:_tempData];
+    NSMutableArray *array = [_alarmArray mutableCopy];
+    NSMutableDictionary *dic = [array[_selectedRow] mutableCopy];
+    [dic setObject:str forKey:@"time"];
+    [array replaceObjectAtIndex:_selectedRow withObject:dic];
+    [ud setObject:array forKey:@"defaultAlarm"];
+}
+
+
 - (void)changeDatePicker:(id)sender {
     UIDatePicker *picker = (UIDatePicker *)sender;
     _tempData = picker.date;
@@ -141,6 +154,7 @@
 - (void)enterButtonTapped:(UIButton *)button {
     NSLog(@"enter");
     // TODO: Update userDefault
+    [self setAlarmTime];
     [self removeFromSuperview];
 }
 

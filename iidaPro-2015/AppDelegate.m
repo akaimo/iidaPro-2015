@@ -50,8 +50,13 @@
                          @"time":@"08:00"},
                        @{@"title":@"小物金属",
                          @"time":@"08:00"}];
+    NSArray *myAlarm = @[@{@"title":@"アラーム1",
+                           @"time":@"12/24 08:30"},
+                         @{@"title":@"アラーム2",
+                           @"time":@"12/25 08:45"}];
     [ud setObject:tama forKey:@"trash"];
     [ud setObject:alarm forKey:@"defaultAlarm"];
+    [ud setObject:myAlarm forKey:@"myAlarm"];
     [ud synchronize];
     
     return YES;

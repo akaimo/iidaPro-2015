@@ -10,10 +10,10 @@
 #import "AlarmPopUpView.h"
 #import "AppDelegate.h"
 
-@interface AlarmPopUpView ()
+@interface AlarmPopUpView () <UITextFieldDelegate>
 @property (retain, nonatomic) UIView *popup;
 @property (retain, nonatomic) UILabel *titleLabel;
-@property (retain, nonatomic) UILabel *alarmTitleLabel;
+@property (retain, nonatomic) UITextField *titleTextField;
 @property (retain, nonatomic) UIDatePicker *datePicker;
 @property (retain, nonatomic) UIButton *enterBtn;
 @property (retain, nonatomic) UIButton *cancelBtn;
@@ -55,7 +55,7 @@
     
     CGFloat width = frame.size.width * 0.8;
     CGFloat wMargin = frame.size.width * 0.1;
-    CGFloat height = 250.0;
+    CGFloat height = (_style == PopupDefaultStyle) ? 250.0 : 300.0;
     CGFloat hMargin = (frame.size.height - 300) / 2;
     _popup = [[UIView alloc] init];
     _popup.frame = CGRectMake(wMargin, hMargin, width, height);
@@ -71,11 +71,11 @@
             break;
             
         case PopupEditMyAlarmStyle:
-            [self setupMyAlarmStyle];
+            [self setupEditMyAlarmStyle];
             break;
             
         case PopupNewMyAlarmStyle:
-            [self setupMyAlarmStyle];
+            [self setupNewMyAlarmStyle];
             break;
             
         default:
@@ -108,8 +108,40 @@
     [self setupButton];
 }
 
-- (void)setupMyAlarmStyle {
-    // TODO: myAlarm
+- (void)setupEditMyAlarmStyle {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    _alarmArray = [ud objectForKey:@"myAlarm"];
+    
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _popup.frame.size.width, 50)];
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.text = @"Myアラームの編集";
+    _titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    [_popup addSubview:_titleLabel];
+    
+    _titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 60, _popup.frame.size.width - 40, 40)];
+    _titleTextField.delegate = self;
+    _titleTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _titleTextField.text = [_alarmArray[_selectedRow] valueForKey:@"title"];
+    [_popup addSubview:_titleTextField];
+    
+    NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"];
+    [inputDateFormatter setLocale:locale];
+    [inputDateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]];
+    [inputDateFormatter setDateFormat:@"MM/dd H:mm"];
+    NSDate *inputDate = [inputDateFormatter dateFromString:[_alarmArray[_selectedRow] valueForKey:@"time"]];
+    _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 100, _popup.frame.size.width, 150)];
+    _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    _datePicker.date = inputDate;
+    [_datePicker addTarget:self action:@selector(changeDatePicker:) forControlEvents:UIControlEventValueChanged];
+    [_datePicker addTarget:self action:@selector(touchDatePicker:) forControlEvents:UIControlEventAllEvents];
+    [_popup addSubview:_datePicker];
+    
+    [self setupButton];
+}
+
+- (void)setupNewMyAlarmStyle {
+    // TODO: new myAlarm
 }
 
 - (void)setupButton {
@@ -133,26 +165,56 @@
 
 
 - (void)setAlarmTime {
-    // TODO: suport myAlarm
+    // TODO: suport new myAlarm
     if (_tempData == NULL) {
         return;
     }
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"hh:mm"];
+    if (_style == PopupDefaultStyle) {
+        [formatter setDateFormat:@"hh:mm"];
+    } else {
+        [formatter setDateFormat:@"MM/dd hh:mm"];
+    }
     NSString *str = [formatter stringFromDate:_tempData];
-    NSMutableArray *array = [_alarmArray mutableCopy];
-    NSMutableDictionary *dic = [array[_selectedRow] mutableCopy];
-    [dic setObject:str forKey:@"time"];
-    [array replaceObjectAtIndex:_selectedRow withObject:dic];
-    [ud setObject:array forKey:@"defaultAlarm"];
+    
+    switch (_style) {
+        case PopupDefaultStyle: {
+            NSMutableArray *array = [_alarmArray mutableCopy];
+            NSMutableDictionary *dic = [array[_selectedRow] mutableCopy];
+            [dic setObject:str forKey:@"time"];
+            [array replaceObjectAtIndex:_selectedRow withObject:dic];
+            [ud setObject:array forKey:@"defaultAlarm"];
+            break;
+        }
+            
+        case PopupEditMyAlarmStyle: {
+            NSMutableArray *array = [_alarmArray mutableCopy];
+            NSMutableDictionary *dic = [array[_selectedRow] mutableCopy];
+            [dic setObject:str forKey:@"time"];
+            [dic setObject:_titleTextField.text forKey:@"title"];
+            [array replaceObjectAtIndex:_selectedRow withObject:dic];
+            [ud setObject:array forKey:@"myAlarm"];
+            break;
+        }
+            
+        case PopupNewMyAlarmStyle:
+            break;
+            
+        default:
+            break;
+    }
 }
 
 
 - (void)changeDatePicker:(id)sender {
     UIDatePicker *picker = (UIDatePicker *)sender;
     _tempData = picker.date;
+}
+
+- (void)touchDatePicker:(id)sender {
+    [_titleTextField resignFirstResponder];
 }
 
 - (void)cancelButtonTapped:(UIButton *)button {
@@ -165,10 +227,19 @@
     [self removeFromSuperview];
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 #pragma mark - UIView
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([event touchesForView:self]) {
         [self removeFromSuperview];
+    }
+    
+    if ([event touchesForView:_popup]) {
+        [_titleTextField resignFirstResponder];
     }
 }
 

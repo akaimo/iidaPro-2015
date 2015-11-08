@@ -37,12 +37,6 @@
     _trashArray = [ud objectForKey:@"trash"];
     _defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
     _myAlarm = [ud objectForKey:@"myAlarm"];
-    _myAlarm = [NSMutableArray arrayWithArray:@[@{@"title":@"アラーム1",
-                                                  @"date":@"12/24",
-                                                  @"time":@"08:30"},
-                                                @{@"title":@"アラーム2",
-                                                  @"date":@"12/25",
-                                                  @"time":@"08:45"}]];
     
     _addBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tapAdd:)];
     self.navigationItem.rightBarButtonItem = _addBtn;
@@ -111,9 +105,10 @@
             
         } else {
             MyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myAlarm" forIndexPath:indexPath];
+            NSArray *array = [[_myAlarm[indexPath.row] valueForKey:@"time"] componentsSeparatedByString:@" "];
             cell.titleLabel.text = [_myAlarm[indexPath.row] valueForKey:@"title"];
-            cell.dateLabel.text = [_myAlarm[indexPath.row] valueForKey:@"date"];
-            cell.timeLabel.text = [_myAlarm[indexPath.row] valueForKey:@"time"];
+            cell.dateLabel.text = array[0];
+            cell.timeLabel.text = array[1];
             return cell;
         }
         
@@ -166,7 +161,10 @@
                                                                        title:@"Edit"
                                                                      handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
                                                                          // edit my alarm
-                                                                         NSLog(@"edit");
+                                                                         AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame style:PopupEditMyAlarmStyle row:indexPath.row];
+                                                                         popup.delegate = self;
+                                                                         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                                                                         [appDelegate.window addSubview:popup];
                                                                      }];
         edit.backgroundColor = [UIColor greenColor];
         [array addObject:edit];

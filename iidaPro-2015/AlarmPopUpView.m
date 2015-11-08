@@ -161,6 +161,7 @@
 
 - (void)enterButtonTapped:(UIButton *)button {
     [self setAlarmTime];
+    [self.delegate alarmPopUpView:self didTappedEnterButton:_enterBtn];
     [self removeFromSuperview];
 }
 

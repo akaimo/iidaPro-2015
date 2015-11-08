@@ -13,7 +13,7 @@
 #import "MyAlarmCell.h"
 #import "AlarmPopUpView.h"
 
-@interface AlarmViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface AlarmViewController () <UITableViewDelegate, UITableViewDataSource, AlarmPopUpViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *alarmTableView;
 
 @property (retain, nonatomic) UIBarButtonItem *addBtn;
@@ -67,6 +67,7 @@
 - (void)tapAdd:(UIButton *)sender {
     // TODO: edit default alarm -> new myAlarm
     AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame style:PopupDefaultStyle row:0];
+    popup.delegate = self;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.window addSubview:popup];
 }
@@ -145,6 +146,7 @@
                                                                      handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
                                                                          // edit default alarm
                                                                          AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame style:PopupDefaultStyle row:indexPath.row];
+                                                                         popup.delegate = self;
                                                                          AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                                                                          [appDelegate.window addSubview:popup];
                                                                      }];
@@ -171,6 +173,14 @@
     }
     
     return array;
+}
+
+#pragma mark - AlarmPopUpViewDelegate
+- (void)alarmPopUpView:(AlarmPopUpView *)alarmPopUpView didTappedEnterButton:(UIButton *)button {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    _defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
+    _myAlarm = [ud objectForKey:@"myAlarm"];
+    [_alarmTableView reloadData];
 }
 
 @end

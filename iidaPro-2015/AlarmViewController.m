@@ -98,7 +98,7 @@
         return cell;
         
     } else if (indexPath.section == 1) {
-        if (_myAlarm == NULL) {
+        if (_myAlarm.count == 0) {
             noMyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noAlarm" forIndexPath:indexPath];
             return cell;
             
@@ -123,7 +123,7 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1 && _myAlarm == NULL) {
+    if (indexPath.section == 1 && _myAlarm.count == 0) {
         return 124;
     }
     return 44.0;
@@ -150,9 +150,13 @@
         UITableViewRowAction *delete =[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
                                                                          title:@"Delete"
                                                                        handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                                                           // TODO: delete my alarm
                                                                            // delete my alarm
-                                                                           NSLog(@"delete");
+                                                                           NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+                                                                           NSMutableArray *array = [_myAlarm mutableCopy];
+                                                                           [array removeObjectAtIndex:indexPath.row];
+                                                                           [ud setObject:array forKey:@"myAlarm"];
+                                                                           _myAlarm = [ud objectForKey:@"myAlarm"];
+                                                                           [_alarmTableView reloadData];
                                                                        }];
         delete.backgroundColor = [UIColor redColor];
         [array addObject:delete];

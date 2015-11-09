@@ -144,7 +144,6 @@
 }
 
 - (void)setupNewMyAlarmStyle {
-    // TODO: new myAlarm
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _popup.frame.size.width, 50)];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     _titleLabel.text = @"Myアラームの新規作成";

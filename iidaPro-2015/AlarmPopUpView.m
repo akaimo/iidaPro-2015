@@ -120,7 +120,9 @@
     
     _titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 60, _popup.frame.size.width - 40, 40)];
     _titleTextField.delegate = self;
+    _titleTextField.clearButtonMode = UITextFieldViewModeAlways;
     _titleTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _titleTextField.placeholder = @"タイトルを入力";
     _titleTextField.text = [_alarmArray[_selectedRow] valueForKey:@"title"];
     [_popup addSubview:_titleTextField];
     
@@ -142,6 +144,27 @@
 
 - (void)setupNewMyAlarmStyle {
     // TODO: new myAlarm
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _popup.frame.size.width, 50)];
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.text = @"Myアラームの新規作成";
+    _titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    [_popup addSubview:_titleLabel];
+    
+    _titleTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 60, _popup.frame.size.width - 40, 40)];
+    _titleTextField.delegate = self;
+    _titleTextField.clearButtonMode = UITextFieldViewModeAlways;
+    _titleTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _titleTextField.placeholder = @"タイトルを入力";
+    [_popup addSubview:_titleTextField];
+    
+    _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 100, _popup.frame.size.width, 150)];
+    _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    _datePicker.date = [NSDate date];
+    [_datePicker addTarget:self action:@selector(changeDatePicker:) forControlEvents:UIControlEventValueChanged];
+    [_datePicker addTarget:self action:@selector(touchDatePicker:) forControlEvents:UIControlEventAllEvents];
+    [_popup addSubview:_datePicker];
+    
+    [self setupButton];
 }
 
 - (void)setupButton {
@@ -165,7 +188,6 @@
 
 
 - (void)setAlarmTime {
-    // TODO: suport new myAlarm
     if (_tempData == NULL) {
         return;
     }
@@ -199,8 +221,15 @@
             break;
         }
             
-        case PopupNewMyAlarmStyle:
+        case PopupNewMyAlarmStyle: {
+            _alarmArray = [ud objectForKey:@"myAlarm"];
+            NSMutableArray *array = [_alarmArray mutableCopy];
+            NSDictionary *dic = @{@"title":_titleTextField.text,
+                                  @"time":str};
+            [array addObject:dic];
+            [ud setObject:array forKey:@"myAlarm"];
             break;
+        }
             
         default:
             break;

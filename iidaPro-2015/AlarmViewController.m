@@ -59,8 +59,7 @@
 }
 
 - (void)tapAdd:(UIButton *)sender {
-    // TODO: edit default alarm -> new myAlarm
-    AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame style:PopupDefaultStyle row:0];
+    AlarmPopUpView *popup = [[AlarmPopUpView alloc] initWithFrame:self.view.frame style:PopupNewMyAlarmStyle row:0];
     popup.delegate = self;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.window addSubview:popup];
@@ -151,6 +150,7 @@
         UITableViewRowAction *delete =[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
                                                                          title:@"Delete"
                                                                        handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                                                           // TODO: delete my alarm
                                                                            // delete my alarm
                                                                            NSLog(@"delete");
                                                                        }];

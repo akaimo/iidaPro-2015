@@ -135,6 +135,7 @@
     _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 100, _popup.frame.size.width, 150)];
     _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     _datePicker.date = inputDate;
+    _datePicker.minimumDate = [NSDate date];
     [_datePicker addTarget:self action:@selector(changeDatePicker:) forControlEvents:UIControlEventValueChanged];
     [_datePicker addTarget:self action:@selector(touchDatePicker:) forControlEvents:UIControlEventAllEvents];
     [_popup addSubview:_datePicker];
@@ -160,6 +161,7 @@
     _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 100, _popup.frame.size.width, 150)];
     _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     _datePicker.date = [NSDate date];
+    _datePicker.minimumDate = [NSDate date];
     [_datePicker addTarget:self action:@selector(changeDatePicker:) forControlEvents:UIControlEventValueChanged];
     [_datePicker addTarget:self action:@selector(touchDatePicker:) forControlEvents:UIControlEventAllEvents];
     [_popup addSubview:_datePicker];

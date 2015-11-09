@@ -194,10 +194,12 @@
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"];
+    [formatter setLocale:locale];
     if (_style == PopupDefaultStyle) {
-        [formatter setDateFormat:@"hh:mm"];
+        [formatter setDateFormat:@"HH:mm"];
     } else {
-        [formatter setDateFormat:@"MM/dd hh:mm"];
+        [formatter setDateFormat:@"MM/dd HH:mm"];
     }
     NSString *str = [formatter stringFromDate:_tempData];
     

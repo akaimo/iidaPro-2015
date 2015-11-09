@@ -169,6 +169,7 @@
 }
 
 - (void)setupButton {
+    // TODO: set tapping button clolr
     _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _cancelBtn.frame = CGRectMake(0, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
     [_cancelBtn setTitle:@"キャンセル" forState:UIControlStateNormal];
@@ -186,11 +187,11 @@
     // TODO: add line
 }
 
+// TODO: lock button when don`t set time for alarm
 
-
-- (void)setAlarmTime {
+- (BOOL)setAlarmTime {
     if (_tempData == NULL) {
-        return;
+        return NO;
     }
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -215,6 +216,9 @@
         }
             
         case PopupEditMyAlarmStyle: {
+            if ([_titleTextField.text  isEqual: @""]) {
+                return NO;
+            }
             NSMutableArray *array = [_alarmArray mutableCopy];
             NSMutableDictionary *dic = [array[_selectedRow] mutableCopy];
             [dic setObject:str forKey:@"time"];
@@ -225,6 +229,9 @@
         }
             
         case PopupNewMyAlarmStyle: {
+            if ([_titleTextField.text  isEqual: @""]) {
+                return NO;
+            }
             _alarmArray = [ud objectForKey:@"myAlarm"];
             NSMutableArray *array = [_alarmArray mutableCopy];
             NSDictionary *dic = @{@"title":_titleTextField.text,
@@ -235,8 +242,10 @@
         }
             
         default:
+            return NO;
             break;
     }
+    return YES;
 }
 
 
@@ -254,7 +263,9 @@
 }
 
 - (void)enterButtonTapped:(UIButton *)button {
-    [self setAlarmTime];
+    if ([self setAlarmTime] == NO) {
+        return;
+    }
     [self.delegate alarmPopUpView:self didTappedEnterButton:_enterBtn];
     [self removeFromSuperview];
 }

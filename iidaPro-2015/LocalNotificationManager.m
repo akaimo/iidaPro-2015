@@ -24,12 +24,13 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSArray *defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
     NSArray *myAlarm = [ud objectForKey:@"myAlarm"];
+    
     for (NSDictionary *dic in defaultAlarmArray) {
         if ([[dic valueForKey:@"switch"]  isEqual: @"on"]) {
-            // TODO: register alarm
-            // http://ios-practice.readthedocs.org/en/latest/docs/notification/
+            // TODO: default alarm
         }
     }
+    
     for (NSDictionary *dic in myAlarm) {
         if ([[dic valueForKey:@"switch"]  isEqual: @"on"]) {
             AdjustNSDate *adjust = [[AdjustNSDate alloc] init];

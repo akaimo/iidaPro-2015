@@ -13,7 +13,7 @@
 #import "MyAlarmCell.h"
 #import "AlarmPopUpView.h"
 
-@interface AlarmViewController () <UITableViewDelegate, UITableViewDataSource, AlarmPopUpViewDelegate>
+@interface AlarmViewController () <UITableViewDelegate, UITableViewDataSource, AlarmPopUpViewDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *alarmTableView;
 
 @property (retain, nonatomic) UIBarButtonItem *addBtn;
@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSArray *trashArray;
 @property (strong, nonatomic) NSMutableArray *myAlarm;
 @property (strong, nonatomic) NSArray *defaultAlarmArray;
+@property (nonatomic) CGPoint startCenter;
 
 @end
 
@@ -65,6 +66,60 @@
     [appDelegate.window addSubview:popup];
 }
 
+- (void)panGesture:(UIPanGestureRecognizer *)sender {
+    CGPoint p = [sender translationInView:self.view];
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        [_alarmTableView setScrollEnabled:NO];
+        _startCenter = sender.view.center;
+    }
+    
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (_startCenter.x + 60.0 < sender.view.center.x) {
+            UITableViewCell *cell = [self findUITableViewCellFromSuperViewsForView:sender.view];
+            if (cell) {
+                // TODO: require speed up
+                NSIndexPath *indexPath = [_alarmTableView indexPathForCell:cell];
+                NSMutableArray *array = (indexPath.section == 0) ? [_defaultAlarmArray mutableCopy] : [_myAlarm mutableCopy];
+                NSMutableDictionary *dic = [array[indexPath.row] mutableCopy];
+                NSString *str = ([[dic valueForKey:@"switch"] isEqualToString:@"on"]) ? @"off" : @"on";
+                [dic setObject:str forKey:@"switch"];
+                [array replaceObjectAtIndex:indexPath.row withObject:dic];
+                
+                NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+                NSString *key = (indexPath.section == 0) ? @"defaultAlarm" : @"myAlarm";
+                [ud setObject:array forKey:key];
+                
+                _defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
+                _myAlarm = [ud objectForKey:@"myAlarm"];
+                [_alarmTableView reloadData];
+            }
+        }
+        sender.view.frame = CGRectMake(0.0, sender.view.frame.origin.y, sender.view.frame.size.width, sender.view.frame.size.height);
+        _startCenter = CGPointZero;
+        [_alarmTableView setScrollEnabled:YES];
+        
+    } else if ([sender.view isKindOfClass:[TrashAlarmCell class]] || [sender.view isKindOfClass:[MyAlarmCell class]]) {
+        if (sender.view.center.x + p.x > _startCenter.x && sender.view.center.x + p.x < _startCenter.x + 80) {
+            sender.view.center = CGPointMake(sender.view.center.x + p.x, sender.view.center.y);
+            [sender setTranslation:CGPointZero inView:self.view];
+        }
+    }
+}
+
+- (UITableViewCell *)findUITableViewCellFromSuperViewsForView:(id)view {
+    if (![view isKindOfClass:[UIView class]]) {
+        return nil;
+    }
+    UIView *superView = view;
+    while (superView) {
+        if ([superView isKindOfClass:[UITableViewCell class]]) {
+            break;
+        }
+        superView = [superView superview];
+    }
+    return (UITableViewCell *)superView;
+}
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -95,6 +150,25 @@
         cell.titleLabel.text = [_trashArray[indexPath.row] valueForKey:@"title"];
         cell.dayLabel.text = [_trashArray[indexPath.row] valueForKey:@"date"];
         cell.timeLabel.text = [_defaultAlarmArray[indexPath.row] valueForKey:@"time"];
+        if ([[_defaultAlarmArray[indexPath.row] valueForKey:@"switch"]  isEqual: @"on"]) {
+            cell.titleLabel.textColor = [UIColor blackColor];
+            cell.dayLabel.textColor = [UIColor blackColor];
+            cell.timeLabel.textColor = [UIColor blackColor];
+        } else {
+            cell.titleLabel.textColor = [UIColor lightGrayColor];
+            cell.dayLabel.textColor = [UIColor lightGrayColor];
+            cell.timeLabel.textColor = [UIColor lightGrayColor];
+        }
+        
+        for(UIGestureRecognizer *gesture in [cell gestureRecognizers]) {
+            if([gesture isKindOfClass:[UIPanGestureRecognizer class]]) {
+                [cell removeGestureRecognizer:gesture];
+            }
+        }
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+        pan.delegate = self;
+        [cell addGestureRecognizer:pan];
+        
         return cell;
         
     } else if (indexPath.section == 1) {
@@ -108,6 +182,25 @@
             cell.titleLabel.text = [_myAlarm[indexPath.row] valueForKey:@"title"];
             cell.dateLabel.text = array[0];
             cell.timeLabel.text = array[1];
+            if ([[_myAlarm[indexPath.row] valueForKey:@"switch"]  isEqual: @"on"]) {
+                cell.titleLabel.textColor = [UIColor blackColor];
+                cell.dateLabel.textColor = [UIColor blackColor];
+                cell.timeLabel.textColor = [UIColor blackColor];
+            } else {
+                cell.titleLabel.textColor = [UIColor lightGrayColor];
+                cell.dateLabel.textColor = [UIColor lightGrayColor];
+                cell.timeLabel.textColor = [UIColor lightGrayColor];
+            }
+            
+            for(UIGestureRecognizer *gesture in [cell gestureRecognizers]) {
+                if([gesture isKindOfClass:[UIPanGestureRecognizer class]]) {
+                    [cell removeGestureRecognizer:gesture];
+                }
+            }
+            UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+            pan.delegate = self;
+            [cell addGestureRecognizer:pan];
+            
             return cell;
         }
         
@@ -183,6 +276,19 @@
     _defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
     _myAlarm = [ud objectForKey:@"myAlarm"];
     [_alarmTableView reloadData];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
+    UIView *cell = [gestureRecognizer view];
+    CGPoint translation = [gestureRecognizer translationInView:[cell superview]];
+    if (fabs(translation.x) > fabs(translation.y)) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

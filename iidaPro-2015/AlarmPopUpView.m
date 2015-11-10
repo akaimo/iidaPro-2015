@@ -235,7 +235,8 @@
             _alarmArray = [ud objectForKey:@"myAlarm"];
             NSMutableArray *array = [_alarmArray mutableCopy];
             NSDictionary *dic = @{@"title":_titleTextField.text,
-                                  @"time":str};
+                                  @"time":str,
+                                  @"switch":@"on"};
             [array addObject:dic];
             [ud setObject:array forKey:@"myAlarm"];
             break;

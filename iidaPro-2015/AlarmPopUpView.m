@@ -166,6 +166,8 @@
     [_popup addSubview:_datePicker];
     
     [self setupButton];
+    
+    [_titleTextField becomeFirstResponder];
 }
 
 - (void)setupButton {

@@ -97,7 +97,7 @@
         _startCenter = CGPointZero;
         [_alarmTableView setScrollEnabled:YES];
         
-    } else if ([sender.view isKindOfClass:[TrashAlarmCell class]]) {
+    } else if ([sender.view isKindOfClass:[TrashAlarmCell class]] || [sender.view isKindOfClass:[MyAlarmCell class]]) {
         if (sender.view.center.x + p.x > _startCenter.x && sender.view.center.x + p.x < _startCenter.x + 80) {
             sender.view.center = CGPointMake(sender.view.center.x + p.x, sender.view.center.y);
             [sender setTranslation:CGPointZero inView:self.view];
@@ -190,6 +190,16 @@
                 cell.dateLabel.textColor = [UIColor lightGrayColor];
                 cell.timeLabel.textColor = [UIColor lightGrayColor];
             }
+            
+            for(UIGestureRecognizer *gesture in [cell gestureRecognizers]) {
+                if([gesture isKindOfClass:[UIPanGestureRecognizer class]]) {
+                    [cell removeGestureRecognizer:gesture];
+                }
+            }
+            UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+            pan.delegate = self;
+            [cell addGestureRecognizer:pan];
+            
             return cell;
         }
         

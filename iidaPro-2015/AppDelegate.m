@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RealmController.h"
+#import "LocalNotificationManager.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // permit local notification
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    }
     
 //    RealmController *rc = [[RealmController alloc] init];
 //    [rc createTestTable];
@@ -39,21 +43,29 @@
                         @"date":@"第１・３月"}];
     // default alarm
     NSArray *alarm = @[@{@"title":@"普通ごみ1",
-                         @"time":@"08:30"},
+                         @"time":@"08:30",
+                         @"switch":@"on"},
                        @{@"title":@"普通ごみ2",
-                         @"time":@"08:00"},
+                         @"time":@"08:00",
+                         @"switch":@"off"},
                        @{@"title":@"びん・缶・ペットボトル",
-                         @"time":@"08:00"},
+                         @"time":@"08:00",
+                         @"switch":@"off"},
                        @{@"title":@"ミックスペーパー",
-                         @"time":@"08:00"},
+                         @"time":@"08:00",
+                         @"switch":@"on"},
                        @{@"title":@"プラスチック製容器包装",
-                         @"time":@"08:00"},
+                         @"time":@"08:00",
+                         @"switch":@"off"},
                        @{@"title":@"小物金属",
-                         @"time":@"08:00"}];
+                         @"time":@"08:00",
+                         @"switch":@"off"}];
     NSArray *myAlarm = @[@{@"title":@"アラーム1",
-                           @"time":@"12/24 08:30"},
+                           @"time":@"12/24 08:30",
+                           @"switch":@"on"},
                          @{@"title":@"アラーム2",
-                           @"time":@"12/25 08:45"}];
+                           @"time":@"12/25 08:45",
+                           @"switch":@"off"}];
     [ud setObject:tama forKey:@"trash"];
     [ud setObject:alarm forKey:@"defaultAlarm"];
     [ud setObject:myAlarm forKey:@"myAlarm"];
@@ -68,8 +80,9 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    // set alarm
+    LocalNotificationManager *notificationManager = [[LocalNotificationManager alloc] init];
+    [notificationManager scheduleLocalNotifications];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

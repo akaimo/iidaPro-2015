@@ -74,6 +74,7 @@
     
     if (sender.state == UIGestureRecognizerStateEnded) {
         if (_startCenter.x + 50.0 < sender.view.center.x) {
+            // TODO: set alart on/off
             NSLog(@"on/off");
         }
         sender.view.frame = CGRectMake(0.0, sender.view.frame.origin.y, sender.view.frame.size.width, sender.view.frame.size.height);

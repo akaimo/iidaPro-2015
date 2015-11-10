@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSArray *trashArray;
 @property (strong, nonatomic) NSMutableArray *myAlarm;
 @property (strong, nonatomic) NSArray *defaultAlarmArray;
+@property (nonatomic) CGPoint startCenter;
 
 @end
 
@@ -65,6 +66,27 @@
     [appDelegate.window addSubview:popup];
 }
 
+- (void)panGesture:(UIPanGestureRecognizer *)sender {
+    CGPoint p = [sender translationInView:self.view];
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        _startCenter = sender.view.center;
+    }
+    
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (_startCenter.x + 50.0 < sender.view.center.x) {
+            NSLog(@"on/off");
+        }
+        sender.view.frame = CGRectMake(0.0, sender.view.frame.origin.y, sender.view.frame.size.width, sender.view.frame.size.height);
+        _startCenter = CGPointZero;
+        
+    } else if ([sender.view isKindOfClass:[TrashAlarmCell class]]) {
+        if (sender.view.center.x + p.x > _startCenter.x && sender.view.center.x + p.x < _startCenter.x + 80) {
+            sender.view.center = CGPointMake(sender.view.center.x + p.x, sender.view.center.y);
+            [sender setTranslation:CGPointZero inView:self.view];
+        }
+    }
+}
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -95,6 +117,8 @@
         cell.titleLabel.text = [_trashArray[indexPath.row] valueForKey:@"title"];
         cell.dayLabel.text = [_trashArray[indexPath.row] valueForKey:@"date"];
         cell.timeLabel.text = [_defaultAlarmArray[indexPath.row] valueForKey:@"time"];
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+        [cell addGestureRecognizer:pan];
         return cell;
         
     } else if (indexPath.section == 1) {

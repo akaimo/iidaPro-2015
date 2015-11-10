@@ -77,6 +77,7 @@
         if (_startCenter.x + 60.0 < sender.view.center.x) {
             UITableViewCell *cell = [self findUITableViewCellFromSuperViewsForView:sender.view];
             if (cell) {
+                // TODO: require speed up
                 NSIndexPath *indexPath = [_alarmTableView indexPathForCell:cell];
                 NSMutableArray *array = (indexPath.section == 0) ? [_defaultAlarmArray mutableCopy] : [_myAlarm mutableCopy];
                 NSMutableDictionary *dic = [array[indexPath.row] mutableCopy];

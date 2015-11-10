@@ -8,6 +8,7 @@
 
 #import "LocalNotificationManager.h"
 #import "AppDelegate.h"
+#import "AdjustNSDate.h"
 
 @implementation LocalNotificationManager
 
@@ -27,13 +28,24 @@
         if ([[dic valueForKey:@"switch"]  isEqual: @"on"]) {
             // TODO: register alarm
             // http://ios-practice.readthedocs.org/en/latest/docs/notification/
-            NSLog(@"on");
         }
     }
     for (NSDictionary *dic in myAlarm) {
         if ([[dic valueForKey:@"switch"]  isEqual: @"on"]) {
             // TODO: register alarm
-            NSLog(@"on");
+            AdjustNSDate *adjust = [[AdjustNSDate alloc] init];
+            NSString *year = [adjust getExactYearWithDate:[dic valueForKey:@"time"]];
+            NSString *str = [[year stringByAppendingString:@"/"] stringByAppendingString:[dic valueForKey:@"time"]];
+            NSLog(@"%@", str);
+            
+            NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+            NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"];
+            [formatter setLocale:locale];
+            [formatter setDateFormat:@"yyyy/MM/dd HH:mm"];
+            NSDate *date = [formatter dateFromString:str];
+            NSLog(@"%@", date);
+            
+            [self makeNotification:date alertBody:[dic valueForKey:@"title"] userInfo:@{@"myAlarm":@"tipe"}];
         }
     }
 }

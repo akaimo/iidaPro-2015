@@ -30,6 +30,7 @@
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
 		999A74591BF1C62000F25449 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 999A74581BF1C62000F25449 /* LocalNotificationManager.m */; };
+		99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A408181BF232AD00FC0DDB /* AdjustNSDate.m */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
 		99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */; };
 		99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F7438F1BEB354800AF8195 /* noMyAlarmCell.m */; };
@@ -98,6 +99,8 @@
 		998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iidaPro_2015Tests.m; sourceTree = "<group>"; };
 		999A74571BF1C62000F25449 /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
 		999A74581BF1C62000F25449 /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
+		99A408171BF232AD00FC0DDB /* AdjustNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustNSDate.h; sourceTree = "<group>"; };
+		99A408181BF232AD00FC0DDB /* AdjustNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustNSDate.m; sourceTree = "<group>"; };
 		99F743881BEA3EFD00AF8195 /* TrashAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashAlarmCell.h; sourceTree = "<group>"; };
 		99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashAlarmCell.m; sourceTree = "<group>"; };
 		99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrashAlarmCell.xib; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */,
 				999A74571BF1C62000F25449 /* LocalNotificationManager.h */,
 				999A74581BF1C62000F25449 /* LocalNotificationManager.m */,
+				99A408171BF232AD00FC0DDB /* AdjustNSDate.h */,
+				99A408181BF232AD00FC0DDB /* AdjustNSDate.m */,
 				99F7438D1BEA3F0500AF8195 /* Cell */,
 			);
 			name = Alarm;
@@ -491,6 +496,7 @@
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				99781C5C1B8355910083CC7D /* Classification.m in Sources */,
+				99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */,
 				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
 				991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */,

@@ -26,9 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.title = @"分別辞典";
+    
+    self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    _searchTableView.backgroundColor = [UIColor clearColor];
     
     _searchBar.placeholder = @"Search";
     
@@ -100,6 +105,23 @@
     }
 }
 
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 40)];
+    headerView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.4];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, headerView.frame.size.width - 20, 22)];
+    label.text = [_sectionList objectAtIndex:section];
+    label.font = [UIFont boldSystemFontOfSize:16.0];
+    label.shadowOffset = CGSizeMake(0, 1);
+    label.shadowColor = [UIColor grayColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    
+    [headerView addSubview:label];
+    tableView.sectionHeaderHeight = headerView.frame.size.height;
+    return headerView;
+}
+
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
         return nil;
@@ -169,6 +191,7 @@
     
     else {  // 検索前
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor clearColor];
         cell.trashLabel.text = [_sectionArray[indexPath.section][indexPath.row] valueForKey:@"title"];
         
         if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"普通ごみ"]) {

@@ -141,8 +141,24 @@
         
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
         cell.trashLabel.text = [_reSearchArray[indexPath.row] valueForKey:@"title"];
-        // TODO: ゴミの種別によりアイコンを変える
-        cell.trashImage.image = [UIImage imageNamed:@"sun"];
+        
+        if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"普通ごみ"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Normal"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"プラスチック製容器包装"]) {
+//            cell.trashImage.image = [UIImage imageNamed:@"sun"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"小物金属"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"使用済み乾電池"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Battery"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"空き缶・ペットボトル"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"粗大ごみ"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_BigRefure"];
+        } else {
+//            cell.trashImage.image = [UIImage imageNamed:@"sun"];
+        }
         
         if ([_reSearchArray[indexPath.row] valueForKey:@"knowledge"] != nil) {
             cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];    // icon修正
@@ -154,7 +170,7 @@
     else {  // 検索前
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
         cell.trashLabel.text = [_sectionArray[indexPath.section][indexPath.row] valueForKey:@"title"];
-        // TODO: ゴミの種別によりアイコンを変える
+        
         if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"普通ごみ"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Normal"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {

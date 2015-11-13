@@ -58,7 +58,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="pjg-yt-p8V">
+                                <searchBar key="tableHeaderView" contentMode="redraw" backgroundImage="navi" id="pjg-yt-p8V">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <animations/>
@@ -459,4 +459,7 @@
             <point key="canvasLocation" x="2877.5" y="290.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="navi" width="75" height="75"/>
+    </resources>
 </document>

@@ -39,6 +39,7 @@
     _searchTableView.sectionIndexBackgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
     
     _searchBar.placeholder = @"Search";
+//    _searchBar.backgroundColor = [UIColor colorWithRed:41/255.0 green:52/255.0 blue:92/255.0 alpha:1.0];
     
     _sectionList =  [NSArray arrayWithObjects:@"あ", @"か", @"さ", @"た", @"な", @"は", @"ま", @"や", @"ら", @"わ", nil];
     _sectionArray = [NSMutableArray array];

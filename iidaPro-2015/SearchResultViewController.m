@@ -38,6 +38,8 @@
     _searchTableView.sectionIndexColor = [UIColor whiteColor];
     _searchTableView.sectionIndexBackgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
     
+    self.searchDisplayController.searchResultsTableView.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
+    
     _searchBar.placeholder = @"Search";
 //    _searchBar.backgroundColor = [UIColor colorWithRed:41/255.0 green:52/255.0 blue:92/255.0 alpha:1.0];
     
@@ -161,11 +163,14 @@
             static NSString *CellIdentifier = @"Cell";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell.backgroundColor = [UIColor clearColor];
             cell.textLabel.text = @"該当する品目はありません";
+            cell.textLabel.textColor = [UIColor whiteColor];
             return cell;
         }
         
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor clearColor];
         cell.trashLabel.text = [_reSearchArray[indexPath.row] valueForKey:@"title"];
         
         if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"普通ごみ"]) {

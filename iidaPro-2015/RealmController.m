@@ -35,7 +35,6 @@
                     classifi.title = [responseObject[i] valueForKey:@"title"];
                     classifi.read = [responseObject[i] valueForKey:@"read"];
                     classifi.classification = [responseObject[i] valueForKey:@"category"];
-                    classifi.knowledge = nil;
                     
                     RLMRealm *realm = [RLMRealm defaultRealm];
                     [realm beginWriteTransaction];

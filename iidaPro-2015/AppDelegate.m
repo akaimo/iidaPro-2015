@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 akaimo. All rights reserved.
 //
 
+#import <Realm/Realm.h>
 #import "AppDelegate.h"
 #import "RealmController.h"
 #import "LocalNotificationManager.h"
@@ -23,9 +24,10 @@
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
     }
     
-//    RealmController *rc = [[RealmController alloc] init];
+    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
+    RealmController *rc = [[RealmController alloc] init];
 //    [rc createTestTable];
-//    [rc deleteTestTable];
+    [rc deleteTestTable];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     // ex. 多摩区のデータ

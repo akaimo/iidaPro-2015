@@ -7,14 +7,16 @@
 //
 
 #import <Realm/Realm.h>
-#import "Knowledge.h"
 
 @interface Classification : RLMObject
 @property NSInteger num;
 @property NSString *title;
 @property NSString *read;
+@property NSString *initial;
 @property NSString *classification;
-@property Knowledge *knowledge;
+@property BOOL detail;
+@property NSString *category;
+@property NSString *info;
 @end
 
 // This protocol enables typed collections. i.e.:

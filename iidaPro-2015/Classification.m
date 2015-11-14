@@ -17,7 +17,11 @@
 }
 
 + (NSArray *)requiredProperties {
-    return @[@"title", @"read", @"classification"];
+    return @[@"title", @"read", @"initial", @"classification"];
+}
+
++ (NSArray *)indexedProperties {
+    return @[@"title", @"read", @"initial"];
 }
 
 @end

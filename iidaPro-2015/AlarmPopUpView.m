@@ -51,7 +51,7 @@
 
 - (void)setup:(CGRect)frame {
     self.frame = frame;
-    self.backgroundColor = [UIColor colorWithRed:232/255.0 green:232/255.0 blue:232/255.0 alpha:0.5];
+    self.backgroundColor = [UIColor clearColor];
     
     CGFloat width = frame.size.width * 0.8;
     CGFloat wMargin = frame.size.width * 0.1;

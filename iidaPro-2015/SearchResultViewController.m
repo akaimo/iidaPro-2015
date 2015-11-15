@@ -57,6 +57,7 @@
     UINib *nib = [UINib nibWithNibName:@"SearchTableViewCell" bundle:nil];
     [_searchTableView registerNib:nib forCellReuseIdentifier:@"Trash"];
     [self.searchDisplayController.searchResultsTableView registerNib:nib forCellReuseIdentifier:@"Trash"];
+    self.searchDisplayController.searchResultsTableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -229,9 +229,4 @@ const CGFloat iconMargin = 20.0;
     }
 }
 
-// statusbarの色を白に
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
 @end

@@ -187,7 +187,7 @@
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"プラスチック製容器包装"]) {
-//            cell.trashImage.image = [UIImage imageNamed:@"sun"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_Plastic"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"小物金属"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"使用済み乾電池"]) {
@@ -198,10 +198,6 @@
             cell.trashImage.image = [UIImage imageNamed:@"S_BigRefure"];
         } else {
 //            cell.trashImage.image = [UIImage imageNamed:@"sun"];
-        }
-        
-        if ([_reSearchArray[indexPath.row] valueForKey:@"knowledge"] != nil) {
-            cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];    // icon修正
         }
         
         return cell;
@@ -217,7 +213,7 @@
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"プラスチック製容器包装"]) {
-//            cell.trashImage.image = [UIImage imageNamed:@"sun"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_Plastic"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"小物金属"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"使用済み乾電池"]) {
@@ -230,10 +226,6 @@
 //            cell.trashImage.image = [UIImage imageNamed:@"sun"];
         }
         
-        if ([_sectionArray[indexPath.section][indexPath.row] valueForKey:@"knowledge"] != nil) {
-            cell.knowledgeImage.image = [UIImage imageNamed:@"sun"];    // icon修正
-        }
-        
         return cell;
     }
 }
@@ -244,7 +236,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO: 豆知識がある場合は豆知識ページへ遷移
+    // TODO: 詳細がある場合は詳細ページへ遷移
 //    NSLog(@"%ld", (long)indexPath.row);
 }
 

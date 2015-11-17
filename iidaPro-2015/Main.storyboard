@@ -191,7 +191,7 @@
         <!--Contact View Controller-->
         <scene sceneID="3BG-6R-kEr">
             <objects>
-                <viewController storyboardIdentifier="Contact" id="Ctb-GV-Uzk" customClass="ContactViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Contact" automaticallyAdjustsScrollViewInsets="NO" id="Ctb-GV-Uzk" customClass="ContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1N6-tM-hb1"/>
                         <viewControllerLayoutGuide type="bottom" id="aZw-rf-Vbr"/>
@@ -199,9 +199,45 @@
                     <view key="view" contentMode="scaleToFill" id="jIo-0M-QBm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2sw-tj-MFh">
+                                <rect key="frame" x="0.0" y="75" width="600" height="100"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="cVx-vD-YNh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="川崎市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-uQ-4Ws">
+                                <rect key="frame" x="0.0" y="20" width="600" height="45"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="25m-Er-Z2l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2sw-tj-MFh" firstAttribute="top" secondItem="1N6-tM-hb1" secondAttribute="bottom" constant="55" id="04j-Zz-lMp"/>
+                            <constraint firstAttribute="trailing" secondItem="2sw-tj-MFh" secondAttribute="trailing" id="74V-pb-Yaf"/>
+                            <constraint firstItem="pZi-uQ-4Ws" firstAttribute="top" secondItem="1N6-tM-hb1" secondAttribute="bottom" id="A7h-Kw-LkY"/>
+                            <constraint firstAttribute="trailing" secondItem="pZi-uQ-4Ws" secondAttribute="trailing" id="C4g-GP-Zce"/>
+                            <constraint firstItem="2sw-tj-MFh" firstAttribute="leading" secondItem="jIo-0M-QBm" secondAttribute="leading" id="ero-OO-xP5"/>
+                            <constraint firstItem="pZi-uQ-4Ws" firstAttribute="leading" secondItem="jIo-0M-QBm" secondAttribute="leading" id="mFd-Fz-1Zw"/>
+                            <constraint firstItem="pZi-uQ-4Ws" firstAttribute="centerX" secondItem="jIo-0M-QBm" secondAttribute="centerX" id="xfe-vC-O3N"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firstLabel" destination="pZi-uQ-4Ws" id="YR4-ol-SbJ"/>
+                        <outlet property="firstTextView" destination="2sw-tj-MFh" id="n42-eY-J2E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02X-BL-0we" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

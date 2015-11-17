@@ -9,6 +9,8 @@
 #import "ContactViewController.h"
 
 @interface ContactViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *firstLabel;
+@property (weak, nonatomic) IBOutlet UITextView *firstTextView;
 
 @end
 
@@ -23,6 +25,8 @@
     [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    
+    [self setLabels];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -34,14 +38,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setLabels {
+    _firstLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    _firstLabel.textColor = [UIColor whiteColor];
+    _firstLabel.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
+    
+    _firstTextView.text = @"電話 044-200-3939\n Web http://www.city.kawasaki.jp/index.html";
+    _firstTextView.textColor = [UIColor whiteColor];
+    _firstTextView.editable = NO;
+    _firstTextView.backgroundColor = [UIColor clearColor];
 }
-*/
 
 @end

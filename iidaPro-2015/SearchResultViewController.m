@@ -184,17 +184,17 @@
         
         if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"普通ごみ"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Normal"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"プラスチック製容器包装"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"プラスチック製容器包装"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Plastic"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"小物金属"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"小物金属"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"使用済み乾電池"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"使用済み乾電池"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Battery"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"空き缶・ペットボトル"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"空き缶・ペットボトル"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"粗大ごみ"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"粗大ごみ"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_BigRefure"];
         } else {
 //            cell.trashImage.image = [UIImage imageNamed:@"sun"];

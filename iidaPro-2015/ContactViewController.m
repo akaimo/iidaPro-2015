@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *firstTextView;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
 @property (weak, nonatomic) IBOutlet UITextView *secondTextView;
+@property (weak, nonatomic) IBOutlet UILabel *therdLabel;
+@property (weak, nonatomic) IBOutlet UITextView *therdTextView;
 
 @end
 
@@ -58,6 +60,16 @@
     _secondTextView.textColor = [UIColor whiteColor];
     _secondTextView.backgroundColor = [UIColor clearColor];
     _secondTextView.editable = NO;
+    
+    _therdLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    _therdLabel.textColor = [UIColor whiteColor];
+    _therdLabel.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
+    
+    // TODO: 登録された区によって切り替える
+    _therdTextView.text = @"川崎市環境事業所 044-541-2043";
+    _therdTextView.textColor = [UIColor whiteColor];
+    _therdTextView.backgroundColor = [UIColor clearColor];
+    _therdTextView.editable = NO;
 }
 
 @end

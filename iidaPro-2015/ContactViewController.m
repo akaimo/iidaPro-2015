@@ -11,6 +11,8 @@
 @interface ContactViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *firstLabel;
 @property (weak, nonatomic) IBOutlet UITextView *firstTextView;
+@property (weak, nonatomic) IBOutlet UILabel *secondLabel;
+@property (weak, nonatomic) IBOutlet UITextView *secondTextView;
 
 @end
 
@@ -47,6 +49,15 @@
     _firstTextView.textColor = [UIColor whiteColor];
     _firstTextView.editable = NO;
     _firstTextView.backgroundColor = [UIColor clearColor];
+    
+    _secondLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    _secondLabel.textColor = [UIColor whiteColor];
+    _secondLabel.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
+    
+    _secondTextView.text = @"電話 044-930-5300\n Web http://www.city.kawasaki.jp/kurashi/category/24-1-11-2-0-0-0-0-0-0.html";
+    _secondTextView.textColor = [UIColor whiteColor];
+    _secondTextView.backgroundColor = [UIColor clearColor];
+    _secondTextView.editable = NO;
 }
 
 @end

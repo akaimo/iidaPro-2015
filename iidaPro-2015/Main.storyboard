@@ -201,11 +201,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2sw-tj-MFh">
-                                <rect key="frame" x="0.0" y="75" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="75" width="600" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="cVx-vD-YNh"/>
+                                    <constraint firstAttribute="height" constant="60" id="cVx-vD-YNh"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="dNF-Az-ODw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -221,6 +222,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粗大ごみ受付センター" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ks-5p-bkO">
+                                <rect key="frame" x="0.0" y="160" width="600" height="45"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="76m-EK-RXL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vao-X6-RSh">
+                                <rect key="frame" x="0.0" y="224" width="600" height="90"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="WwL-wA-qy6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,14 +251,23 @@
                             <constraint firstAttribute="trailing" secondItem="2sw-tj-MFh" secondAttribute="trailing" id="74V-pb-Yaf"/>
                             <constraint firstItem="pZi-uQ-4Ws" firstAttribute="top" secondItem="1N6-tM-hb1" secondAttribute="bottom" id="A7h-Kw-LkY"/>
                             <constraint firstAttribute="trailing" secondItem="pZi-uQ-4Ws" secondAttribute="trailing" id="C4g-GP-Zce"/>
+                            <constraint firstItem="9Ks-5p-bkO" firstAttribute="centerX" secondItem="jIo-0M-QBm" secondAttribute="centerX" id="OcA-eN-fAQ"/>
+                            <constraint firstItem="Vao-X6-RSh" firstAttribute="top" secondItem="9Ks-5p-bkO" secondAttribute="bottom" constant="19" id="TD7-pl-YJN"/>
+                            <constraint firstAttribute="trailing" secondItem="9Ks-5p-bkO" secondAttribute="trailing" id="a81-Vc-eMw"/>
                             <constraint firstItem="2sw-tj-MFh" firstAttribute="leading" secondItem="jIo-0M-QBm" secondAttribute="leading" id="ero-OO-xP5"/>
                             <constraint firstItem="pZi-uQ-4Ws" firstAttribute="leading" secondItem="jIo-0M-QBm" secondAttribute="leading" id="mFd-Fz-1Zw"/>
+                            <constraint firstAttribute="trailing" secondItem="Vao-X6-RSh" secondAttribute="trailing" id="rMe-H8-1CW"/>
+                            <constraint firstItem="9Ks-5p-bkO" firstAttribute="leading" secondItem="jIo-0M-QBm" secondAttribute="leading" id="sif-JZ-1Ef"/>
+                            <constraint firstItem="Vao-X6-RSh" firstAttribute="leading" secondItem="jIo-0M-QBm" secondAttribute="leading" id="sr6-gg-Ahb"/>
+                            <constraint firstItem="9Ks-5p-bkO" firstAttribute="top" secondItem="2sw-tj-MFh" secondAttribute="bottom" constant="25" id="vOD-3z-p5c"/>
                             <constraint firstItem="pZi-uQ-4Ws" firstAttribute="centerX" secondItem="jIo-0M-QBm" secondAttribute="centerX" id="xfe-vC-O3N"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="firstLabel" destination="pZi-uQ-4Ws" id="YR4-ol-SbJ"/>
                         <outlet property="firstTextView" destination="2sw-tj-MFh" id="n42-eY-J2E"/>
+                        <outlet property="secondLabel" destination="9Ks-5p-bkO" id="MWE-ep-n8K"/>
+                        <outlet property="secondTextView" destination="Vao-X6-RSh" id="ql3-HR-X07"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02X-BL-0we" userLabel="First Responder" sceneMemberID="firstResponder"/>

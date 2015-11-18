@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "75D0331F184AD179C6B4A7B9245739A99B936DCF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "75D0331F184AD179C6B4A7B9245739A99B936DCF" : 0,
+    "754142B83B01EB1C3FE7A83BA9B04108333714CA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F287193E-4EC9-4658-95DB-DA3E171275A6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "75D0331F184AD179C6B4A7B9245739A99B936DCF" : "",
+    "754142B83B01EB1C3FE7A83BA9B04108333714CA" : "iidaPro-2015"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iidaPro-2015",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iidaPro-2015.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:akaimo\/iidaPro-2015.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "754142B83B01EB1C3FE7A83BA9B04108333714CA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:akaimo\/iidaPro-2015.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "75D0331F184AD179C6B4A7B9245739A99B936DCF"
+    }
+  ]
+}

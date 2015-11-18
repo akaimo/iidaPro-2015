@@ -10,6 +10,7 @@
 #import "TipsViewController.h"
 #import "SearchResultViewController.h"
 #import "Classification.h"
+#import "TipsClassification.h"
 #import "CalendarViewController.h"
 #import "AlarmViewController.h"
 #import "ContactViewController.h"

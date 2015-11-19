@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TipsCustomTableCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *TipsUIImage;
 @property (weak, nonatomic) IBOutlet UILabel *TipsTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *TipsNum;
 +(CGFloat)rowHeight;

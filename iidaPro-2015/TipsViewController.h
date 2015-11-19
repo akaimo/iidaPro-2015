@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TipsClassification.h"
 
 @interface TipsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *TipsTableView;

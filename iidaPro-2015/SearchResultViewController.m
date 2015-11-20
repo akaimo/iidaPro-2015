@@ -187,11 +187,11 @@
         } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"ミックスペーパー"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
         } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"プラスチック製容器包装"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_Plastic"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_plastic"];
         } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"小物金属"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
         } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"使用済み乾電池"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_Battery"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_battery"];
         } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"空き缶・ペットボトル"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
         } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"粗大ごみ"]) {
@@ -213,11 +213,11 @@
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"ミックスペーパー"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"プラスチック製容器包装"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_Plastic"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_plastic"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"小物金属"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"使用済み乾電池"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_Battery"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_battery"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"空き缶・ペットボトル"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"粗大ごみ"]) {

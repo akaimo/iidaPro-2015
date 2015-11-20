@@ -196,6 +196,15 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		9931E7881BFF5C1700BDB1E1 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				997645441BBEB1C9007A5C78 /* SettingViewController.h */,
+				997645451BBEB1C9007A5C78 /* SettingViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		9976453A1BBE8C3E007A5C78 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,8 +265,7 @@
 				99F743871BEA3E9400AF8195 /* Alarm */,
 				997645411BBEB0FB007A5C78 /* ContactViewController.h */,
 				997645421BBEB0FB007A5C78 /* ContactViewController.m */,
-				997645441BBEB1C9007A5C78 /* SettingViewController.h */,
-				997645451BBEB1C9007A5C78 /* SettingViewController.m */,
+				9931E7881BFF5C1700BDB1E1 /* Setting */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,

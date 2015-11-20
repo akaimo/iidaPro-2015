@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 akaimo. All rights reserved.
 //
 
+#import <Realm/Realm.h>
 #import "AppDelegate.h"
 #import "RealmController.h"
 #import "LocalNotificationManager.h"
@@ -23,6 +24,7 @@
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
     }
     
+//    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
 //    RealmController *rc = [[RealmController alloc] init];
 //    [rc createTestTable];
 //    [rc deleteTestTable];

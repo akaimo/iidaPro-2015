@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Classification.h"
+#import "TrashCategory.h"
 
 @interface SearchResultViewController : UIViewController
 

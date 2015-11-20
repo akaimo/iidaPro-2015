@@ -79,7 +79,7 @@
 - (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
     // リアルタイム検索
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS[c] %@ OR read CONTAINS %@", searchString, searchString];
-    _reSearchArray = [[Classification objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
+    _reSearchArray = [[TrashCategory objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
     
     return YES;     // リロード
 }
@@ -182,19 +182,19 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.trashLabel.text = [_reSearchArray[indexPath.row] valueForKey:@"title"];
         
-        if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"普通ごみ"]) {
+        if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"普通ごみ"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Normal"];
-        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"ミックスペーパー"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
-        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"プラスチック製容器包装"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_Plastic"];
-        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"小物金属"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"プラスチック製容器包装"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_plastic"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"小物金属"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
-        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"使用済み乾電池"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_Battery"];
-        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"空き缶・ペットボトル"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"使用済み乾電池"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_battery"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"空き缶・ペットボトル"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
-        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"粗大ごみ"]) {
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"粗大ごみ"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_BigRefure"];
         } else {
 //            cell.trashImage.image = [UIImage imageNamed:@"sun"];
@@ -208,19 +208,19 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.trashLabel.text = [_sectionArray[indexPath.section][indexPath.row] valueForKey:@"title"];
         
-        if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"普通ごみ"]) {
+        if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"普通ごみ"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Normal"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"ミックスペーパー"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"プラスチック製容器包装"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_Plastic"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"小物金属"]) {
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"プラスチック製容器包装"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_plastic"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"小物金属"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"使用済み乾電池"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_Battery"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"空き缶・ペットボトル"]) {
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"使用済み乾電池"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_battery"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"空き缶・ペットボトル"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
-        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"粗大ごみ"]) {
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"粗大ごみ"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_BigRefure"];
         } else {
 //            cell.trashImage.image = [UIImage imageNamed:@"sun"];
@@ -251,50 +251,50 @@
     
     switch (num) {
         case 0:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"あ", @"い", @"う", @"え", @"お"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@", @"あ", @"い", @"う", @"え", @"お"];
             break;
             
         case 1:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"か", @"き", @"く", @"け", @"こ"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@", @"か", @"き", @"く", @"け", @"こ"];
             break;
             
         case 2:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"さ", @"し", @"す", @"せ", @"そ"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@", @"さ", @"し", @"す", @"せ", @"そ"];
             break;
             
         case 3:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"た", @"ち", @"つ", @"て", @"と"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@", @"た", @"ち", @"つ", @"て", @"と"];
             break;
             
         case 4:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"な", @"に", @"ぬ", @"ね", @"の"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@", @"な", @"に", @"ぬ", @"ね", @"の"];
             break;
             
         case 5:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"は", @"ひ", @"ふ", @"へ", @"ほ"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@", @"は", @"ひ", @"ふ", @"へ", @"ほ"];
             break;
             
         case 6:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"ま", @"み", @"む", @"め", @"も"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@", @"ま", @"み", @"む", @"め", @"も"];
             break;
             
         case 7:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"や", @"ゆ", @"よ"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@ OR read_head = %@", @"や", @"ゆ", @"よ"];
             break;
             
         case 8:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@ OR read BEGINSWITH %@", @"ら", @"り", @"る", @"れ", @"ろ"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@ OR read_head = %@", @"ら", @"り", @"る", @"れ", @"ろ"];
             break;
             
         case 9:
-            pred = [NSPredicate predicateWithFormat:@"read BEGINSWITH %@ OR read BEGINSWITH %@", @"わ", @"を"];
+            pred = [NSPredicate predicateWithFormat:@"read_head = %@ OR read_head = %@", @"わ", @"を"];
             break;
             
         default:
             break;
     }
     
-    return [[Classification objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
+    return [[TrashCategory objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
 }
 
 @end

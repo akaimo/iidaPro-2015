@@ -8,8 +8,9 @@
 
 #import "RealmController.h"
 #import <Realm/Realm.h>
-#import "Classification.h"
+#import "TrashCategory.h"
 #import "Knowledge.h"
+#import "District.h"
 #import "AFNetworking.h"
 
 @implementation RealmController
@@ -24,25 +25,63 @@
         dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
         dispatch_async(queue, ^{
             @autoreleasepool {
-                NSLog(@"Realm更新開始");
+                NSLog(@"Trash更新開始");
                 int count = (int)[responseObject count];
                 for (int i=0; i<count; i++) {
                     if (i % (count/10) == 0) {
                         NSLog(@"%d/%d", i, count);
                     }
-                    Classification *classifi = [[Classification alloc] init];
-                    classifi.num = i;
-                    classifi.title = [responseObject[i] valueForKey:@"title"];
-                    classifi.read = [responseObject[i] valueForKey:@"read"];
-                    classifi.classification = [responseObject[i] valueForKey:@"category"];
-                    classifi.knowledge = nil;
+                    TrashCategory *trash = [[TrashCategory alloc] init];
+                    trash.num = i;
+                    trash.title = [responseObject[i] valueForKey:@"title"];
+                    trash.read = [responseObject[i] valueForKey:@"read"];
+                    trash.read_head = [responseObject[i] valueForKey:@"read_head"];
+                    trash.category = [responseObject[i] valueForKey:@"category"];
                     
                     RLMRealm *realm = [RLMRealm defaultRealm];
                     [realm beginWriteTransaction];
-                    [Classification createOrUpdateInRealm:realm withValue:classifi];
+                    [TrashCategory createOrUpdateInRealm:realm withValue:trash];
                     [realm commitWriteTransaction];
                 }
-                NSLog(@"Realm更新完了");
+                NSLog(@"Trash更新完了");
+            }
+        });
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    [manager GET:@"http://153.120.170.41:3000/api/v1/district" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
+        dispatch_async(queue, ^{
+            @autoreleasepool {
+                NSLog(@"District更新開始");
+                int count = (int)[responseObject count];
+                for (int i=0; i<count; i++) {
+                    if (i % (count/10) == 0) {
+                        NSLog(@"%d/%d", i, count);
+                    }
+                    District *district = [[District alloc] init];
+                    district.num = i;
+                    district.area = [responseObject[i] valueForKey:@"area"];
+                    district.town = [responseObject[i] valueForKey:@"town"];
+                    district.read = [responseObject[i] valueForKey:@"read"];
+                    district.read_head = [responseObject[i] valueForKey:@"read_head"];
+                    district.office = [responseObject[i] valueForKey:@"office"];
+                    district.normal_1 = [responseObject[i] valueForKey:@"normal_1"];
+                    district.normal_2 = [responseObject[i] valueForKey:@"normal_2"];
+                    district.bottle = [responseObject[i] valueForKey:@"bottle"];
+                    district.plastic = [responseObject[i] valueForKey:@"plastic"];
+                    district.mixedPaper = [responseObject[i] valueForKey:@"mixedPaper"];
+                    district.bigRefuse_date = [responseObject[i] valueForKey:@"bigRefuse_date"];
+                    district.bigRefuse_1 = [[responseObject[i] valueForKey:@"bigRefuse_1"] intValue];
+                    district.bigRefuse_2 = [[responseObject[i] valueForKey:@"bigRefuse_2"] intValue];
+                    
+                    RLMRealm *realm = [RLMRealm defaultRealm];
+                    [realm beginWriteTransaction];
+                    [District createOrUpdateInRealm:realm withValue:district];
+                    [realm commitWriteTransaction];
+                }
+                NSLog(@"District更新完了");
             }
         });
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

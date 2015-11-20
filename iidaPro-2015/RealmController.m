@@ -36,7 +36,7 @@
                     trash.title = [responseObject[i] valueForKey:@"title"];
                     trash.read = [responseObject[i] valueForKey:@"read"];
                     trash.read_head = [responseObject[i] valueForKey:@"read_head"];
-                    trash.category = [responseObject[1] valueForKey:@"category"];
+                    trash.category = [responseObject[i] valueForKey:@"category"];
                     
                     RLMRealm *realm = [RLMRealm defaultRealm];
                     [realm beginWriteTransaction];

@@ -25,8 +25,8 @@
     }
     
 //    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
-    RealmController *rc = [[RealmController alloc] init];
-    [rc createTestTable];
+//    RealmController *rc = [[RealmController alloc] init];
+//    [rc createTestTable];
 //    [rc deleteTestTable];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];

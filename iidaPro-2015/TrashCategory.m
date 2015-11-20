@@ -18,8 +18,8 @@
     return @[@"title", @"read", @"read_head", @"category"];
 }
 
-+ (NSArray *)indexedProperties {
-    return @[@"read_head"];
-}
+//+ (NSArray *)indexedProperties {
+//    return @[@"read_head"];
+//}
 
 @end

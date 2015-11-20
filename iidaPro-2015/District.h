@@ -21,8 +21,8 @@
 @property NSString *plastic;
 @property NSString *mixedPaper;
 @property NSString *bigRefuse_date;
-@property NSString *bigRefuse_1;
-@property NSString *bigRefuse_2;
+@property NSInteger bigRefuse_1;
+@property NSInteger bigRefuse_2;
 @end
 
 // This protocol enables typed collections. i.e.:

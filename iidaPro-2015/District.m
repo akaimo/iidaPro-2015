@@ -19,4 +19,8 @@
              @"bigRefuse_date", @"bigRefuse_1", @"bigRefuse_2"];
 }
 
+//+ (NSArray *)indexedProperties {
+//    return @[@"read_head"];
+//}
+
 @end

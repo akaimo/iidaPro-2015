@@ -34,6 +34,8 @@ const CGFloat iconMargin = 20.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 高速化のために先にメモリ上に読み込んでおく
+    [[UITextView alloc] init];
     
     CGRect screen = [[UIScreen mainScreen] bounds];
     _screenWidth = screen.size.width;
@@ -226,11 +228,6 @@ const CGFloat iconMargin = 20.0;
             NSLog(@"Error");
             break;
     }
-}
-
-// statusbarの色を白に
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
 }
 
 @end

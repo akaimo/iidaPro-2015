@@ -26,11 +26,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.title = @"分別辞典";
     
+    self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    
+    _searchTableView.backgroundColor = [UIColor clearColor];
+    _searchTableView.sectionIndexColor = [UIColor whiteColor];
+    _searchTableView.sectionIndexBackgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
+    
+    self.searchDisplayController.searchResultsTableView.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
+    
     _searchBar.placeholder = @"Search";
+//    _searchBar.backgroundColor = [UIColor colorWithRed:41/255.0 green:52/255.0 blue:92/255.0 alpha:1.0];
     
     _sectionList =  [NSArray arrayWithObjects:@"あ", @"か", @"さ", @"た", @"な", @"は", @"ま", @"や", @"ら", @"わ", nil];
     _sectionArray = [NSMutableArray array];
@@ -46,6 +57,7 @@
     UINib *nib = [UINib nibWithNibName:@"SearchTableViewCell" bundle:nil];
     [_searchTableView registerNib:nib forCellReuseIdentifier:@"Trash"];
     [self.searchDisplayController.searchResultsTableView registerNib:nib forCellReuseIdentifier:@"Trash"];
+    self.searchDisplayController.searchResultsTableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -100,6 +112,31 @@
     }
 }
 
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 20)];
+    headerView.backgroundColor = [UIColor colorWithRed:41/255.0 green:52/255.0 blue:92/255.0 alpha:0.95];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, headerView.frame.size.width - 20, headerView.frame.size.height)];
+    label.text = [_sectionList objectAtIndex:section];
+    label.font = [UIFont boldSystemFontOfSize:16.0];
+    label.shadowOffset = CGSizeMake(0, 1);
+    label.shadowColor = [UIColor grayColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    
+    [headerView addSubview:label];
+    tableView.sectionHeaderHeight = headerView.frame.size.height;
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
+        return 0.0;
+    } else {
+        return 20.0;
+    }
+}
+
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
         return nil;
@@ -135,23 +172,59 @@
             static NSString *CellIdentifier = @"Cell";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell.backgroundColor = [UIColor clearColor];
             cell.textLabel.text = @"該当する品目はありません";
+            cell.textLabel.textColor = [UIColor whiteColor];
             return cell;
         }
         
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor clearColor];
         cell.trashLabel.text = [_reSearchArray[indexPath.row] valueForKey:@"title"];
-        // TODO: ゴミの種別によりアイコンを変える
-        cell.trashImage.image = [UIImage imageNamed:@"sun"];
+        
+        if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"普通ごみ"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Normal"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"プラスチック製容器包装"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Plastic"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"小物金属"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"使用済み乾電池"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Battery"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"空き缶・ペットボトル"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"classification"]  isEqual: @"粗大ごみ"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_BigRefure"];
+        } else {
+//            cell.trashImage.image = [UIImage imageNamed:@"sun"];
+        }
         
         return cell;
     }
     
     else {  // 検索前
         SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Trash" forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor clearColor];
         cell.trashLabel.text = [_sectionArray[indexPath.section][indexPath.row] valueForKey:@"title"];
-        // TODO: ゴミの種別によりアイコンを変える
-        cell.trashImage.image = [UIImage imageNamed:@"sun"];
+        
+        if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"普通ごみ"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Normal"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"ミックスペーパー"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Mixed"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"プラスチック製容器包装"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Plastic"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"小物金属"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Metal"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"使用済み乾電池"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Battery"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"空き缶・ペットボトル"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"classification"]  isEqual: @"粗大ごみ"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_BigRefure"];
+        } else {
+//            cell.trashImage.image = [UIImage imageNamed:@"sun"];
+        }
         
         return cell;
     }
@@ -163,7 +236,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO: 豆知識がある場合は豆知識ページへ遷移
+    // TODO: 詳細がある場合は詳細ページへ遷移
 //    NSLog(@"%ld", (long)indexPath.row);
 }
 

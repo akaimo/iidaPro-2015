@@ -32,6 +32,12 @@
     [super viewDidLoad];
     
     self.title = @"Alarm";
+    self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    _alarmTableView.backgroundColor = [UIColor clearColor];
+    
     _sectionArray = @[@"ごみ収集通知", @"My通知"];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -130,6 +136,25 @@
     return _sectionArray[section];
 }
 
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 20)];
+    headerView.backgroundColor = [UIColor colorWithRed:41/255.0 green:52/255.0 blue:92/255.0 alpha:0.95];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, headerView.frame.size.width - 20, headerView.frame.size.height)];
+    label.text = [_sectionArray objectAtIndex:section];
+    label.font = [UIFont boldSystemFontOfSize:16.0];
+    label.shadowOffset = CGSizeMake(0, 1);
+    label.shadowColor = [UIColor grayColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];    [headerView addSubview:label];
+    tableView.sectionHeaderHeight = headerView.frame.size.height;
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.0;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return _trashArray.count;
@@ -147,13 +172,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         TrashAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Alarm" forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor clearColor];
         cell.titleLabel.text = [_trashArray[indexPath.row] valueForKey:@"title"];
         cell.dayLabel.text = [_trashArray[indexPath.row] valueForKey:@"date"];
         cell.timeLabel.text = [_defaultAlarmArray[indexPath.row] valueForKey:@"time"];
         if ([[_defaultAlarmArray[indexPath.row] valueForKey:@"switch"]  isEqual: @"on"]) {
-            cell.titleLabel.textColor = [UIColor blackColor];
-            cell.dayLabel.textColor = [UIColor blackColor];
-            cell.timeLabel.textColor = [UIColor blackColor];
+            cell.titleLabel.textColor = [UIColor whiteColor];
+            cell.dayLabel.textColor = [UIColor whiteColor];
+            cell.timeLabel.textColor = [UIColor whiteColor];
         } else {
             cell.titleLabel.textColor = [UIColor lightGrayColor];
             cell.dayLabel.textColor = [UIColor lightGrayColor];
@@ -174,18 +200,20 @@
     } else if (indexPath.section == 1) {
         if (_myAlarm.count == 0) {
             noMyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noAlarm" forIndexPath:indexPath];
+            cell.backgroundColor = [UIColor clearColor];
             return cell;
             
         } else {
             MyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myAlarm" forIndexPath:indexPath];
+            cell.backgroundColor = [UIColor clearColor];
             NSArray *array = [[_myAlarm[indexPath.row] valueForKey:@"time"] componentsSeparatedByString:@" "];
             cell.titleLabel.text = [_myAlarm[indexPath.row] valueForKey:@"title"];
             cell.dateLabel.text = array[0];
             cell.timeLabel.text = array[1];
             if ([[_myAlarm[indexPath.row] valueForKey:@"switch"]  isEqual: @"on"]) {
-                cell.titleLabel.textColor = [UIColor blackColor];
-                cell.dateLabel.textColor = [UIColor blackColor];
-                cell.timeLabel.textColor = [UIColor blackColor];
+                cell.titleLabel.textColor = [UIColor whiteColor];
+                cell.dateLabel.textColor = [UIColor whiteColor];
+                cell.timeLabel.textColor = [UIColor whiteColor];
             } else {
                 cell.titleLabel.textColor = [UIColor lightGrayColor];
                 cell.dateLabel.textColor = [UIColor lightGrayColor];

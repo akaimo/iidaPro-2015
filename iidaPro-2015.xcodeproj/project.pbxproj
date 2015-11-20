@@ -22,7 +22,6 @@
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
 		997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewController.m */; };
 		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
-		99781C5C1B8355910083CC7D /* Classification.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5B1B8355910083CC7D /* Classification.m */; };
 		99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5E1B835AAB0083CC7D /* Knowledge.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
 		998992881B33B6A5000B7FD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992871B33B6A5000B7FD2 /* main.m */; };
@@ -85,8 +84,6 @@
 		997645421BBEB0FB007A5C78 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		997645441BBEB1C9007A5C78 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		997645451BBEB1C9007A5C78 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		99781C5A1B8355910083CC7D /* Classification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Classification.h; sourceTree = "<group>"; };
-		99781C5B1B8355910083CC7D /* Classification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classification.m; sourceTree = "<group>"; };
 		99781C5D1B835AAB0083CC7D /* Knowledge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knowledge.h; sourceTree = "<group>"; };
 		99781C5E1B835AAB0083CC7D /* Knowledge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knowledge.m; sourceTree = "<group>"; };
 		99781C601B835D3C0083CC7D /* RealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmController.h; sourceTree = "<group>"; };
@@ -216,8 +213,6 @@
 				99781C611B835D3C0083CC7D /* RealmController.m */,
 				9931E7821BF7711600BDB1E1 /* District.h */,
 				9931E7831BF7711600BDB1E1 /* District.m */,
-				99781C5A1B8355910083CC7D /* Classification.h */,
-				99781C5B1B8355910083CC7D /* Classification.m */,
 				9931E7851BFF201700BDB1E1 /* TrashCategory.h */,
 				9931E7861BFF201700BDB1E1 /* TrashCategory.m */,
 				99781C5D1B835AAB0083CC7D /* Knowledge.h */,
@@ -506,7 +501,6 @@
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				9931E7841BF7711600BDB1E1 /* District.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
-				99781C5C1B8355910083CC7D /* Classification.m in Sources */,
 				99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */,
 				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,

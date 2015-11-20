@@ -8,8 +8,9 @@
 
 #import "RealmController.h"
 #import <Realm/Realm.h>
-#import "Classification.h"
+#import "TrashCategory.h"
 #import "Knowledge.h"
+#import "District.h"
 #import "AFNetworking.h"
 
 @implementation RealmController
@@ -30,15 +31,16 @@
                     if (i % (count/10) == 0) {
                         NSLog(@"%d/%d", i, count);
                     }
-                    Classification *classifi = [[Classification alloc] init];
-                    classifi.num = i;
-                    classifi.title = [responseObject[i] valueForKey:@"title"];
-                    classifi.read = [responseObject[i] valueForKey:@"read"];
-                    classifi.classification = [responseObject[i] valueForKey:@"category"];
+                    TrashCategory *trash = [[TrashCategory alloc] init];
+                    trash.num = i;
+                    trash.title = [responseObject[i] valueForKey:@"title"];
+                    trash.read = [responseObject[i] valueForKey:@"read"];
+                    trash.read_head = [responseObject[i] valueForKey:@"read_head"];
+                    trash.category = [responseObject[1] valueForKey:@"category"];
                     
                     RLMRealm *realm = [RLMRealm defaultRealm];
                     [realm beginWriteTransaction];
-                    [Classification createOrUpdateInRealm:realm withValue:classifi];
+                    [TrashCategory createOrUpdateInRealm:realm withValue:trash];
                     [realm commitWriteTransaction];
                 }
                 NSLog(@"Realm更新完了");

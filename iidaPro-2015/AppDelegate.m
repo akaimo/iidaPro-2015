@@ -26,8 +26,8 @@
     
     NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
     RealmController *rc = [[RealmController alloc] init];
-//    [rc createTestTable];
-    [rc deleteTestTable];
+    [rc createTestTable];
+//    [rc deleteTestTable];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     // ex. 多摩区のデータ

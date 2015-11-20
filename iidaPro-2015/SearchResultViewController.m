@@ -67,7 +67,7 @@
 - (BOOL)searchDisplayController:controller shouldReloadTableForSearchString:(NSString *)searchString {
     // リアルタイム検索
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"title CONTAINS[c] %@ OR read CONTAINS %@", searchString, searchString];
-    _reSearchArray = [[Classification objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
+//    _reSearchArray = [[Classification objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
     
     return YES;     // リロード
 }
@@ -229,7 +229,8 @@
             break;
     }
     
-    return [[Classification objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
+//    return [[Classification objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
+    return @"";
 }
 
 @end

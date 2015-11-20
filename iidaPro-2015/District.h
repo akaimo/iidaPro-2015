@@ -12,6 +12,9 @@
 @property NSInteger num;
 @property NSString *area;
 @property NSString *town;
+@property NSString *read;
+@property NSString *read_head;
+@property NSString *office;
 @property NSString *normal_1;
 @property NSString *normal_2;
 @property NSString *bottle;

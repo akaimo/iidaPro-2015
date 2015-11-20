@@ -11,6 +11,7 @@
 @interface SettingViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
 @property (retain, nonatomic) NSArray *sectionArray;
+@property (retain, nonatomic) NSArray *areaArray;
 
 @end
 
@@ -27,7 +28,10 @@
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     _settingTableView.backgroundColor = [UIColor clearColor];
     _settingTableView.tableFooterView = [[UIView alloc] init];
-    _sectionArray = @[@"ごみ収集通知", @"My通知"];
+    
+    _sectionArray = @[@"パターンから選ぶ", @"CPSを使用する"];
+    _areaArray = @[@"川崎区", @"幸区", @"中原区", @"高津区", @"宮前区", @"多摩区", @"麻生区"];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,7 +73,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 10;
+        return _areaArray.count;
     } else {
         return 1;
     }
@@ -84,7 +88,7 @@
         
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.text = @"hoge";
+        cell.textLabel.text = _areaArray[indexPath.row];
         
         return cell;
         
@@ -95,7 +99,7 @@
         }
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.text = @"hoge";
+        cell.textLabel.text = @"検索";
         
         return cell;
         

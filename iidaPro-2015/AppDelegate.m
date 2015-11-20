@@ -24,7 +24,7 @@
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
     }
     
-    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
+//    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
     RealmController *rc = [[RealmController alloc] init];
     [rc createTestTable];
 //    [rc deleteTestTable];

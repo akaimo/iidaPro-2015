@@ -19,7 +19,7 @@
 }
 
 + (NSArray *)indexedProperties {
-    return @[@"title", @"read", @"read_head"];
+    return @[@"read_head"];
 }
 
 @end

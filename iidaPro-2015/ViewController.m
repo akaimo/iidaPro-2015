@@ -17,9 +17,11 @@
 @interface ViewController () <UISearchBarDelegate>
 
 //@property (retain, nonatomic) UISearchBar *searchBar;
+@property (retain, nonatomic) UILabel *locationLabel;
 @property (retain, nonatomic) UIImageView *trashView;
 @property (retain, nonatomic) UIScrollView *btnScrollView;
 @property (retain, nonatomic) UIView *bottomView;
+@property (retain, nonatomic) NSDictionary *areaData;
 
 @property float screenWidth;    // 画面サイズ（横）
 @property float screenHeight;   // 画面サイズ（縦） 
@@ -57,7 +59,8 @@ const CGFloat iconMargin = 20.0;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSLog(@"%@", [ud objectForKey:@"district"]);
+    _areaData = [NSDictionary dictionaryWithDictionary:[ud objectForKey:@"district"]];
+    _locationLabel.text = [_areaData valueForKey:@"area"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,14 +109,14 @@ const CGFloat iconMargin = 20.0;
 
 #pragma mark - EventLavel
 - (void)setupLabel {
-    UILabel *locationLabel = [[UILabel alloc] init];
-    locationLabel.frame = CGRectMake(0, _screenHeight * 1/15, _screenWidth, _screenHeight * 1/15);
-    locationLabel.textAlignment = NSTextAlignmentCenter;
-    locationLabel.font = [UIFont boldSystemFontOfSize:36];
-    locationLabel.textColor = [UIColor whiteColor];
+    _locationLabel = [[UILabel alloc] init];
+    _locationLabel.frame = CGRectMake(0, _screenHeight * 1/15, _screenWidth, _screenHeight * 1/15);
+    _locationLabel.textAlignment = NSTextAlignmentCenter;
+    _locationLabel.font = [UIFont boldSystemFontOfSize:36];
+    _locationLabel.textColor = [UIColor whiteColor];
     // TODO: 登録されている地域名を取得
-    locationLabel.text = @"多摩区";
-    [self.view addSubview:locationLabel];
+    _locationLabel.text = @"多摩区";
+    [self.view addSubview:_locationLabel];
     
     UILabel *eventLabel = [[UILabel alloc] init];
     eventLabel.frame = CGRectMake(0, _screenHeight * 2/15, _screenWidth, _screenHeight * 1/17);

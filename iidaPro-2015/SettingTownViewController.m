@@ -100,7 +100,26 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *str = [NSString stringWithFormat:@"%@%@%@", @"地域を「", [_sectionArray[indexPath.section][indexPath.row] valueForKey:@"town"], @"」に設定しますか？"];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"登録地域" message:str preferredStyle:UIAlertControllerStyleAlert];
     
+    [alertController addAction:[UIAlertAction actionWithTitle:@"キャンセル" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // calcel
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSArray *array = @[@"num", @"area", @"town", @"read", @"read_head", @"office",
+                           @"normal_1", @"normal_2", @"bottle", @"plastic", @"mixedPaper", @"bigRefuse_date", @"bigRefuse_1", @"bigRefuse_2"];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        for (NSString *key in array) {
+            NSString *value = [_sectionArray[indexPath.section][indexPath.row] valueForKey:key];
+            [dic setObject:value forKey:key];
+        }
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:dic forKey:@"district"];
+        [ud synchronize];
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - Realm

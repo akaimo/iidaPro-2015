@@ -55,6 +55,9 @@ const CGFloat iconMargin = 20.0;
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSLog(@"%@", [ud objectForKey:@"district"]);
 }
 
 - (void)didReceiveMemoryWarning {

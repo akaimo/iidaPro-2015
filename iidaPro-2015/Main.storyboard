@@ -343,6 +343,41 @@
             </objects>
             <point key="canvasLocation" x="1227" y="3735"/>
         </scene>
+        <!--Setting Town View Controller-->
+        <scene sceneID="STU-Xy-tfd">
+            <objects>
+                <viewController storyboardIdentifier="Town" id="Icu-bM-myF" customClass="SettingTownViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o3O-v3-hBV"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Vh-BO-ZBn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7PL-Xr-0Qv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6js-lS-vKv">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6js-lS-vKv" firstAttribute="leading" secondItem="7PL-Xr-0Qv" secondAttribute="leading" id="1do-O5-wO5"/>
+                            <constraint firstAttribute="trailing" secondItem="6js-lS-vKv" secondAttribute="trailing" id="X2Z-pJ-wG8"/>
+                            <constraint firstAttribute="bottom" secondItem="6js-lS-vKv" secondAttribute="bottom" id="bZ8-Qc-bYt"/>
+                            <constraint firstItem="6js-lS-vKv" firstAttribute="top" secondItem="7PL-Xr-0Qv" secondAttribute="top" id="fNx-Uw-WkC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="townTableView" destination="6js-lS-vKv" id="oBy-fX-kWu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jz-fz-AF7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986" y="3735"/>
+        </scene>
         <!--ごみのだしかた-->
         <scene sceneID="Sd7-pW-jkC">
             <objects>

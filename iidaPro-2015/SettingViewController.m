@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "SettingTownViewController.h"
 
 @interface SettingViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
@@ -115,6 +116,14 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        SettingTownViewController *town = [self.storyboard instantiateViewControllerWithIdentifier:@"Town"];
+        town.town = _areaArray[indexPath.row];
+        [[self navigationController] pushViewController:town animated:YES];
+    }
 }
 
 @end

@@ -121,7 +121,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         SettingTownViewController *town = [self.storyboard instantiateViewControllerWithIdentifier:@"Town"];
-        town.town = _areaArray[indexPath.row];
+        town.area = _areaArray[indexPath.row];
         [[self navigationController] pushViewController:town animated:YES];
     }
 }

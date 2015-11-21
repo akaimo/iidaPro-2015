@@ -359,6 +359,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Icu-bM-myF" id="1gF-YJ-xFS"/>
+                                    <outlet property="delegate" destination="Icu-bM-myF" id="3x7-Yo-Cek"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>

@@ -10,6 +10,6 @@
 
 @interface SettingTownViewController : UIViewController
 
-@property (retain, nonatomic) NSString *town;
+@property (retain, nonatomic) NSString *area;
 
 @end

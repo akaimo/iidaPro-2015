@@ -24,51 +24,39 @@
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
     }
     
+    _categoryArray = @[@"普通ごみ1", @"普通ごみ2", @"びん・缶・ペットボトル",
+                       @"ミックスペーパー", @"プラスチック製容器包装", @"小物金属"];
+    _categoryDict = @{@"普通ごみ1":@"normal_1",
+                      @"普通ごみ2":@"normal_2",
+                      @"びん・缶・ペットボトル":@"bottle",
+                      @"ミックスペーパー":@"mixedPaper",
+                      @"プラスチック製容器包装":@"plastic",
+                      @"小物金属":@"bigRefuse"};
+    
 //    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
 //    RealmController *rc = [[RealmController alloc] init];
 //    [rc createTestTable];
 //    [rc deleteTestTable];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    // ex. 多摩区のデータ
-    NSArray *tama = @[@{@"title":@"普通ごみ1",
-                        @"date":@"水"},
-                      @{@"title":@"普通ごみ2",
-                        @"date":@"土"},
-                      @{@"title":@"びん・缶・ペットボトル",
-                        @"date":@"金"},
-                      @{@"title":@"ミックスペーパー",
-                        @"date":@"月"},
-                      @{@"title":@"プラスチック製容器包装",
-                        @"date":@"火"},
-                      @{@"title":@"小物金属",
-                        @"date":@"第１・３月"}];
-    // default alarm
-    NSArray *alarm = @[@{@"title":@"普通ごみ1",
-                         @"time":@"08:30",
-                         @"switch":@"on"},
-                       @{@"title":@"普通ごみ2",
-                         @"time":@"08:00",
-                         @"switch":@"off"},
-                       @{@"title":@"びん・缶・ペットボトル",
-                         @"time":@"08:00",
-                         @"switch":@"off"},
-                       @{@"title":@"ミックスペーパー",
-                         @"time":@"08:00",
-                         @"switch":@"on"},
-                       @{@"title":@"プラスチック製容器包装",
-                         @"time":@"08:00",
-                         @"switch":@"off"},
-                       @{@"title":@"小物金属",
-                         @"time":@"08:00",
-                         @"switch":@"off"}];
+    NSDictionary *alarm = @{@"normal_1":@{@"time":@"08:00",
+                                          @"switch":@"on"},
+                            @"normal_2":@{@"time":@"08:00",
+                                          @"switch":@"off"},
+                            @"bottle":@{@"time":@"08:00",
+                                        @"switch":@"off"},
+                            @"mixedPaper":@{@"time":@"08:00",
+                                            @"switch":@"off"},
+                            @"plastic":@{@"time":@"08:00",
+                                         @"switch":@"off"},
+                            @"bigRefuse":@{@"time":@"08:00",
+                                           @"switch":@"off"}};
     NSArray *myAlarm = @[@{@"title":@"アラーム1",
                            @"time":@"12/24 08:30",
                            @"switch":@"on"},
                          @{@"title":@"アラーム2",
                            @"time":@"12/25 08:45",
                            @"switch":@"off"}];
-    [ud setObject:tama forKey:@"trash"];
     [ud setObject:alarm forKey:@"defaultAlarm"];
     [ud setObject:myAlarm forKey:@"myAlarm"];
     [ud synchronize];

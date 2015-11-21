@@ -19,9 +19,9 @@
 @property (retain, nonatomic) UIBarButtonItem *addBtn;
 
 @property (strong, nonatomic) NSArray *sectionArray;
-@property (strong, nonatomic) NSArray *trashArray;
+@property (strong, nonatomic) NSArray *areaData;
 @property (strong, nonatomic) NSMutableArray *myAlarm;
-@property (strong, nonatomic) NSArray *defaultAlarmArray;
+@property (strong, nonatomic) NSDictionary *defaultAlarm;
 @property (nonatomic) CGPoint startCenter;
 
 @end
@@ -41,8 +41,8 @@
     _sectionArray = @[@"ごみ収集通知", @"My通知"];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    _trashArray = [ud objectForKey:@"trash"];
-    _defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
+    _areaData = [ud objectForKey:@"district"];
+    _defaultAlarm = [ud objectForKey:@"defaultAlarm"];
     _myAlarm = [ud objectForKey:@"myAlarm"];
     
     _addBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(tapAdd:)];
@@ -85,18 +85,35 @@
             if (cell) {
                 // TODO: require speed up
                 NSIndexPath *indexPath = [_alarmTableView indexPathForCell:cell];
-                NSMutableArray *array = (indexPath.section == 0) ? [_defaultAlarmArray mutableCopy] : [_myAlarm mutableCopy];
-                NSMutableDictionary *dic = [array[indexPath.row] mutableCopy];
-                NSString *str = ([[dic valueForKey:@"switch"] isEqualToString:@"on"]) ? @"off" : @"on";
-                [dic setObject:str forKey:@"switch"];
-                [array replaceObjectAtIndex:indexPath.row withObject:dic];
                 
-                NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-                NSString *key = (indexPath.section == 0) ? @"defaultAlarm" : @"myAlarm";
-                [ud setObject:array forKey:key];
+                if (indexPath.section == 0) {
+                    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+                    NSString *categoryName = [delegate.categoryDict valueForKey:delegate.categoryArray[indexPath.row]];
+                    
+                    NSMutableDictionary *alarm = [_defaultAlarm mutableCopy];
+                    NSMutableDictionary *dic = [[alarm valueForKey:categoryName] mutableCopy];
+                    NSString *str = ([[dic valueForKey:@"switch"] isEqualToString:@"on"]) ? @"off" : @"on";
+                    [dic setObject:str forKey:@"switch"];
+                    [alarm setObject:dic forKey:categoryName];
+                    
+                    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+                    [ud setObject:alarm forKey:@"defaultAlarm"];
+                    
+                    _defaultAlarm = [ud objectForKey:@"defaultAlarm"];
+                    
+                } else {
+                    NSMutableArray *array = [_myAlarm mutableCopy];
+                    NSMutableDictionary *dic = [array[indexPath.row] mutableCopy];
+                    NSString *str = ([[dic valueForKey:@"switch"] isEqualToString:@"on"]) ? @"off" : @"on";
+                    [dic setObject:str forKey:@"switch"];
+                    [array replaceObjectAtIndex:indexPath.row withObject:dic];
+                    
+                    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+                    [ud setObject:array forKey:@"myAlarm"];
+                    
+                    _myAlarm = [ud objectForKey:@"myAlarm"];
+                }
                 
-                _defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
-                _myAlarm = [ud objectForKey:@"myAlarm"];
                 [_alarmTableView reloadData];
             }
         }
@@ -157,7 +174,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return _trashArray.count;
+        AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        return delegate.categoryArray.count;
     } else if (section == 1) {
         if (_myAlarm.count == 0) {
             return 1;
@@ -170,13 +188,24 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
     if (indexPath.section == 0) {
+        
         TrashAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Alarm" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor clearColor];
-        cell.titleLabel.text = [_trashArray[indexPath.row] valueForKey:@"title"];
-        cell.dayLabel.text = [_trashArray[indexPath.row] valueForKey:@"date"];
-        cell.timeLabel.text = [_defaultAlarmArray[indexPath.row] valueForKey:@"time"];
-        if ([[_defaultAlarmArray[indexPath.row] valueForKey:@"switch"]  isEqual: @"on"]) {
+        cell.titleLabel.text = delegate.categoryArray[indexPath.row];
+        
+        NSString *categoryStr = [delegate.categoryDict valueForKey:delegate.categoryArray[indexPath.row]];
+        cell.timeLabel.text = [[_defaultAlarm valueForKey:categoryStr] valueForKey:@"time"];
+        if ([categoryStr isEqual:@"bigRefuse"]) {
+            NSString *str = [NSString stringWithFormat:@"第 %@, %@ %@", [_areaData valueForKey:@"bigRefuse_1"], [_areaData valueForKey:@"bigRefuse_2"], [_areaData valueForKey:@"bigRefuse_date"]];
+            cell.dayLabel.text = str;
+        } else {
+            cell.dayLabel.text = [_areaData valueForKey:categoryStr];
+        }
+        
+        if ([[[_defaultAlarm valueForKey:categoryStr] valueForKey:@"switch"]  isEqual: @"on"]) {
             cell.titleLabel.textColor = [UIColor whiteColor];
             cell.dayLabel.textColor = [UIColor whiteColor];
             cell.timeLabel.textColor = [UIColor whiteColor];
@@ -198,6 +227,7 @@
         return cell;
         
     } else if (indexPath.section == 1) {
+        
         if (_myAlarm.count == 0) {
             noMyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noAlarm" forIndexPath:indexPath];
             cell.backgroundColor = [UIColor clearColor];
@@ -301,7 +331,7 @@
 #pragma mark - AlarmPopUpViewDelegate
 - (void)alarmPopUpView:(AlarmPopUpView *)alarmPopUpView didTappedEnterButton:(UIButton *)button {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    _defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
+    _defaultAlarm = [ud objectForKey:@"defaultAlarm"];
     _myAlarm = [ud objectForKey:@"myAlarm"];
     [_alarmTableView reloadData];
 }

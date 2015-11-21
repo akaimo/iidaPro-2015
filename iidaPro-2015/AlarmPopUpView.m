@@ -18,8 +18,10 @@
 @property (retain, nonatomic) UIButton *enterBtn;
 @property (retain, nonatomic) UIButton *cancelBtn;
 
-@property (retain, nonatomic) NSMutableArray *alarmArray;
+@property (retain, nonatomic) NSMutableDictionary *defaultAlarm;
+@property (retain, nonatomic) NSMutableArray *myAlarm;
 @property (retain, nonatomic) NSDate *tempData;
+@property (retain, nonatomic) NSString *categoryName;
 @property (nonatomic) PopupStyle style;
 @property (nonatomic) NSInteger selectedRow;
 
@@ -43,6 +45,10 @@
     if (self = [super initWithFrame:frame]) {
         _style = style;
         _selectedRow = row;
+        if (_style == PopupDefaultStyle) {
+            AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+            _categoryName = [delegate.categoryDict valueForKey:delegate.categoryArray[_selectedRow]];
+        }
         [self setup:frame];
     }
     return self;
@@ -84,12 +90,13 @@
 }
 
 - (void)setupDefaultStyle {
+    AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    _alarmArray = [ud objectForKey:@"defaultAlarm"];
+    _defaultAlarm = [ud objectForKey:@"defaultAlarm"];
     
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _popup.frame.size.width, 50)];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
-    _titleLabel.text = [_alarmArray[_selectedRow] valueForKey:@"title"];
+    _titleLabel.text = delegate.categoryArray[_selectedRow];
     _titleLabel.font = [UIFont boldSystemFontOfSize:17];
     [_popup addSubview:_titleLabel];
     
@@ -98,7 +105,7 @@
     [inputDateFormatter setLocale:locale];
     [inputDateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]];
     [inputDateFormatter setDateFormat:@"H:mm"];
-    NSDate *inputDate = [inputDateFormatter dateFromString:[_alarmArray[_selectedRow] valueForKey:@"time"]];
+    NSDate *inputDate = [inputDateFormatter dateFromString:[[_defaultAlarm valueForKey:_categoryName] valueForKey:@"time"]];
     _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 50, _popup.frame.size.width, 150)];
     _datePicker.datePickerMode = UIDatePickerModeTime;
     _datePicker.date = inputDate;
@@ -110,7 +117,7 @@
 
 - (void)setupEditMyAlarmStyle {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    _alarmArray = [ud objectForKey:@"myAlarm"];
+    _myAlarm = [ud objectForKey:@"myAlarm"];
     
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _popup.frame.size.width, 50)];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -123,7 +130,7 @@
     _titleTextField.clearButtonMode = UITextFieldViewModeAlways;
     _titleTextField.borderStyle = UITextBorderStyleRoundedRect;
     _titleTextField.placeholder = @"タイトルを入力";
-    _titleTextField.text = [_alarmArray[_selectedRow] valueForKey:@"title"];
+    _titleTextField.text = [_myAlarm[_selectedRow] valueForKey:@"title"];
     [_popup addSubview:_titleTextField];
     
     NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
@@ -131,7 +138,7 @@
     [inputDateFormatter setLocale:locale];
     [inputDateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]];
     [inputDateFormatter setDateFormat:@"MM/dd H:mm"];
-    NSDate *inputDate = [inputDateFormatter dateFromString:[_alarmArray[_selectedRow] valueForKey:@"time"]];
+    NSDate *inputDate = [inputDateFormatter dateFromString:[_myAlarm[_selectedRow] valueForKey:@"time"]];
     _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 100, _popup.frame.size.width, 150)];
     _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     _datePicker.date = inputDate;
@@ -209,11 +216,11 @@
     
     switch (_style) {
         case PopupDefaultStyle: {
-            NSMutableArray *array = [_alarmArray mutableCopy];
-            NSMutableDictionary *dic = [array[_selectedRow] mutableCopy];
+            NSMutableDictionary *defaultAlarm = [_defaultAlarm mutableCopy];
+            NSMutableDictionary *dic = [[defaultAlarm valueForKey:_categoryName] mutableCopy];
             [dic setObject:str forKey:@"time"];
-            [array replaceObjectAtIndex:_selectedRow withObject:dic];
-            [ud setObject:array forKey:@"defaultAlarm"];
+            [defaultAlarm setObject:dic forKey:_categoryName];
+            [ud setObject:defaultAlarm forKey:@"defaultAlarm"];
             break;
         }
             
@@ -221,7 +228,7 @@
             if ([_titleTextField.text  isEqual: @""]) {
                 return NO;
             }
-            NSMutableArray *array = [_alarmArray mutableCopy];
+            NSMutableArray *array = [_myAlarm mutableCopy];
             NSMutableDictionary *dic = [array[_selectedRow] mutableCopy];
             [dic setObject:str forKey:@"time"];
             [dic setObject:_titleTextField.text forKey:@"title"];
@@ -234,8 +241,8 @@
             if ([_titleTextField.text  isEqual: @""]) {
                 return NO;
             }
-            _alarmArray = [ud objectForKey:@"myAlarm"];
-            NSMutableArray *array = [_alarmArray mutableCopy];
+            _myAlarm = [ud objectForKey:@"myAlarm"];
+            NSMutableArray *array = [_myAlarm mutableCopy];
             NSDictionary *dic = @{@"title":_titleTextField.text,
                                   @"time":str,
                                   @"switch":@"on"};

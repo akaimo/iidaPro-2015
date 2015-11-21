@@ -18,6 +18,7 @@
 		991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */; };
 		9931E7841BF7711600BDB1E1 /* District.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7831BF7711600BDB1E1 /* District.m */; };
 		9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7861BFF201700BDB1E1 /* TrashCategory.m */; };
+		9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */; };
 		9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453C1BBEADCB007A5C78 /* CalendarViewController.m */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
 		997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewController.m */; };
@@ -76,6 +77,8 @@
 		9931E7831BF7711600BDB1E1 /* District.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = District.m; sourceTree = "<group>"; };
 		9931E7851BFF201700BDB1E1 /* TrashCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashCategory.h; sourceTree = "<group>"; };
 		9931E7861BFF201700BDB1E1 /* TrashCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashCategory.m; sourceTree = "<group>"; };
+		9931E7891BFF668E00BDB1E1 /* SettingTownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTownViewController.h; sourceTree = "<group>"; };
+		9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTownViewController.m; sourceTree = "<group>"; };
 		9976453B1BBEADCB007A5C78 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		9976453C1BBEADCB007A5C78 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
@@ -196,6 +199,17 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		9931E7881BFF5C1700BDB1E1 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				997645441BBEB1C9007A5C78 /* SettingViewController.h */,
+				997645451BBEB1C9007A5C78 /* SettingViewController.m */,
+				9931E7891BFF668E00BDB1E1 /* SettingTownViewController.h */,
+				9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		9976453A1BBE8C3E007A5C78 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,8 +270,7 @@
 				99F743871BEA3E9400AF8195 /* Alarm */,
 				997645411BBEB0FB007A5C78 /* ContactViewController.h */,
 				997645421BBEB0FB007A5C78 /* ContactViewController.m */,
-				997645441BBEB1C9007A5C78 /* SettingViewController.h */,
-				997645451BBEB1C9007A5C78 /* SettingViewController.m */,
+				9931E7881BFF5C1700BDB1E1 /* Setting */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
@@ -499,6 +512,7 @@
 				8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */,
 				999A74591BF1C62000F25449 /* LocalNotificationManager.m in Sources */,
 				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
+				9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */,
 				9931E7841BF7711600BDB1E1 /* District.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */,

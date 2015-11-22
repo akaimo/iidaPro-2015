@@ -19,6 +19,7 @@
 		9931E7841BF7711600BDB1E1 /* District.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7831BF7711600BDB1E1 /* District.m */; };
 		9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7861BFF201700BDB1E1 /* TrashCategory.m */; };
 		9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */; };
+		996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 996AE94D1C01F0F100A85464 /* DataViewController.m */; };
 		9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453C1BBEADCB007A5C78 /* CalendarViewController.m */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
 		997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewController.m */; };
@@ -79,6 +80,8 @@
 		9931E7861BFF201700BDB1E1 /* TrashCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashCategory.m; sourceTree = "<group>"; };
 		9931E7891BFF668E00BDB1E1 /* SettingTownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTownViewController.h; sourceTree = "<group>"; };
 		9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTownViewController.m; sourceTree = "<group>"; };
+		996AE94C1C01F0F100A85464 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
+		996AE94D1C01F0F100A85464 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
 		9976453B1BBEADCB007A5C78 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		9976453C1BBEADCB007A5C78 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
@@ -210,6 +213,17 @@
 			name = Setting;
 			sourceTree = "<group>";
 		};
+		996AE94F1C01F15100A85464 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				9976453B1BBEADCB007A5C78 /* CalendarViewController.h */,
+				9976453C1BBEADCB007A5C78 /* CalendarViewController.m */,
+				996AE94C1C01F0F100A85464 /* DataViewController.h */,
+				996AE94D1C01F0F100A85464 /* DataViewController.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
 		9976453A1BBE8C3E007A5C78 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,11 +276,10 @@
 				9989928A1B33B6A5000B7FD2 /* AppDelegate.m */,
 				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
 				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
+				99781C591B8355540083CC7D /* Realm */,
 				991998021B88A239005DD65F /* Search */,
 				8B7F9CCD1B4B8711008A825F /* tips */,
-				99781C591B8355540083CC7D /* Realm */,
-				9976453B1BBEADCB007A5C78 /* CalendarViewController.h */,
-				9976453C1BBEADCB007A5C78 /* CalendarViewController.m */,
+				996AE94F1C01F15100A85464 /* Calendar */,
 				99F743871BEA3E9400AF8195 /* Alarm */,
 				997645411BBEB0FB007A5C78 /* ContactViewController.h */,
 				997645421BBEB0FB007A5C78 /* ContactViewController.m */,
@@ -528,6 +541,7 @@
 				997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */,
 				8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
+				996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
 				99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */,
 				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,

@@ -43,12 +43,11 @@
     NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday fromDate:date];
     
     NSDateFormatter* df = [[NSDateFormatter alloc] init];
-    df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
+    df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"];
     
     NSString* weekDayStr = df.shortWeekdaySymbols[comps.weekday-1];
-    NSArray *array = @[@"日", @"月", @"火", @"水", @"木", @"金", @"土"];
     
-    return array[[weekDayStr intValue]];
+    return weekDayStr;
 }
 
 @end

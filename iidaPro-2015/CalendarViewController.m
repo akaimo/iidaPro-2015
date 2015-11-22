@@ -12,7 +12,7 @@
 @interface CalendarViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (readonly, strong, nonatomic) NSArray *pageData;
+@property (readonly, strong, nonatomic) NSMutableArray *pageData;
 
 @end
 
@@ -21,7 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Calendar";
-    _pageData = @[@"0", @"1", @"2", @"3"];
+    
+    [self setupMonthData];
     
     _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     _pageViewController.delegate = self;
@@ -66,6 +67,18 @@
 
 - (NSUInteger)indexOfViewController:(DataViewController *)viewController {
     return [self.pageData indexOfObject:viewController.num];
+}
+
+- (void)setupMonthData {
+    _pageData = [NSMutableArray array];
+    NSDate *today = [NSDate date];
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    for (int i=0; i<6; i++) {
+        [comps setMonth:i];
+        NSDate *date = [cal dateByAddingComponents:comps toDate:today options:0];
+        [_pageData addObject:date];
+    }
 }
 
 #pragma mark - UIPageViewController delegate methods

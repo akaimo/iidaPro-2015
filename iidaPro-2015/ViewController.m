@@ -116,8 +116,6 @@ const CGFloat iconMargin = 20.0;
     NSString *todayCategory;
     for (NSString *category in appDelegate.categoryArray) {
         NSString *categoryKey = [appDelegate.categoryDict valueForKey:category];
-        NSLog(@"%@", weekday);
-        NSLog(@"%@", [_areaData valueForKey:categoryKey]);
         if ([weekday  isEqual: [_areaData valueForKey:categoryKey]]) {
             todayCategory = categoryKey;
             break;

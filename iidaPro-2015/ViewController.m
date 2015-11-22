@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
 #import "TipsViewController.h"
 #import "SearchResultViewController.h"
 #import "CalendarViewController.h"
 #import "AlarmViewController.h"
 #import "ContactViewController.h"
 #import "SettingViewController.h"
+#import "AdjustNSDate.h"
 
 @interface ViewController () <UISearchBarDelegate>
 
@@ -61,6 +63,8 @@ const CGFloat iconMargin = 20.0;
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     _areaData = [NSDictionary dictionaryWithDictionary:[ud objectForKey:@"district"]];
     _locationLabel.text = [_areaData valueForKey:@"area"];
+    
+    _trashView.image = [self trashImage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,22 +92,55 @@ const CGFloat iconMargin = 20.0;
     // TODO: 天気APIにより背景画像の切り替え
     UIImageView *weatherImageView = [[UIImageView alloc] init];
     weatherImageView.image = [UIImage imageNamed:@"Rainy"];
-    // TODO: 要調整
     weatherImageView.frame = CGRectMake(0, _screenHeight * 9/11 - 150, _screenWidth, 150);
     [self.view addSubview:weatherImageView];
 }
 
 - (void)setupTrashImage {
-    // TODO: ゴミDBから当日のゴミマークを取得
     const float px = _screenWidth * 2/11;
     const float py = _screenHeight * 2/10;
     const float square = _screenWidth * 7/11;
     
     _trashView = [[UIImageView alloc] init];
     _trashView.frame = CGRectMake(px, py, square, square);
-    _trashView.image = [UIImage imageNamed:@"Bottle"];
+//    _trashView.image = [UIImage imageNamed:@"Bottle"];
     
     [self.view addSubview:_trashView];
+}
+
+- (UIImage *)trashImage {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AdjustNSDate *adjust = [[AdjustNSDate alloc] init];
+    NSString *weekday = [adjust getWeekday];
+    
+    NSString *todayCategory = @"";
+    for (NSString *category in appDelegate.categoryArray) {
+        NSString *categoryKey = [appDelegate.categoryDict valueForKey:category];
+        if ([weekday  isEqual: [_areaData valueForKey:categoryKey]]) {
+            todayCategory = categoryKey;
+            break;
+        }
+    }
+    
+    UIImage *categoryImage = [UIImage imageNamed:@"Bottle"];   // noImage
+    if (![todayCategory  isEqual: @""] && [weekday  isEqual: [_areaData valueForKey:@"bigRefuse_date"]]) {
+        // TODO: 小物金属とその他のごみがかぶっている
+    } else {
+        if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
+            categoryImage = [UIImage imageNamed:@"S_Normal"];
+        } else if ([todayCategory isEqual:@"bottle"]) {
+            categoryImage = [UIImage imageNamed:@"S_Can"];
+        } else if ([todayCategory isEqual:@"plastic"]) {
+            categoryImage = [UIImage imageNamed:@"S_plastic"];
+        } else if ([todayCategory isEqual:@"mixedPaper"]) {
+            categoryImage = [UIImage imageNamed:@"S_Mixed"];
+        } else if ([todayCategory isEqual:@"bigRefuse"]) {
+            // TODO: 隔週のチェックをする
+            categoryImage = [UIImage imageNamed:@"S_BigRefuse"];
+        }
+    }
+    
+    return categoryImage;
 }
 
 

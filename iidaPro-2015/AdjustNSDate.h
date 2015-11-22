@@ -11,5 +11,6 @@
 @interface AdjustNSDate : NSObject
 
 - (NSString *)getExactYearWithDate:(NSString *)strDate;
+- (NSString *)getWeekday;
 
 @end

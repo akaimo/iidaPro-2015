@@ -113,7 +113,7 @@ const CGFloat iconMargin = 20.0;
     AdjustNSDate *adjust = [[AdjustNSDate alloc] init];
     NSString *weekday = [adjust getWeekday];
     
-    NSString *todayCategory = @"";
+    NSString *todayCategory;
     for (NSString *category in appDelegate.categoryArray) {
         NSString *categoryKey = [appDelegate.categoryDict valueForKey:category];
         if ([weekday  isEqual: [_areaData valueForKey:categoryKey]]) {
@@ -127,16 +127,16 @@ const CGFloat iconMargin = 20.0;
         // TODO: 小物金属とその他のごみがかぶっている
     } else {
         if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
-            categoryImage = [UIImage imageNamed:@"S_Normal"];
+            categoryImage = [UIImage imageNamed:@"T_Normal"];
         } else if ([todayCategory isEqual:@"bottle"]) {
-            categoryImage = [UIImage imageNamed:@"S_Can"];
+            categoryImage = [UIImage imageNamed:@"T_Can"];
         } else if ([todayCategory isEqual:@"plastic"]) {
-            categoryImage = [UIImage imageNamed:@"S_plastic"];
+            categoryImage = [UIImage imageNamed:@"T_Plastic"];
         } else if ([todayCategory isEqual:@"mixedPaper"]) {
-            categoryImage = [UIImage imageNamed:@"S_Mixed"];
+            categoryImage = [UIImage imageNamed:@"T_Mixed"];
         } else if ([todayCategory isEqual:@"bigRefuse"]) {
             // TODO: 隔週のチェックをする
-            categoryImage = [UIImage imageNamed:@"S_BigRefuse"];
+            categoryImage = [UIImage imageNamed:@"T_BigRefuse"];
         }
     }
     

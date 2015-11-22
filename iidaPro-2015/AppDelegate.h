@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) NSArray *categoryArray;
+@property (strong, nonatomic) NSDictionary *categoryDict;
 
 @end
 

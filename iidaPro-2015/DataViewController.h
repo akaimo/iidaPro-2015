@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DataViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *testLabel;
 @property (strong, nonatomic) id num;
 
 @end

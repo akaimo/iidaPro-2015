@@ -8,7 +8,8 @@
 
 #import "DataViewController.h"
 
-@interface DataViewController ()
+@interface DataViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (retain, nonatomic) UITableView *calendarTableView;
 
 @end
 
@@ -16,7 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    CGRect rect = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 66, self.view.frame.size.width, self.view.frame.size.height - 66);
+    _calendarTableView = [[UITableView alloc] initWithFrame:rect];
+    _calendarTableView.delegate = self;
+    _calendarTableView.dataSource = self;
+    [self.view addSubview:_calendarTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +30,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 31;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cid"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: @"cid"];
+    }
+    cell.textLabel.text = @"hoge";
+    
+    return cell;
+}
 
 @end

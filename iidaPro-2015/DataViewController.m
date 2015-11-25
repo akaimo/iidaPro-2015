@@ -7,6 +7,7 @@
 //
 
 #import "DataViewController.h"
+#import "CalendarTableViewCell.h"
 
 @interface DataViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) UITableView *calendarTableView;
@@ -23,6 +24,9 @@
     _calendarTableView.delegate = self;
     _calendarTableView.dataSource = self;
     [self.view addSubview:_calendarTableView];
+    
+    UINib *nib = [UINib nibWithNibName:@"CalendarTableViewCell" bundle:nil];
+    [_calendarTableView registerNib:nib forCellReuseIdentifier:@"Calendar"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,24 +41,22 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cid"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: @"cid"];
-    }
+    CalendarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Calendar" forIndexPath:indexPath];
+    
     long time = (-15 + indexPath.row)*24*60*60;
     NSDate *date = [_num initWithTimeInterval:time sinceDate:_num];
-    NSLog(@"%@", date);
     
     NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday fromDate:date];
     
     NSDateFormatter* df = [[NSDateFormatter alloc] init];
     df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en"];
-    
     NSString* weekDayStr = df.weekdaySymbols[comps.weekday-1];
-    NSLog(@"%@", weekDayStr);
+    cell.weekdayLabel.text = weekDayStr;
     
-    cell.textLabel.text = weekDayStr;
+    comps = [calendar components:NSCalendarUnitDay fromDate:date];
+    NSString *dateTimeString = [NSString stringWithFormat:@"%ld", (long)comps.day];
+    cell.dayLabel.text = dateTimeString;
     
     return cell;
 }

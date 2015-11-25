@@ -55,8 +55,8 @@
     cell.weekdayLabel.text = weekDayStr;
     
     comps = [calendar components:NSCalendarUnitDay fromDate:date];
-    NSString *dateTimeString = [NSString stringWithFormat:@"%ld", (long)comps.day];
-    cell.dayLabel.text = dateTimeString;
+    NSString *dayStr = [NSString stringWithFormat:@"%ld", (long)comps.day];
+    cell.dayLabel.text = dayStr;
     
     return cell;
 }

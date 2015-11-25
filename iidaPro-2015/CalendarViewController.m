@@ -108,8 +108,6 @@
         return nil;
     }
     
-    // TODO: 月をタイトルに表示
-    
     index++;
     if (index == [self.pageData count]) {
         return nil;

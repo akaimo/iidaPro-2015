@@ -24,8 +24,9 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     _areaData = [NSDictionary dictionaryWithDictionary:[ud objectForKey:@"district"]];
     
-    CGRect rect = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 66, self.view.frame.size.width, self.view.frame.size.height - 66);
+    CGRect rect = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 64, self.view.frame.size.width, self.view.frame.size.height - 64);
     _calendarTableView = [[UITableView alloc] initWithFrame:rect];
+    _calendarTableView.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
     _calendarTableView.delegate = self;
     _calendarTableView.dataSource = self;
     [self.view addSubview:_calendarTableView];
@@ -80,6 +81,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CalendarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Calendar" forIndexPath:indexPath];
+    if (indexPath.row == 15) {
+        cell.backgroundColor = [UIColor colorWithRed:41/255.0 green:52/255.0 blue:92/255.0 alpha:0.6];
+    } else {
+        cell.backgroundColor = [UIColor clearColor];
+    }
     
     long time = (-15 + indexPath.row)*24*60*60;
     NSDate *date = [_num initWithTimeInterval:time sinceDate:_num];
@@ -91,6 +97,18 @@
     df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en"];
     NSString* weekDayStr = df.weekdaySymbols[comps.weekday-1];
     cell.weekdayLabel.text = weekDayStr;
+    if (comps.weekday == 7) {
+        // Saturday
+        cell.weekdayLabel.textColor = [UIColor blueColor];
+        cell.dayLabel.textColor = [UIColor blueColor];
+    } else if (comps.weekday == 1) {
+        // Sunday
+        cell.weekdayLabel.textColor = [UIColor redColor];
+        cell.dayLabel.textColor = [UIColor redColor];
+    } else {
+        cell.weekdayLabel.textColor = [UIColor whiteColor];
+        cell.dayLabel.textColor = [UIColor whiteColor];
+    }
     
     df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
     weekDayStr = df.shortWeekdaySymbols[comps.weekday-1];
@@ -106,7 +124,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 15) {
-        return 88.0;
+        return 110.0;
     }
     return 55.0;
 }

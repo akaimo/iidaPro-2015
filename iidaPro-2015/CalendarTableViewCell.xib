@@ -17,18 +17,18 @@
                         <rect key="frame" x="20" y="16" width="75" height="23"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3G-Rz-ocS">
                         <rect key="frame" x="140" y="16" width="20" height="23"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ufb-Wd-Tca">
-                        <rect key="frame" x="260" y="7" width="40" height="40"/>
+                        <rect key="frame" x="265" y="7" width="40" height="40"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="ilZ-1o-jG7"/>
@@ -38,7 +38,7 @@
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="ufb-Wd-Tca" secondAttribute="trailing" constant="20" id="7Ea-e2-wMu"/>
+                    <constraint firstAttribute="trailing" secondItem="ufb-Wd-Tca" secondAttribute="trailing" constant="15" id="7Ea-e2-wMu"/>
                     <constraint firstItem="LmW-wg-I2k" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="POF-6E-8hY"/>
                     <constraint firstItem="LmW-wg-I2k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eDs-Au-TFP"/>
                     <constraint firstItem="ufb-Wd-Tca" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eJ6-HY-xDa"/>

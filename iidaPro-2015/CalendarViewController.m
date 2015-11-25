@@ -20,7 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"Calendar";
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     
     [self setupMonthData];
     
@@ -103,6 +107,8 @@
     if (index == NSNotFound) {
         return nil;
     }
+    
+    // TODO: 月をタイトルに表示
     
     index++;
     if (index == [self.pageData count]) {

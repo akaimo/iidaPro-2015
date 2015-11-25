@@ -30,6 +30,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 31;
 }
@@ -39,9 +41,30 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: @"cid"];
     }
-    cell.textLabel.text = @"hoge";
+    long time = (-15 + indexPath.row)*24*60*60;
+    NSDate *date = [_num initWithTimeInterval:time sinceDate:_num];
+    NSLog(@"%@", date);
+    
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday fromDate:date];
+    
+    NSDateFormatter* df = [[NSDateFormatter alloc] init];
+    df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en"];
+    
+    NSString* weekDayStr = df.weekdaySymbols[comps.weekday-1];
+    NSLog(@"%@", weekDayStr);
+    
+    cell.textLabel.text = weekDayStr;
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 15) {
+        return 88.0;
+    }
+    return 55.0;
 }
 
 @end

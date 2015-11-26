@@ -39,8 +39,9 @@
     _calendarTableView.dataSource = self;
     [self.view addSubview:_calendarTableView];
     
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:15 inSection:0];
-    [_calendarTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+    if (_nowMonth == YES) {
+        [_calendarTableView scrollToRowAtIndexPath:_todayIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+    }
     
     UINib *nib = [UINib nibWithNibName:@"CalendarTableViewCell" bundle:nil];
     [_calendarTableView registerNib:nib forCellReuseIdentifier:@"Calendar"];
@@ -187,7 +188,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CalendarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Calendar" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (indexPath.row == 15) {
+    if (indexPath == _todayIndexPath) {
         cell.backgroundColor = [UIColor colorWithRed:41/255.0 green:52/255.0 blue:92/255.0 alpha:0.6];
     } else {
         cell.backgroundColor = [UIColor clearColor];
@@ -228,7 +229,7 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 15) {
+    if (indexPath == _todayIndexPath) {
         return 110.0;
     }
     return 55.0;

@@ -16,6 +16,7 @@
 @property (retain, nonatomic) NSDictionary *areaData;
 @property (retain, nonatomic) NSMutableArray *monthNumArray;
 @property (retain, nonatomic) NSMutableArray *monthStrArray;
+@property (retain, nonatomic) NSMutableArray *separateMonthArray;
 
 @end
 
@@ -82,16 +83,16 @@
 }
 
 - (void)useMonth {
-    NSMutableArray *array = [NSMutableArray array];
+    NSMutableArray *calendarData = [NSMutableArray array];
     for (int i=0; i<31; i++) {
         long time = (-15 + i)*24*60*60;
         NSDate *date = [_num initWithTimeInterval:time sinceDate:_num];
-        [array addObject:date];
+        [calendarData addObject:date];
     }
     
     _monthNumArray = [NSMutableArray array];
     AdjustNSDate *adjust = [[AdjustNSDate alloc] init];
-    for (NSDate *date in array) {
+    for (NSDate *date in calendarData) {
         bool insert = YES;
         NSString *str = [adjust getMonthNum:date];
         for (NSString *month in _monthNumArray) {
@@ -110,6 +111,17 @@
         int num = [numStr intValue];
         NSString *monthStr = [adjust getMonthStr:num];
         [_monthStrArray addObject:monthStr];
+    }
+    
+    _separateMonthArray = [NSMutableArray array];
+    for (NSString *monthNum in _monthNumArray) {
+        NSMutableArray *array = [NSMutableArray array];
+        for (NSDate *date in calendarData) {
+            if (monthNum == [adjust getMonthNum:date]) {
+                [array addObject:date];
+            }
+        }
+        [_separateMonthArray addObject:array];
     }
 }
 

@@ -104,7 +104,13 @@
             [_monthNumArray addObject:str];
         }
     }
-    NSLog(@"%@", _monthNumArray);
+    
+    _monthStrArray = [NSMutableArray array];
+    for (NSString *numStr in _monthNumArray) {
+        int num = [numStr intValue];
+        NSString *monthStr = [adjust getMonthStr:num];
+        [_monthStrArray addObject:monthStr];
+    }
 }
 
 

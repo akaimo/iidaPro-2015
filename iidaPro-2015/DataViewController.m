@@ -127,8 +127,37 @@
 
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return _separateMonthArray.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [_monthStrArray objectAtIndex:section];
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 20)];
+    headerView.backgroundColor = [UIColor colorWithRed:41/255.0 green:52/255.0 blue:92/255.0 alpha:0.95];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, headerView.frame.size.width - 20, headerView.frame.size.height)];
+    label.text = [_monthStrArray objectAtIndex:section];
+    label.font = [UIFont boldSystemFontOfSize:16.0];
+    label.shadowOffset = CGSizeMake(0, 1);
+    label.shadowColor = [UIColor grayColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    
+    [headerView addSubview:label];
+    tableView.sectionHeaderHeight = headerView.frame.size.height;
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.0;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 31;
+    return [_separateMonthArray[section] count];;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -140,8 +169,7 @@
         cell.backgroundColor = [UIColor clearColor];
     }
     
-    long time = (-15 + indexPath.row)*24*60*60;
-    NSDate *date = [_num initWithTimeInterval:time sinceDate:_num];
+    NSDate *date = _separateMonthArray[indexPath.section][indexPath.row];
     
     NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday fromDate:date];

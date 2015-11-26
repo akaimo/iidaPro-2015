@@ -18,6 +18,7 @@
 @property (retain, nonatomic) NSMutableArray *monthStrArray;
 @property (retain, nonatomic) NSMutableArray *separateMonthArray;
 @property (nonatomic) BOOL nowMonth;
+@property (retain, nonatomic) NSIndexPath *todayIndexPath;
 
 @end
 
@@ -84,6 +85,7 @@
 }
 
 - (void)useMonth {
+    // カレンダーに使う日にちの作成
     NSMutableArray *calendarData = [NSMutableArray array];
     for (int i=0; i<31; i++) {
         long time = (-15 + i)*24*60*60;
@@ -91,6 +93,7 @@
         [calendarData addObject:date];
     }
     
+    // カレンダーに登場する月の数字を取得
     _monthNumArray = [NSMutableArray array];
     AdjustNSDate *adjust = [[AdjustNSDate alloc] init];
     for (NSDate *date in calendarData) {
@@ -107,6 +110,7 @@
         }
     }
     
+    // 月の英語を取得
     _monthStrArray = [NSMutableArray array];
     for (NSString *numStr in _monthNumArray) {
         int num = [numStr intValue];
@@ -114,6 +118,7 @@
         [_monthStrArray addObject:monthStr];
     }
     
+    // 月別に分けてカレンダーのデータを作成
     _separateMonthArray = [NSMutableArray array];
     for (NSString *monthNum in _monthNumArray) {
         NSMutableArray *array = [NSMutableArray array];
@@ -125,10 +130,22 @@
         [_separateMonthArray addObject:array];
     }
     
+    // 今月かどうかのフラグ
     if ([adjust getMonthNum:[NSDate date]] == [adjust getMonthNum:_num]) {
         _nowMonth = YES;
     } else {
         _nowMonth = NO;
+    }
+    
+    // 当日のindexPathを作成
+    if (_nowMonth == YES) {
+        for (int i=0; i<_separateMonthArray.count; i++) {
+            for (int j=0; j<[_separateMonthArray[i] count]; j++) {
+                if ([_separateMonthArray[i][j] isEqualToDate:_num]) {
+                    _todayIndexPath = [NSIndexPath indexPathForRow:j inSection:i];
+                }
+            }
+        }
     }
 }
 

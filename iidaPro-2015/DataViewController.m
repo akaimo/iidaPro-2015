@@ -17,6 +17,7 @@
 @property (retain, nonatomic) NSMutableArray *monthNumArray;
 @property (retain, nonatomic) NSMutableArray *monthStrArray;
 @property (retain, nonatomic) NSMutableArray *separateMonthArray;
+@property (nonatomic) BOOL nowMonth;
 
 @end
 
@@ -122,6 +123,12 @@
             }
         }
         [_separateMonthArray addObject:array];
+    }
+    
+    if ([adjust getMonthNum:[NSDate date]] == [adjust getMonthNum:_num]) {
+        _nowMonth = YES;
+    } else {
+        _nowMonth = NO;
     }
 }
 

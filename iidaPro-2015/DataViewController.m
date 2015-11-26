@@ -9,10 +9,13 @@
 #import "DataViewController.h"
 #import "CalendarTableViewCell.h"
 #import "AppDelegate.h"
+#import "AdjustNSDate.h"
 
 @interface DataViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) UITableView *calendarTableView;
 @property (retain, nonatomic) NSDictionary *areaData;
+@property (retain, nonatomic) NSMutableArray *monthNumArray;
+@property (retain, nonatomic) NSMutableArray *monthStrArray;
 
 @end
 
@@ -20,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self useMonth];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     _areaData = [NSDictionary dictionaryWithDictionary:[ud objectForKey:@"district"]];
@@ -30,6 +35,9 @@
     _calendarTableView.delegate = self;
     _calendarTableView.dataSource = self;
     [self.view addSubview:_calendarTableView];
+    
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:15 inSection:0];
+    [_calendarTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
     
     UINib *nib = [UINib nibWithNibName:@"CalendarTableViewCell" bundle:nil];
     [_calendarTableView registerNib:nib forCellReuseIdentifier:@"Calendar"];
@@ -73,6 +81,32 @@
     return categoryImage;
 }
 
+- (void)useMonth {
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i=0; i<31; i++) {
+        long time = (-15 + i)*24*60*60;
+        NSDate *date = [_num initWithTimeInterval:time sinceDate:_num];
+        [array addObject:date];
+    }
+    
+    _monthNumArray = [NSMutableArray array];
+    AdjustNSDate *adjust = [[AdjustNSDate alloc] init];
+    for (NSDate *date in array) {
+        bool insert = YES;
+        NSString *str = [adjust getMonthNum:date];
+        for (NSString *month in _monthNumArray) {
+            if ([month isEqual:str]) {
+                insert = NO;
+                break;
+            }
+        }
+        if (insert == YES) {
+            [_monthNumArray addObject:str];
+        }
+    }
+    NSLog(@"%@", _monthNumArray);
+}
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -81,6 +115,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CalendarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Calendar" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row == 15) {
         cell.backgroundColor = [UIColor colorWithRed:41/255.0 green:52/255.0 blue:92/255.0 alpha:0.6];
     } else {

@@ -12,5 +12,7 @@
 
 - (NSString *)getExactYearWithDate:(NSString *)strDate;
 - (NSString *)getWeekday;
+- (NSString *)getMonthNum:(NSDate *)date;
+- (NSString *)getMonthStr:(int)num;
 
 @end

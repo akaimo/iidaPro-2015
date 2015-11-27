@@ -50,4 +50,22 @@
     return weekDayStr;
 }
 
+- (NSString *)getMonthNum:(NSDate *)date {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [calendar components:NSCalendarUnitMonth fromDate:date];
+    
+    NSString *monthStr = [NSString stringWithFormat:@"%ld", (long)comps.month];
+    
+    return monthStr;
+}
+
+- (NSString *)getMonthStr:(int)num {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en"];
+    
+    NSString *monthName = df.monthSymbols[num-1];
+    
+    return monthName;
+}
+
 @end

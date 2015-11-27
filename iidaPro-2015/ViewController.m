@@ -81,7 +81,6 @@ const CGFloat iconMargin = 20.0;
         case weatherThemaSunny: {
             CircleGradientLayer *gradientLayer = [[CircleGradientLayer alloc] initWithWeatherThema:weatherThemaSunny];
             gradientLayer.frame = _topView.bounds;
-//            _topView.layer.backgroundColor = [UIColor clearColor].CGColor;
             [_topView.layer insertSublayer:gradientLayer atIndex:0];
 
             

@@ -19,8 +19,10 @@
 @interface ViewController () <UISearchBarDelegate>
 
 //@property (retain, nonatomic) UISearchBar *searchBar;
+@property (retain, nonatomic) UIView *topView;
 @property (retain, nonatomic) UILabel *locationLabel;
 @property (retain, nonatomic) UIImageView *trashView;
+@property (retain, nonatomic) UIImageView *weatherImageView;
 @property (retain, nonatomic) UIScrollView *btnScrollView;
 @property (retain, nonatomic) UIView *bottomView;
 @property (retain, nonatomic) NSDictionary *areaData;
@@ -65,6 +67,7 @@ const CGFloat iconMargin = 20.0;
     _locationLabel.text = [_areaData valueForKey:@"area"];
     
     _trashView.image = [self trashImage];
+    [self changeWeatherThema];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,28 +75,33 @@ const CGFloat iconMargin = 20.0;
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - TopView
-- (void)setupTopView {
-    UIView *topView = [[UIView alloc] init];
-    topView.frame = CGRectMake(0, 0, _screenWidth, _screenHeight * 7/10);
-    // TODO: 天気ごとに色を変える
+- (void)changeWeatherThema {
+    // rain
     CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = topView.bounds;
+    gradient.frame = _topView.bounds;
     gradient.colors = @[
                         (id)[UIColor colorWithRed:71/255.0 green:117/255.0 blue:192/255.0 alpha:1].CGColor,
                         (id)[UIColor colorWithRed:21/255.0 green:39/255.0 blue:69/255.0 alpha:1].CGColor
                         ];
-    [topView.layer insertSublayer:gradient atIndex:0];
-    [self.view addSubview:topView];
+    [_topView.layer insertSublayer:gradient atIndex:0];
+    
+    _weatherImageView.image = [UIImage imageNamed:@"Rainy"];
+    
+    _bottomView.backgroundColor = [UIColor colorWithRed:74/255.0 green:144/255.0 blue:226/255.0 alpha:1.0];
+}
+
+
+#pragma mark - TopView
+- (void)setupTopView {
+    _topView = [[UIView alloc] init];
+    _topView.frame = CGRectMake(0, 0, _screenWidth, _screenHeight * 7/10);
+    [self.view addSubview:_topView];
 }
 
 - (void)setBackgroundImage {
-    // TODO: 天気APIにより背景画像の切り替え
-    UIImageView *weatherImageView = [[UIImageView alloc] init];
-    weatherImageView.image = [UIImage imageNamed:@"Rainy"];
-    weatherImageView.frame = CGRectMake(0, _screenHeight * 9/11 - 150, _screenWidth, 150);
-    [self.view addSubview:weatherImageView];
+    _weatherImageView = [[UIImageView alloc] init];
+    _weatherImageView.frame = CGRectMake(0, _screenHeight * 9/11 - 150, _screenWidth, 150);
+    [self.view addSubview:_weatherImageView];
 }
 
 - (void)setupTrashImage {
@@ -103,7 +111,6 @@ const CGFloat iconMargin = 20.0;
     
     _trashView = [[UIImageView alloc] init];
     _trashView.frame = CGRectMake(px, py, square, square);
-//    _trashView.image = [UIImage imageNamed:@"Bottle"];
     
     [self.view addSubview:_trashView];
 }
@@ -151,8 +158,6 @@ const CGFloat iconMargin = 20.0;
     _locationLabel.textAlignment = NSTextAlignmentCenter;
     _locationLabel.font = [UIFont boldSystemFontOfSize:36];
     _locationLabel.textColor = [UIColor whiteColor];
-    // TODO: 登録されている地域名を取得
-    _locationLabel.text = @"多摩区";
     [self.view addSubview:_locationLabel];
     
     UILabel *eventLabel = [[UILabel alloc] init];
@@ -170,8 +175,6 @@ const CGFloat iconMargin = 20.0;
 - (void)setupBottomView {
     _bottomView = [[UIView alloc] init];
     _bottomView.frame = CGRectMake(0, _screenHeight * 9/11, _screenWidth, _screenHeight * 2/11);
-    // TODO: 天気によって色を変える
-    _bottomView.backgroundColor = [UIColor colorWithRed:74/255.0 green:144/255.0 blue:226/255.0 alpha:1.0];
     [self.view addSubview:_bottomView];
 }
 

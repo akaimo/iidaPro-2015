@@ -63,6 +63,16 @@
             break;
         }
             
+        case weatherThemaSnowy: {
+            CGFloat gradColors[] = {37/255.0, 60/255.0, 99/255.0, 1.0f,
+                                    3/255.0, 10/255.0, 21/255.0, 1.0f};
+            CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, gradColors, gradLocations, gradLocationsNum);
+            CGContextDrawRadialGradient (ctx, gradient, gradCenter, 0, gradCenter, gradRadius, kCGGradientDrawsAfterEndLocation);
+            CGGradientRelease(gradient);
+            
+            break;
+        }
+            
         default:
             break;
     }

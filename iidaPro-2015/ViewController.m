@@ -68,6 +68,7 @@ const CGFloat iconMargin = 20.0;
     _locationLabel.text = [_areaData valueForKey:@"area"];
     
     _trashView.image = [self trashImage];
+    // TODO: 天気apiで受け取った結果によってテーマを変える
     [self changeWeatherThema:weatherThemaSnowy];
 }
 

@@ -53,6 +53,16 @@
             break;
         }
             
+        case weatherThemaCloudy: {
+            CGFloat gradColors[] = {136/255.0, 141/255.0, 150/255.0, 1.0f,
+                                    97/255.0, 100/255.0, 106/255.0, 1.0f};
+            CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, gradColors, gradLocations, gradLocationsNum);
+            CGContextDrawRadialGradient (ctx, gradient, gradCenter, 0, gradCenter, gradRadius, kCGGradientDrawsAfterEndLocation);
+            CGGradientRelease(gradient);
+            
+            break;
+        }
+            
         default:
             break;
     }

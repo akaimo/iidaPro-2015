@@ -68,7 +68,7 @@ const CGFloat iconMargin = 20.0;
     _locationLabel.text = [_areaData valueForKey:@"area"];
     
     _trashView.image = [self trashImage];
-    [self changeWeatherThema:weatherThemaSunny];
+    [self changeWeatherThema:weatherThemaCloudy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,9 +105,17 @@ const CGFloat iconMargin = 20.0;
             break;
         }
             
-        case weatherThemaCloudy:
-            //cloud
+        case weatherThemaCloudy: {
+            CircleGradientLayer *gradientLayer = [[CircleGradientLayer alloc] initWithWeatherThema:weatherThemaCloudy];
+            gradientLayer.frame = _topView.bounds;
+            [_topView.layer insertSublayer:gradientLayer atIndex:0];
+            
+            
+            _weatherImageView.image = [UIImage imageNamed:@"Cloudy"];
+            _bottomView.backgroundColor = [UIColor colorWithRed:97/255.0 green:100/255.0 blue:106/255.0 alpha:1.0];
+            
             break;
+        }
             
         case weatherThemaSnowy:
             // snow

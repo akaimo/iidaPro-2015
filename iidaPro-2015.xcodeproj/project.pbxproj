@@ -36,6 +36,7 @@
 		99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A408181BF232AD00FC0DDB /* AdjustNSDate.m */; };
 		99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */; };
 		99A86FEE1C05EDA400B979BA /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */; };
+		99EADFEA1C0868B900655BE6 /* CircleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
 		99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */; };
 		99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F7438F1BEB354800AF8195 /* noMyAlarmCell.m */; };
@@ -115,6 +116,8 @@
 		99A86FEA1C05EDA400B979BA /* CalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTableViewCell.h; sourceTree = "<group>"; };
 		99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTableViewCell.m; sourceTree = "<group>"; };
 		99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarTableViewCell.xib; sourceTree = "<group>"; };
+		99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGradientLayer.h; sourceTree = "<group>"; };
+		99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGradientLayer.m; sourceTree = "<group>"; };
 		99F743881BEA3EFD00AF8195 /* TrashAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashAlarmCell.h; sourceTree = "<group>"; };
 		99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashAlarmCell.m; sourceTree = "<group>"; };
 		99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrashAlarmCell.xib; sourceTree = "<group>"; };
@@ -280,16 +283,15 @@
 			children = (
 				998992891B33B6A5000B7FD2 /* AppDelegate.h */,
 				9989928A1B33B6A5000B7FD2 /* AppDelegate.m */,
-				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
-				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
+				99EADFEB1C089B3800655BE6 /* Top */,
 				99781C591B8355540083CC7D /* Realm */,
 				991998021B88A239005DD65F /* Search */,
 				8B7F9CCD1B4B8711008A825F /* tips */,
 				996AE94F1C01F15100A85464 /* Calendar */,
 				99F743871BEA3E9400AF8195 /* Alarm */,
-				997645411BBEB0FB007A5C78 /* ContactViewController.h */,
-				997645421BBEB0FB007A5C78 /* ContactViewController.m */,
+				99EADFEC1C089B4900655BE6 /* Contact */,
 				9931E7881BFF5C1700BDB1E1 /* Setting */,
+				99EADFED1C089B5B00655BE6 /* Extra */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
@@ -334,6 +336,35 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		99EADFEB1C089B3800655BE6 /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
+				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
+				99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */,
+				99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */,
+			);
+			name = Top;
+			sourceTree = "<group>";
+		};
+		99EADFEC1C089B4900655BE6 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				997645411BBEB0FB007A5C78 /* ContactViewController.h */,
+				997645421BBEB0FB007A5C78 /* ContactViewController.m */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		99EADFED1C089B5B00655BE6 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				99A408171BF232AD00FC0DDB /* AdjustNSDate.h */,
+				99A408181BF232AD00FC0DDB /* AdjustNSDate.m */,
+			);
+			name = Extra;
+			sourceTree = "<group>";
+		};
 		99F743871BEA3E9400AF8195 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,8 +374,6 @@
 				99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */,
 				999A74571BF1C62000F25449 /* LocalNotificationManager.h */,
 				999A74581BF1C62000F25449 /* LocalNotificationManager.m */,
-				99A408171BF232AD00FC0DDB /* AdjustNSDate.h */,
-				99A408181BF232AD00FC0DDB /* AdjustNSDate.m */,
 				99F7438D1BEA3F0500AF8195 /* Cell */,
 			);
 			name = Alarm;
@@ -545,6 +574,7 @@
 				9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */,
 				9931E7841BF7711600BDB1E1 /* District.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
+				99EADFEA1C0868B900655BE6 /* CircleGradientLayer.m in Sources */,
 				99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */,
 				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,

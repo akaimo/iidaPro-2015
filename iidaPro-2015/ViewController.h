@@ -12,3 +12,9 @@
 
 @end
 
+typedef NS_ENUM (NSInteger, weatherThema) {
+    weatherThemaSunny,
+    weatherThemaCloudy,
+    weatherThemaRainy,
+    weatherThemaSnowy
+};

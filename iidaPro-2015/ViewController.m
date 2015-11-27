@@ -15,6 +15,7 @@
 #import "ContactViewController.h"
 #import "SettingViewController.h"
 #import "AdjustNSDate.h"
+#import "CircleGradientLayer.h"
 
 @interface ViewController () <UISearchBarDelegate>
 
@@ -32,13 +33,6 @@
 @property float scrollHeight;   // ScrollBarの高さ
 
 @end
-
-typedef NS_ENUM (NSInteger, weatherThema) {
-    weatherThemaSunny,
-    weatherThemaCloudy,
-    weatherThemaRainy,
-    weatherThemaSnowy
-};
 
 const NSUInteger iconNum = 6;
 const CGFloat iconMargin = 20.0;
@@ -74,7 +68,7 @@ const CGFloat iconMargin = 20.0;
     _locationLabel.text = [_areaData valueForKey:@"area"];
     
     _trashView.image = [self trashImage];
-    [self changeWeatherThema:weatherThemaRainy];
+    [self changeWeatherThema:weatherThemaSunny];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,9 +78,18 @@ const CGFloat iconMargin = 20.0;
 
 - (void)changeWeatherThema:(weatherThema)thema {
     switch (thema) {
-        case weatherThemaSunny:
-            // sun
+        case weatherThemaSunny: {
+            CircleGradientLayer *gradientLayer = [[CircleGradientLayer alloc] initWithWeatherThema:weatherThemaSunny];
+            gradientLayer.frame = _topView.bounds;
+//            _topView.layer.backgroundColor = [UIColor clearColor].CGColor;
+            [_topView.layer insertSublayer:gradientLayer atIndex:0];
+
+            
+            _weatherImageView.image = [UIImage imageNamed:@"Sunny"];
+            _bottomView.backgroundColor = [UIColor colorWithRed:59/255.0 green:110/255.0 blue:212/255.0 alpha:1.0];
+            
             break;
+        }
             
         case weatherThemaRainy: {
             CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -98,7 +101,6 @@ const CGFloat iconMargin = 20.0;
             [_topView.layer insertSublayer:gradient atIndex:0];
             
             _weatherImageView.image = [UIImage imageNamed:@"Rainy"];
-            
             _bottomView.backgroundColor = [UIColor colorWithRed:74/255.0 green:144/255.0 blue:226/255.0 alpha:1.0];
             
             break;

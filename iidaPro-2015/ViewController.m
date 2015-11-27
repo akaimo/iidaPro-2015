@@ -33,6 +33,13 @@
 
 @end
 
+typedef NS_ENUM (NSInteger, weatherThema) {
+    weatherThemaSunny,
+    weatherThemaCloudy,
+    weatherThemaRainy,
+    weatherThemaSnowy
+};
+
 const NSUInteger iconNum = 6;
 const CGFloat iconMargin = 20.0;
 
@@ -67,7 +74,7 @@ const CGFloat iconMargin = 20.0;
     _locationLabel.text = [_areaData valueForKey:@"area"];
     
     _trashView.image = [self trashImage];
-    [self changeWeatherThema];
+    [self changeWeatherThema:weatherThemaRainy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,19 +82,39 @@ const CGFloat iconMargin = 20.0;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)changeWeatherThema {
-    // rain
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = _topView.bounds;
-    gradient.colors = @[
-                        (id)[UIColor colorWithRed:71/255.0 green:117/255.0 blue:192/255.0 alpha:1].CGColor,
-                        (id)[UIColor colorWithRed:21/255.0 green:39/255.0 blue:69/255.0 alpha:1].CGColor
-                        ];
-    [_topView.layer insertSublayer:gradient atIndex:0];
-    
-    _weatherImageView.image = [UIImage imageNamed:@"Rainy"];
-    
-    _bottomView.backgroundColor = [UIColor colorWithRed:74/255.0 green:144/255.0 blue:226/255.0 alpha:1.0];
+- (void)changeWeatherThema:(weatherThema)thema {
+    switch (thema) {
+        case weatherThemaSunny:
+            // sun
+            break;
+            
+        case weatherThemaRainy: {
+            CAGradientLayer *gradient = [CAGradientLayer layer];
+            gradient.frame = _topView.bounds;
+            gradient.colors = @[
+                                (id)[UIColor colorWithRed:71/255.0 green:117/255.0 blue:192/255.0 alpha:1].CGColor,
+                                (id)[UIColor colorWithRed:21/255.0 green:39/255.0 blue:69/255.0 alpha:1].CGColor
+                                ];
+            [_topView.layer insertSublayer:gradient atIndex:0];
+            
+            _weatherImageView.image = [UIImage imageNamed:@"Rainy"];
+            
+            _bottomView.backgroundColor = [UIColor colorWithRed:74/255.0 green:144/255.0 blue:226/255.0 alpha:1.0];
+            
+            break;
+        }
+            
+        case weatherThemaCloudy:
+            //cloud
+            break;
+            
+        case weatherThemaSnowy:
+            // snow
+            break;
+            
+        default:
+            break;
+    }
 }
 
 

@@ -37,6 +37,7 @@
 		99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */; };
 		99A86FEE1C05EDA400B979BA /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */; };
 		99EADFEA1C0868B900655BE6 /* CircleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */; };
+		99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
 		99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */; };
 		99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F7438F1BEB354800AF8195 /* noMyAlarmCell.m */; };
@@ -118,6 +119,8 @@
 		99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarTableViewCell.xib; sourceTree = "<group>"; };
 		99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGradientLayer.h; sourceTree = "<group>"; };
 		99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGradientLayer.m; sourceTree = "<group>"; };
+		99EADFEE1C0B220E00655BE6 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
+		99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDetailViewController.m; sourceTree = "<group>"; };
 		99F743881BEA3EFD00AF8195 /* TrashAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashAlarmCell.h; sourceTree = "<group>"; };
 		99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashAlarmCell.m; sourceTree = "<group>"; };
 		99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrashAlarmCell.xib; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 			children = (
 				99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */,
 				99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */,
+				99EADFEE1C0B220E00655BE6 /* SearchDetailViewController.h */,
+				99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */,
 				9976453A1BBE8C3E007A5C78 /* Cell */,
 			);
 			name = Search;
@@ -595,6 +600,7 @@
 				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,
 				998992881B33B6A5000B7FD2 /* main.m in Sources */,
 				997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */,
+				99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

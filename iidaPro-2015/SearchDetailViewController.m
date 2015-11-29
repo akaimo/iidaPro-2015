@@ -10,6 +10,12 @@
 
 @interface SearchDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIView *genreView;
+@property (weak, nonatomic) IBOutlet UILabel *genreLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *genreImageView1;
+@property (weak, nonatomic) IBOutlet UIImageView *genreImageView2;
+@property (weak, nonatomic) IBOutlet UIImageView *genreImageView3;
+@property (weak, nonatomic) IBOutlet UITextView *detailTextView;
 
 @end
 

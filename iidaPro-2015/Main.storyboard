@@ -219,6 +219,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="detailTextView" destination="reC-Yj-oNn" id="5fs-C1-kvI"/>
+                        <outlet property="genreImageView1" destination="C9P-In-6Od" id="YIA-zE-3Oj"/>
+                        <outlet property="genreImageView2" destination="d4Q-q9-dWB" id="zAX-Ep-kp2"/>
+                        <outlet property="genreImageView3" destination="PP6-XN-TzV" id="OJd-QC-1ot"/>
+                        <outlet property="genreLabel" destination="7ZA-eG-F9N" id="UVx-C4-Lx5"/>
+                        <outlet property="genreView" destination="iAq-MX-D4D" id="b8w-Qm-9st"/>
                         <outlet property="titleLabel" destination="Kkm-xt-Xi9" id="FBU-5Z-q8T"/>
                     </connections>
                 </viewController>

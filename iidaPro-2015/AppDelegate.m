@@ -28,6 +28,8 @@
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
     }
     
+    // 高速化のために先にメモリ上に読み込んでおく
+    [[UITextView alloc] init];
     _categoryArray = @[@"普通ごみ1", @"普通ごみ2", @"びん・缶・ペットボトル",
                        @"ミックスペーパー", @"プラスチック製容器包装", @"小物金属"];
     _categoryDict = @{@"普通ごみ1":@"normal_1",

@@ -20,9 +20,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
     // permit local notification
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
@@ -39,9 +36,9 @@
                       @"プラスチック製容器包装":@"plastic",
                       @"小物金属":@"bigRefuse"};
     
-    // userDefault all delete
-    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    // degug: userDefault all delete
+//    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+//    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     
     if ([self isFirstRun]) {
         NSLog(@"first");
@@ -67,12 +64,16 @@
         [ud synchronize];
         
         // メインスレッドでの地域情報の同期
-//        RealmController *rc = [[RealmController alloc] init];
-//        [rc districtTableMain];
+        RealmController *rc = [[RealmController alloc] init];
+        [rc districtTableMain];
         
         // サブスレッドでその他のDBを同期
+        [rc otherTableBackground];
         
         // 地域設定のページへ
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
         UINavigationController *navigation = [storyboard instantiateViewControllerWithIdentifier:@"Navigation"];
         SettingViewController *setting = [storyboard instantiateViewControllerWithIdentifier:@"Setting"];
         setting.isFirstRun = YES;
@@ -86,11 +87,6 @@
         [self.window addSubview:navigation.view];
         [self.window makeKeyAndVisible];
     }
-    
-//    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
-//    RealmController *rc = [[RealmController alloc] init];
-//    [rc createTestTable];
-//    [rc deleteTestTable];
     
     return YES;
 }

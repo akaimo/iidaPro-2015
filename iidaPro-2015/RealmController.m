@@ -130,4 +130,39 @@
     NSLog(@"District更新完了");
 }
 
+- (void)otherTableBackground {
+    // trash
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
+        dispatch_async(queue, ^{
+            @autoreleasepool {
+                NSLog(@"Trash更新開始");
+                int count = (int)[responseObject count];
+                for (int i=0; i<count; i++) {
+                    if (i % (count/10) == 0) {
+                        NSLog(@"%d/%d", i, count);
+                    }
+                    TrashCategory *trash = [[TrashCategory alloc] init];
+                    trash.num = i;
+                    trash.title = [responseObject[i] valueForKey:@"title"];
+                    trash.read = [responseObject[i] valueForKey:@"read"];
+                    trash.read_head = [responseObject[i] valueForKey:@"read_head"];
+                    trash.category = [responseObject[i] valueForKey:@"category"];
+                    
+                    RLMRealm *realm = [RLMRealm defaultRealm];
+                    [realm beginWriteTransaction];
+                    [TrashCategory createOrUpdateInRealm:realm withValue:trash];
+                    [realm commitWriteTransaction];
+                }
+                NSLog(@"Trash更新完了");
+            }
+        });
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    // tips
+}
+
 @end

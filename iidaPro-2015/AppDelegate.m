@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "RealmController.h"
 #import "LocalNotificationManager.h"
+#import "SettingViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
     // permit local notification
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
@@ -61,41 +65,27 @@
         [ud synchronize];
         
         // メインスレッドでの地域情報の同期
-        RealmController *rc = [[RealmController alloc] init];
-        [rc districtTableMain];
+//        RealmController *rc = [[RealmController alloc] init];
+//        [rc districtTableMain];
         
         // サブスレッドでその他のDBを同期
         
         // 地域設定のページへ
+        UINavigationController *navigation = [storyboard instantiateViewControllerWithIdentifier:@"Navigation"];
+        SettingViewController *setting = [storyboard instantiateViewControllerWithIdentifier:@"Setting"];
+        [navigation pushViewController:setting animated:NO];
+        navigation.navigationBar.barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];
+        navigation.navigationBar.tintColor = [UIColor whiteColor];
+        navigation.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+        self.window.rootViewController = navigation;
+        [self.window addSubview:navigation.view];
+        [self.window makeKeyAndVisible];
     }
     
 //    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
 //    RealmController *rc = [[RealmController alloc] init];
 //    [rc createTestTable];
 //    [rc deleteTestTable];
-    
-//    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-//    NSDictionary *alarm = @{@"normal_1":@{@"time":@"08:00",
-//                                          @"switch":@"on"},
-//                            @"normal_2":@{@"time":@"08:00",
-//                                          @"switch":@"off"},
-//                            @"bottle":@{@"time":@"08:00",
-//                                        @"switch":@"off"},
-//                            @"mixedPaper":@{@"time":@"08:00",
-//                                            @"switch":@"off"},
-//                            @"plastic":@{@"time":@"08:00",
-//                                         @"switch":@"off"},
-//                            @"bigRefuse":@{@"time":@"08:00",
-//                                           @"switch":@"off"}};
-//    NSArray *myAlarm = @[@{@"title":@"アラーム1",
-//                           @"time":@"12/24 08:30",
-//                           @"switch":@"on"},
-//                         @{@"title":@"アラーム2",
-//                           @"time":@"12/25 08:45",
-//                           @"switch":@"off"}];
-//    [ud setObject:alarm forKey:@"defaultAlarm"];
-//    [ud setObject:myAlarm forKey:@"myAlarm"];
-//    [ud synchronize];
     
     return YES;
 }
@@ -123,6 +113,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+#pragma mark - private
 - (BOOL)isFirstRun
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

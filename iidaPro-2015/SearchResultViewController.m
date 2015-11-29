@@ -239,6 +239,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: 詳細がある場合は詳細ページへ遷移
     SearchDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetail"];
+    detailVC.trashData = _sectionArray[indexPath.section][indexPath.row];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

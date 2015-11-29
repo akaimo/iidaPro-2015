@@ -10,4 +10,6 @@
 
 @interface SearchDetailViewController : UIViewController
 
+@property (retain, nonatomic) NSDictionary *trashData;
+
 @end

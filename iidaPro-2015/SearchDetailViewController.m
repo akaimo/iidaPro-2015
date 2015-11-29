@@ -23,7 +23,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = @"詳細";
+    self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
+    _genreView.layer.cornerRadius = 10.0;
+    _genreView.layer.masksToBounds = YES;
+    
+    [self setupData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,14 +37,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupData {
+    _titleLabel.text = [_trashData valueForKey:@"title"];
+    // TODO: 実際のデータに置き換える
+    _genreImageView1.image = [self setGenreImage:[_trashData valueForKey:@"category"]];
+    _detailTextView.text = @"分解できるなら... \n hogehogehogehogehogehoge";
+    _detailTextView.textColor = [UIColor whiteColor];
 }
-*/
+
+- (UIImage *)setGenreImage:(NSString *)genre {
+    UIImage *img;
+    if ([genre  isEqual: @"普通ごみ"]) {
+        img = [UIImage imageNamed:@"S_Normal"];
+    } else if ([genre  isEqual: @"ミックスペーパー"]) {
+        img = [UIImage imageNamed:@"S_Mixed"];
+    } else if ([genre  isEqual: @"プラスチック製容器包装"]) {
+        img = [UIImage imageNamed:@"S_plastic"];
+    } else if ([genre  isEqual: @"小物金属"]) {
+        img = [UIImage imageNamed:@"S_Metal"];
+    } else if ([genre  isEqual: @"使用済み乾電池"]) {
+        img = [UIImage imageNamed:@"S_battery"];
+    } else if ([genre  isEqual: @"空き缶・ペットボトル"]) {
+        img = [UIImage imageNamed:@"S_Can"];
+    } else if ([genre  isEqual: @"粗大ごみ"]) {
+        img = [UIImage imageNamed:@"S_BigRefure"];
+    }
+    
+    return img;
+}
 
 @end

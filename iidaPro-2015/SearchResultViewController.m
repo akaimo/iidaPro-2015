@@ -8,6 +8,7 @@
 
 #import "SearchResultViewController.h"
 #import "SearchTableViewCell.h"
+#import "SearchDetailViewController.h"
 
 @interface SearchResultViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
@@ -237,7 +238,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: 詳細がある場合は詳細ページへ遷移
-//    NSLog(@"%ld", (long)indexPath.row);
+    SearchDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetail"];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

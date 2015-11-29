@@ -12,5 +12,6 @@
 
 - (void)createTestTable;
 - (void)deleteTestTable;
+- (void)districtTableMain;
 
 @end

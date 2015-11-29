@@ -96,4 +96,38 @@
     [realm commitWriteTransaction];
 }
 
+- (void)districtTableMain {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://153.120.170.41:3000/api/v1/district"]];
+    NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSArray *responseObject = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
+    NSLog(@"District更新開始");
+    int count = (int)[responseObject count];
+    for (int i=0; i<count; i++) {
+        if (i % (count/10) == 0) {
+            NSLog(@"%d/%d", i, count);
+        }
+        District *district = [[District alloc] init];
+        district.num = i;
+        district.area = [responseObject[i] valueForKey:@"area"];
+        district.town = [responseObject[i] valueForKey:@"town"];
+        district.read = [responseObject[i] valueForKey:@"read"];
+        district.read_head = [responseObject[i] valueForKey:@"read_head"];
+        district.office = [responseObject[i] valueForKey:@"office"];
+        district.normal_1 = [responseObject[i] valueForKey:@"normal_1"];
+        district.normal_2 = [responseObject[i] valueForKey:@"normal_2"];
+        district.bottle = [responseObject[i] valueForKey:@"bottle"];
+        district.plastic = [responseObject[i] valueForKey:@"plastic"];
+        district.mixedPaper = [responseObject[i] valueForKey:@"mixedPaper"];
+        district.bigRefuse_date = [responseObject[i] valueForKey:@"bigRefuse_date"];
+        district.bigRefuse_1 = [[responseObject[i] valueForKey:@"bigRefuse_1"] intValue];
+        district.bigRefuse_2 = [[responseObject[i] valueForKey:@"bigRefuse_2"] intValue];
+        
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        [District createOrUpdateInRealm:realm withValue:district];
+        [realm commitWriteTransaction];
+    }
+    NSLog(@"District更新完了");
+}
+
 @end

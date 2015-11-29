@@ -25,11 +25,7 @@
     NSArray *defaultAlarmArray = [ud objectForKey:@"defaultAlarm"];
     NSArray *myAlarm = [ud objectForKey:@"myAlarm"];
     
-    for (NSDictionary *dic in defaultAlarmArray) {
-        if ([[dic valueForKey:@"switch"]  isEqual: @"on"]) {
-            // TODO: default alarm
-        }
-    }
+    // TODO: default alarm
     
     for (NSDictionary *dic in myAlarm) {
         if ([[dic valueForKey:@"switch"]  isEqual: @"on"]) {

@@ -12,5 +12,7 @@
 
 - (void)createTestTable;
 - (void)deleteTestTable;
+- (void)districtTableMain;
+- (void)otherTableBackground;
 
 @end

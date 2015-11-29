@@ -10,4 +10,6 @@
 
 @interface SettingViewController : UIViewController
 
+@property (nonatomic) BOOL isFirstRun;
+
 @end

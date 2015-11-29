@@ -117,6 +117,8 @@
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         [ud setObject:dic forKey:@"district"];
         [ud synchronize];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }]];
     
     [self presentViewController:alertController animated:YES completion:nil];

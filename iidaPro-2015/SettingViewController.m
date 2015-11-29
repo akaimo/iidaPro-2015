@@ -30,9 +30,14 @@
     _settingTableView.backgroundColor = [UIColor clearColor];
     _settingTableView.tableFooterView = [[UIView alloc] init];
     
-    _sectionArray = @[@"パターンから選ぶ", @"CPSを使用する"];
+    _sectionArray = @[@"パターンから選ぶ", @"GPSを使用する"];
     _areaArray = @[@"川崎区", @"幸区", @"中原区", @"高津区", @"宮前区", @"多摩区", @"麻生区"];
     
+    if (_isFirstRun == YES) {
+        [self.navigationItem setHidesBackButton:YES];
+        
+        _isFirstRun = NO;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

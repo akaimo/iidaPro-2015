@@ -75,10 +75,13 @@
         // 地域設定のページへ
         UINavigationController *navigation = [storyboard instantiateViewControllerWithIdentifier:@"Navigation"];
         SettingViewController *setting = [storyboard instantiateViewControllerWithIdentifier:@"Setting"];
+        setting.isFirstRun = YES;
+        
         [navigation pushViewController:setting animated:NO];
         navigation.navigationBar.barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];
         navigation.navigationBar.tintColor = [UIColor whiteColor];
         navigation.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+        
         self.window.rootViewController = navigation;
         [self.window addSubview:navigation.view];
         [self.window makeKeyAndVisible];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TipsObject.h"
 
 @interface TipsNextViewController : UIViewController
 
@@ -14,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet NSString *TipsNextTitle;
 @property (weak, nonatomic) IBOutlet NSString *TipsNextImageName;
 @property (weak, nonatomic) IBOutlet UITextView *TipsNextText;
+@property (retain,nonatomic) NSDictionary *tipsData;
 
 @end

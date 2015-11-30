@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		389A44213B0286BBE29D4676 /* libPods-iidaPro-2015Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD91141394A64D343873CB7 /* libPods-iidaPro-2015Tests.a */; };
 		8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1851B467B5A0060BF02 /* Main.storyboard */; };
-		8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */; };
 		8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */; };
 		8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */; };
 		8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */; };
 		8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9387851B4DF37E004E70E2 /* TipsViewController.m */; };
+		8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CFBA41C0C694900A14020 /* TipsObject.m */; };
 		991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 991997FE1B889FE9005DD65F /* SearchTableViewCell.m */; };
 		991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */; };
 		9931E7841BF7711600BDB1E1 /* District.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7831BF7711600BDB1E1 /* District.m */; };
@@ -65,8 +65,6 @@
 		46F83707640A8F08C706D118 /* Pods-iidaPro-2015Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015Tests/Pods-iidaPro-2015Tests.release.xcconfig"; sourceTree = "<group>"; };
 		59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iidaPro-2015.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B18F1851B467B5A0060BF02 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8B3E08DA1B4E5EE1001EE9B4 /* SecondTipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTipsViewController.h; sourceTree = "<group>"; };
-		8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTipsViewController.m; sourceTree = "<group>"; };
 		8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsCustomCell.xib; sourceTree = "<group>"; };
 		8B88A87B1B4C949E000D970B /* TipsCustomTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsCustomTableCell.h; sourceTree = "<group>"; };
 		8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsCustomTableCell.m; sourceTree = "<group>"; };
@@ -75,6 +73,8 @@
 		8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsNextViewController.m; sourceTree = "<group>"; };
 		8B9387841B4DF37E004E70E2 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
 		8B9387851B4DF37E004E70E2 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
+		8B9CFBA31C0C694900A14020 /* TipsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsObject.h; sourceTree = "<group>"; };
+		8B9CFBA41C0C694900A14020 /* TipsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsObject.m; sourceTree = "<group>"; };
 		991997FD1B889FE9005DD65F /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		991997FE1B889FE9005DD65F /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -184,8 +184,6 @@
 				8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */,
 				8B9387841B4DF37E004E70E2 /* TipsViewController.h */,
 				8B9387851B4DF37E004E70E2 /* TipsViewController.m */,
-				8B3E08DA1B4E5EE1001EE9B4 /* SecondTipsViewController.h */,
-				8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */,
 				8B88A87B1B4C949E000D970B /* TipsCustomTableCell.h */,
 				8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */,
 				8B88A87E1B4C95AF000D970B /* tipstableviewconst.h */,
@@ -253,6 +251,8 @@
 			children = (
 				99781C601B835D3C0083CC7D /* RealmController.h */,
 				99781C611B835D3C0083CC7D /* RealmController.m */,
+				8B9CFBA31C0C694900A14020 /* TipsObject.h */,
+				8B9CFBA41C0C694900A14020 /* TipsObject.m */,
 				9931E7821BF7711600BDB1E1 /* District.h */,
 				9931E7831BF7711600BDB1E1 /* District.m */,
 				9931E7851BFF201700BDB1E1 /* TrashCategory.h */,
@@ -592,12 +592,12 @@
 				99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */,
 				99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */,
 				997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */,
-				8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
 				996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
 				99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */,
 				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,
+				8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */,
 				998992881B33B6A5000B7FD2 /* main.m in Sources */,
 				997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */,
 				99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */,

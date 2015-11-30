@@ -179,6 +179,7 @@
     _tempData = _datePicker.date;
     
     [self setupButton];
+    _enterBtn.enabled = NO;
     
     [_titleTextField becomeFirstResponder];
 }
@@ -196,6 +197,7 @@
     _enterBtn.frame = CGRectMake(_popup.frame.size.width / 2, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
     [_enterBtn setTitle:@"登録" forState:UIControlStateNormal];
     [_enterBtn setTitleColor:[UIColor colorWithRed:3/255.0 green:122/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [_enterBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     [_enterBtn addTarget:self action:@selector(enterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [_popup addSubview:_enterBtn];
     
@@ -286,8 +288,22 @@
     [self removeFromSuperview];
 }
 
+- (void)checkText {
+    if ([_titleTextField.text  isEqual: @""]) {
+        _enterBtn.enabled = NO;
+    } else {
+        _enterBtn.enabled = YES;
+    }
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [self checkText];
     [textField resignFirstResponder];
+    return YES;
+}
+
+-(BOOL)textFieldShouldEndEditing:(UITextField*)textField {
+    [self checkText];
     return YES;
 }
 

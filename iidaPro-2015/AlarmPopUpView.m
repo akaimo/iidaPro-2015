@@ -112,6 +112,8 @@
     [_datePicker addTarget:self action:@selector(changeDatePicker:) forControlEvents:UIControlEventValueChanged];
     [_popup addSubview:_datePicker];
     
+    _tempData = _datePicker.date;
+    
     [self setupButton];
 }
 
@@ -147,6 +149,8 @@
     [_datePicker addTarget:self action:@selector(touchDatePicker:) forControlEvents:UIControlEventAllEvents];
     [_popup addSubview:_datePicker];
     
+    _tempData = _datePicker.date;
+    
     [self setupButton];
 }
 
@@ -171,6 +175,8 @@
     [_datePicker addTarget:self action:@selector(changeDatePicker:) forControlEvents:UIControlEventValueChanged];
     [_datePicker addTarget:self action:@selector(touchDatePicker:) forControlEvents:UIControlEventAllEvents];
     [_popup addSubview:_datePicker];
+    
+    _tempData = _datePicker.date;
     
     [self setupButton];
     

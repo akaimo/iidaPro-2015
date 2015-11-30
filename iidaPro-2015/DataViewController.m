@@ -161,7 +161,7 @@
 
 - (NSString *)dateForString:(NSDate *)date {
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"M/d"];
+    [formatter setDateFormat:@"MM/dd"];
     NSString *str = [formatter stringFromDate:date];
     
     return str;
@@ -240,6 +240,14 @@
     comps = [calendar components:NSCalendarUnitDay fromDate:date];
     NSString *dayStr = [NSString stringWithFormat:@"%ld", (long)comps.day];
     cell.dayLabel.text = dayStr;
+    
+    NSString *time = [self dateForString:date];
+    for (int i=0; i<_myAlarmDate.count; i++) {
+        if ([time isEqual:_myAlarmDate[i]]) {
+            cell.alarmTitleLabel.text = [_myAlarm[i] valueForKey:@"title"];
+            break;
+        }
+    }
     
     return cell;
 }

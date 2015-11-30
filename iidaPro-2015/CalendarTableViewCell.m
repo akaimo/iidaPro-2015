@@ -20,4 +20,11 @@
     // Configure the view for the selected state
 }
 
+- (void)prepareForReuse {
+    _weekdayLabel.text = nil;
+    _dayLabel.text = nil;
+    _iconImageView.image = nil;
+    _alarmTitleLabel.text = nil;
+}
+
 @end

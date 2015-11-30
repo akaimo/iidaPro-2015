@@ -19,6 +19,8 @@
 @property (retain, nonatomic) NSMutableArray *separateMonthArray;
 @property (nonatomic) BOOL nowMonth;
 @property (retain, nonatomic) NSIndexPath *todayIndexPath;
+@property (retain, nonatomic) NSArray *myAlarm;
+@property (retain, nonatomic) NSMutableArray *myAlarmDate;
 
 @end
 
@@ -31,6 +33,13 @@
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     _areaData = [NSDictionary dictionaryWithDictionary:[ud objectForKey:@"district"]];
+    _myAlarm = [ud objectForKey:@"myAlarm"];
+    _myAlarmDate = [NSMutableArray array];
+    for (NSDictionary *dic in _myAlarm) {
+        NSString *str = [dic valueForKey:@"time"];
+        NSArray *ary = [str componentsSeparatedByString:@" "];
+        [_myAlarmDate addObject:ary[0]];
+    }
     
     CGRect rect = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 64, self.view.frame.size.width, self.view.frame.size.height - 64);
     _calendarTableView = [[UITableView alloc] initWithFrame:rect];
@@ -148,6 +157,14 @@
             }
         }
     }
+}
+
+- (NSString *)dateForString:(NSDate *)date {
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"M/d"];
+    NSString *str = [formatter stringFromDate:date];
+    
+    return str;
 }
 
 

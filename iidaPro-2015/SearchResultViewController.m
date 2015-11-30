@@ -238,9 +238,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: 詳細がある場合は詳細ページへ遷移
-    SearchDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetail"];
-    detailVC.trashData = _sectionArray[indexPath.section][indexPath.row];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {  // 検索後
+        SearchDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetail"];
+        detailVC.trashData = _reSearchArray[indexPath.row];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    } else {
+        SearchDetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchDetail"];
+        detailVC.trashData = _sectionArray[indexPath.section][indexPath.row];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

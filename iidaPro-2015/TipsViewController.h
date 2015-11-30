@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "tipsObject.h"
 
 @interface TipsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *TipsTableView;
-@property NSInteger *TipsDataNum;
 
 @end

@@ -172,7 +172,6 @@
             static NSString *CellIdentifier = @"Cell";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            cell.backgroundColor = [UIColor clearColor];
             cell.textLabel.text = @"該当する品目はありません";
             cell.textLabel.textColor = [UIColor whiteColor];
             return cell;
@@ -225,7 +224,6 @@
         } else {
 //            cell.trashImage.image = [UIImage imageNamed:@"sun"];
         }
-        
         return cell;
     }
 }

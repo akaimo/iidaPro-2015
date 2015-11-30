@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		389A44213B0286BBE29D4676 /* libPods-iidaPro-2015Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD91141394A64D343873CB7 /* libPods-iidaPro-2015Tests.a */; };
 		8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B18F1851B467B5A0060BF02 /* Main.storyboard */; };
-		8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */; };
+		8B7D45F41C0BEEC3004F740F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7D45F31C0BEEC3004F740F /* Images.xcassets */; };
 		8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */; };
 		8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */; };
 		8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */; };
 		8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9387851B4DF37E004E70E2 /* TipsViewController.m */; };
+		8BA266291C0B05F700D13114 /* tipsRealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA266281C0B05F700D13114 /* tipsRealmController.m */; };
+		8BA2662F1C0B083400D13114 /* TipsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA2662E1C0B083400D13114 /* TipsObject.m */; };
 		991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 991997FE1B889FE9005DD65F /* SearchTableViewCell.m */; };
 		991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */; };
 		9931E7841BF7711600BDB1E1 /* District.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7831BF7711600BDB1E1 /* District.m */; };
@@ -29,7 +31,6 @@
 		998992881B33B6A5000B7FD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992871B33B6A5000B7FD2 /* main.m */; };
 		9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928A1B33B6A5000B7FD2 /* AppDelegate.m */; };
 		9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928D1B33B6A5000B7FD2 /* ViewController.m */; };
-		998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998992921B33B6A5000B7FD2 /* Images.xcassets */; };
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
 		999A74591BF1C62000F25449 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 999A74581BF1C62000F25449 /* LocalNotificationManager.m */; };
@@ -64,8 +65,7 @@
 		46F83707640A8F08C706D118 /* Pods-iidaPro-2015Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015Tests/Pods-iidaPro-2015Tests.release.xcconfig"; sourceTree = "<group>"; };
 		59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iidaPro-2015.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B18F1851B467B5A0060BF02 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8B3E08DA1B4E5EE1001EE9B4 /* SecondTipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTipsViewController.h; sourceTree = "<group>"; };
-		8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTipsViewController.m; sourceTree = "<group>"; };
+		8B7D45F31C0BEEC3004F740F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsCustomCell.xib; sourceTree = "<group>"; };
 		8B88A87B1B4C949E000D970B /* TipsCustomTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsCustomTableCell.h; sourceTree = "<group>"; };
 		8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsCustomTableCell.m; sourceTree = "<group>"; };
@@ -74,6 +74,10 @@
 		8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsNextViewController.m; sourceTree = "<group>"; };
 		8B9387841B4DF37E004E70E2 /* TipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsViewController.h; sourceTree = "<group>"; };
 		8B9387851B4DF37E004E70E2 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
+		8BA266271C0B05F700D13114 /* tipsRealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tipsRealmController.h; sourceTree = "<group>"; };
+		8BA266281C0B05F700D13114 /* tipsRealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tipsRealmController.m; sourceTree = "<group>"; };
+		8BA2662D1C0B083400D13114 /* TipsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsObject.h; sourceTree = "<group>"; };
+		8BA2662E1C0B083400D13114 /* TipsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsObject.m; sourceTree = "<group>"; };
 		991997FD1B889FE9005DD65F /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
 		991997FE1B889FE9005DD65F /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
 		991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -104,7 +108,6 @@
 		9989928A1B33B6A5000B7FD2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9989928C1B33B6A5000B7FD2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9989928D1B33B6A5000B7FD2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		998992921B33B6A5000B7FD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		998992951B33B6A5000B7FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9989929B1B33B6A5000B7FD2 /* iidaPro-2015Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iidaPro-2015Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992A01B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,8 +184,6 @@
 				8B7F9CCE1B4B8763008A825F /* TipsCustomCell.xib */,
 				8B9387841B4DF37E004E70E2 /* TipsViewController.h */,
 				8B9387851B4DF37E004E70E2 /* TipsViewController.m */,
-				8B3E08DA1B4E5EE1001EE9B4 /* SecondTipsViewController.h */,
-				8B3E08DB1B4E5EE1001EE9B4 /* SecondTipsViewController.m */,
 				8B88A87B1B4C949E000D970B /* TipsCustomTableCell.h */,
 				8B88A87C1B4C949E000D970B /* TipsCustomTableCell.m */,
 				8B88A87E1B4C95AF000D970B /* tipstableviewconst.h */,
@@ -198,6 +199,17 @@
 				8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */,
 			);
 			name = TipNext;
+			sourceTree = "<group>";
+		};
+		8BA266261C0B05D300D13114 /* tips */ = {
+			isa = PBXGroup;
+			children = (
+				8BA266271C0B05F700D13114 /* tipsRealmController.h */,
+				8BA266281C0B05F700D13114 /* tipsRealmController.m */,
+				8BA2662D1C0B083400D13114 /* TipsObject.h */,
+				8BA2662E1C0B083400D13114 /* TipsObject.m */,
+			);
+			name = tips;
 			sourceTree = "<group>";
 		};
 		991998021B88A239005DD65F /* Search */ = {
@@ -246,6 +258,7 @@
 		99781C591B8355540083CC7D /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				8BA266261C0B05D300D13114 /* tips */,
 				99781C601B835D3C0083CC7D /* RealmController.h */,
 				99781C611B835D3C0083CC7D /* RealmController.m */,
 				9931E7821BF7711600BDB1E1 /* District.h */,
@@ -293,7 +306,7 @@
 				9931E7881BFF5C1700BDB1E1 /* Setting */,
 				99EADFED1C089B5B00655BE6 /* Extra */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
-				998992921B33B6A5000B7FD2 /* Images.xcassets */,
+				8B7D45F31C0BEEC3004F740F /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
 				998992851B33B6A5000B7FD2 /* Supporting Files */,
 			);
@@ -479,13 +492,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B7D45F41C0BEEC3004F740F /* Images.xcassets in Resources */,
 				99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */,
 				99A86FEE1C05EDA400B979BA /* CalendarTableViewCell.xib in Resources */,
 				8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */,
 				99F743921BEB354800AF8195 /* noMyAlarmCell.xib in Resources */,
 				99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */,
 				998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */,
-				998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */,
 				8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */,
 				991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */,
 			);
@@ -587,12 +600,13 @@
 				99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */,
 				99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */,
 				997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */,
-				8B3E08DC1B4E5EE1001EE9B4 /* SecondTipsViewController.m in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
 				996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */,
+				8BA2662F1C0B083400D13114 /* TipsObject.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
 				99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */,
 				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,
+				8BA266291C0B05F700D13114 /* tipsRealmController.m in Sources */,
 				998992881B33B6A5000B7FD2 /* main.m in Sources */,
 				997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */,
 			);

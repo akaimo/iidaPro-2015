@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "RealmController.h"
 #import "LocalNotificationManager.h"
+#import "tipsRealmController.h"
 
 @interface AppDelegate ()
 
@@ -37,6 +38,12 @@
 //    RealmController *rc = [[RealmController alloc] init];
 //    [rc createTestTable];
 //    [rc deleteTestTable];
+    
+//    tipsRealmController *trc =[[tipsRealmController alloc]init];
+//    [trc createTestTable];
+//    [trc deleteTestTable];
+    
+    
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *alarm = @{@"normal_1":@{@"time":@"08:00",

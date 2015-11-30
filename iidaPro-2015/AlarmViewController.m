@@ -328,6 +328,13 @@
     return array;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && _myAlarm.count == 0) {
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - AlarmPopUpViewDelegate
 - (void)alarmPopUpView:(AlarmPopUpView *)alarmPopUpView didTappedEnterButton:(UIButton *)button {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];

@@ -19,6 +19,8 @@
 @property (retain, nonatomic) NSMutableArray *separateMonthArray;
 @property (nonatomic) BOOL nowMonth;
 @property (retain, nonatomic) NSIndexPath *todayIndexPath;
+@property (retain, nonatomic) NSArray *myAlarm;
+@property (retain, nonatomic) NSMutableArray *myAlarmDate;
 
 @end
 
@@ -31,6 +33,13 @@
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     _areaData = [NSDictionary dictionaryWithDictionary:[ud objectForKey:@"district"]];
+    _myAlarm = [ud objectForKey:@"myAlarm"];
+    _myAlarmDate = [NSMutableArray array];
+    for (NSDictionary *dic in _myAlarm) {
+        NSString *str = [dic valueForKey:@"time"];
+        NSArray *ary = [str componentsSeparatedByString:@" "];
+        [_myAlarmDate addObject:ary[0]];
+    }
     
     CGRect rect = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 64, self.view.frame.size.width, self.view.frame.size.height - 64);
     _calendarTableView = [[UITableView alloc] initWithFrame:rect];
@@ -150,6 +159,14 @@
     }
 }
 
+- (NSString *)dateForString:(NSDate *)date {
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd"];
+    NSString *str = [formatter stringFromDate:date];
+    
+    return str;
+}
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -223,6 +240,14 @@
     comps = [calendar components:NSCalendarUnitDay fromDate:date];
     NSString *dayStr = [NSString stringWithFormat:@"%ld", (long)comps.day];
     cell.dayLabel.text = dayStr;
+    
+    NSString *time = [self dateForString:date];
+    for (int i=0; i<_myAlarmDate.count; i++) {
+        if ([time isEqual:_myAlarmDate[i]]) {
+            cell.alarmTitleLabel.text = [_myAlarm[i] valueForKey:@"title"];
+            break;
+        }
+    }
     
     return cell;
 }

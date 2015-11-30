@@ -35,19 +35,29 @@
                             <constraint firstAttribute="height" constant="40" id="zTp-M7-Net"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHW-Ta-Yom">
+                        <rect key="frame" x="190" y="17" width="42" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <animations/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ufb-Wd-Tca" secondAttribute="trailing" constant="15" id="7Ea-e2-wMu"/>
+                    <constraint firstItem="BHW-Ta-Yom" firstAttribute="leading" secondItem="R3G-Rz-ocS" secondAttribute="trailing" constant="30" id="JjY-9u-I7z"/>
                     <constraint firstItem="LmW-wg-I2k" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="POF-6E-8hY"/>
                     <constraint firstItem="LmW-wg-I2k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eDs-Au-TFP"/>
                     <constraint firstItem="ufb-Wd-Tca" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eJ6-HY-xDa"/>
                     <constraint firstItem="R3G-Rz-ocS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oh7-7W-HCC"/>
                     <constraint firstItem="R3G-Rz-ocS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="140" id="uqQ-bM-z8c"/>
+                    <constraint firstItem="BHW-Ta-Yom" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yxc-Um-67A"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="alarmTitleLabel" destination="BHW-Ta-Yom" id="axX-L7-TB9"/>
                 <outlet property="dayLabel" destination="R3G-Rz-ocS" id="5XX-hZ-i05"/>
                 <outlet property="iconImageView" destination="ufb-Wd-Tca" id="617-Vy-sKg"/>
                 <outlet property="weekdayLabel" destination="LmW-wg-I2k" id="8CX-WY-Y5d"/>

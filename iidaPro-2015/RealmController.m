@@ -116,7 +116,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-    
 }
 
 
@@ -194,6 +193,33 @@
     }];
     
     // tips
+    [manager GET:@"http://153.120.170.41:3000/api/v1/tip" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
+        dispatch_async(queue, ^{
+            @autoreleasepool {
+                NSLog(@"Tips更新開始");
+                int count = (int)[responseObject count];
+                for (int i=0; i<count; i++) {
+                    if (i % (count/10) == 0) {
+                        NSLog(@"%d/%d", i, count);
+                    }
+                    TipsObject *tipsObj = [[TipsObject alloc] init];
+                    tipsObj.id = i;
+                    tipsObj.title = [responseObject[i] valueForKey:@"title"];
+                    tipsObj.detail = [responseObject[i] valueForKey:@"detail"];
+                    tipsObj.genre = [responseObject[i] valueForKey:@"genre"];
+                    
+                    RLMRealm *realm = [RLMRealm defaultRealm];
+                    [realm beginWriteTransaction];
+                    [TipsObject createOrUpdateInRealm:realm withValue:tipsObj];
+                    [realm commitWriteTransaction];
+                }
+                NSLog(@"Tips更新完了");
+            }
+        });
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 @end

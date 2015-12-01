@@ -112,6 +112,8 @@
     [_datePicker addTarget:self action:@selector(changeDatePicker:) forControlEvents:UIControlEventValueChanged];
     [_popup addSubview:_datePicker];
     
+    _tempData = _datePicker.date;
+    
     [self setupButton];
 }
 
@@ -147,6 +149,8 @@
     [_datePicker addTarget:self action:@selector(touchDatePicker:) forControlEvents:UIControlEventAllEvents];
     [_popup addSubview:_datePicker];
     
+    _tempData = _datePicker.date;
+    
     [self setupButton];
 }
 
@@ -172,17 +176,20 @@
     [_datePicker addTarget:self action:@selector(touchDatePicker:) forControlEvents:UIControlEventAllEvents];
     [_popup addSubview:_datePicker];
     
+    _tempData = _datePicker.date;
+    
     [self setupButton];
+    _enterBtn.enabled = NO;
     
     [_titleTextField becomeFirstResponder];
 }
 
 - (void)setupButton {
-    // TODO: set tapping button clolr
     _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _cancelBtn.frame = CGRectMake(0, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
     [_cancelBtn setTitle:@"キャンセル" forState:UIControlStateNormal];
     [_cancelBtn setTitleColor:[UIColor colorWithRed:3/255.0 green:122/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [_cancelBtn setBackgroundImage:[UIImage imageNamed:@"tappedBtnColor"] forState:UIControlStateHighlighted];
     [_cancelBtn addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [_popup addSubview:_cancelBtn];
     
@@ -190,13 +197,24 @@
     _enterBtn.frame = CGRectMake(_popup.frame.size.width / 2, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
     [_enterBtn setTitle:@"登録" forState:UIControlStateNormal];
     [_enterBtn setTitleColor:[UIColor colorWithRed:3/255.0 green:122/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [_enterBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    [_enterBtn setBackgroundImage:[UIImage imageNamed:@"tappedBtnColor"] forState:UIControlStateHighlighted];
     [_enterBtn addTarget:self action:@selector(enterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [_popup addSubview:_enterBtn];
     
-    // TODO: add line
+    CGFloat wide = 0.5f / [UIScreen mainScreen].scale;
+    CALayer *horizontalLayer = [[CALayer alloc] init];
+    horizontalLayer.frame = CGRectMake(0, _popup.frame.size.height - 50, _popup.frame.size.width, 1.0);
+    horizontalLayer.borderWidth = wide;
+    horizontalLayer.borderColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.25].CGColor;
+    [_popup.layer addSublayer:horizontalLayer];
+    
+    CALayer *verticalLayer = [[CALayer alloc] init];
+    verticalLayer.frame = CGRectMake(_popup.frame.size.width / 2, _popup.frame.size.height - 50, 1.0, 50);
+    verticalLayer.borderWidth = wide;
+    verticalLayer.borderColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.25].CGColor;
+    [_popup.layer addSublayer:verticalLayer];
 }
-
-// TODO: lock button when don`t set time for alarm
 
 - (BOOL)setAlarmTime {
     if (_tempData == NULL) {
@@ -280,8 +298,22 @@
     [self removeFromSuperview];
 }
 
+- (void)checkText {
+    if ([_titleTextField.text  isEqual: @""]) {
+        _enterBtn.enabled = NO;
+    } else {
+        _enterBtn.enabled = YES;
+    }
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [self checkText];
     [textField resignFirstResponder];
+    return YES;
+}
+
+-(BOOL)textFieldShouldEndEditing:(UITextField*)textField {
+    [self checkText];
     return YES;
 }
 

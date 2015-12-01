@@ -190,6 +190,7 @@
     _cancelBtn.frame = CGRectMake(0, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
     [_cancelBtn setTitle:@"キャンセル" forState:UIControlStateNormal];
     [_cancelBtn setTitleColor:[UIColor colorWithRed:3/255.0 green:122/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [_cancelBtn setBackgroundImage:[UIImage imageNamed:@"tappedBtnColor"] forState:UIControlStateHighlighted];
     [_cancelBtn addTarget:self action:@selector(cancelButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [_popup addSubview:_cancelBtn];
     
@@ -198,13 +199,12 @@
     [_enterBtn setTitle:@"登録" forState:UIControlStateNormal];
     [_enterBtn setTitleColor:[UIColor colorWithRed:3/255.0 green:122/255.0 blue:255/255.0 alpha:1.0] forState:UIControlStateNormal];
     [_enterBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    [_enterBtn setBackgroundImage:[UIImage imageNamed:@"tappedBtnColor"] forState:UIControlStateHighlighted];
     [_enterBtn addTarget:self action:@selector(enterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [_popup addSubview:_enterBtn];
     
     // TODO: add line
 }
-
-// TODO: lock button when don`t set time for alarm
 
 - (BOOL)setAlarmTime {
     if (_tempData == NULL) {

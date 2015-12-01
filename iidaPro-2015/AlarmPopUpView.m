@@ -185,7 +185,6 @@
 }
 
 - (void)setupButton {
-    // TODO: set tapping button clolr
     _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _cancelBtn.frame = CGRectMake(0, _popup.frame.size.height - 50, _popup.frame.size.width / 2, 50);
     [_cancelBtn setTitle:@"キャンセル" forState:UIControlStateNormal];
@@ -203,7 +202,18 @@
     [_enterBtn addTarget:self action:@selector(enterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [_popup addSubview:_enterBtn];
     
-    // TODO: add line
+    CGFloat wide = 0.5f / [UIScreen mainScreen].scale;
+    CALayer *horizontalLayer = [[CALayer alloc] init];
+    horizontalLayer.frame = CGRectMake(0, _popup.frame.size.height - 50, _popup.frame.size.width, 1.0);
+    horizontalLayer.borderWidth = wide;
+    horizontalLayer.borderColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.25].CGColor;
+    [_popup.layer addSublayer:horizontalLayer];
+    
+    CALayer *verticalLayer = [[CALayer alloc] init];
+    verticalLayer.frame = CGRectMake(_popup.frame.size.width / 2, _popup.frame.size.height - 50, 1.0, 50);
+    verticalLayer.borderWidth = wide;
+    verticalLayer.borderColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.25].CGColor;
+    [_popup.layer addSublayer:verticalLayer];
 }
 
 - (BOOL)setAlarmTime {

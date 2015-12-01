@@ -11,27 +11,39 @@
 #import "TipsCustomTableCell.h"
 #import "TipsNextViewController.h"
 
+
 @interface TipsViewController()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *TipsDataSourceFirst;
 @property (nonatomic, strong) NSArray *TipsDataSourceSecond;
 @property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+@property (strong, nonatomic) NSMutableArray *DataSourceArray;
+@property (strong, nonatomic) RLMResults *DataSource;
 @end
 
 @implementation TipsViewController{
-    int _selectedDataNum;
 }
 
 - (void)viewDidLoad{
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
     [super viewDidLoad];
-    _selectedDataNum=1;
-    self.navigationItem.title=@"豆知識1";
+    self.navigationItem.title=@"豆知識";
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    _TipsTableView.backgroundColor = [UIColor clearColor];
+    _TipsTableView.sectionIndexBackgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
+    
+    self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
     self.TipsTableView.delegate = self;
     self.TipsTableView.dataSource = self;
-    self.TipsDataSourceFirst = @[@"袋は二重にいれないで", @"普通ごみとの違い", @"プラスチック容器出し方のコツ"];
-    self.TipsDataSourceSecond = @[@"かわるんについて", @"川崎市のごみ処理場", @"夜間はごみをださないで"];
+    self.DataSourceArray= [NSMutableArray array];
+    self.DataSource = [TipsObject allObjects];
     UINib *nib = [UINib nibWithNibName:TipsCustomCellIdentifier bundle:nil];
-    [self.TipsTableView registerNib:nib forCellReuseIdentifier:@"Cell"];
+    [_TipsTableView registerNib:nib forCellReuseIdentifier:@"title"];
+    [self.DataSourceArray addObject:_DataSource];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -39,67 +51,71 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(_selectedDataNum==1){
-        return [_TipsDataSourceFirst count];
-    }else{
-        return [_TipsDataSourceSecond count];
-    }
+    return self.DataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"Cell";
-    TipsCustomTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.TipsUIImage.image = [UIImage imageNamed:@"tipsCellIcon"];
-    switch (_selectedDataNum) {
-        case 1:cell.TipsTitleLabel.text = self.TipsDataSourceFirst[indexPath.row];
-            break;
-        case 2:cell.TipsTitleLabel.text = self.TipsDataSourceSecond[indexPath.row];
-            break;
+    TipsCustomTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"title" forIndexPath:indexPath]
+    ;
+    if(indexPath.row %2==0){
+        cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0];
+    }else{
+        cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.1];
     }
-    cell.TipsNum.text = [NSString stringWithFormat:@"No.%ld", (long)indexPath.row + 1];
+    
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    if(!cell){
+        cell = [[TipsCustomTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    cell.TipsTitleLabel.text =[_DataSource[indexPath.row] valueForKey:@"title"];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    _selectedIndexPath = indexPath;
-    [self performSegueWithIdentifier:@"pushDetailView" sender:self];
-}
+    TipsNextViewController *tipsnext = [self.storyboard instantiateViewControllerWithIdentifier:@"TipsNextView"];
+    tipsnext.tipsData = _DataSourceArray[indexPath.section][indexPath.row];
+    [self.navigationController pushViewController:tipsnext animated:YES];}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [TipsCustomTableCell rowHeight];
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    TipsNextViewController*tipsnextviewcontroller = segue.destinationViewController;
-    switch (_selectedDataNum) {
-        case 1:
-            tipsnextviewcontroller.TipsNextNum = self.selectedIndexPath.row+1;
-            tipsnextviewcontroller.TipsNextTitle = _TipsDataSourceFirst[_selectedIndexPath.row];
-            break;
-        case 2:
-            tipsnextviewcontroller.TipsNextNum = self.selectedIndexPath.row+[_TipsDataSourceFirst count]+1;
-            tipsnextviewcontroller.TipsNextTitle = _TipsDataSourceSecond[_selectedIndexPath.row];
-            break;
-    }
 }
 
 - (IBAction)TipsBottun:(UIButton *)sender {
-    if (_selectedDataNum == 2) {
-        _selectedDataNum = 1;
-        self.title=@"豆知識1";
-        [self.TipsTableView reloadData];
-        [self.TipsTableView scrollRectToVisible:CGRectMake(0,0,1,1)animated:YES];
-    }
+    self.title=@"ルール";
+    NSPredicate *pred=[NSPredicate predicateWithFormat:@"genre = %@",@"ルール"];
+    _DataSource=[[TipsObject objectsWithPredicate:pred]sortedResultsUsingProperty:@"id" ascending:YES];
+    [self.TipsTableView reloadData];
+    [self.TipsTableView scrollRectToVisible:CGRectMake(0,0,1,1)animated:YES];
 }
 
 - (IBAction)SecondTipsBottun:(UIButton *)sender {
-    if (_selectedDataNum == 1) {
-        _selectedDataNum = 2;
-        self.title=@"豆知識2";
-        [self.TipsTableView reloadData];
-        [self.TipsTableView scrollRectToVisible:CGRectMake(0,0,1,1)animated:YES];
-    }
+    self.title=@"テクニック";
+    NSPredicate *pred=[NSPredicate predicateWithFormat:@"genre = %@",@"テクニック"];
+    _DataSource = [[TipsObject objectsWithPredicate:pred] sortedResultsUsingProperty:@"id" ascending:YES];
+    [self.TipsTableView reloadData];
+    [self.TipsTableView scrollRectToVisible:CGRectMake(0,0,1,1)animated:YES];
 }
 
+- (IBAction)thirdTipsBottun:(UIButton *)sender {
+    self.title=@"出来事";
+    NSPredicate *pred=[NSPredicate predicateWithFormat:@"genre = %@",@"出来事"];
+    _DataSource = [[TipsObject objectsWithPredicate:pred] sortedResultsUsingProperty:@"id" ascending:YES];
+    [self.TipsTableView reloadData];
+    [self.TipsTableView scrollRectToVisible:CGRectMake(0,0,1,1)animated:YES];
+}
+
+- (IBAction)forthTipsBottun:(UIButton *)sender {
+    self.title=@"情報";
+    NSPredicate *pred=[NSPredicate predicateWithFormat:@"genre = %@",@"情報"];
+    _DataSource = [[TipsObject objectsWithPredicate:pred] sortedResultsUsingProperty:@"id" ascending:YES];
+    [self.TipsTableView reloadData];
+    [self.TipsTableView scrollRectToVisible:CGRectMake(0,0,1,1)animated:YES];
+}
 
 @end

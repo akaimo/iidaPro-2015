@@ -1,8 +1,0 @@
-APPLICATION_EXTENSION_API_ONLY = YES
-CLANG_CXX_LANGUAGE_STANDARD = compiler-default
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Realm" "${PODS_ROOT}/Headers/Public/Realm/realm"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/Realm" -isystem "${PODS_ROOT}/Headers/Public/Realm/realm"
-OTHER_CPLUSPLUSFLAGS = -std=c++1y $(inherited)
-OTHER_LDFLAGS = $(inherited) -ObjC -l"c++"
-PODS_ROOT = ${SRCROOT}/Pods

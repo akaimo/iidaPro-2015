@@ -8,8 +8,11 @@
 
 #import "SettingViewController.h"
 #import "SettingTownViewController.h"
+#import  <CoreLocation/CoreLocation.h>
 
-@interface SettingViewController ()
+@interface SettingViewController () <CLLocationManagerDelegate>
+@property (nonatomic, retain) CLLocationManager *locationManager;
+
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
 @property (retain, nonatomic) NSArray *sectionArray;
 @property (retain, nonatomic) NSArray *areaArray;
@@ -20,7 +23,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    if (nil == self.locationManager) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        // iOS 8以上
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+            // NSLocationWhenInUseUsageDescriptionに設定したメッセージでユーザに確認
+            [ self.locationManager requestWhenInUseAuthorization];
+            // NSLocationAlwaysUsageDescriptionに設定したメッセージでユーザに確認
+            //[locationManager requestAlwaysAuthorization];
+        }
+    }
+    
+    
+    if (nil == self.locationManager)
+        self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    // 更新間隔はdistanceFilterプロパティ
+    //self.locationManager.distanceFilter = 500;
+    
+    // 情報の更新を開始すれば、位置情報を取得
+    [self.locationManager startUpdatingLocation];
     
     self.title = @"Setting";
     self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
@@ -129,6 +153,21 @@
         town.area = _areaArray[indexPath.row];
         [[self navigationController] pushViewController:town animated:YES];
     }
+}
+
+
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
+    CLLocation* location = [locations lastObject];
+    // 時間
+    NSDate* timestamp = location.timestamp;
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+    
+    
+    NSLog(@"緯度 %+.6f, 経度 %+.6f, 時間%@\n", location.coordinate.latitude, location.coordinate.longitude, [df stringFromDate:timestamp]);
+    
 }
 
 @end

@@ -1,2 +1,7 @@
-Pods
+#Xcode
+*.xcworkspace
+xcuserdata
+
+#CocoaPod
+Pods/*
 Podfile.lock

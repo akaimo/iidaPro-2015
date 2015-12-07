@@ -42,6 +42,7 @@ const CGFloat iconMargin = 20.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"ホーム";
     CGRect screen = [[UIScreen mainScreen] bounds];
     _screenWidth = screen.size.width;
     _screenHeight = screen.size.height;

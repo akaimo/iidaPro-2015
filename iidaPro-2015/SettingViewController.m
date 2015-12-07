@@ -22,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Setting";
+    self.title = @"設定";
     self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
     [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];

@@ -98,7 +98,7 @@
     // カレンダーに使う日にちの作成
     NSMutableArray *calendarData = [NSMutableArray array];
     for (int i=0; i<31; i++) {
-        long time = (-15 + i)*24*60*60;
+        long time = (-3 + i)*24*60*60;
         NSDate *date = [_num initWithTimeInterval:time sinceDate:_num];
         [calendarData addObject:date];
     }

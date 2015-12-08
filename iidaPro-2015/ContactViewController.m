@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Contact";
+    self.title = @"問い合わせ";
     
     self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
     [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:86/255.0 green:96/255.0 blue:133/255.0 alpha:1.000];

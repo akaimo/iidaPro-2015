@@ -47,10 +47,11 @@
     _firstLabel.textColor = [UIColor whiteColor];
     _firstLabel.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
     
-    _firstTextView.text = @"電話 044-200-3939\n Web http://www.city.kawasaki.jp/index.html";
+    // TODO: 登録された区によって切り替える
+    _firstTextView.text = @"川崎市環境事業所 044-541-2043";
     _firstTextView.textColor = [UIColor whiteColor];
-    _firstTextView.editable = NO;
     _firstTextView.backgroundColor = [UIColor clearColor];
+    _firstTextView.editable = NO;
     
     _secondLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     _secondLabel.textColor = [UIColor whiteColor];
@@ -65,8 +66,7 @@
     _therdLabel.textColor = [UIColor whiteColor];
     _therdLabel.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
     
-    // TODO: 登録された区によって切り替える
-    _therdTextView.text = @"川崎市環境事業所 044-541-2043";
+    _therdTextView.text = @"電話 044-200-3939\n Web http://www.city.kawasaki.jp/index.html\n Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi";
     _therdTextView.textColor = [UIColor whiteColor];
     _therdTextView.backgroundColor = [UIColor clearColor];
     _therdTextView.editable = NO;

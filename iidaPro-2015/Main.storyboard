@@ -348,7 +348,7 @@
                                     <constraint firstAttribute="height" constant="45" id="25m-Er-Z2l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粗大ごみ受付センター" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ks-5p-bkO">
@@ -358,7 +358,7 @@
                                     <constraint firstAttribute="height" constant="45" id="76m-EK-RXL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vao-X6-RSh">
@@ -380,7 +380,7 @@
                                     <constraint firstAttribute="height" constant="45" id="7Wc-jz-Yzf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BFV-xI-ILg">
@@ -542,11 +542,12 @@
                                     <constraint firstAttribute="height" constant="50" id="jYV-ES-ggZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="ILJ-WS-znU"/>
+                                        <exclude reference="jYV-ES-ggZ"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -555,7 +556,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gmU-Ei-aYO" secondAttribute="height" multiplier="1:1" id="6s7-p6-3mW"/>
                                 </constraints>
-                                <state key="normal" image="teku"/>
+                                <state key="normal" image="teku">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="SecondTipsBottun:" destination="HN8-PE-Zbx" eventType="touchUpInside" id="jRs-nU-A1r"/>
                                 </connections>
@@ -565,7 +568,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Tei-ik-uwd" secondAttribute="height" multiplier="1:1" id="B1G-wc-4z1"/>
                                 </constraints>
-                                <state key="normal" title="button4" image="info"/>
+                                <state key="normal" title="button4" image="info">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="forthTipsBottun:" destination="HN8-PE-Zbx" eventType="touchUpInside" id="2nf-sb-cxf"/>
                                 </connections>
@@ -575,7 +580,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1sW-jv-JIH" secondAttribute="height" multiplier="1:1" id="h5I-o6-YEz"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="dekigoto"/>
+                                <state key="normal" title="Button" image="dekigoto">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="thirdTipsBottun:" destination="HN8-PE-Zbx" eventType="touchUpInside" id="gcz-dN-ZVw"/>
                                 </connections>
@@ -627,7 +634,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bhk-jT-14n" secondAttribute="height" multiplier="1:1" id="cIe-NR-Ejl"/>
                                 </constraints>
-                                <state key="normal" title="botton1" image="ruru"/>
+                                <state key="normal" title="botton1" image="ruru">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="TipsBottun:" destination="HN8-PE-Zbx" eventType="touchUpInside" id="Nxp-jw-hQo"/>
                                 </connections>
@@ -760,6 +769,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="TipsTableView" destination="WCQ-KH-zWv" id="ayc-pR-H3G"/>
+                        <outlet property="button1" destination="bhk-jT-14n" id="sbH-7h-kmc"/>
+                        <outlet property="button2" destination="gmU-Ei-aYO" id="1W7-sL-w2f"/>
+                        <outlet property="button3" destination="1sW-jv-JIH" id="RcK-fV-yvq"/>
+                        <outlet property="button4" destination="Tei-ik-uwd" id="FyK-0x-gqN"/>
                         <segue destination="JBd-KT-tjW" kind="push" identifier="pushDetailView" id="vVm-39-T7Z"/>
                     </connections>
                 </viewController>

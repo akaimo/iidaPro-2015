@@ -16,10 +16,14 @@
 
 @implementation TipsNextViewController{
     NSInteger tipsImageNum;
+    NSString *tipsImageStr;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    tipsImageStr =[_tipsData valueForKey:@"id"];
+    tipsImageNum =[tipsImageStr intValue];
+    NSLog(@"%ld",(long)tipsImageNum);
     self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
     _TipsNextImage.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@", @"tips1"]];
     _TipsNextLabel.text = [_tipsData valueForKey:@"title"];

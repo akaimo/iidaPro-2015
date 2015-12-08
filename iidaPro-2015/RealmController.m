@@ -9,7 +9,6 @@
 #import "RealmController.h"
 #import <Realm/Realm.h>
 #import "TrashCategory.h"
-#import "Knowledge.h"
 #import "District.h"
 #import "AFNetworking.h"
 #import "TipsObject.h"
@@ -17,9 +16,6 @@
 @implementation RealmController
 
 - (void)createTestTable {
-//    RLMRealm *realm;
-//    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
-    
     NSLog(@"HTTPRequest");
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {

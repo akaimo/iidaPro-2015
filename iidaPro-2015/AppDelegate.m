@@ -39,6 +39,7 @@
     // degug: userDefault all delete
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+//    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
     
     if ([self isFirstRun]) {
         NSLog(@"first");

@@ -43,7 +43,7 @@
     UINib *nib = [UINib nibWithNibName:TipsCustomCellIdentifier bundle:nil];
     [_TipsTableView registerNib:nib forCellReuseIdentifier:@"title"];
     [self.DataSourceArray addObject:_DataSource];
-    _button1.enabled=YES;
+    _button1.enabled=NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

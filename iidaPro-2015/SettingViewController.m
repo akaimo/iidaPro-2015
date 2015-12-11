@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "SettingTownViewController.h"
+#import "GPSSearchTableViewCell.h"
 
 @interface SettingViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
@@ -38,6 +39,9 @@
         
         _isFirstRun = NO;
     }
+    
+    UINib *nib = [UINib nibWithNibName:@"GPSSearchTableViewCell" bundle:nil];
+    [_settingTableView registerNib:nib forCellReuseIdentifier:@"GPSSearch"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -99,13 +103,10 @@
         return cell;
         
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cell"];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: @"cell"];
-        }
+        GPSSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GPSSearch" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.text = @"検索";
+        [cell.searchBtn addTarget:self action:@selector(gpsSearch:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.searchBtn setBackgroundImage:[UIImage imageNamed:@"tappedBtnColor"] forState:UIControlStateHighlighted];
         
         return cell;
         
@@ -120,7 +121,11 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44.0;
+    if (indexPath.section == 1) {
+        return 66.0;
+    } else {
+        return 44.0;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,6 +134,10 @@
         town.area = _areaArray[indexPath.row];
         [[self navigationController] pushViewController:town animated:YES];
     }
+}
+
+- (void)gpsSearch:(UIButton *)buttno {
+    // TODO: GPS search
 }
 
 @end

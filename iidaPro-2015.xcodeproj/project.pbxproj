@@ -35,6 +35,8 @@
 		99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A408181BF232AD00FC0DDB /* AdjustNSDate.m */; };
 		99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */; };
 		99A86FEE1C05EDA400B979BA /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */; };
+		99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */; };
+		99C158021C1ABF9200DC527D /* GPSSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */; };
 		99EADFEA1C0868B900655BE6 /* CircleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */; };
 		99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
@@ -114,6 +116,9 @@
 		99A86FEA1C05EDA400B979BA /* CalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTableViewCell.h; sourceTree = "<group>"; };
 		99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTableViewCell.m; sourceTree = "<group>"; };
 		99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarTableViewCell.xib; sourceTree = "<group>"; };
+		99C157FE1C1ABF9200DC527D /* GPSSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSSearchTableViewCell.h; sourceTree = "<group>"; };
+		99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSSearchTableViewCell.m; sourceTree = "<group>"; };
+		99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSSearchTableViewCell.xib; sourceTree = "<group>"; };
 		99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGradientLayer.h; sourceTree = "<group>"; };
 		99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGradientLayer.m; sourceTree = "<group>"; };
 		99EADFEE1C0B220E00655BE6 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
@@ -217,6 +222,7 @@
 				997645451BBEB1C9007A5C78 /* SettingViewController.m */,
 				9931E7891BFF668E00BDB1E1 /* SettingTownViewController.h */,
 				9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */,
+				99C158031C1ABF9800DC527D /* Cell */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -332,6 +338,16 @@
 				99A86FEA1C05EDA400B979BA /* CalendarTableViewCell.h */,
 				99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */,
 				99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		99C158031C1ABF9800DC527D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99C157FE1C1ABF9200DC527D /* GPSSearchTableViewCell.h */,
+				99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */,
+				99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -485,6 +501,7 @@
 				99F743921BEB354800AF8195 /* noMyAlarmCell.xib in Resources */,
 				99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */,
 				998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */,
+				99C158021C1ABF9200DC527D /* GPSSearchTableViewCell.xib in Resources */,
 				998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */,
 				8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */,
 				991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */,
@@ -586,6 +603,7 @@
 				99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */,
 				99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */,
 				997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */,
+				99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
 				996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,

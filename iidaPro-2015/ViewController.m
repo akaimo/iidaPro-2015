@@ -210,7 +210,9 @@ const CGFloat iconMargin = 20.0;
     eventLabel.font = [UIFont systemFontOfSize:18];
     eventLabel.textColor = [UIColor whiteColor];
     // TODO: イベントAPIからtextを取得
-    eventLabel.text = @"00月00日にhogehogehogehoge";
+    // 文字数が多い場合は流れるように
+    // タップしたらwebViewで表示
+    eventLabel.text = @"年末年始のごみ収集日程のお知らせ";
     [self.view addSubview:eventLabel];
 }
 

@@ -80,7 +80,7 @@
         if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
             categoryImage = [UIImage imageNamed:@"S_Normal"];
         } else if ([todayCategory isEqual:@"bottle"]) {
-            categoryImage = [UIImage imageNamed:@"S_Can"];
+            categoryImage = [UIImage imageNamed:@"C_Can"];
         } else if ([todayCategory isEqual:@"plastic"]) {
             categoryImage = [UIImage imageNamed:@"S_plastic"];
         } else if ([todayCategory isEqual:@"mixedPaper"]) {

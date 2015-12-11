@@ -196,9 +196,9 @@
         } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"空き缶・ペットボトル"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
         } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"粗大ごみ"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_BigRefure"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_BigRefuse"];
         } else {
-//            cell.trashImage.image = [UIImage imageNamed:@"sun"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_What"];
         }
         
         return cell;
@@ -222,9 +222,9 @@
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"空き缶・ペットボトル"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"粗大ごみ"]) {
-            cell.trashImage.image = [UIImage imageNamed:@"S_BigRefure"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_BigRefuse"];
         } else {
-//            cell.trashImage.image = [UIImage imageNamed:@"sun"];
+            cell.trashImage.image = [UIImage imageNamed:@"S_What"];
         }
         
         return cell;

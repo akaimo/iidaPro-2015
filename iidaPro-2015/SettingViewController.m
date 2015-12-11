@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "SettingTownViewController.h"
+#import "AFNetworking.h"
 #import  <CoreLocation/CoreLocation.h>
 
 @interface SettingViewController () <CLLocationManagerDelegate>
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
 @property (retain, nonatomic) NSArray *sectionArray;
 @property (retain, nonatomic) NSArray *areaArray;
+@property (retain, nonatomic) CLLocation *location;
 
 @end
 
@@ -152,22 +154,25 @@
         SettingTownViewController *town = [self.storyboard instantiateViewControllerWithIdentifier:@"Town"];
         town.area = _areaArray[indexPath.row];
         [[self navigationController] pushViewController:town animated:YES];
+    } else if (indexPath.section == 1) {
+        // GPS search
+        NSString *key = @"AIzaSyD29EUmubbWgfn4qdiRczDt7SPV4sxiiag";
+        NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/geocode/json?latlng=%+.6f,%+.6f&key=%@&language=ja", _location.coordinate.latitude, _location.coordinate.longitude, key];
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // TODO: fetch DB
+            NSLog(@"%@", responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
     }
 }
 
 
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    
-    CLLocation* location = [locations lastObject];
-    // 時間
-    NSDate* timestamp = location.timestamp;
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
-    
-    
-    NSLog(@"緯度 %+.6f, 経度 %+.6f, 時間%@\n", location.coordinate.latitude, location.coordinate.longitude, [df stringFromDate:timestamp]);
-    
+    _location = [locations lastObject];
 }
 
 @end

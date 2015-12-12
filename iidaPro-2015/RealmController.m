@@ -17,8 +17,8 @@
 
 - (void)createTestTable {
     NSLog(@"HTTPRequest");
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
         dispatch_async(queue, ^{
             @autoreleasepool {
@@ -34,6 +34,8 @@
                     trash.read = [responseObject[i] valueForKey:@"read"];
                     trash.read_head = [responseObject[i] valueForKey:@"read_head"];
                     trash.category = [responseObject[i] valueForKey:@"category"];
+                    trash.allCategory = [responseObject[i] valueForKey:@"all_category"];
+                    trash.info = [responseObject[i] valueForKey:@"info"];
                     
                     RLMRealm *realm = [RLMRealm defaultRealm];
                     [realm beginWriteTransaction];
@@ -43,11 +45,11 @@
                 NSLog(@"Trash更新完了");
             }
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
-    [manager GET:@"http://153.120.170.41:3000/api/v1/district" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"http://153.120.170.41:3000/api/v1/district" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
         dispatch_async(queue, ^{
             @autoreleasepool {
@@ -81,11 +83,11 @@
                 NSLog(@"District更新完了");
             }
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
-    [manager GET:@"http://153.120.170.41:3000/api/v1/tip" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"http://153.120.170.41:3000/api/v1/tip" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
         dispatch_async(queue, ^{
             @autoreleasepool {
@@ -109,7 +111,7 @@
                 NSLog(@"TipsRealm更新完了");
             }
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
 }
@@ -158,8 +160,8 @@
 
 - (void)otherTableBackground {
     // trash
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://153.120.170.41:3000/api/v1/trash" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
         dispatch_async(queue, ^{
             @autoreleasepool {
@@ -175,6 +177,8 @@
                     trash.read = [responseObject[i] valueForKey:@"read"];
                     trash.read_head = [responseObject[i] valueForKey:@"read_head"];
                     trash.category = [responseObject[i] valueForKey:@"category"];
+                    trash.allCategory = [responseObject[i] valueForKey:@"all_category"];
+                    trash.info = [responseObject[i] valueForKey:@"info"];
                     
                     RLMRealm *realm = [RLMRealm defaultRealm];
                     [realm beginWriteTransaction];
@@ -184,12 +188,12 @@
                 NSLog(@"Trash更新完了");
             }
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
     // tips
-    [manager GET:@"http://153.120.170.41:3000/api/v1/tip" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"http://153.120.170.41:3000/api/v1/tip" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         dispatch_queue_t queue = dispatch_queue_create("realm", NULL);
         dispatch_async(queue, ^{
             @autoreleasepool {
@@ -213,7 +217,7 @@
                 NSLog(@"Tips更新完了");
             }
         });
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
 }

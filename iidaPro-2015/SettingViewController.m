@@ -158,18 +158,6 @@
         SettingTownViewController *town = [self.storyboard instantiateViewControllerWithIdentifier:@"Town"];
         town.area = _areaArray[indexPath.row];
         [[self navigationController] pushViewController:town animated:YES];
-    } else if (indexPath.section == 1) {
-        // GPS search
-        NSString *key = @"AIzaSyD29EUmubbWgfn4qdiRczDt7SPV4sxiiag";
-        NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/geocode/json?latlng=%+.6f,%+.6f&key=%@&language=ja", _location.coordinate.latitude, _location.coordinate.longitude, key];
-        
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        [manager GET:url parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-            // TODO: fetch DB
-            NSLog(@"%@", responseObject);
-        } failure:^(NSURLSessionTask *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-        }];
     }
 }
 
@@ -179,7 +167,16 @@
 }
 
 - (void)gpsSearch:(UIButton *)buttno {
-    // TODO: GPS search
+    NSString *key = @"AIzaSyD29EUmubbWgfn4qdiRczDt7SPV4sxiiag";
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/geocode/json?latlng=%+.6f,%+.6f&key=%@&language=ja", _location.coordinate.latitude, _location.coordinate.longitude, key];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        // TODO: fetch DB
+        NSLog(@"%@", responseObject);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 @end

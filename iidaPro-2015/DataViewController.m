@@ -86,7 +86,7 @@
     } else if ([todayCategory isEqual:@"bigRefuse_date"]) {
         NSInteger *weekdayOridinal = (long *)[self weekdayOridinal:date];
         if (weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_1"] longValue] || weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_2"] longValue]) {
-            categoryImage = [UIImage imageNamed:@"S_BigRefuse"];
+            categoryImage = [UIImage imageNamed:@"C_BigRefuse"];
         }
     }
     

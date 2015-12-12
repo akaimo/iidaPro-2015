@@ -13,7 +13,7 @@
 
 @property NSInteger TipsNextNum;
 @property (weak, nonatomic) IBOutlet NSString *TipsNextTitle;
-@property (weak, nonatomic) IBOutlet NSString *TipsNextImageName;
+@property (weak, nonatomic) IBOutlet NSString *TipsNextImage;
 @property (weak, nonatomic) IBOutlet UITextView *TipsNextText;
 @property (retain,nonatomic) NSDictionary *tipsData;
 

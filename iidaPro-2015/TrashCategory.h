@@ -14,7 +14,6 @@
 @property NSString *read;
 @property NSString *read_head;
 @property NSString *category;
-@property BOOL detail;
 @property NSString *allCategory;
 @property NSString *info;
 @end

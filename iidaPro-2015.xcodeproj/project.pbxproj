@@ -423,7 +423,7 @@
 				9989927F1B33B6A5000B7FD2 /* Frameworks */,
 				998992801B33B6A5000B7FD2 /* Resources */,
 				DEFBDCEDC184DF27BF3C98A4 /* Copy Pods Resources */,
-				C2999DC14097C361A079E6CD /* Embed Pods Frameworks */,
+				4B3B92A844D409501D579181 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -443,7 +443,7 @@
 				998992981B33B6A5000B7FD2 /* Frameworks */,
 				998992991B33B6A5000B7FD2 /* Resources */,
 				F156255AE37934D233A21C90 /* Copy Pods Resources */,
-				ADC146F8F9CF61117CED231A /* Embed Pods Frameworks */,
+				1BD58507E177011A8A8AB81A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -520,6 +520,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1BD58507E177011A8A8AB81A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iidaPro-2015Tests/Pods-iidaPro-2015Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B3B92A844D409501D579181 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4B6C51B85EFA73FA43D64627 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

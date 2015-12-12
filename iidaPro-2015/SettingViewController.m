@@ -173,10 +173,28 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         // TODO: fetch DB
-        NSLog(@"%@", responseObject);
+        NSArray *address = [NSArray arrayWithArray:[[responseObject valueForKey:@"results"] valueForKey:@"address_components"][0]];
+        NSString *town = [self townName:address];
+        NSLog(@"%@", town);
+        
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+
+// google maps api
+- (NSString *)townName:(NSArray *)address {
+    NSString *town;
+    for (NSDictionary *dic in address) {
+        NSArray *types = [dic valueForKey:@"types"];
+        for (NSString *str in types) {
+            if ([str  isEqual: @"sublocality_level_1"]) {
+                town = [dic valueForKey:@"short_name"];
+            }
+        }
+    }
+    
+    return town;
 }
 
 @end

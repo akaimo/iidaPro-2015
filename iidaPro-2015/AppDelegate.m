@@ -34,7 +34,7 @@
                       @"びん・缶・ペットボトル":@"bottle",
                       @"ミックスペーパー":@"mixedPaper",
                       @"プラスチック製容器包装":@"plastic",
-                      @"小物金属":@"bigRefuse"};
+                      @"小物金属":@"bigRefuse_date"};
     
     // degug: userDefault all delete
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];

@@ -10,6 +10,7 @@
 #import "SettingTownViewController.h"
 #import "GPSSearchTableViewCell.h"
 #import "AFNetworking.h"
+#import "District.h"
 #import  <CoreLocation/CoreLocation.h>
 
 @interface SettingViewController () <CLLocationManagerDelegate>
@@ -175,8 +176,10 @@
         // TODO: fetch DB
         NSArray *address = [NSArray arrayWithArray:[[responseObject valueForKey:@"results"] valueForKey:@"address_components"][0]];
         NSString *town = [self townName:address];
-        NSLog(@"%@", town);
         
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"town = %@", town];
+        RLMResults *result = [[District objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
+        NSLog(@"%@", result);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

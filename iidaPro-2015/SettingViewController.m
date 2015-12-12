@@ -173,13 +173,14 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        // TODO: fetch DB
         NSArray *address = [NSArray arrayWithArray:[[responseObject valueForKey:@"results"] valueForKey:@"address_components"][0]];
         NSString *town = [self townName:address];
         
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"town = %@", town];
         RLMResults *result = [[District objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
-        NSLog(@"%@", result);
+        
+        [self alartSetDistrict:result[0]];
+        
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -198,6 +199,32 @@
     }
     
     return town;
+}
+
+- (void)alartSetDistrict:(NSDictionary *)district {
+    NSString *str = [NSString stringWithFormat:@"%@%@%@", @"「", [district valueForKey:@"town"], @"」に設定しますか？"];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:str
+                                                                             message:@"異なる場合は「パターンから選ぶ」より選択してください。" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"キャンセル" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // calcel
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSArray *array = @[@"num", @"area", @"town", @"read", @"read_head", @"office",
+                           @"normal_1", @"normal_2", @"bottle", @"plastic", @"mixedPaper", @"bigRefuse_date", @"bigRefuse_1", @"bigRefuse_2"];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        for (NSString *key in array) {
+            NSString *value = [district valueForKey:key];
+            [dic setObject:value forKey:key];
+        }
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:dic forKey:@"district"];
+        [ud synchronize];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

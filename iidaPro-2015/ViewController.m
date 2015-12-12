@@ -174,45 +174,24 @@ const CGFloat iconMargin = 20.0;
     }
     
     UIImage *categoryImage = [UIImage imageNamed:@"T_NoImage"];   // noImage
-    if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
-        categoryImage = [UIImage imageNamed:@"T_Normal"];
-    } else if ([todayCategory isEqual:@"bottle"]) {
-        categoryImage = [UIImage imageNamed:@"T_Can"];
-    } else if ([todayCategory isEqual:@"plastic"]) {
-        categoryImage = [UIImage imageNamed:@"T_Plastic"];
-    } else if ([todayCategory isEqual:@"mixedPaper"]) {
-        categoryImage = [UIImage imageNamed:@"T_Mixed"];
-    } else if ([todayCategory isEqual:@"bigRefuse_date"]) {
-        NSInteger *weekdayOridinal = (long *)[self weekdayOridinal:[NSDate date]];
-        if (weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_1"] longValue] || weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_2"] longValue]) {
+    if (![todayCategory  isEqual: @""] && [weekday  isEqual: [_areaData valueForKey:@"bigRefuse_date"]]) {
+        // TODO: 小物金属とその他のごみがかぶっている
+    } else {
+        if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
+            categoryImage = [UIImage imageNamed:@"T_Normal"];
+        } else if ([todayCategory isEqual:@"bottle"]) {
+            categoryImage = [UIImage imageNamed:@"T_Can"];
+        } else if ([todayCategory isEqual:@"plastic"]) {
+            categoryImage = [UIImage imageNamed:@"T_Plastic"];
+        } else if ([todayCategory isEqual:@"mixedPaper"]) {
+            categoryImage = [UIImage imageNamed:@"T_Mixed"];
+        } else if ([todayCategory isEqual:@"bigRefuse"]) {
+            // TODO: 隔週のチェックをする
             categoryImage = [UIImage imageNamed:@"T_BigRefuse"];
         }
     }
     
-    // 小物金属・粗大ごみとその他のごみを同時に出す曜日の場合
-    if (![todayCategory  isEqual: @""] && [weekday  isEqual: [_areaData valueForKey:@"bigRefuse_date"]]) {
-        NSInteger *weekdayOridinal = (long *)[self weekdayOridinal:[NSDate date]];
-        if (weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_1"] longValue] || weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_2"] longValue]) {
-            // かぶっているごみを見つける
-            if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
-                categoryImage = [UIImage imageNamed:@"T_W_Normal"];
-            } else if ([todayCategory isEqual:@"bottle"]) {
-                categoryImage = [UIImage imageNamed:@"T_W_Can"];
-            } else if ([todayCategory isEqual:@"plastic"]) {
-                categoryImage = [UIImage imageNamed:@"T_W_Plastic"];
-            } else if ([todayCategory isEqual:@"mixedPaper"]) {
-                categoryImage = [UIImage imageNamed:@"T_W_Mixed"];
-            }
-        }
-    }
-    
     return categoryImage;
-}
-
-- (NSInteger)weekdayOridinal:(NSDate *)date {
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDateComponents* components = [calendar components:NSCalendarUnitWeekdayOrdinal fromDate:date];
-    return components.weekdayOrdinal;
 }
 
 

@@ -15,7 +15,7 @@
 }
 
 + (NSArray *)requiredProperties {
-    return @[@"title", @"read", @"read_head", @"category"];
+    return @[@"title", @"read", @"read_head", @"category", @"allCategory", @"info"];
 }
 
 //+ (NSArray *)indexedProperties {

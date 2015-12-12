@@ -34,6 +34,8 @@
                     trash.read = [responseObject[i] valueForKey:@"read"];
                     trash.read_head = [responseObject[i] valueForKey:@"read_head"];
                     trash.category = [responseObject[i] valueForKey:@"category"];
+                    trash.allCategory = [responseObject[i] valueForKey:@"all_category"];
+                    trash.info = [responseObject[i] valueForKey:@"info"];
                     
                     RLMRealm *realm = [RLMRealm defaultRealm];
                     [realm beginWriteTransaction];
@@ -175,6 +177,8 @@
                     trash.read = [responseObject[i] valueForKey:@"read"];
                     trash.read_head = [responseObject[i] valueForKey:@"read_head"];
                     trash.category = [responseObject[i] valueForKey:@"category"];
+                    trash.allCategory = [responseObject[i] valueForKey:@"all_category"];
+                    trash.info = [responseObject[i] valueForKey:@"info"];
                     
                     RLMRealm *realm = [RLMRealm defaultRealm];
                     [realm beginWriteTransaction];

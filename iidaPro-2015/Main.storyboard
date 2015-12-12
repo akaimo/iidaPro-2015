@@ -556,7 +556,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gmU-Ei-aYO" secondAttribute="height" multiplier="1:1" id="6s7-p6-3mW"/>
                                 </constraints>
-                                <state key="normal" image="teku">
+                                <state key="normal" image="tec">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -568,7 +568,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Tei-ik-uwd" secondAttribute="height" multiplier="1:1" id="B1G-wc-4z1"/>
                                 </constraints>
-                                <state key="normal" title="button4" image="info">
+                                <state key="normal" title="button4" image="jouhou">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -580,7 +580,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1sW-jv-JIH" secondAttribute="height" multiplier="1:1" id="h5I-o6-YEz"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="dekigoto">
+                                <state key="normal" title="Button" image="deki">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -634,7 +634,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bhk-jT-14n" secondAttribute="height" multiplier="1:1" id="cIe-NR-Ejl"/>
                                 </constraints>
-                                <state key="normal" title="botton1" image="ruru">
+                                <state key="normal" title="botton1" image="ruru-1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -927,9 +927,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dekigoto" width="80" height="80"/>
-        <image name="info" width="82" height="83"/>
-        <image name="ruru" width="82" height="81"/>
-        <image name="teku" width="83" height="82"/>
+        <image name="deki" width="87" height="87"/>
+        <image name="jouhou" width="86" height="87"/>
+        <image name="ruru-1" width="87" height="87"/>
+        <image name="tec" width="87" height="87"/>
     </resources>
 </document>

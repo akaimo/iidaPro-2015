@@ -68,7 +68,7 @@ const CGFloat iconMargin = 20.0;
     
     _trashView.image = [self trashImage];
     // TODO: 天気apiで受け取った結果によってテーマを変える
-    [self changeWeatherThema:weatherThemaSnowy];
+    [self changeWeatherThema:weatherThemaSunny];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -173,7 +173,7 @@ const CGFloat iconMargin = 20.0;
         }
     }
     
-    UIImage *categoryImage = [UIImage imageNamed:@"Bottle"];   // noImage
+    UIImage *categoryImage = [UIImage imageNamed:@"T_NoImage"];   // noImage
     if (![todayCategory  isEqual: @""] && [weekday  isEqual: [_areaData valueForKey:@"bigRefuse_date"]]) {
         // TODO: 小物金属とその他のごみがかぶっている
     } else {

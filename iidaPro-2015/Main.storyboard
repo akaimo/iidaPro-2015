@@ -929,7 +929,7 @@
                     <navigationItem key="navigationItem" id="LoH-1z-Rhp"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="TipsNextImage" destination="fzN-r2-3PC" id="o9D-lj-btt"/>
+                        <outlet property="TipsNextImage" destination="fzN-r2-3PC" id="zXW-ny-vGY"/>
                         <outlet property="TipsNextLabel" destination="kRf-x4-Tab" id="KPV-Tk-NDJ"/>
                         <outlet property="TipsNextText" destination="eW6-2w-1Mi" id="NKi-gd-qer"/>
                     </connections>

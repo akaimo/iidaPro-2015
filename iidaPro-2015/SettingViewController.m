@@ -8,12 +8,12 @@
 
 #import "SettingViewController.h"
 #import "SettingTownViewController.h"
+#import "GPSSearchTableViewCell.h"
 #import "AFNetworking.h"
 #import  <CoreLocation/CoreLocation.h>
 
 @interface SettingViewController () <CLLocationManagerDelegate>
 @property (nonatomic, retain) CLLocationManager *locationManager;
-
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
 @property (retain, nonatomic) NSArray *sectionArray;
 @property (retain, nonatomic) NSArray *areaArray;
@@ -64,6 +64,9 @@
         
         _isFirstRun = NO;
     }
+    
+    UINib *nib = [UINib nibWithNibName:@"GPSSearchTableViewCell" bundle:nil];
+    [_settingTableView registerNib:nib forCellReuseIdentifier:@"GPSSearch"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -125,13 +128,10 @@
         return cell;
         
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cell"];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: @"cell"];
-        }
+        GPSSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GPSSearch" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.text = @"検索";
+        [cell.searchBtn addTarget:self action:@selector(gpsSearch:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.searchBtn setBackgroundImage:[UIImage imageNamed:@"tappedBtnColor"] forState:UIControlStateHighlighted];
         
         return cell;
         
@@ -146,7 +146,11 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44.0;
+    if (indexPath.section == 1) {
+        return 66.0;
+    } else {
+        return 44.0;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -169,10 +173,13 @@
     }
 }
 
-
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     _location = [locations lastObject];
+}
+
+- (void)gpsSearch:(UIButton *)buttno {
+    // TODO: GPS search
 }
 
 @end

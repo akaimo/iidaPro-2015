@@ -39,6 +39,7 @@
     // degug: userDefault all delete
 //    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 //    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+//    NSLog(@"Realm: %@", [RLMRealmConfiguration defaultConfiguration].path);
     
     if ([self isFirstRun]) {
         NSLog(@"first");
@@ -56,7 +57,7 @@
                                              @"switch":@"off"},
                                 @"bigRefuse":@{@"time":@"08:00",
                                                @"switch":@"off"}};
-        NSArray *myAlarm = @[@{@"title":@"マイアラームを設定しよう",
+        NSArray *myAlarm = @[@{@"title":@"マイアラーム",
                                @"time":@"01/01 08:30",
                                @"switch":@"off"}];
         [ud setObject:alarm forKey:@"defaultAlarm"];

@@ -80,7 +80,7 @@
         if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
             categoryImage = [UIImage imageNamed:@"S_Normal"];
         } else if ([todayCategory isEqual:@"bottle"]) {
-            categoryImage = [UIImage imageNamed:@"S_Can"];
+            categoryImage = [UIImage imageNamed:@"C_Can"];
         } else if ([todayCategory isEqual:@"plastic"]) {
             categoryImage = [UIImage imageNamed:@"S_plastic"];
         } else if ([todayCategory isEqual:@"mixedPaper"]) {
@@ -98,7 +98,7 @@
     // カレンダーに使う日にちの作成
     NSMutableArray *calendarData = [NSMutableArray array];
     for (int i=0; i<31; i++) {
-        long time = (-15 + i)*24*60*60;
+        long time = (-3 + i)*24*60*60;
         NSDate *date = [_num initWithTimeInterval:time sinceDate:_num];
         [calendarData addObject:date];
     }

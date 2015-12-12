@@ -24,7 +24,6 @@
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
 		997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewController.m */; };
 		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
-		99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C5E1B835AAB0083CC7D /* Knowledge.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
 		998992881B33B6A5000B7FD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992871B33B6A5000B7FD2 /* main.m */; };
 		9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928A1B33B6A5000B7FD2 /* AppDelegate.m */; };
@@ -36,6 +35,8 @@
 		99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A408181BF232AD00FC0DDB /* AdjustNSDate.m */; };
 		99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */; };
 		99A86FEE1C05EDA400B979BA /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */; };
+		99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */; };
+		99C158021C1ABF9200DC527D /* GPSSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */; };
 		99EADFEA1C0868B900655BE6 /* CircleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */; };
 		99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
@@ -94,8 +95,6 @@
 		997645421BBEB0FB007A5C78 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		997645441BBEB1C9007A5C78 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		997645451BBEB1C9007A5C78 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		99781C5D1B835AAB0083CC7D /* Knowledge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knowledge.h; sourceTree = "<group>"; };
-		99781C5E1B835AAB0083CC7D /* Knowledge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knowledge.m; sourceTree = "<group>"; };
 		99781C601B835D3C0083CC7D /* RealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmController.h; sourceTree = "<group>"; };
 		99781C611B835D3C0083CC7D /* RealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmController.m; sourceTree = "<group>"; };
 		998992821B33B6A5000B7FD2 /* iidaPro-2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iidaPro-2015.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +116,9 @@
 		99A86FEA1C05EDA400B979BA /* CalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTableViewCell.h; sourceTree = "<group>"; };
 		99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTableViewCell.m; sourceTree = "<group>"; };
 		99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarTableViewCell.xib; sourceTree = "<group>"; };
+		99C157FE1C1ABF9200DC527D /* GPSSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSSearchTableViewCell.h; sourceTree = "<group>"; };
+		99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSSearchTableViewCell.m; sourceTree = "<group>"; };
+		99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSSearchTableViewCell.xib; sourceTree = "<group>"; };
 		99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGradientLayer.h; sourceTree = "<group>"; };
 		99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGradientLayer.m; sourceTree = "<group>"; };
 		99EADFEE1C0B220E00655BE6 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				997645451BBEB1C9007A5C78 /* SettingViewController.m */,
 				9931E7891BFF668E00BDB1E1 /* SettingTownViewController.h */,
 				9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */,
+				99C158031C1ABF9800DC527D /* Cell */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -257,8 +260,6 @@
 				9931E7831BF7711600BDB1E1 /* District.m */,
 				9931E7851BFF201700BDB1E1 /* TrashCategory.h */,
 				9931E7861BFF201700BDB1E1 /* TrashCategory.m */,
-				99781C5D1B835AAB0083CC7D /* Knowledge.h */,
-				99781C5E1B835AAB0083CC7D /* Knowledge.m */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -341,6 +342,16 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		99C158031C1ABF9800DC527D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99C157FE1C1ABF9200DC527D /* GPSSearchTableViewCell.h */,
+				99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */,
+				99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		99EADFEB1C089B3800655BE6 /* Top */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +423,7 @@
 				9989927F1B33B6A5000B7FD2 /* Frameworks */,
 				998992801B33B6A5000B7FD2 /* Resources */,
 				DEFBDCEDC184DF27BF3C98A4 /* Copy Pods Resources */,
+				4B3B92A844D409501D579181 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -431,6 +443,7 @@
 				998992981B33B6A5000B7FD2 /* Frameworks */,
 				998992991B33B6A5000B7FD2 /* Resources */,
 				F156255AE37934D233A21C90 /* Copy Pods Resources */,
+				1BD58507E177011A8A8AB81A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -490,6 +503,7 @@
 				99F743921BEB354800AF8195 /* noMyAlarmCell.xib in Resources */,
 				99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */,
 				998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */,
+				99C158021C1ABF9200DC527D /* GPSSearchTableViewCell.xib in Resources */,
 				998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */,
 				8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */,
 				991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */,
@@ -506,6 +520,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1BD58507E177011A8A8AB81A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iidaPro-2015Tests/Pods-iidaPro-2015Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B3B92A844D409501D579181 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4B6C51B85EFA73FA43D64627 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -588,10 +632,10 @@
 				9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */,
 				99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */,
 				99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */,
-				99781C5F1B835AAB0083CC7D /* Knowledge.m in Sources */,
 				99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */,
 				99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */,
 				997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */,
+				99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
 				996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */,
 				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,

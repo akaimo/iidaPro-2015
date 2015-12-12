@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GPSSearch" rowHeight="66" id="KGk-i7-Jjw" customClass="GPSSearchTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkd-9D-NuR">
+                        <rect key="frame" x="126" y="17" width="68" height="32"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="68" id="rML-Rr-anb"/>
+                            <constraint firstAttribute="height" constant="32" id="vyl-Zg-FdB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <state key="normal" title="検索"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zkd-9D-NuR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2Dw-n1-9UE"/>
+                    <constraint firstItem="zkd-9D-NuR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xr3-si-5k0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="searchBtn" destination="zkd-9D-NuR" id="Aym-I5-Ahh"/>
+            </connections>
+            <point key="canvasLocation" x="463" y="394"/>
+        </tableViewCell>
+    </objects>
+</document>

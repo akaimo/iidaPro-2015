@@ -11,5 +11,4 @@
 
 @interface TipsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *TipsTableView;
-
 @end

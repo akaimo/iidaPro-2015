@@ -12,6 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *weekdayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *alarmTitleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *icon2ImageView;
 
 @end

@@ -61,7 +61,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UIImage *)trashImage:(NSDate *)date {
+- (NSMutableArray *)trashImage:(NSDate *)date {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSString *weekday = [self weekdayStr:date];
     
@@ -75,39 +75,26 @@
     }
     
     UIImage *categoryImage;
+    NSMutableArray *array = [NSMutableArray array];
     if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
-        categoryImage = [UIImage imageNamed:@"S_Normal"];
+        [array addObject:[UIImage imageNamed:@"S_Normal"]];
     } else if ([todayCategory isEqual:@"bottle"]) {
-        categoryImage = [UIImage imageNamed:@"C_Can"];
+        [array addObject:[UIImage imageNamed:@"C_Can"]];
     } else if ([todayCategory isEqual:@"plastic"]) {
-        categoryImage = [UIImage imageNamed:@"S_plastic"];
+        [array addObject:[UIImage imageNamed:@"S_plastic"]];
     } else if ([todayCategory isEqual:@"mixedPaper"]) {
-        categoryImage = [UIImage imageNamed:@"S_Mixed"];
-    } else if ([todayCategory isEqual:@"bigRefuse_date"]) {
-        NSInteger *weekdayOridinal = (long *)[self weekdayOridinal:date];
-        if (weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_1"] longValue] || weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_2"] longValue]) {
-            categoryImage = [UIImage imageNamed:@"C_BigRefuse"];
-        }
+        [array addObject:[UIImage imageNamed:@"S_Mixed"]];
     }
     
-    // 小物金属・粗大ごみとその他のごみを同時に出す曜日の場合
+    // 小物金属・粗大ごみを出す曜日
     if (![todayCategory  isEqual: @""] && [weekday  isEqual: [_areaData valueForKey:@"bigRefuse_date"]]) {
         NSInteger *weekdayOridinal = (long *)[self weekdayOridinal:date];
         if (weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_1"] longValue] || weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_2"] longValue]) {
-            // かぶっているごみを見つける
-            if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
-                categoryImage = [UIImage imageNamed:@"C_W_Normal"];
-            } else if ([todayCategory isEqual:@"bottle"]) {
-                categoryImage = [UIImage imageNamed:@"C_W_Can"];
-            } else if ([todayCategory isEqual:@"plastic"]) {
-                categoryImage = [UIImage imageNamed:@"C_W_Plastic"];
-            } else if ([todayCategory isEqual:@"mixedPaper"]) {
-                categoryImage = [UIImage imageNamed:@"C_W_Mixed"];
-            }
+            [array addObject:[UIImage imageNamed:@"C_BigRefuse"]];
         }
     }
     
-    return categoryImage;
+    return array;
 }
 
 - (NSInteger)weekdayOridinal:(NSDate *)date {
@@ -264,19 +251,17 @@
         cell.dayLabel.textColor = [UIColor whiteColor];
     }
     
-    cell.iconImageView.image = [self trashImage:date];
+    NSArray *array = [self trashImage:date];
+    if (array.count == 1) {
+        cell.iconImageView.image = array[0];
+    } else if (array.count == 2) {
+        cell.iconImageView.image = array[0];
+        cell.icon2ImageView.image = array[1];
+    }
     
     comps = [calendar components:NSCalendarUnitDay fromDate:date];
     NSString *dayStr = [NSString stringWithFormat:@"%ld", (long)comps.day];
     cell.dayLabel.text = dayStr;
-    
-    NSString *time = [self dateForString:date];
-    for (int i=0; i<_myAlarmDate.count; i++) {
-        if ([time isEqual:_myAlarmDate[i]]) {
-            cell.alarmTitleLabel.text = [_myAlarm[i] valueForKey:@"title"];
-            break;
-        }
-    }
     
     return cell;
 }

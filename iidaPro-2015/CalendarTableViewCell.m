@@ -24,7 +24,7 @@
     _weekdayLabel.text = nil;
     _dayLabel.text = nil;
     _iconImageView.image = nil;
-    _alarmTitleLabel.text = nil;
+    _icon2ImageView.image = nil;
 }
 
 @end

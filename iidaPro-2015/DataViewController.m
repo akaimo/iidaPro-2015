@@ -236,7 +236,7 @@
     
     NSDateFormatter* df = [[NSDateFormatter alloc] init];
     df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en"];
-    NSString* weekDayStr = df.weekdaySymbols[comps.weekday-1];
+    NSString* weekDayStr = df.shortWeekdaySymbols[comps.weekday-1];
     cell.weekdayLabel.text = weekDayStr;
     if (comps.weekday == 7) {
         // Saturday

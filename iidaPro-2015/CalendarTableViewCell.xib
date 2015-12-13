@@ -20,7 +20,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3G-Rz-ocS">
-                        <rect key="frame" x="145" y="16" width="20" height="23"/>
+                        <rect key="frame" x="85" y="16" width="20" height="23"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                     <constraint firstItem="LmW-wg-I2k" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="POF-6E-8hY"/>
                     <constraint firstItem="LmW-wg-I2k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eDs-Au-TFP"/>
                     <constraint firstItem="ufb-Wd-Tca" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eJ6-HY-xDa"/>
-                    <constraint firstItem="R3G-Rz-ocS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="145" id="fya-hb-n12"/>
+                    <constraint firstItem="R3G-Rz-ocS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="85" id="fya-hb-n12"/>
                     <constraint firstItem="vOp-x9-u3y" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="g7E-a4-gwv"/>
                     <constraint firstItem="R3G-Rz-ocS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oh7-7W-HCC"/>
                     <constraint firstItem="R3G-Rz-ocS" firstAttribute="leading" secondItem="LmW-wg-I2k" secondAttribute="trailing" constant="15" id="ryn-uT-7SC"/>

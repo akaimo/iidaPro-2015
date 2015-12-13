@@ -10,8 +10,9 @@
 #import "CalendarTableViewCell.h"
 #import "AppDelegate.h"
 #import "AdjustNSDate.h"
+#import "CMPopTipView.h"
 
-@interface DataViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface DataViewController () <UITableViewDataSource, UITableViewDelegate, CMPopTipViewDelegate>
 @property (retain, nonatomic) UITableView *calendarTableView;
 @property (retain, nonatomic) NSDictionary *areaData;
 @property (retain, nonatomic) NSMutableArray *monthNumArray;
@@ -21,6 +22,7 @@
 @property (retain, nonatomic) NSIndexPath *todayIndexPath;
 @property (retain, nonatomic) NSArray *myAlarm;
 @property (retain, nonatomic) NSMutableArray *myAlarmDate;
+@property (retain, nonatomic) CMPopTipView *roundRectButtonPopTipView;
 
 @end
 
@@ -268,6 +270,7 @@
     for (int i=0; i<_myAlarmDate.count; i++) {
         if ([time isEqual:_myAlarmDate[i]]) {
             cell.alarmButton.hidden = NO;
+            [cell.alarmButton addTarget:self action:@selector(popTip:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
     
@@ -280,6 +283,30 @@
         return 110.0;
     }
     return 55.0;
+}
+
+- (void)popTip:(UIButton *)sender {
+    if (nil == self.roundRectButtonPopTipView) {
+        self.roundRectButtonPopTipView = [[CMPopTipView alloc] initWithMessage:@"My message"];
+        self.roundRectButtonPopTipView.delegate = self;
+        self.roundRectButtonPopTipView.backgroundColor = [UIColor blackColor];
+        self.roundRectButtonPopTipView.textColor = [UIColor whiteColor];
+        self.roundRectButtonPopTipView.has3DStyle = NO;
+        
+        UIButton *button = (UIButton *)sender;
+        [self.roundRectButtonPopTipView presentPointingAtView:button inView:self.view animated:YES];
+    }
+    else {
+        // Dismiss
+        [self.roundRectButtonPopTipView dismissAnimated:YES];
+        self.roundRectButtonPopTipView = nil;
+    }
+}
+
+#pragma mark CMPopTipViewDelegate methods
+- (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView {
+    // User can tap CMPopTipView to dismiss it
+    self.roundRectButtonPopTipView = nil;
 }
 
 @end

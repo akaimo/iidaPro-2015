@@ -9,11 +9,16 @@
 #import "SettingViewController.h"
 #import "SettingTownViewController.h"
 #import "GPSSearchTableViewCell.h"
+#import "AFNetworking.h"
+#import "District.h"
+#import  <CoreLocation/CoreLocation.h>
 
-@interface SettingViewController ()
+@interface SettingViewController () <CLLocationManagerDelegate>
+@property (nonatomic, retain) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
 @property (retain, nonatomic) NSArray *sectionArray;
 @property (retain, nonatomic) NSArray *areaArray;
+@property (retain, nonatomic) CLLocation *location;
 
 @end
 
@@ -21,7 +26,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    if (nil == self.locationManager) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        // iOS 8以上
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+            // NSLocationWhenInUseUsageDescriptionに設定したメッセージでユーザに確認
+            [ self.locationManager requestWhenInUseAuthorization];
+            // NSLocationAlwaysUsageDescriptionに設定したメッセージでユーザに確認
+            //[locationManager requestAlwaysAuthorization];
+        }
+    }
+    
+    
+    if (nil == self.locationManager)
+        self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    // 更新間隔はdistanceFilterプロパティ
+    //self.locationManager.distanceFilter = 500;
+    
+    // 情報の更新を開始すれば、位置情報を取得
+    [self.locationManager startUpdatingLocation];
     
     self.title = @"設定";
     self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
@@ -136,8 +162,69 @@
     }
 }
 
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    _location = [locations lastObject];
+}
+
 - (void)gpsSearch:(UIButton *)buttno {
-    // TODO: GPS search
+    NSString *key = @"AIzaSyD29EUmubbWgfn4qdiRczDt7SPV4sxiiag";
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/geocode/json?latlng=%+.6f,%+.6f&key=%@&language=ja", _location.coordinate.latitude, _location.coordinate.longitude, key];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSArray *address = [NSArray arrayWithArray:[[responseObject valueForKey:@"results"] valueForKey:@"address_components"][0]];
+        NSString *town = [self townName:address];
+        
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"town = %@", town];
+        RLMResults *result = [[District objectsWithPredicate:pred] sortedResultsUsingProperty:@"read" ascending:YES];
+        
+        [self alartSetDistrict:result[0]];
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+// google maps api
+- (NSString *)townName:(NSArray *)address {
+    NSString *town;
+    for (NSDictionary *dic in address) {
+        NSArray *types = [dic valueForKey:@"types"];
+        for (NSString *str in types) {
+            if ([str  isEqual: @"sublocality_level_1"]) {
+                town = [dic valueForKey:@"short_name"];
+            }
+        }
+    }
+    
+    return town;
+}
+
+- (void)alartSetDistrict:(NSDictionary *)district {
+    NSString *str = [NSString stringWithFormat:@"%@%@%@", @"「", [district valueForKey:@"town"], @"」に設定しますか？"];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:str
+                                                                             message:@"異なる場合は「パターンから選ぶ」より選択してください。" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"キャンセル" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // calcel
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSArray *array = @[@"num", @"area", @"town", @"read", @"read_head", @"office",
+                           @"normal_1", @"normal_2", @"bottle", @"plastic", @"mixedPaper", @"bigRefuse_date", @"bigRefuse_1", @"bigRefuse_2"];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        for (NSString *key in array) {
+            NSString *value = [district valueForKey:key];
+            [dic setObject:value forKey:key];
+        }
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:dic forKey:@"district"];
+        [ud synchronize];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

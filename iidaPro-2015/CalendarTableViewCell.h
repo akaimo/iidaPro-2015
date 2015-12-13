@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *icon2ImageView;
+@property (weak, nonatomic) IBOutlet UIButton *alarmButton;
 
 @end

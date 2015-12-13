@@ -263,6 +263,14 @@
     NSString *dayStr = [NSString stringWithFormat:@"%ld", (long)comps.day];
     cell.dayLabel.text = dayStr;
     
+    NSString *time = [self dateForString:date];
+    cell.alarmButton.hidden = YES;
+    for (int i=0; i<_myAlarmDate.count; i++) {
+        if ([time isEqual:_myAlarmDate[i]]) {
+            cell.alarmButton.hidden = NO;
+        }
+    }
+    
     return cell;
 }
 

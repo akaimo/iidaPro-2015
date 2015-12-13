@@ -193,12 +193,11 @@
     if (indexPath.section == 0) {
         
         TrashAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Alarm" forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor clearColor];
         cell.titleLabel.text = delegate.categoryArray[indexPath.row];
         
         NSString *categoryStr = [delegate.categoryDict valueForKey:delegate.categoryArray[indexPath.row]];
         cell.timeLabel.text = [[_defaultAlarm valueForKey:categoryStr] valueForKey:@"time"];
-        if ([categoryStr isEqual:@"bigRefuse"]) {
+        if ([categoryStr isEqual:@"bigRefuse_date"]) {
             NSString *str = [NSString stringWithFormat:@"第 %@, %@ %@", [_areaData valueForKey:@"bigRefuse_1"], [_areaData valueForKey:@"bigRefuse_2"], [_areaData valueForKey:@"bigRefuse_date"]];
             cell.dayLabel.text = str;
         } else {
@@ -206,13 +205,15 @@
         }
         
         if ([[[_defaultAlarm valueForKey:categoryStr] valueForKey:@"switch"]  isEqual: @"on"]) {
+            cell.backgroundColor = [UIColor clearColor];
             cell.titleLabel.textColor = [UIColor whiteColor];
             cell.dayLabel.textColor = [UIColor whiteColor];
             cell.timeLabel.textColor = [UIColor whiteColor];
         } else {
-            cell.titleLabel.textColor = [UIColor lightGrayColor];
-            cell.dayLabel.textColor = [UIColor lightGrayColor];
-            cell.timeLabel.textColor = [UIColor lightGrayColor];
+            cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+            cell.titleLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
+            cell.dayLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
+            cell.timeLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
         }
         
         for(UIGestureRecognizer *gesture in [cell gestureRecognizers]) {
@@ -235,19 +236,20 @@
             
         } else {
             MyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myAlarm" forIndexPath:indexPath];
-            cell.backgroundColor = [UIColor clearColor];
             NSArray *array = [[_myAlarm[indexPath.row] valueForKey:@"time"] componentsSeparatedByString:@" "];
             cell.titleLabel.text = [_myAlarm[indexPath.row] valueForKey:@"title"];
             cell.dateLabel.text = array[0];
             cell.timeLabel.text = array[1];
             if ([[_myAlarm[indexPath.row] valueForKey:@"switch"]  isEqual: @"on"]) {
+                cell.backgroundColor = [UIColor clearColor];
                 cell.titleLabel.textColor = [UIColor whiteColor];
                 cell.dateLabel.textColor = [UIColor whiteColor];
                 cell.timeLabel.textColor = [UIColor whiteColor];
             } else {
-                cell.titleLabel.textColor = [UIColor lightGrayColor];
-                cell.dateLabel.textColor = [UIColor lightGrayColor];
-                cell.timeLabel.textColor = [UIColor lightGrayColor];
+                cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+                cell.titleLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
+                cell.dateLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
+                cell.timeLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
             }
             
             for(UIGestureRecognizer *gesture in [cell gestureRecognizers]) {

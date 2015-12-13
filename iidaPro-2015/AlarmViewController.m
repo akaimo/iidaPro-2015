@@ -197,7 +197,7 @@
         
         NSString *categoryStr = [delegate.categoryDict valueForKey:delegate.categoryArray[indexPath.row]];
         cell.timeLabel.text = [[_defaultAlarm valueForKey:categoryStr] valueForKey:@"time"];
-        if ([categoryStr isEqual:@"bigRefuse"]) {
+        if ([categoryStr isEqual:@"bigRefuse_date"]) {
             NSString *str = [NSString stringWithFormat:@"第 %@, %@ %@", [_areaData valueForKey:@"bigRefuse_1"], [_areaData valueForKey:@"bigRefuse_2"], [_areaData valueForKey:@"bigRefuse_date"]];
             cell.dayLabel.text = str;
         } else {

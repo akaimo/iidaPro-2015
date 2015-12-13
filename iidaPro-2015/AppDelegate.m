@@ -55,7 +55,7 @@
                                                 @"switch":@"off"},
                                 @"plastic":@{@"time":@"08:00",
                                              @"switch":@"off"},
-                                @"bigRefuse":@{@"time":@"08:00",
+                                @"bigRefuse_date":@{@"time":@"08:00",
                                                @"switch":@"off"}};
         NSArray *myAlarm = @[@{@"title":@"マイアラーム",
                                @"time":@"01/01 08:30",

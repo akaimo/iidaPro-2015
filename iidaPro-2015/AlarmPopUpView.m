@@ -141,6 +141,12 @@
     [inputDateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]];
     [inputDateFormatter setDateFormat:@"MM/dd H:mm"];
     NSDate *inputDate = [inputDateFormatter dateFromString:[_myAlarm[_selectedRow] valueForKey:@"time"]];
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents* components = [cal components:NSCalendarUnitYear fromDate:[NSDate date]];
+    // デフォルトだと2000年になってしまい今日よりも前と判断され、現在時刻に修正されてしまうため、現在の年に合わせる
+    [components setYear:components.year - 2000];
+    inputDate = [cal dateByAddingComponents:components toDate:inputDate options:0];
+    
     _datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 100, _popup.frame.size.width, 150)];
     _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     _datePicker.date = inputDate;

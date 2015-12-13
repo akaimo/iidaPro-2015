@@ -173,6 +173,10 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        if ([[[responseObject valueForKey:@"results"] valueForKey:@"address_components"] count] == 0) {
+            [self alartFaildGPSSearch];
+            return;
+        }
         NSArray *address = [NSArray arrayWithArray:[[responseObject valueForKey:@"results"] valueForKey:@"address_components"][0]];
         NSString *town = [self townName:address];
         
@@ -204,7 +208,7 @@
 - (void)alartSetDistrict:(NSDictionary *)district {
     NSString *str = [NSString stringWithFormat:@"%@%@%@", @"「", [district valueForKey:@"town"], @"」に設定しますか？"];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:str
-                                                                             message:@"異なる場合は「パターンから選ぶ」より選択してください。" preferredStyle:UIAlertControllerStyleAlert];
+                                                                             message:@"異なる場合は「パターンから選ぶ」から選択してください。" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"キャンセル" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         // calcel
@@ -224,6 +228,15 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
     }]];
     
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)alartFaildGPSSearch {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"検索失敗"
+                                                                             message:@"GPSで検索できませんでした。\n 「パターンから選ぶ」から選択してください。" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // ok action
+    }]];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 

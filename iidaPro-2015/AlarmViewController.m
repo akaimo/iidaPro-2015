@@ -193,7 +193,6 @@
     if (indexPath.section == 0) {
         
         TrashAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Alarm" forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor clearColor];
         cell.titleLabel.text = delegate.categoryArray[indexPath.row];
         
         NSString *categoryStr = [delegate.categoryDict valueForKey:delegate.categoryArray[indexPath.row]];
@@ -206,10 +205,12 @@
         }
         
         if ([[[_defaultAlarm valueForKey:categoryStr] valueForKey:@"switch"]  isEqual: @"on"]) {
+            cell.backgroundColor = [UIColor clearColor];
             cell.titleLabel.textColor = [UIColor whiteColor];
             cell.dayLabel.textColor = [UIColor whiteColor];
             cell.timeLabel.textColor = [UIColor whiteColor];
         } else {
+            cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
             cell.titleLabel.textColor = [UIColor lightGrayColor];
             cell.dayLabel.textColor = [UIColor lightGrayColor];
             cell.timeLabel.textColor = [UIColor lightGrayColor];
@@ -235,16 +236,17 @@
             
         } else {
             MyAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myAlarm" forIndexPath:indexPath];
-            cell.backgroundColor = [UIColor clearColor];
             NSArray *array = [[_myAlarm[indexPath.row] valueForKey:@"time"] componentsSeparatedByString:@" "];
             cell.titleLabel.text = [_myAlarm[indexPath.row] valueForKey:@"title"];
             cell.dateLabel.text = array[0];
             cell.timeLabel.text = array[1];
             if ([[_myAlarm[indexPath.row] valueForKey:@"switch"]  isEqual: @"on"]) {
+                cell.backgroundColor = [UIColor clearColor];
                 cell.titleLabel.textColor = [UIColor whiteColor];
                 cell.dateLabel.textColor = [UIColor whiteColor];
                 cell.timeLabel.textColor = [UIColor whiteColor];
             } else {
+                cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
                 cell.titleLabel.textColor = [UIColor lightGrayColor];
                 cell.dateLabel.textColor = [UIColor lightGrayColor];
                 cell.timeLabel.textColor = [UIColor lightGrayColor];

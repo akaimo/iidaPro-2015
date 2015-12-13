@@ -275,7 +275,7 @@
     NSString *time = [self dateForString:date];
     cell.alarmButton.hidden = YES;
     for (int i=0; i<_myAlarmDate.count; i++) {
-        if ([time isEqual:_myAlarmDate[i]]) {
+        if ([time isEqual:_myAlarmDate[i]] && [[_myAlarm[i] valueForKey:@"switch"]  isEqual: @"on"]) {
             cell.alarmButton.hidden = NO;
             
             if (cell.alarmButton.tag == 0) {

@@ -61,8 +61,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UIImage *)trashImage:(NSString *)weekday {
+- (UIImage *)trashImage:(NSDate *)date {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *weekday = [self weekdayStr:date];
     
     NSString *todayCategory;
     for (NSString *category in appDelegate.categoryArray) {
@@ -74,24 +75,54 @@
     }
     
     UIImage *categoryImage;
+    if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
+        categoryImage = [UIImage imageNamed:@"S_Normal"];
+    } else if ([todayCategory isEqual:@"bottle"]) {
+        categoryImage = [UIImage imageNamed:@"C_Can"];
+    } else if ([todayCategory isEqual:@"plastic"]) {
+        categoryImage = [UIImage imageNamed:@"S_plastic"];
+    } else if ([todayCategory isEqual:@"mixedPaper"]) {
+        categoryImage = [UIImage imageNamed:@"S_Mixed"];
+    } else if ([todayCategory isEqual:@"bigRefuse_date"]) {
+        NSInteger *weekdayOridinal = (long *)[self weekdayOridinal:date];
+        if (weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_1"] longValue] || weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_2"] longValue]) {
+            categoryImage = [UIImage imageNamed:@"C_BigRefuse"];
+        }
+    }
+    
+    // 小物金属・粗大ごみとその他のごみを同時に出す曜日の場合
     if (![todayCategory  isEqual: @""] && [weekday  isEqual: [_areaData valueForKey:@"bigRefuse_date"]]) {
-        // TODO: 小物金属とその他のごみがかぶっている
-    } else {
-        if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
-            categoryImage = [UIImage imageNamed:@"S_Normal"];
-        } else if ([todayCategory isEqual:@"bottle"]) {
-            categoryImage = [UIImage imageNamed:@"C_Can"];
-        } else if ([todayCategory isEqual:@"plastic"]) {
-            categoryImage = [UIImage imageNamed:@"S_plastic"];
-        } else if ([todayCategory isEqual:@"mixedPaper"]) {
-            categoryImage = [UIImage imageNamed:@"S_Mixed"];
-        } else if ([todayCategory isEqual:@"bigRefuse"]) {
-            // TODO: 隔週のチェックをする
-            categoryImage = [UIImage imageNamed:@"S_BigRefuse"];
+        NSInteger *weekdayOridinal = (long *)[self weekdayOridinal:date];
+        if (weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_1"] longValue] || weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_2"] longValue]) {
+            // かぶっているごみを見つける
+            if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
+                categoryImage = [UIImage imageNamed:@"C_W_Normal"];
+            } else if ([todayCategory isEqual:@"bottle"]) {
+                categoryImage = [UIImage imageNamed:@"C_W_Can"];
+            } else if ([todayCategory isEqual:@"plastic"]) {
+                categoryImage = [UIImage imageNamed:@"C_W_Plastic"];
+            } else if ([todayCategory isEqual:@"mixedPaper"]) {
+                categoryImage = [UIImage imageNamed:@"C_W_Mixed"];
+            }
         }
     }
     
     return categoryImage;
+}
+
+- (NSInteger)weekdayOridinal:(NSDate *)date {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:NSCalendarUnitWeekdayOrdinal fromDate:date];
+    return components.weekdayOrdinal;
+}
+
+- (NSString *)weekdayStr:(NSDate *)date {
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday fromDate:date];
+    NSDateFormatter* df = [[NSDateFormatter alloc] init];
+    
+    df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
+    return df.shortWeekdaySymbols[comps.weekday-1];
 }
 
 - (void)useMonth {
@@ -233,9 +264,7 @@
         cell.dayLabel.textColor = [UIColor whiteColor];
     }
     
-    df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
-    weekDayStr = df.shortWeekdaySymbols[comps.weekday-1];
-    cell.iconImageView.image = [self trashImage:weekDayStr];
+    cell.iconImageView.image = [self trashImage:date];
     
     comps = [calendar components:NSCalendarUnitDay fromDate:date];
     NSString *dayStr = [NSString stringWithFormat:@"%ld", (long)comps.day];

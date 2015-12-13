@@ -10,8 +10,10 @@
 #import "CalendarTableViewCell.h"
 #import "AppDelegate.h"
 #import "AdjustNSDate.h"
+#import "CMPopTipView.h"
+#import "RandomNumber.h"
 
-@interface DataViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface DataViewController () <UITableViewDataSource, UITableViewDelegate, CMPopTipViewDelegate>
 @property (retain, nonatomic) UITableView *calendarTableView;
 @property (retain, nonatomic) NSDictionary *areaData;
 @property (retain, nonatomic) NSMutableArray *monthNumArray;
@@ -21,6 +23,9 @@
 @property (retain, nonatomic) NSIndexPath *todayIndexPath;
 @property (retain, nonatomic) NSArray *myAlarm;
 @property (retain, nonatomic) NSMutableArray *myAlarmDate;
+@property (retain, nonatomic) CMPopTipView *roundRectButtonPopTipView;
+@property (retain, nonatomic) NSMutableDictionary *popTipMessageDic;
+@property (retain, nonatomic) RandomNumber *randomNumber;
 
 @end
 
@@ -35,6 +40,7 @@
     _areaData = [NSDictionary dictionaryWithDictionary:[ud objectForKey:@"district"]];
     _myAlarm = [ud objectForKey:@"myAlarm"];
     _myAlarmDate = [NSMutableArray array];
+    _popTipMessageDic = [NSMutableDictionary dictionary];
     for (NSDictionary *dic in _myAlarm) {
         NSString *str = [dic valueForKey:@"time"];
         NSArray *ary = [str componentsSeparatedByString:@" "];
@@ -54,6 +60,9 @@
     
     UINib *nib = [UINib nibWithNibName:@"CalendarTableViewCell" bundle:nil];
     [_calendarTableView registerNib:nib forCellReuseIdentifier:@"Calendar"];
+    
+    _randomNumber = [[RandomNumber alloc] init];
+    [_randomNumber createRandomNumberArray];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +70,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UIImage *)trashImage:(NSDate *)date {
+- (NSMutableArray *)trashImage:(NSDate *)date {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSString *weekday = [self weekdayStr:date];
     
@@ -75,39 +84,26 @@
     }
     
     UIImage *categoryImage;
+    NSMutableArray *array = [NSMutableArray array];
     if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
-        categoryImage = [UIImage imageNamed:@"S_Normal"];
+        [array addObject:[UIImage imageNamed:@"S_Normal"]];
     } else if ([todayCategory isEqual:@"bottle"]) {
-        categoryImage = [UIImage imageNamed:@"C_Can"];
+        [array addObject:[UIImage imageNamed:@"C_Can"]];
     } else if ([todayCategory isEqual:@"plastic"]) {
-        categoryImage = [UIImage imageNamed:@"S_plastic"];
+        [array addObject:[UIImage imageNamed:@"S_plastic"]];
     } else if ([todayCategory isEqual:@"mixedPaper"]) {
-        categoryImage = [UIImage imageNamed:@"S_Mixed"];
-    } else if ([todayCategory isEqual:@"bigRefuse_date"]) {
-        NSInteger *weekdayOridinal = (long *)[self weekdayOridinal:date];
-        if (weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_1"] longValue] || weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_2"] longValue]) {
-            categoryImage = [UIImage imageNamed:@"C_BigRefuse"];
-        }
+        [array addObject:[UIImage imageNamed:@"S_Mixed"]];
     }
     
-    // 小物金属・粗大ごみとその他のごみを同時に出す曜日の場合
+    // 小物金属・粗大ごみを出す曜日
     if (![todayCategory  isEqual: @""] && [weekday  isEqual: [_areaData valueForKey:@"bigRefuse_date"]]) {
         NSInteger *weekdayOridinal = (long *)[self weekdayOridinal:date];
         if (weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_1"] longValue] || weekdayOridinal == (long *)[[_areaData valueForKey:@"bigRefuse_2"] longValue]) {
-            // かぶっているごみを見つける
-            if ([todayCategory  isEqual:@"normal_1"] || [todayCategory isEqual:@"normal_2"]) {
-                categoryImage = [UIImage imageNamed:@"C_W_Normal"];
-            } else if ([todayCategory isEqual:@"bottle"]) {
-                categoryImage = [UIImage imageNamed:@"C_W_Can"];
-            } else if ([todayCategory isEqual:@"plastic"]) {
-                categoryImage = [UIImage imageNamed:@"C_W_Plastic"];
-            } else if ([todayCategory isEqual:@"mixedPaper"]) {
-                categoryImage = [UIImage imageNamed:@"C_W_Mixed"];
-            }
+            [array addObject:[UIImage imageNamed:@"C_BigRefuse"]];
         }
     }
     
-    return categoryImage;
+    return array;
 }
 
 - (NSInteger)weekdayOridinal:(NSDate *)date {
@@ -249,7 +245,7 @@
     
     NSDateFormatter* df = [[NSDateFormatter alloc] init];
     df.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en"];
-    NSString* weekDayStr = df.weekdaySymbols[comps.weekday-1];
+    NSString* weekDayStr = df.shortWeekdaySymbols[comps.weekday-1];
     cell.weekdayLabel.text = weekDayStr;
     if (comps.weekday == 7) {
         // Saturday
@@ -264,17 +260,33 @@
         cell.dayLabel.textColor = [UIColor whiteColor];
     }
     
-    cell.iconImageView.image = [self trashImage:date];
+    NSArray *array = [self trashImage:date];
+    if (array.count == 1) {
+        cell.iconImageView.image = array[0];
+    } else if (array.count == 2) {
+        cell.iconImageView.image = array[0];
+        cell.icon2ImageView.image = array[1];
+    }
     
     comps = [calendar components:NSCalendarUnitDay fromDate:date];
     NSString *dayStr = [NSString stringWithFormat:@"%ld", (long)comps.day];
     cell.dayLabel.text = dayStr;
     
     NSString *time = [self dateForString:date];
+    cell.alarmButton.hidden = YES;
     for (int i=0; i<_myAlarmDate.count; i++) {
-        if ([time isEqual:_myAlarmDate[i]]) {
-            cell.alarmTitleLabel.text = [_myAlarm[i] valueForKey:@"title"];
-            break;
+        if ([time isEqual:_myAlarmDate[i]] && [[_myAlarm[i] valueForKey:@"switch"]  isEqual: @"on"]) {
+            cell.alarmButton.hidden = NO;
+            
+            if (cell.alarmButton.tag == 0) {
+                int num = [_randomNumber getRandomNumber];
+                NSArray *time = [[_myAlarm[i] valueForKey:@"time"] componentsSeparatedByString:@" "];
+                NSString *message = [NSString stringWithFormat:@"%@ %@", [_myAlarm[i] valueForKey:@"title"], time[1]];
+                NSString *key = [NSString stringWithFormat:@"%d", num];
+                [_popTipMessageDic setObject:message forKey:key];
+                cell.alarmButton.tag = num;
+            }
+            [cell.alarmButton addTarget:self action:@selector(popTip:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
     
@@ -287,6 +299,31 @@
         return 110.0;
     }
     return 55.0;
+}
+
+- (void)popTip:(UIButton *)sender {
+    if (nil == self.roundRectButtonPopTipView) {
+        NSString *key = [NSString stringWithFormat:@"%ld", sender.tag];
+        self.roundRectButtonPopTipView = [[CMPopTipView alloc] initWithMessage:[_popTipMessageDic valueForKey:key]];
+        self.roundRectButtonPopTipView.delegate = self;
+        self.roundRectButtonPopTipView.backgroundColor = [UIColor blackColor];
+        self.roundRectButtonPopTipView.textColor = [UIColor whiteColor];
+        self.roundRectButtonPopTipView.has3DStyle = NO;
+        
+        UIButton *button = (UIButton *)sender;
+        [self.roundRectButtonPopTipView presentPointingAtView:button inView:self.view animated:YES];
+    }
+    else {
+        // Dismiss
+        [self.roundRectButtonPopTipView dismissAnimated:YES];
+        self.roundRectButtonPopTipView = nil;
+    }
+}
+
+#pragma mark CMPopTipViewDelegate methods
+- (void)popTipViewWasDismissedByUser:(CMPopTipView *)popTipView {
+    // User can tap CMPopTipView to dismiss it
+    self.roundRectButtonPopTipView = nil;
 }
 
 @end

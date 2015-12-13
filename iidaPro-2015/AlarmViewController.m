@@ -211,9 +211,9 @@
             cell.timeLabel.textColor = [UIColor whiteColor];
         } else {
             cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
-            cell.titleLabel.textColor = [UIColor lightGrayColor];
-            cell.dayLabel.textColor = [UIColor lightGrayColor];
-            cell.timeLabel.textColor = [UIColor lightGrayColor];
+            cell.titleLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
+            cell.dayLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
+            cell.timeLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
         }
         
         for(UIGestureRecognizer *gesture in [cell gestureRecognizers]) {
@@ -247,9 +247,9 @@
                 cell.timeLabel.textColor = [UIColor whiteColor];
             } else {
                 cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
-                cell.titleLabel.textColor = [UIColor lightGrayColor];
-                cell.dateLabel.textColor = [UIColor lightGrayColor];
-                cell.timeLabel.textColor = [UIColor lightGrayColor];
+                cell.titleLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
+                cell.dateLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
+                cell.timeLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
             }
             
             for(UIGestureRecognizer *gesture in [cell gestureRecognizers]) {

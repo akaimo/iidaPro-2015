@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "AdjustNSDate.h"
 #import "CMPopTipView.h"
+#import "RandomNumber.h"
 
 @interface DataViewController () <UITableViewDataSource, UITableViewDelegate, CMPopTipViewDelegate>
 @property (retain, nonatomic) UITableView *calendarTableView;
@@ -23,6 +24,8 @@
 @property (retain, nonatomic) NSArray *myAlarm;
 @property (retain, nonatomic) NSMutableArray *myAlarmDate;
 @property (retain, nonatomic) CMPopTipView *roundRectButtonPopTipView;
+@property (retain, nonatomic) NSMutableDictionary *popTipMessageDic;
+@property (retain, nonatomic) RandomNumber *randomNumber;
 
 @end
 
@@ -37,6 +40,7 @@
     _areaData = [NSDictionary dictionaryWithDictionary:[ud objectForKey:@"district"]];
     _myAlarm = [ud objectForKey:@"myAlarm"];
     _myAlarmDate = [NSMutableArray array];
+    _popTipMessageDic = [NSMutableDictionary dictionary];
     for (NSDictionary *dic in _myAlarm) {
         NSString *str = [dic valueForKey:@"time"];
         NSArray *ary = [str componentsSeparatedByString:@" "];
@@ -56,6 +60,9 @@
     
     UINib *nib = [UINib nibWithNibName:@"CalendarTableViewCell" bundle:nil];
     [_calendarTableView registerNib:nib forCellReuseIdentifier:@"Calendar"];
+    
+    _randomNumber = [[RandomNumber alloc] init];
+    [_randomNumber createRandomNumberArray];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -270,6 +277,15 @@
     for (int i=0; i<_myAlarmDate.count; i++) {
         if ([time isEqual:_myAlarmDate[i]]) {
             cell.alarmButton.hidden = NO;
+            
+            if (cell.alarmButton.tag == 0) {
+                int num = [_randomNumber getRandomNumber];
+                NSArray *time = [[_myAlarm[i] valueForKey:@"time"] componentsSeparatedByString:@" "];
+                NSString *message = [NSString stringWithFormat:@"%@ %@", [_myAlarm[i] valueForKey:@"title"], time[1]];
+                NSString *key = [NSString stringWithFormat:@"%d", num];
+                [_popTipMessageDic setObject:message forKey:key];
+                cell.alarmButton.tag = num;
+            }
             [cell.alarmButton addTarget:self action:@selector(popTip:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
@@ -287,7 +303,8 @@
 
 - (void)popTip:(UIButton *)sender {
     if (nil == self.roundRectButtonPopTipView) {
-        self.roundRectButtonPopTipView = [[CMPopTipView alloc] initWithMessage:@"My message"];
+        NSString *key = [NSString stringWithFormat:@"%ld", sender.tag];
+        self.roundRectButtonPopTipView = [[CMPopTipView alloc] initWithMessage:[_popTipMessageDic valueForKey:key]];
         self.roundRectButtonPopTipView.delegate = self;
         self.roundRectButtonPopTipView.backgroundColor = [UIColor blackColor];
         self.roundRectButtonPopTipView.textColor = [UIColor whiteColor];

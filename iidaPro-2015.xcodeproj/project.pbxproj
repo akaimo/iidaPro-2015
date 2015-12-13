@@ -47,6 +47,7 @@
 		99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */; };
 		99F7439A1BEB50BB00AF8195 /* AlarmPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */; };
 		99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */; };
+		99FEB67F1C1DB6F0007C352A /* RandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FEB67E1C1DB6F0007C352A /* RandomNumber.m */; };
 		FFB5FC4A92362B27A409D612 /* libPods-iidaPro-2015.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,8 @@
 		99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmPopUpView.m; sourceTree = "<group>"; };
 		99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
+		99FEB67D1C1DB6F0007C352A /* RandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomNumber.h; sourceTree = "<group>"; };
+		99FEB67E1C1DB6F0007C352A /* RandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomNumber.m; sourceTree = "<group>"; };
 		B724D6246FB52462BBC8C540 /* Pods-iidaPro-2015.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015.release.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015.release.xcconfig"; sourceTree = "<group>"; };
 		BEDB9DFAF44AABBF0346C543 /* Pods-iidaPro-2015Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015Tests/Pods-iidaPro-2015Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +237,8 @@
 				9976453C1BBEADCB007A5C78 /* CalendarViewController.m */,
 				996AE94C1C01F0F100A85464 /* DataViewController.h */,
 				996AE94D1C01F0F100A85464 /* DataViewController.m */,
+				99FEB67D1C1DB6F0007C352A /* RandomNumber.h */,
+				99FEB67E1C1DB6F0007C352A /* RandomNumber.m */,
 				99A86FEF1C05EDA900B979BA /* Cell */,
 			);
 			name = Calendar;
@@ -565,21 +570,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		ADC146F8F9CF61117CED231A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iidaPro-2015Tests/Pods-iidaPro-2015Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BB7130A464909E4C2CABF593 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -593,21 +583,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C2999DC14097C361A079E6CD /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DEFBDCEDC184DF27BF3C98A4 /* Copy Pods Resources */ = {
@@ -655,6 +630,7 @@
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				99EADFEA1C0868B900655BE6 /* CircleGradientLayer.m in Sources */,
 				99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */,
+				99FEB67F1C1DB6F0007C352A /* RandomNumber.m in Sources */,
 				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
 				991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */,

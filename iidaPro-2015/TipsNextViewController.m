@@ -16,12 +16,19 @@
 
 @implementation TipsNextViewController{
     NSInteger tipsImageNum;
+    NSString *tipsNo;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    tipsNo = nil;
+    tipsNo = [_tipsData valueForKey:@"id"];
+    //NSLog(@"%@",tipsNo);
     self.view.layer.contents = (id)[UIImage imageNamed:@"Base"].CGImage;
-    _TipsNextImage.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@", @"tips1"]];
+        _TipsNextImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",tipsNo]];
+    if(!_TipsNextImage.image){
+        _TipsNextImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", @"tips1"]];
+    }
     _TipsNextLabel.text = [_tipsData valueForKey:@"title"];
     _TipsNextText.text =[_tipsData valueForKey:@"detail"];
     _TipsNextLabel.textColor = [UIColor whiteColor];

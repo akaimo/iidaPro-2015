@@ -43,7 +43,7 @@
     UINib *nib = [UINib nibWithNibName:TipsCustomCellIdentifier bundle:nil];
     [_TipsTableView registerNib:nib forCellReuseIdentifier:@"title"];
     [self.DataSourceArray addObject:_DataSource];
-    _button1.enabled=NO;
+    _button1.enabled = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,22 +92,22 @@
 
 - (IBAction)TipsBottun:(UIButton *)sender {
     self.title=@"ルール";
-    _button1.enabled=NO;
-    _button2.enabled=YES;
-    _button3.enabled=YES;
-    _button4.enabled=YES;
-    NSPredicate *pred=[NSPredicate predicateWithFormat:@"genre = %@",@"ルール"];
-    _DataSource=[[TipsObject objectsWithPredicate:pred]sortedResultsUsingProperty:@"id" ascending:YES];
+    _button1.enabled = NO;
+    _button2.enabled = YES;
+    _button3.enabled = YES;
+    _button4.enabled = YES;
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"genre = %@",@"ルール"];
+    _DataSource = [[TipsObject objectsWithPredicate:pred]sortedResultsUsingProperty:@"id" ascending:YES];
     [self.TipsTableView reloadData];
     [self.TipsTableView scrollRectToVisible:CGRectMake(0,0,1,1)animated:YES];
 }
 
 - (IBAction)SecondTipsBottun:(UIButton *)sender {
     self.title=@"テクニック";
-    _button1.enabled=YES;
-    _button2.enabled=NO;
-    _button3.enabled=YES;
-    _button4.enabled=YES;
+    _button1.enabled = YES;
+    _button2.enabled = NO;
+    _button3.enabled = YES;
+    _button4.enabled = YES;
     NSPredicate *pred=[NSPredicate predicateWithFormat:@"genre = %@",@"テクニック"];
     _DataSource = [[TipsObject objectsWithPredicate:pred] sortedResultsUsingProperty:@"id" ascending:YES];
     [self.TipsTableView reloadData];
@@ -116,23 +116,23 @@
 
 - (IBAction)thirdTipsBottun:(UIButton *)sender {
     self.title=@"出来事";
-    _button1.enabled=YES;
-    _button2.enabled=YES;
-    _button3.enabled=NO;
-    _button4.enabled=YES;
-    NSPredicate *pred=[NSPredicate predicateWithFormat:@"genre = %@",@"出来事"];
+    _button1.enabled = YES;
+    _button2.enabled = YES;
+    _button3.enabled = NO;
+    _button4.enabled = YES;
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"genre = %@",@"出来事"];
     _DataSource = [[TipsObject objectsWithPredicate:pred] sortedResultsUsingProperty:@"id" ascending:YES];
     [self.TipsTableView reloadData];
     [self.TipsTableView scrollRectToVisible:CGRectMake(0,0,1,1)animated:YES];
 }
 
 - (IBAction)forthTipsBottun:(UIButton *)sender {
-    self.title=@"情報";
-    _button1.enabled=YES;
-    _button2.enabled=YES;
-    _button3.enabled=YES;
-    _button4.enabled=NO;
-    NSPredicate *pred=[NSPredicate predicateWithFormat:@"genre = %@",@"情報"];
+    self.title = @"情報";
+    _button1.enabled = YES;
+    _button2.enabled = YES;
+    _button3.enabled = YES;
+    _button4.enabled = NO;
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"genre = %@",@"情報"];
     _DataSource = [[TipsObject objectsWithPredicate:pred] sortedResultsUsingProperty:@"id" ascending:YES];
     [self.TipsTableView reloadData];
     [self.TipsTableView scrollRectToVisible:CGRectMake(0,0,1,1)animated:YES];

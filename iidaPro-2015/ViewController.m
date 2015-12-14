@@ -73,7 +73,6 @@ const CGFloat iconMargin = 20.0;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)changeWeatherThema:(weatherThema)thema {

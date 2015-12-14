@@ -14,14 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let categoryArray = ["普通ごみ1", "普通ごみ2", "びん・缶・ペットボトル", "ミックスペーパー", "プラスチック製容器包装", "小物金属"]
     let categoryDict = ["普通ごみ1":"normal_1",
-        "普通ごみ2":"normal_2",
-        "びん・缶・ペットボトル":"bottle",
-        "ミックスペーパー":"mixedPaper",
-        "プラスチック製容器包装":"plastic",
-        "小物金属":"bigRefuse_date"]
+                        "普通ごみ2":"normal_2",
+                        "びん・缶・ペットボトル":"bottle",
+                        "ミックスペーパー":"mixedPaper",
+                        "プラスチック製容器包装":"plastic",
+                        "小物金属":"bigRefuse_date"]
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        if self.isFirstRun() {
+            // realm synch
+        }
         
         return true
     }
@@ -48,5 +50,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func isFirstRun() -> Bool {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let _ = userDefaults.objectForKey("firstRunDate") {
+            return false
+        }
+        
+        userDefaults.setValue(NSDate(), forKey: "firstRunDate")
+        userDefaults.synchronize()
+        
+        return true
+    }
     
 }

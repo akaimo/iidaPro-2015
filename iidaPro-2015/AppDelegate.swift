@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         "小物金属":"bigRefuse_date"]
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // 高速化
+        let _ = UITextView()
+        
         // debug
 //        let appDomain = NSBundle.mainBundle().bundleIdentifier
 //        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)

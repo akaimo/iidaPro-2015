@@ -19,8 +19,8 @@ https://github.com/akaimo/iidaPro-2015-api
 - AFNetworking
   - https://github.com/AFNetworking/AFNetworking
 - Realm
-  - https://realm.io/jp/
--　CMPopTipView
+  - https://realm.io/jp/  
+- CMPopTipView
   - https://github.com/chrismiles/CMPopTipView
   
 ## 更新履歴

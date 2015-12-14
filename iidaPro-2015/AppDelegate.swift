@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         "小物金属":"bigRefuse_date"]
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // debug
+//        let appDomain = NSBundle.mainBundle().bundleIdentifier
+//        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+//        print(RLMRealmConfiguration.defaultConfiguration().path)
+        
         if self.isFirstRun() {
             let realm = RealmController()
             realm.firstSynch()
@@ -53,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    
+    private
     func isFirstRun() -> Bool {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         

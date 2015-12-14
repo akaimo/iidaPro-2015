@@ -22,7 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         if self.isFirstRun() {
-            // realm synch
+            let realm = RealmController()
+            realm.firstSynch()
+            
+            self.pushSettingView()
         }
         
         return true
@@ -61,6 +64,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userDefaults.synchronize()
         
         return true
+    }
+    
+    func pushSettingView() {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigation = storyboard.instantiateViewControllerWithIdentifier("Navigation") as! UINavigationController
+        let setting = storyboard.instantiateViewControllerWithIdentifier("Setting") as! SettingViewController
+        setting.isFirstRun = true
+        
+        navigation.pushViewController(setting, animated: false)
+        navigation.navigationBar.barTintColor = UIColor(red: 86/255.0, green: 96/255.0, blue: 133/255.0, alpha: 1.0)
+        navigation.navigationBar.tintColor = UIColor.whiteColor()
+        navigation.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        self.window?.rootViewController = navigation
+        self.window?.addSubview(navigation.view)
+        self.window?.makeKeyAndVisible()
     }
     
 }

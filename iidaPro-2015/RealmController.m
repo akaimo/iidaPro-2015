@@ -222,4 +222,36 @@
     }];
 }
 
+- (void)firstSynch {
+    // アラームの初期設定
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary *alarm = @{@"normal_1":@{@"time":@"08:00",
+                                          @"switch":@"off"},
+                            @"normal_2":@{@"time":@"08:00",
+                                          @"switch":@"off"},
+                            @"bottle":@{@"time":@"08:00",
+                                        @"switch":@"off"},
+                            @"mixedPaper":@{@"time":@"08:00",
+                                            @"switch":@"off"},
+                            @"plastic":@{@"time":@"08:00",
+                                         @"switch":@"off"},
+                            @"bigRefuse_date":@{@"time":@"08:00",
+                                                @"switch":@"off"}};
+    NSArray *myAlarm = @[@{@"title":@"マイアラーム",
+                           @"time":@"01/01 08:30",
+                           @"switch":@"off"}];
+    [ud setObject:alarm forKey:@"defaultAlarm"];
+    [ud setObject:myAlarm forKey:@"myAlarm"];
+    [ud synchronize];
+    
+    // メインスレッドでの地域情報の同期
+//    RealmController *rc = [[RealmController alloc] init];
+//    [rc districtTableMain];
+    [self districtTableMain];
+    
+    // サブスレッドでその他のDBを同期
+//    [rc otherTableBackground];
+    [self otherTableBackground];
+}
+
 @end

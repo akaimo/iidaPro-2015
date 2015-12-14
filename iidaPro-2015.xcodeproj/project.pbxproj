@@ -305,11 +305,11 @@
 				99EADFEC1C089B4900655BE6 /* Contact */,
 				9931E7881BFF5C1700BDB1E1 /* Setting */,
 				99EADFED1C089B5B00655BE6 /* Extra */,
+				99FEB6BA1C1EE644007C352A /* iidaPro-2015-Bridging-Header.h */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
 				998992941B33B6A5000B7FD2 /* LaunchScreen.xib */,
 				998992851B33B6A5000B7FD2 /* Supporting Files */,
-				99FEB6BA1C1EE644007C352A /* iidaPro-2015-Bridging-Header.h */,
 			);
 			path = "iidaPro-2015";
 			sourceTree = "<group>";

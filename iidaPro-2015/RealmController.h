@@ -14,5 +14,6 @@
 - (void)deleteTestTable;
 - (void)districtTableMain;
 - (void)otherTableBackground;
+- (void)firstSynch;
 
 @end

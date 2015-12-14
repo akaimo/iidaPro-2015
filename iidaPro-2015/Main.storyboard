@@ -143,21 +143,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C9P-In-6Od">
-                                        <rect key="frame" x="91" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="81" y="10" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="iQe-uD-tdK"/>
                                             <constraint firstAttribute="height" constant="40" id="lTC-sT-dUO"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d4Q-q9-dWB">
-                                        <rect key="frame" x="151" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="136" y="10" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="QhL-R6-T1s"/>
                                             <constraint firstAttribute="height" constant="40" id="sXk-WI-NcK"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PP6-XN-TzV">
-                                        <rect key="frame" x="211" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="191" y="10" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="1zW-g8-CAc"/>
                                             <constraint firstAttribute="width" constant="40" id="lYf-cN-ZmQ"/>
@@ -166,14 +166,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="d4Q-q9-dWB" firstAttribute="leading" secondItem="C9P-In-6Od" secondAttribute="trailing" constant="20" id="50z-1j-DnQ"/>
+                                    <constraint firstItem="d4Q-q9-dWB" firstAttribute="leading" secondItem="C9P-In-6Od" secondAttribute="trailing" constant="15" id="50z-1j-DnQ"/>
                                     <constraint firstItem="PP6-XN-TzV" firstAttribute="centerY" secondItem="iAq-MX-D4D" secondAttribute="centerY" id="Hno-W0-JjR"/>
                                     <constraint firstItem="7ZA-eG-F9N" firstAttribute="centerY" secondItem="iAq-MX-D4D" secondAttribute="centerY" id="Xb8-H5-Au7"/>
                                     <constraint firstItem="C9P-In-6Od" firstAttribute="centerY" secondItem="iAq-MX-D4D" secondAttribute="centerY" id="cHQ-X2-S0Y"/>
                                     <constraint firstItem="7ZA-eG-F9N" firstAttribute="leading" secondItem="iAq-MX-D4D" secondAttribute="leading" constant="20" id="cIY-wU-W1G"/>
                                     <constraint firstItem="d4Q-q9-dWB" firstAttribute="centerY" secondItem="iAq-MX-D4D" secondAttribute="centerY" id="eb8-Kb-XwP"/>
-                                    <constraint firstItem="PP6-XN-TzV" firstAttribute="leading" secondItem="d4Q-q9-dWB" secondAttribute="trailing" constant="20" id="reZ-ST-0rE"/>
-                                    <constraint firstItem="C9P-In-6Od" firstAttribute="leading" secondItem="7ZA-eG-F9N" secondAttribute="trailing" constant="20" id="uco-73-uaH"/>
+                                    <constraint firstItem="PP6-XN-TzV" firstAttribute="leading" secondItem="d4Q-q9-dWB" secondAttribute="trailing" constant="15" id="reZ-ST-0rE"/>
+                                    <constraint firstItem="C9P-In-6Od" firstAttribute="leading" secondItem="7ZA-eG-F9N" secondAttribute="trailing" constant="10" id="uco-73-uaH"/>
                                     <constraint firstAttribute="height" constant="60" id="y9t-xF-WUE"/>
                                 </constraints>
                             </view>

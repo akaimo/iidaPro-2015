@@ -197,6 +197,10 @@
             cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
         } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"粗大ごみ"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_BigRefuse"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"複数"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_What"];
+        } else if ([[_reSearchArray[indexPath.row] valueForKey:@"category"]  isEqual: @"収集しない"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_No"];
         } else {
             cell.trashImage.image = [UIImage imageNamed:@"S_What"];
         }
@@ -223,6 +227,10 @@
             cell.trashImage.image = [UIImage imageNamed:@"S_Can"];
         } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"粗大ごみ"]) {
             cell.trashImage.image = [UIImage imageNamed:@"S_BigRefuse"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"複数"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_What"];
+        } else if ([[_sectionArray[indexPath.section][indexPath.row] valueForKey:@"category"]  isEqual: @"収集しない"]) {
+            cell.trashImage.image = [UIImage imageNamed:@"S_No"];
         } else {
             cell.trashImage.image = [UIImage imageNamed:@"S_What"];
         }

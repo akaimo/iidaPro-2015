@@ -310,8 +310,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2sw-tj-MFh">
-                                <rect key="frame" x="0.0" y="75" width="600" height="30"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2sw-tj-MFh">
+                                <rect key="frame" x="0.0" y="75" width="600" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="250" constant="30" id="cVx-vD-YNh"/>
@@ -331,7 +331,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粗大ごみ受付センター" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ks-5p-bkO">
-                                <rect key="frame" x="0.0" y="130" width="600" height="45"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="76m-EK-RXL"/>
                                 </constraints>
@@ -339,8 +339,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vao-X6-RSh">
-                                <rect key="frame" x="0.0" y="185" width="600" height="60"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vao-X6-RSh">
+                                <rect key="frame" x="0.0" y="191" width="600" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="WwL-wA-qy6"/>
@@ -351,7 +351,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="川崎市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1u-25-JpS">
-                                <rect key="frame" x="0.0" y="270" width="600" height="45"/>
+                                <rect key="frame" x="0.0" y="276" width="600" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="7Wc-jz-Yzf"/>
                                 </constraints>
@@ -359,8 +359,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BFV-xI-ILg">
-                                <rect key="frame" x="0.0" y="325" width="600" height="90"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BFV-xI-ILg">
+                                <rect key="frame" x="0.0" y="331" width="600" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="1i8-KD-UpE"/>

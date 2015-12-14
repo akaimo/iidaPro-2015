@@ -301,6 +301,17 @@
     return 55.0;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.roundRectButtonPopTipView dismissAnimated:YES];
+    self.roundRectButtonPopTipView = nil;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.roundRectButtonPopTipView dismissAnimated:NO];
+    self.roundRectButtonPopTipView = nil;
+}
+
 - (void)popTip:(UIButton *)sender {
     if (nil == self.roundRectButtonPopTipView) {
         NSString *key = [NSString stringWithFormat:@"%ld", sender.tag];

@@ -32,6 +32,12 @@
     [self setupData];
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [_detailTextView setContentOffset:CGPointZero animated:NO];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -39,10 +45,13 @@
 
 - (void)setupData {
     _titleLabel.text = [_trashData valueForKey:@"title"];
-    // TODO: 実際のデータに置き換える
-    _genreImageView1.image = [self setGenreImage:[_trashData valueForKey:@"category"]];
-    _detailTextView.text = @"分解できるなら... \n hogehogehogehogehogehoge";
+    NSArray *array = [[_trashData valueForKey:@"allCategory"] componentsSeparatedByString:@"|"];    NSMutableArray *imageViewArray = [NSMutableArray arrayWithArray:@[_genreImageView1, _genreImageView2, _genreImageView3]];
+    for (int i=0; i<array.count; i++) {
+        [imageViewArray[i] setImage:[self setGenreImage:array[i]]];
+    }
+    _detailTextView.text = [_trashData valueForKey:@"info"];
     _detailTextView.textColor = [UIColor whiteColor];
+    _detailTextView.font = [UIFont systemFontOfSize:16];
 }
 
 - (UIImage *)setGenreImage:(NSString *)genre {
@@ -60,7 +69,9 @@
     } else if ([genre  isEqual: @"空き缶・ペットボトル"]) {
         img = [UIImage imageNamed:@"S_Can"];
     } else if ([genre  isEqual: @"粗大ごみ"]) {
-        img = [UIImage imageNamed:@"S_BigRefure"];
+        img = [UIImage imageNamed:@"S_BigRefuse"];
+    } else if ([genre  isEqual: @"収集しない"]) {
+        img = [UIImage imageNamed:@"S_No"];
     }
     
     return img;

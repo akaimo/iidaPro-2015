@@ -8,10 +8,10 @@
 
 #import "DataViewController.h"
 #import "CalendarTableViewCell.h"
-#import "AppDelegate.h"
 #import "AdjustNSDate.h"
 #import "CMPopTipView.h"
 #import "RandomNumber.h"
+#import "iidaPro_2015-Swift.h"
 
 @interface DataViewController () <UITableViewDataSource, UITableViewDelegate, CMPopTipViewDelegate>
 @property (retain, nonatomic) UITableView *calendarTableView;

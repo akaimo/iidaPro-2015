@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "AppDelegate.h"
 #import "TipsViewController.h"
 #import "SearchResultViewController.h"
 #import "CalendarViewController.h"
@@ -16,6 +15,7 @@
 #import "SettingViewController.h"
 #import "AdjustNSDate.h"
 #import "CircleGradientLayer.h"
+#import "iidaPro_2015-Swift.h"
 
 @interface ViewController () <UISearchBarDelegate>
 

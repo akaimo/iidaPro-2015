@@ -25,7 +25,6 @@
 		997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewController.m */; };
 		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
-		9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928A1B33B6A5000B7FD2 /* AppDelegate.m */; };
 		9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928D1B33B6A5000B7FD2 /* ViewController.m */; };
 		998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998992921B33B6A5000B7FD2 /* Images.xcassets */; };
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
@@ -100,8 +99,6 @@
 		99781C611B835D3C0083CC7D /* RealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmController.m; sourceTree = "<group>"; };
 		998992821B33B6A5000B7FD2 /* iidaPro-2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iidaPro-2015.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992861B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		998992891B33B6A5000B7FD2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9989928A1B33B6A5000B7FD2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9989928C1B33B6A5000B7FD2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9989928D1B33B6A5000B7FD2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		998992921B33B6A5000B7FD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -293,8 +290,6 @@
 		998992841B33B6A5000B7FD2 /* iidaPro-2015 */ = {
 			isa = PBXGroup;
 			children = (
-				998992891B33B6A5000B7FD2 /* AppDelegate.h */,
-				9989928A1B33B6A5000B7FD2 /* AppDelegate.m */,
 				99FEB6BB1C1EE644007C352A /* AppDelegate.swift */,
 				99EADFEB1C089B3800655BE6 /* Top */,
 				99781C591B8355540083CC7D /* Realm */,
@@ -648,7 +643,6 @@
 				99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
 				996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */,
-				9989928B1B33B6A5000B7FD2 /* AppDelegate.m in Sources */,
 				99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */,
 				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,
 				8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */,

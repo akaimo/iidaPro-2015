@@ -7,11 +7,11 @@
 //
 
 #import "AlarmViewController.h"
-#import "AppDelegate.h"
 #import "TrashAlarmCell.h"
 #import "noMyAlarmCell.h"
 #import "MyAlarmCell.h"
 #import "AlarmPopUpView.h"
+#import "iidaPro_2015-Swift.h"
 
 @interface AlarmViewController () <UITableViewDelegate, UITableViewDataSource, AlarmPopUpViewDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *alarmTableView;

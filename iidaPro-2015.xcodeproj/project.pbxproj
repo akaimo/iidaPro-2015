@@ -30,6 +30,8 @@
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
 		999A74591BF1C62000F25449 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 999A74581BF1C62000F25449 /* LocalNotificationManager.m */; };
+		99A036761C20370B00E7AA1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A036751C20370B00E7AA1C /* HomeViewController.swift */; };
+		99A036781C20451B00E7AA1C /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A036771C20451B00E7AA1C /* MenuCollectionViewCell.swift */; };
 		99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A408181BF232AD00FC0DDB /* AdjustNSDate.m */; };
 		99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */; };
 		99A86FEE1C05EDA400B979BA /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */; };
@@ -108,6 +110,8 @@
 		998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iidaPro_2015Tests.m; sourceTree = "<group>"; };
 		999A74571BF1C62000F25449 /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
 		999A74581BF1C62000F25449 /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
+		99A036751C20370B00E7AA1C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		99A036771C20451B00E7AA1C /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		99A408171BF232AD00FC0DDB /* AdjustNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustNSDate.h; sourceTree = "<group>"; };
 		99A408181BF232AD00FC0DDB /* AdjustNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustNSDate.m; sourceTree = "<group>"; };
 		99A86FEA1C05EDA400B979BA /* CalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTableViewCell.h; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 			children = (
 				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
 				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
+				99A036751C20370B00E7AA1C /* HomeViewController.swift */,
+				99A036771C20451B00E7AA1C /* MenuCollectionViewCell.swift */,
 				99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */,
 				99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */,
 			);
@@ -639,6 +645,7 @@
 				99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */,
 				99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */,
 				99FEB6BC1C1EE644007C352A /* AppDelegate.swift in Sources */,
+				99A036761C20370B00E7AA1C /* HomeViewController.swift in Sources */,
 				997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */,
 				99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
@@ -648,6 +655,7 @@
 				8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */,
 				997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */,
 				99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */,
+				99A036781C20451B00E7AA1C /* MenuCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

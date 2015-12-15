@@ -46,5 +46,17 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let oneSide = self.menuCollectionView.frame.height * 11/16
         return CGSizeMake(oneSide, oneSide)
     }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSizeMake(20.0, 0.0)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSizeMake(20.0, 0.0)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 20.0
+    }
 
 }

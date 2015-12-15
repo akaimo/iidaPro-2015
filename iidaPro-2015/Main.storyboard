@@ -77,28 +77,48 @@
                                     <outlet property="delegate" destination="qGn-Ev-s0d" id="7n4-sT-VFX"/>
                                 </connections>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OmS-Lf-IJn">
+                                <rect key="frame" x="110" y="20" width="381" height="381"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OmS-Lf-IJn" secondAttribute="height" id="xfp-fh-5AT"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="OmS-Lf-IJn" secondAttribute="bottom" id="000-FM-Ro7"/>
                             <constraint firstAttribute="trailing" secondItem="F95-r2-yiq" secondAttribute="trailing" id="7Ze-sZ-aeA"/>
                             <constraint firstAttribute="bottom" secondItem="F95-r2-yiq" secondAttribute="bottom" id="90d-Fa-apx"/>
                             <constraint firstAttribute="trailing" secondItem="nWJ-pS-qvR" secondAttribute="trailing" id="AX0-MK-oRu"/>
                             <constraint firstItem="nWJ-pS-qvR" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" multiplier="5:7" id="FaE-F1-CbZ"/>
+                            <constraint firstItem="OmS-Lf-IJn" firstAttribute="width" secondItem="gML-25-hBx" secondAttribute="width" multiplier="7:11" id="GCf-d3-kRb"/>
+                            <constraint firstItem="OmS-Lf-IJn" firstAttribute="centerY" secondItem="gML-25-hBx" secondAttribute="centerY" multiplier="0.7" id="HwH-S3-fAd"/>
                             <constraint firstAttribute="bottomMargin" secondItem="nWJ-pS-qvR" secondAttribute="bottom" multiplier="7:5" id="JdA-Jx-s35"/>
+                            <constraint firstItem="OmS-Lf-IJn" firstAttribute="top" secondItem="gML-25-hBx" secondAttribute="topMargin" id="M9I-zQ-j4z"/>
+                            <constraint firstItem="OmS-Lf-IJn" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" id="Yr6-30-U8G"/>
                             <constraint firstItem="F95-r2-yiq" firstAttribute="leading" secondItem="gML-25-hBx" secondAttribute="leading" id="akG-C3-XCi"/>
+                            <constraint firstItem="OmS-Lf-IJn" firstAttribute="leading" secondItem="gML-25-hBx" secondAttribute="leading" id="g9u-K0-Aud"/>
+                            <constraint firstItem="OmS-Lf-IJn" firstAttribute="centerX" secondItem="gML-25-hBx" secondAttribute="centerX" id="ggU-7f-Ehg"/>
                             <constraint firstItem="nWJ-pS-qvR" firstAttribute="leading" secondItem="gML-25-hBx" secondAttribute="leading" id="gy3-HW-DXp"/>
                             <constraint firstItem="nWJ-pS-qvR" firstAttribute="top" secondItem="gML-25-hBx" secondAttribute="top" id="kgI-59-SbO"/>
                             <constraint firstItem="F95-r2-yiq" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" multiplier="2:11" id="q80-Vq-3CB"/>
+                            <constraint firstItem="OmS-Lf-IJn" firstAttribute="top" secondItem="gML-25-hBx" secondAttribute="topMargin" id="uRR-9v-Lw9"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="JdA-Jx-s35"/>
+                                <exclude reference="000-FM-Ro7"/>
+                                <exclude reference="M9I-zQ-j4z"/>
+                                <exclude reference="Yr6-30-U8G"/>
+                                <exclude reference="g9u-K0-Aud"/>
+                                <exclude reference="uRR-9v-Lw9"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="colorView" destination="nWJ-pS-qvR" id="I1H-IO-B5j"/>
                         <outlet property="menuCollectionView" destination="F95-r2-yiq" id="GR5-fg-4Oh"/>
+                        <outlet property="trashImageView" destination="OmS-Lf-IJn" id="TwA-qy-Gpr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIq-mm-bR6" userLabel="First Responder" sceneMemberID="firstResponder"/>

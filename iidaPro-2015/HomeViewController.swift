@@ -11,16 +11,28 @@ import UIKit
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var menuCollectionView: UICollectionView!
+    @IBOutlet weak var trashImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeWeatherThema()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func changeWeatherThema() {
+        self.trashImageView.image = UIImage(named: "T_NoImage")
     }
     
 

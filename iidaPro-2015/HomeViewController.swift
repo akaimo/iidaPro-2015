@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var trashImageView: UIImageView!
     @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

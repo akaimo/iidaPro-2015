@@ -39,6 +39,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="429"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多摩区" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owo-Fb-tBX">
+                                <rect key="frame" x="0.0" y="42" width="600" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.010051519910000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="81X-O4-n3N">
                                 <rect key="frame" x="0.0" y="358" width="600" height="134"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -104,14 +111,18 @@
                             <constraint firstAttribute="bottomMargin" secondItem="nWJ-pS-qvR" secondAttribute="bottom" multiplier="7:5" id="JdA-Jx-s35"/>
                             <constraint firstItem="OmS-Lf-IJn" firstAttribute="top" secondItem="gML-25-hBx" secondAttribute="topMargin" id="M9I-zQ-j4z"/>
                             <constraint firstItem="81X-O4-n3N" firstAttribute="centerX" secondItem="gML-25-hBx" secondAttribute="centerX" id="ONP-DX-th2"/>
+                            <constraint firstAttribute="trailing" secondItem="owo-Fb-tBX" secondAttribute="trailing" id="OqS-Zm-6q7"/>
                             <constraint firstItem="81X-O4-n3N" firstAttribute="centerY" secondItem="gML-25-hBx" secondAttribute="centerY" multiplier="1.415" id="TGD-GT-BAW"/>
                             <constraint firstItem="OmS-Lf-IJn" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" id="Yr6-30-U8G"/>
                             <constraint firstItem="F95-r2-yiq" firstAttribute="leading" secondItem="gML-25-hBx" secondAttribute="leading" id="akG-C3-XCi"/>
                             <constraint firstItem="OmS-Lf-IJn" firstAttribute="leading" secondItem="gML-25-hBx" secondAttribute="leading" id="g9u-K0-Aud"/>
                             <constraint firstItem="OmS-Lf-IJn" firstAttribute="centerX" secondItem="gML-25-hBx" secondAttribute="centerX" id="ggU-7f-Ehg"/>
                             <constraint firstItem="nWJ-pS-qvR" firstAttribute="leading" secondItem="gML-25-hBx" secondAttribute="leading" id="gy3-HW-DXp"/>
+                            <constraint firstItem="owo-Fb-tBX" firstAttribute="centerY" secondItem="gML-25-hBx" secondAttribute="centerY" multiplier="0.205" id="ixl-9A-dwU"/>
                             <constraint firstItem="nWJ-pS-qvR" firstAttribute="top" secondItem="gML-25-hBx" secondAttribute="top" id="kgI-59-SbO"/>
                             <constraint firstItem="F95-r2-yiq" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" multiplier="2:11" id="q80-Vq-3CB"/>
+                            <constraint firstItem="owo-Fb-tBX" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" multiplier="1:15" id="qfD-rM-zD1"/>
+                            <constraint firstItem="owo-Fb-tBX" firstAttribute="leading" secondItem="gML-25-hBx" secondAttribute="leading" id="r0h-GQ-TFf"/>
                             <constraint firstItem="OmS-Lf-IJn" firstAttribute="top" secondItem="gML-25-hBx" secondAttribute="topMargin" id="uRR-9v-Lw9"/>
                         </constraints>
                         <variation key="default">
@@ -127,6 +138,7 @@
                     </view>
                     <connections>
                         <outlet property="colorView" destination="nWJ-pS-qvR" id="I1H-IO-B5j"/>
+                        <outlet property="locationLabel" destination="owo-Fb-tBX" id="Z8d-UI-mVu"/>
                         <outlet property="menuCollectionView" destination="F95-r2-yiq" id="GR5-fg-4Oh"/>
                         <outlet property="trashImageView" destination="OmS-Lf-IJn" id="TwA-qy-Gpr"/>
                         <outlet property="weatherImageView" destination="81X-O4-n3N" id="jYP-sh-xWc"/>

@@ -40,7 +40,7 @@
     CGColorSpaceRelease(colorSpace);
     
     CGPoint gradCenter= CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-    float gradRadius = MIN(self.bounds.size.width , self.bounds.size.height) ;
+    float gradRadius = MIN(self.bounds.size.width , self.bounds.size.height);
     
     switch (_thema) {
         case weatherThemaSunny: {

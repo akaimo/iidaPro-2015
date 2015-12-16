@@ -19,31 +19,41 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var eventLabel: UILabel!
+    
+    var weather: Weather = .Sunny
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         // TODO: 天気APIから取得
-        let weather = Weather.Rainy
-        self.changeWeatherThema(weather)
+        self.weather = Weather.Sunny
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.changeWeatherThema(self.weather)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     func changeWeatherThema(weather: Weather) {
         switch weather {
         case .Sunny:
-            print("suny")
+            let gradientLayer: CircleGradientLayer_swift = CircleGradientLayer_swift.init(weather: .Sunny)
+            gradientLayer.frame = self.colorView.bounds
+            self.colorView.layer.insertSublayer(gradientLayer, atIndex: 0)
+            
+            self.weatherImageView.image = UIImage(named: "Sunny")
+            self.menuCollectionView.backgroundColor = UIColor(red: 59/255.0, green: 110/255.0, blue: 212/255.0, alpha: 1.0)
+            
         case .Cloudy:
             print("cloudy")
         case .Rainy:

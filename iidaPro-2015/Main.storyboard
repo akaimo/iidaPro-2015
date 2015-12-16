@@ -36,18 +36,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWJ-pS-qvR">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="429"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多摩区" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owo-Fb-tBX">
                                 <rect key="frame" x="0.0" y="42" width="600" height="40"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年末年始のごみ収集日程のお知らせ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oke-tG-zO8">
                                 <rect key="frame" x="0.0" y="81" width="600" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="81X-O4-n3N">
@@ -108,7 +108,7 @@
                             <constraint firstItem="Oke-tG-zO8" firstAttribute="leading" secondItem="gML-25-hBx" secondAttribute="leading" id="CMj-yg-jQz"/>
                             <constraint firstItem="81X-O4-n3N" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" multiplier="1:4.5" id="Ev2-DB-Qcg"/>
                             <constraint firstAttribute="trailing" secondItem="Oke-tG-zO8" secondAttribute="trailing" id="FHW-yE-Z2q"/>
-                            <constraint firstItem="nWJ-pS-qvR" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" multiplier="5:7" id="FaE-F1-CbZ"/>
+                            <constraint firstItem="nWJ-pS-qvR" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" multiplier="8:10" id="FaE-F1-CbZ"/>
                             <constraint firstItem="OmS-Lf-IJn" firstAttribute="width" secondItem="gML-25-hBx" secondAttribute="width" multiplier="7:11" id="GCf-d3-kRb"/>
                             <constraint firstItem="OmS-Lf-IJn" firstAttribute="centerY" secondItem="gML-25-hBx" secondAttribute="centerY" multiplier="0.75" id="HwH-S3-fAd"/>
                             <constraint firstAttribute="trailing" secondItem="81X-O4-n3N" secondAttribute="trailing" id="Iy3-bj-CX2"/>

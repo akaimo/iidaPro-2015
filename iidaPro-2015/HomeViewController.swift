@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum Weather {
+    case Sunny, Rainy, Cloudy, Snowy
+}
+
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var menuCollectionView: UICollectionView!
@@ -25,7 +29,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeWeatherThema()
+        // TODO: 天気APIから取得
+        let weather = Weather.Rainy
+        self.changeWeatherThema(weather)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +40,27 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     
-    func changeWeatherThema() {
+    func changeWeatherThema(weather: Weather) {
+        switch weather {
+        case .Sunny:
+            print("suny")
+        case .Cloudy:
+            print("cloudy")
+        case .Rainy:
+            let gradient: CAGradientLayer = CAGradientLayer()
+            gradient.frame = self.colorView.bounds
+            gradient.colors = [
+                UIColor(red: 71/255.0, green: 117/255.0, blue: 192/255.0, alpha: 1.0).CGColor,
+                UIColor(red: 21/255.0, green: 39/255.0, blue: 69/255.0, alpha: 1.0).CGColor
+            ]
+            self.colorView.layer.insertSublayer(gradient, atIndex: 0)
+            
+            self.weatherImageView.image = UIImage(named: "Rainy")
+            self.menuCollectionView.backgroundColor = UIColor(red: 74/255.0, green: 144/255.0, blue: 226/255.0, alpha: 1.0)
+            
+        case .Snowy:
+            print("snowy")
+        }
         self.trashImageView.image = UIImage(named: "T_NoImage")
     }
     
@@ -52,7 +78,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell:MenuCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! MenuCollectionViewCell
         let str: String! = NSString(format: "Image-%d", indexPath.row) as String
         cell.menuImageView.image = UIImage(named: str)
-        cell.backgroundColor = UIColor.grayColor()
         return cell
     }
     

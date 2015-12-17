@@ -38,6 +38,7 @@
 		99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */; };
 		99C158021C1ABF9200DC527D /* GPSSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */; };
 		99C1732C1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */; };
+		99C1732E1C22BA29006C4ED9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732D1C22BA29006C4ED9 /* Weather.swift */; };
 		99EADFEA1C0868B900655BE6 /* CircleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */; };
 		99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
@@ -122,6 +123,7 @@
 		99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSSearchTableViewCell.m; sourceTree = "<group>"; };
 		99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSSearchTableViewCell.xib; sourceTree = "<group>"; };
 		99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGradientLayer_swift.swift; sourceTree = "<group>"; };
+		99C1732D1C22BA29006C4ED9 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGradientLayer.h; sourceTree = "<group>"; };
 		99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGradientLayer.m; sourceTree = "<group>"; };
 		99EADFEE1C0B220E00655BE6 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */,
 				99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */,
 				99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */,
+				99C1732D1C22BA29006C4ED9 /* Weather.swift */,
 			);
 			name = Top;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
 				996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */,
+				99C1732E1C22BA29006C4ED9 /* Weather.swift in Sources */,
 				99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */,
 				8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */,
 				8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */,

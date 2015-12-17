@@ -9,11 +9,10 @@
 import Foundation
 
 extension NSDate {
-    // 当日の曜日を日本語で取得
-    func nowWeekday() -> String {
-        let now = NSDate()
+    // 曜日を日本語で取得
+    func nowWeekday(date: NSDate) -> String {
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let comps = calendar.components(.Weekday, fromDate: now)
+        let comps = calendar.components(.Weekday, fromDate: date)
         
         let df = NSDateFormatter()
         df.locale = NSLocale(localeIdentifier: "ja_JP")

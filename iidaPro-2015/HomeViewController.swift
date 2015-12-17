@@ -85,7 +85,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func setTrashImage() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let weekDay = NSDate().nowWeekday()
+        let weekDay = NSDate().nowWeekday(NSDate())
         let weekdayOriginal = NSDate().weekdayOriginal(NSDate())
         var todayCategory: String = ""
         

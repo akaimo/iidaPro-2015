@@ -23,6 +23,15 @@ enum Weather {
             return UIColor.blackColor()
         }
     }
+    
+    func weatherImage() -> UIImage? {
+        switch self {
+        case .Sunny: return UIImage(named: "Sunny")
+        case .Cloudy: return UIImage(named: "Cloudy")
+        case .Rainy: return UIImage(named: "Rainy")
+        case .Snowy: return UIImage(named: "Snowy")
+        }
+    }
 }
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -33,7 +42,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var eventLabel: UILabel!
     
-    var weather: Weather = .Sunny
+    var weatherThema: Weather = .Sunny
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +52,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewWillAppear(animated)
         
         // TODO: 天気APIから取得
-        self.weather = Weather.Sunny
+        self.weatherThema = Weather.Rainy
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.changeWeatherThema(self.weather)
+        self.changeWeatherThema(self.weatherThema)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,19 +66,18 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     
+    // MARK: - Private methods
+    private
     func changeWeatherThema(weather: Weather) {
         self.menuCollectionView.backgroundColor = weather.menuColor()
+        self.weatherImageView.image = weather.weatherImage()
         
         switch weather {
-        case .Sunny:
-            let gradientLayer: CircleGradientLayer_swift = CircleGradientLayer_swift.init(weather: .Sunny)
+        case .Sunny, .Cloudy, .Snowy:
+            let gradientLayer: CircleGradientLayer_swift = CircleGradientLayer_swift.init(weather: weather)
             gradientLayer.frame = self.colorView.bounds
             self.colorView.layer.insertSublayer(gradientLayer, atIndex: 0)
             
-            self.weatherImageView.image = UIImage(named: "Sunny")
-            
-        case .Cloudy:
-            print("cloudy")
         case .Rainy:
             let gradient: CAGradientLayer = CAGradientLayer()
             gradient.frame = self.colorView.bounds
@@ -78,11 +86,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 UIColor(red: 21/255.0, green: 39/255.0, blue: 69/255.0, alpha: 1.0).CGColor
             ]
             self.colorView.layer.insertSublayer(gradient, atIndex: 0)
-            
-            self.weatherImageView.image = UIImage(named: "Rainy")
-            
-        case .Snowy:
-            print("snowy")
         }
         self.trashImageView.image = UIImage(named: "T_NoImage")
     }

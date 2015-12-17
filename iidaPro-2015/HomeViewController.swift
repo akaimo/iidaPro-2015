@@ -10,6 +10,19 @@ import UIKit
 
 enum Weather {
     case Sunny, Rainy, Cloudy, Snowy
+    
+    func menuColor() -> UIColor {
+        switch self {
+        case .Sunny:
+            return UIColor(red: 59/255.0, green: 110/255.0, blue: 212/255.0, alpha: 1.0)
+        case .Cloudy:
+            return UIColor(red: 97/255.0, green: 100/255.0, blue: 106/255.0, alpha: 1.0)
+        case .Rainy:
+            return UIColor(red: 74/255.0, green: 144/255.0, blue: 226/255.0, alpha: 1.0)
+        case .Snowy:
+            return UIColor.blackColor()
+        }
+    }
 }
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -45,6 +58,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     
     func changeWeatherThema(weather: Weather) {
+        self.menuCollectionView.backgroundColor = weather.menuColor()
+        
         switch weather {
         case .Sunny:
             let gradientLayer: CircleGradientLayer_swift = CircleGradientLayer_swift.init(weather: .Sunny)
@@ -52,7 +67,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.colorView.layer.insertSublayer(gradientLayer, atIndex: 0)
             
             self.weatherImageView.image = UIImage(named: "Sunny")
-            self.menuCollectionView.backgroundColor = UIColor(red: 59/255.0, green: 110/255.0, blue: 212/255.0, alpha: 1.0)
             
         case .Cloudy:
             print("cloudy")
@@ -66,7 +80,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.colorView.layer.insertSublayer(gradient, atIndex: 0)
             
             self.weatherImageView.image = UIImage(named: "Rainy")
-            self.menuCollectionView.backgroundColor = UIColor(red: 74/255.0, green: 144/255.0, blue: 226/255.0, alpha: 1.0)
             
         case .Snowy:
             print("snowy")

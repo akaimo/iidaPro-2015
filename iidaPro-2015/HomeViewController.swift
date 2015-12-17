@@ -32,6 +32,30 @@ enum Weather {
         case .Snowy: return UIImage(named: "Snowy")
         }
     }
+    
+    func gradColors() -> [CGFloat]? {
+        switch self {
+        case .Sunny:
+            let colors: [CGFloat] = [
+                0/255.0, 207/255.0, 239/255.0, 1.0,
+                68/255.0, 169/255.0, 243/255.0, 1.0
+            ]
+            return colors
+        case .Cloudy:
+            let colors: [CGFloat] = [
+                136/255.0, 141/255.0, 150/255.0, 1.0,
+                97/255.0, 100/255.0, 106/255.0, 1.0
+            ]
+            return colors
+        case .Rainy: return nil
+        case .Snowy:
+            let colors: [CGFloat] = [
+                37/255.0, 60/255.0, 99/255.0, 1.0,
+                3/255.0, 10/255.0, 21/255.0, 1.0
+            ]
+            return colors
+        }
+    }
 }
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -52,7 +76,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewWillAppear(animated)
         
         // TODO: 天気APIから取得
-        self.weatherThema = Weather.Rainy
+        self.weatherThema = Weather.Snowy
     }
     
     override func viewDidLayoutSubviews() {

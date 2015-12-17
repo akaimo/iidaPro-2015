@@ -32,22 +32,10 @@ class CircleGradientLayer_swift: CALayer {
         let colorSpace: CGColorSpaceRef? = CGColorSpaceCreateDeviceRGB()
         let gradCenter: CGPoint = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2)
         let gradRadius: CGFloat = min(self.bounds.size.width, self.bounds.size.height)
-        
-        switch weather {
-        case .Sunny:
-            let gradColors: [CGFloat] = [
-                0/255.0, 207/255.0, 239/255.0, 1.0,
-                68/255.0, 169/255.0, 243/255.0, 1.0
-            ]
-            let gradient: CGGradientRef? = CGGradientCreateWithColorComponents(colorSpace, gradColors, gradLocations, gradLocationsNum)
-            CGContextDrawRadialGradient(ctx, gradient, gradCenter, 0, gradCenter, gradRadius, CGGradientDrawingOptions.DrawsAfterEndLocation)
-            
-        case .Cloudy:
-            print("cloudy")
-        case .Rainy: break
-        case .Snowy:
-            print("snowy")
-        }
+        let gradColors = self.weather.gradColors()
+        guard let colors = gradColors else { return }
+        let gradient: CGGradientRef? = CGGradientCreateWithColorComponents(colorSpace, colors, gradLocations, gradLocationsNum)
+        CGContextDrawRadialGradient(ctx, gradient, gradCenter, 0, gradCenter, gradRadius, CGGradientDrawingOptions.DrawsAfterEndLocation)
     }
 
 }

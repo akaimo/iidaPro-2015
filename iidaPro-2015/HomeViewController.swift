@@ -75,8 +75,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        // TODO: 天気APIから取得
-        self.weatherThema = Weather.Snowy
+        self.fetchWeatherThema()
+        self.setLocation()
+        self.setEvent()
     }
     
     override func viewDidLayoutSubviews() {
@@ -112,6 +113,20 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.colorView.layer.insertSublayer(gradient, atIndex: 0)
         }
         self.trashImageView.image = UIImage(named: "T_NoImage")
+    }
+    
+    func setLocation() {
+        self.locationLabel.text = "多摩区"
+    }
+    
+    func setEvent() {
+        // TODO: set up from api server
+        self.eventLabel.text = "年末年始のごみ収集日程のお知らせ"
+    }
+    
+    func fetchWeatherThema() {
+        // TODO: 天気APIから取得
+        self.weatherThema = Weather.Snowy
     }
     
 

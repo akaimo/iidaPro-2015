@@ -17,9 +17,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var eventLabel: UILabel!
     
     var weatherThema: Weather = .Sunny
+    var areaData: [String:AnyObject]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let ud = NSUserDefaults.standardUserDefaults()
+        self.areaData = ud.objectForKey("district") as? [String:AnyObject]
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -28,6 +32,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.fetchWeatherThema()
         self.setLocation()
         self.setEvent()
+        self.setTrashImage()
     }
     
     override func viewDidLayoutSubviews() {
@@ -62,7 +67,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             ]
             self.colorView.layer.insertSublayer(gradient, atIndex: 0)
         }
-        self.trashImageView.image = UIImage(named: "T_NoImage")
     }
     
     func setLocation() {
@@ -76,7 +80,60 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func fetchWeatherThema() {
         // TODO: 天気APIから取得
-        self.weatherThema = Weather.Snowy
+        self.weatherThema = Weather.Sunny
+    }
+    
+    func setTrashImage() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let weekDay = NSDate().nowWeekday()
+        let weekdayOriginal = NSDate().weekdayOriginal(NSDate())
+        var todayCategory: String = ""
+        
+        guard let areaData = areaData else { return }
+        
+        for category in appDelegate.categoryArray_en {
+            guard let categoryDate = areaData[category] as? String else { continue }
+            
+            if weekDay == categoryDate {
+                todayCategory = category
+                break
+            }
+        }
+        
+        var image = UIImage(named: "T_NoImage")
+        switch todayCategory {
+        case "normal_1", "normal_2":
+            image = UIImage(named: "T_Normal")
+        case "bottle":
+            image = UIImage(named: "T_Can")
+        case "plastic":
+            image = UIImage(named: "T_Plastic")
+        case "mixedPaper":
+            image = UIImage(named: "T_Mixed")
+        case "bigRefuse_date":
+            if weekdayOriginal == areaData["bigRefuse_1"] as! Int || weekdayOriginal == areaData["bigRefuse_2"] as! Int {
+                image = UIImage(named: "T_BigRefuse")
+            }
+        default: break
+        }
+        
+        if todayCategory != "" && weekDay == areaData["bigRefuse_date"] as! String {
+            if weekdayOriginal == areaData["bigRefuse_1"] as! Int || weekdayOriginal == areaData["bigRefuse_2"] as! Int {
+                switch todayCategory {
+                case "normal_1", "normal_2":
+                    image = UIImage(named: "T_W_Normal")
+                case "bottle":
+                    image = UIImage(named: "T_W_Can")
+                case "plastic":
+                    image = UIImage(named: "T_W_Plastic")
+                case "mixedPaper":
+                    image = UIImage(named: "T_W_Mixed")
+                default: break
+                }
+            }
+        }
+        
+        self.trashImageView.image = image
     }
     
 
@@ -117,6 +174,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     // MARK: - UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // TODO: push next page
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
 }

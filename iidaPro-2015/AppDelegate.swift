@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     let categoryArray = ["普通ごみ1", "普通ごみ2", "びん・缶・ペットボトル", "ミックスペーパー", "プラスチック製容器包装", "小物金属"]
+    let categoryArray_en = ["normal_1", "normal_2", "bottle", "mixedPaper", "plastic", "bigRefuse_date"]
     let categoryDict = ["普通ごみ1":"normal_1",
                         "普通ごみ2":"normal_2",
                         "びん・缶・ペットボトル":"bottle",

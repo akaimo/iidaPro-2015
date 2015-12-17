@@ -29,12 +29,15 @@ class CircleGradientLayer_swift: CALayer {
     override func drawInContext(ctx: CGContext) {
         let gradLocationsNum: size_t = 2
         let gradLocations: [CGFloat] = [0.0, 1.0]
-        let colorSpace: CGColorSpaceRef? = CGColorSpaceCreateDeviceRGB()
-        let gradCenter: CGPoint = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2)
-        let gradRadius: CGFloat = min(self.bounds.size.width, self.bounds.size.height)
         let gradColors = self.weather.gradColors()
+        let colorSpace: CGColorSpaceRef? = CGColorSpaceCreateDeviceRGB()
+        
         guard let colors = gradColors else { return }
         let gradient: CGGradientRef? = CGGradientCreateWithColorComponents(colorSpace, colors, gradLocations, gradLocationsNum)
+        
+        let gradCenter: CGPoint = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2)
+        let gradRadius: CGFloat = min(self.bounds.size.width, self.bounds.size.height)
+        
         CGContextDrawRadialGradient(ctx, gradient, gradCenter, 0, gradCenter, gradRadius, CGGradientDrawingOptions.DrawsAfterEndLocation)
     }
 

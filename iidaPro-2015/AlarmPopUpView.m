@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "AlarmPopUpView.h"
-#import "AppDelegate.h"
+#import "iidaPro_2015-Swift.h"
 
 @interface AlarmPopUpView () <UITextFieldDelegate>
 @property (retain, nonatomic) UIView *popup;

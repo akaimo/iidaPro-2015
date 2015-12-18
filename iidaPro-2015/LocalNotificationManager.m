@@ -7,8 +7,8 @@
 //
 
 #import "LocalNotificationManager.h"
-#import "AppDelegate.h"
 #import "AdjustNSDate.h"
+#import "iidaPro_2015-Swift.h"
 
 @implementation LocalNotificationManager
 

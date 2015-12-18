@@ -25,7 +25,6 @@
 		997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewController.m */; };
 		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
-		9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9989928D1B33B6A5000B7FD2 /* ViewController.m */; };
 		998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998992921B33B6A5000B7FD2 /* Images.xcassets */; };
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
@@ -40,7 +39,6 @@
 		99C1732C1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */; };
 		99C1732E1C22BA29006C4ED9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732D1C22BA29006C4ED9 /* Weather.swift */; };
 		99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732F1C22E6D3006C4ED9 /* NSDateEx.swift */; };
-		99EADFEA1C0868B900655BE6 /* CircleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */; };
 		99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
 		99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */; };
@@ -104,8 +102,6 @@
 		99781C611B835D3C0083CC7D /* RealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmController.m; sourceTree = "<group>"; };
 		998992821B33B6A5000B7FD2 /* iidaPro-2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iidaPro-2015.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992861B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9989928C1B33B6A5000B7FD2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9989928D1B33B6A5000B7FD2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		998992921B33B6A5000B7FD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		998992951B33B6A5000B7FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9989929B1B33B6A5000B7FD2 /* iidaPro-2015Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iidaPro-2015Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,8 +122,6 @@
 		99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGradientLayer_swift.swift; sourceTree = "<group>"; };
 		99C1732D1C22BA29006C4ED9 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		99C1732F1C22E6D3006C4ED9 /* NSDateEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateEx.swift; sourceTree = "<group>"; };
-		99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleGradientLayer.h; sourceTree = "<group>"; };
-		99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleGradientLayer.m; sourceTree = "<group>"; };
 		99EADFEE1C0B220E00655BE6 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
 		99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDetailViewController.m; sourceTree = "<group>"; };
 		99F743881BEA3EFD00AF8195 /* TrashAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashAlarmCell.h; sourceTree = "<group>"; };
@@ -367,12 +361,8 @@
 		99EADFEB1C089B3800655BE6 /* Top */ = {
 			isa = PBXGroup;
 			children = (
-				9989928C1B33B6A5000B7FD2 /* ViewController.h */,
-				9989928D1B33B6A5000B7FD2 /* ViewController.m */,
 				99A036751C20370B00E7AA1C /* HomeViewController.swift */,
 				99A036771C20451B00E7AA1C /* MenuCollectionViewCell.swift */,
-				99EADFE81C0868B900655BE6 /* CircleGradientLayer.h */,
-				99EADFE91C0868B900655BE6 /* CircleGradientLayer.m */,
 				99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */,
 				99C1732D1C22BA29006C4ED9 /* Weather.swift */,
 			);
@@ -637,12 +627,10 @@
 			files = (
 				8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */,
 				999A74591BF1C62000F25449 /* LocalNotificationManager.m in Sources */,
-				9989928E1B33B6A5000B7FD2 /* ViewController.m in Sources */,
 				99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */,
 				9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */,
 				9931E7841BF7711600BDB1E1 /* District.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
-				99EADFEA1C0868B900655BE6 /* CircleGradientLayer.m in Sources */,
 				99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */,
 				99FEB67F1C1DB6F0007C352A /* RandomNumber.m in Sources */,
 				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,

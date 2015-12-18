@@ -22,13 +22,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ud = NSUserDefaults.standardUserDefaults()
-        self.areaData = ud.objectForKey("district") as? [String:AnyObject]
+        self.title  = "ホーム"
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.updateAreaData()
         self.fetchWeatherThema()
         self.setLocation()
         self.setEvent()
@@ -47,8 +47,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     
     // MARK: - Private methods
-    private
-    func changeWeatherThema(weather: Weather) {
+    private func changeWeatherThema(weather: Weather) {
         self.menuCollectionView.backgroundColor = weather.menuColor()
         self.weatherImageView.image = weather.weatherImage()
         
@@ -69,21 +68,26 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    func setLocation() {
+    private func setLocation() {
         self.locationLabel.text = "多摩区"
     }
     
-    func setEvent() {
+    private func setEvent() {
         // TODO: set up from api server
         self.eventLabel.text = "年末年始のごみ収集日程のお知らせ"
     }
     
-    func fetchWeatherThema() {
+    private func fetchWeatherThema() {
         // TODO: 天気APIから取得
         self.weatherThema = Weather.Sunny
     }
     
-    func setTrashImage() {
+    private func updateAreaData() {
+        let ud = NSUserDefaults.standardUserDefaults()
+        self.areaData = ud.objectForKey("district") as? [String:AnyObject]
+    }
+    
+    private func setTrashImage() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let weekDay = NSDate().nowWeekday(NSDate())
         let weekdayOriginal = NSDate().weekdayOriginal(NSDate())

@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var weatherThema: Weather = .Sunny
     var areaData: [String:AnyObject]?
 
+    // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,7 +70,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     private func setLocation() {
-        self.locationLabel.text = "多摩区"
+        guard let areaData = self.areaData else { return }
+        self.locationLabel.text = areaData["area"] as? String ?? "NoArea"
     }
     
     private func setEvent() {

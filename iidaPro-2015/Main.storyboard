@@ -92,7 +92,7 @@
                                 </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OmS-Lf-IJn">
-                                <rect key="frame" x="110" y="35" width="381" height="381"/>
+                                <rect key="frame" x="110" y="44" width="381" height="381"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OmS-Lf-IJn" secondAttribute="height" id="xfp-fh-5AT"/>
                                 </constraints>
@@ -110,7 +110,7 @@
                             <constraint firstAttribute="trailing" secondItem="Oke-tG-zO8" secondAttribute="trailing" id="FHW-yE-Z2q"/>
                             <constraint firstItem="nWJ-pS-qvR" firstAttribute="height" secondItem="gML-25-hBx" secondAttribute="height" multiplier="8:10" id="FaE-F1-CbZ"/>
                             <constraint firstItem="OmS-Lf-IJn" firstAttribute="width" secondItem="gML-25-hBx" secondAttribute="width" multiplier="7:11" id="GCf-d3-kRb"/>
-                            <constraint firstItem="OmS-Lf-IJn" firstAttribute="centerY" secondItem="gML-25-hBx" secondAttribute="centerY" multiplier="0.75" id="HwH-S3-fAd"/>
+                            <constraint firstItem="OmS-Lf-IJn" firstAttribute="centerY" secondItem="gML-25-hBx" secondAttribute="centerY" multiplier="0.78" id="HwH-S3-fAd"/>
                             <constraint firstAttribute="trailing" secondItem="81X-O4-n3N" secondAttribute="trailing" id="Iy3-bj-CX2"/>
                             <constraint firstAttribute="bottomMargin" secondItem="nWJ-pS-qvR" secondAttribute="bottom" multiplier="7:5" id="JdA-Jx-s35"/>
                             <constraint firstItem="OmS-Lf-IJn" firstAttribute="top" secondItem="gML-25-hBx" secondAttribute="topMargin" id="M9I-zQ-j4z"/>

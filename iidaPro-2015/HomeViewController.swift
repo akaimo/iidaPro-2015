@@ -29,6 +29,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         self.updateAreaData()
         self.fetchWeatherThema()
         self.setLocation()
@@ -179,8 +181,21 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // MARK: - UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        // TODO: push next page
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        var vc: UIViewController?
+        
+        switch indexPath.row {
+        case 0: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Search") as! SearchResultViewController
+        case 1: vc = self.storyboard?.instantiateViewControllerWithIdentifier("tips") as! TipsViewController
+        case 2: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Calendar") as! CalendarViewController
+        case 3: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Alarm") as! AlarmViewController
+        case 4: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Contact") as! ContactViewController
+        case 5: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Setting") as! SettingViewController
+        default: break
+        }
+        
+        if let vc = vc {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
 }

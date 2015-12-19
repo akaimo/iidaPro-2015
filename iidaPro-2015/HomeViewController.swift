@@ -83,7 +83,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     private func fetchWeatherThema() {
         // TODO: 天気APIから取得
-        self.weatherThema = Weather.Cloudy
+        self.weatherThema = Weather.Sunny
     }
     
     private func updateAreaData() {

@@ -9,10 +9,26 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="pmC-jo-MDA">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pmC-jo-MDA" secondAttribute="trailing" id="2Pl-HV-51r"/>
+                <constraint firstItem="pmC-jo-MDA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HLy-TF-FuR"/>
+                <constraint firstItem="pmC-jo-MDA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NXv-HT-pJR"/>
+                <constraint firstItem="pmC-jo-MDA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ohy-zV-Fkb"/>
+                <constraint firstItem="pmC-jo-MDA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Uuv-Hw-ToE"/>
+                <constraint firstAttribute="bottom" secondItem="pmC-jo-MDA" secondAttribute="bottom" id="y1F-do-WzA"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="Launch" width="1173" height="2086"/>
+    </resources>
 </document>

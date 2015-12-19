@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,7 +16,6 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="INJ-7m-aqf">
                         <rect key="frame" x="8" y="10" width="34" height="34"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="34" id="0YF-O7-4hy"/>
                             <constraint firstAttribute="width" constant="34" id="cfQ-jl-sUj"/>
@@ -24,21 +23,18 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8m-DL-drf">
                         <rect key="frame" x="50" y="18" width="226" height="18"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="29f-yt-CAd">
                         <rect key="frame" x="286" y="14" width="26" height="26"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="26" id="EFI-gO-9ah"/>
                             <constraint firstAttribute="height" constant="26" id="KXJ-kL-zSk"/>
                         </constraints>
                     </imageView>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="INJ-7m-aqf" secondAttribute="centerY" id="8LR-wt-ntb"/>
                     <constraint firstItem="29f-yt-CAd" firstAttribute="leading" secondItem="j8m-DL-drf" secondAttribute="trailing" constant="10" id="FRW-dO-AKg"/>
@@ -49,7 +45,6 @@
                     <constraint firstAttribute="centerY" secondItem="j8m-DL-drf" secondAttribute="centerY" id="got-HW-cUm"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="knowledgeImage" destination="29f-yt-CAd" id="9U5-Cf-kVe"/>
                 <outlet property="trashImage" destination="INJ-7m-aqf" id="kta-v0-Gtc"/>

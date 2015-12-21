@@ -16,13 +16,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var eventLabel: UILabel!
     
-    var weatherThema: Weather = .Sunny
-    var areaData: [String:AnyObject]?
+    var homeModel: HomeModel!
 
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.homeModel = HomeModel()
         self.title  = "ホーム"
     }
     
@@ -31,8 +31,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        self.updateAreaData()
-        self.fetchWeatherThema()
+        self.homeModel.updateAreaData()
+        
         self.setLocation()
         self.setEvent()
         self.setTrashImage()
@@ -41,7 +41,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.changeWeatherThema(self.weatherThema)
+        self.homeModel.fetchWeatherThema()
+        self.changeWeatherThema(self.homeModel.weatherThema)
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +73,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     private func setLocation() {
-        guard let areaData = self.areaData else { return }
+        guard let areaData = self.homeModel.areaData else { return }
         self.locationLabel.text = areaData["area"] as? String ?? "NoArea"
     }
     
@@ -81,23 +82,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.eventLabel.text = "年末年始のごみ収集日程のお知らせ"
     }
     
-    private func fetchWeatherThema() {
-        // TODO: 天気APIから取得
-        self.weatherThema = Weather.Sunny
-    }
-    
-    private func updateAreaData() {
-        let ud = NSUserDefaults.standardUserDefaults()
-        self.areaData = ud.objectForKey("district") as? [String:AnyObject]
-    }
-    
     private func setTrashImage() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let weekDay = NSDate().nowWeekday(NSDate())
         let weekdayOriginal = NSDate().weekdayOriginal(NSDate())
         var todayCategory: String = ""
         
-        guard let areaData = areaData else { return }
+        guard let areaData = self.homeModel.areaData else { return }
         
         for category in appDelegate.categoryArray_en {
             guard let categoryDate = areaData[category] as? String else { continue }

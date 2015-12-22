@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var trashImageView: UIImageView!
@@ -23,6 +23,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         
         self.homeModel = HomeModel()
+        self.homeModel.delegate = self
+        
         self.title  = "ホーム"
     }
     
@@ -33,7 +35,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         self.homeModel.updateAreaData()
         
-        self.setLocation()
         self.setEvent()
         self.setTrashImage()
     }
@@ -72,9 +73,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    private func setLocation() {
-        guard let areaData = self.homeModel.areaData else { return }
-        self.locationLabel.text = areaData["area"] as? String ?? "NoArea"
+    func setLocation(location: String) {
+        self.locationLabel.text = location
     }
     
     private func setEvent() {

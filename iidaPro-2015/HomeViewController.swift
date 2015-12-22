@@ -42,7 +42,6 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
         super.viewDidLayoutSubviews()
         
         self.homeModel.fetchWeatherThema()
-        self.changeWeatherThema(self.homeModel.weatherThema)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +50,22 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
     
     
     // MARK: - Private methods
-    private func changeWeatherThema(weather: Weather) {
+    private func setEvent() {
+        // TODO: set up from api server
+        self.eventLabel.text = "年末年始のごみ収集日程のお知らせ"
+    }
+    
+    
+    // MARK: - HomeModelDelegate
+    func setLocation(location: String) {
+        self.locationLabel.text = location
+    }
+    
+    func setTrashImage(image: UIImage?) {
+        self.trashImageView.image = image
+    }
+    
+    func changeWeatherThema(weather: Weather) {
         self.menuCollectionView.backgroundColor = weather.menuColor()
         self.weatherImageView.image = weather.weatherImage()
         
@@ -70,21 +84,6 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
             ]
             self.colorView.layer.insertSublayer(gradient, atIndex: 0)
         }
-    }
-    
-    private func setEvent() {
-        // TODO: set up from api server
-        self.eventLabel.text = "年末年始のごみ収集日程のお知らせ"
-    }
-    
-    
-    // MARK: - HomeModelDelegate
-    func setLocation(location: String) {
-        self.locationLabel.text = location
-    }
-    
-    func setTrashImage(image: UIImage?) {
-        self.trashImageView.image = image
     }
     
 

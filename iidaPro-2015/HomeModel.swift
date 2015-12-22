@@ -11,6 +11,7 @@ import UIKit
 protocol HomeModelDelegate {
     func setLocation(location: String)
     func setTrashImage(image: UIImage?)
+    func changeWeatherThema(weather: Weather)
 }
 
 class HomeModel: NSObject {
@@ -38,6 +39,8 @@ class HomeModel: NSObject {
     func fetchWeatherThema() {
         // TODO: 天気APIから取得
         self.weatherThema = Weather.Sunny
+        
+        self.delegate?.changeWeatherThema(self.weatherThema)
     }
     
     

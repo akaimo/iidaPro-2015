@@ -25,6 +25,7 @@
 		997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewController.m */; };
 		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
+		99801E581C28173C00D46A8B /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99801E571C28173C00D46A8B /* HomeModel.swift */; };
 		998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998992921B33B6A5000B7FD2 /* Images.xcassets */; };
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
@@ -100,6 +101,7 @@
 		997645451BBEB1C9007A5C78 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		99781C601B835D3C0083CC7D /* RealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmController.h; sourceTree = "<group>"; };
 		99781C611B835D3C0083CC7D /* RealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmController.m; sourceTree = "<group>"; };
+		99801E571C28173C00D46A8B /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		998992821B33B6A5000B7FD2 /* iidaPro-2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iidaPro-2015.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992861B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		998992921B33B6A5000B7FD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -271,6 +273,24 @@
 			name = Realm;
 			sourceTree = "<group>";
 		};
+		99801E521C27FA3A00D46A8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99C1732D1C22BA29006C4ED9 /* Weather.swift */,
+				99801E571C28173C00D46A8B /* HomeModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		99801E541C2816C600D46A8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				99A036771C20451B00E7AA1C /* MenuCollectionViewCell.swift */,
+				99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		998992791B33B6A5000B7FD2 = {
 			isa = PBXGroup;
 			children = (
@@ -296,7 +316,6 @@
 			children = (
 				99FEB6BB1C1EE644007C352A /* AppDelegate.swift */,
 				99EADFEB1C089B3800655BE6 /* Top */,
-				99781C591B8355540083CC7D /* Realm */,
 				991998021B88A239005DD65F /* Search */,
 				8B7F9CCD1B4B8711008A825F /* tips */,
 				996AE94F1C01F15100A85464 /* Calendar */,
@@ -304,6 +323,7 @@
 				99EADFEC1C089B4900655BE6 /* Contact */,
 				9931E7881BFF5C1700BDB1E1 /* Setting */,
 				99EADFED1C089B5B00655BE6 /* Extra */,
+				99781C591B8355540083CC7D /* Realm */,
 				99FEB6BA1C1EE644007C352A /* iidaPro-2015-Bridging-Header.h */,
 				8B18F1851B467B5A0060BF02 /* Main.storyboard */,
 				998992921B33B6A5000B7FD2 /* Images.xcassets */,
@@ -362,9 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				99A036751C20370B00E7AA1C /* HomeViewController.swift */,
-				99A036771C20451B00E7AA1C /* MenuCollectionViewCell.swift */,
-				99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */,
-				99C1732D1C22BA29006C4ED9 /* Weather.swift */,
+				99801E541C2816C600D46A8B /* View */,
+				99801E521C27FA3A00D46A8B /* Model */,
 			);
 			name = Top;
 			sourceTree = "<group>";
@@ -629,6 +648,7 @@
 				999A74591BF1C62000F25449 /* LocalNotificationManager.m in Sources */,
 				99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */,
 				9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */,
+				99801E581C28173C00D46A8B /* HomeModel.swift in Sources */,
 				9931E7841BF7711600BDB1E1 /* District.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */,

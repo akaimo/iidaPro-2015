@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var trashImageView: UIImageView!
@@ -16,12 +16,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var eventLabel: UILabel!
     
-    var weatherThema: Weather = .Sunny
-    var areaData: [String:AnyObject]?
+    var homeModel: HomeModel!
 
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.homeModel = HomeModel()
+        self.homeModel.delegate = self
         
         self.title  = "ホーム"
     }
@@ -31,17 +33,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        self.updateAreaData()
-        self.fetchWeatherThema()
-        self.setLocation()
-        self.setEvent()
-        self.setTrashImage()
+        self.homeModel.updateAreaData()
+        self.homeModel.fetchEvent()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.changeWeatherThema(self.weatherThema)
+        self.homeModel.fetchWeatherThema()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,8 +48,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     
-    // MARK: - Private methods
-    private func changeWeatherThema(weather: Weather) {
+    // MARK: - HomeModelDelegate
+    func setLocation(location: String) {
+        self.locationLabel.text = location
+    }
+    
+    func setTrashImage(image: UIImage?) {
+        self.trashImageView.image = image
+    }
+    
+    func changeWeatherThema(weather: Weather) {
         self.menuCollectionView.backgroundColor = weather.menuColor()
         self.weatherImageView.image = weather.weatherImage()
         
@@ -71,77 +78,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    private func setLocation() {
-        guard let areaData = self.areaData else { return }
-        self.locationLabel.text = areaData["area"] as? String ?? "NoArea"
-    }
-    
-    private func setEvent() {
-        // TODO: set up from api server
-        self.eventLabel.text = "年末年始のごみ収集日程のお知らせ"
-    }
-    
-    private func fetchWeatherThema() {
-        // TODO: 天気APIから取得
-        self.weatherThema = Weather.Sunny
-    }
-    
-    private func updateAreaData() {
-        let ud = NSUserDefaults.standardUserDefaults()
-        self.areaData = ud.objectForKey("district") as? [String:AnyObject]
-    }
-    
-    private func setTrashImage() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let weekDay = NSDate().nowWeekday(NSDate())
-        let weekdayOriginal = NSDate().weekdayOriginal(NSDate())
-        var todayCategory: String = ""
-        
-        guard let areaData = areaData else { return }
-        
-        for category in appDelegate.categoryArray_en {
-            guard let categoryDate = areaData[category] as? String else { continue }
-            
-            if weekDay == categoryDate {
-                todayCategory = category
-                break
-            }
-        }
-        
-        var image = UIImage(named: "T_NoImage")
-        switch todayCategory {
-        case "normal_1", "normal_2":
-            image = UIImage(named: "T_Normal")
-        case "bottle":
-            image = UIImage(named: "T_Can")
-        case "plastic":
-            image = UIImage(named: "T_Plastic")
-        case "mixedPaper":
-            image = UIImage(named: "T_Mixed")
-        case "bigRefuse_date":
-            if weekdayOriginal == areaData["bigRefuse_1"] as! Int || weekdayOriginal == areaData["bigRefuse_2"] as! Int {
-                image = UIImage(named: "T_BigRefuse")
-            }
-        default: break
-        }
-        
-        if todayCategory != "" && weekDay == areaData["bigRefuse_date"] as! String {
-            if weekdayOriginal == areaData["bigRefuse_1"] as! Int || weekdayOriginal == areaData["bigRefuse_2"] as! Int {
-                switch todayCategory {
-                case "normal_1", "normal_2":
-                    image = UIImage(named: "T_W_Normal")
-                case "bottle":
-                    image = UIImage(named: "T_W_Can")
-                case "plastic":
-                    image = UIImage(named: "T_W_Plastic")
-                case "mixedPaper":
-                    image = UIImage(named: "T_W_Mixed")
-                default: break
-                }
-            }
-        }
-        
-        self.trashImageView.image = image
+    func setEvent(title: String, url: String) {
+        self.eventLabel.text = title
     }
     
 

@@ -36,7 +36,6 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
         self.homeModel.updateAreaData()
         
         self.setEvent()
-        self.setTrashImage()
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,65 +72,18 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
         }
     }
     
-    func setLocation(location: String) {
-        self.locationLabel.text = location
-    }
-    
     private func setEvent() {
         // TODO: set up from api server
         self.eventLabel.text = "年末年始のごみ収集日程のお知らせ"
     }
     
-    private func setTrashImage() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let weekDay = NSDate().nowWeekday(NSDate())
-        let weekdayOriginal = NSDate().weekdayOriginal(NSDate())
-        var todayCategory: String = ""
-        
-        guard let areaData = self.homeModel.areaData else { return }
-        
-        for category in appDelegate.categoryArray_en {
-            guard let categoryDate = areaData[category] as? String else { continue }
-            
-            if weekDay == categoryDate {
-                todayCategory = category
-                break
-            }
-        }
-        
-        var image = UIImage(named: "T_NoImage")
-        switch todayCategory {
-        case "normal_1", "normal_2":
-            image = UIImage(named: "T_Normal")
-        case "bottle":
-            image = UIImage(named: "T_Can")
-        case "plastic":
-            image = UIImage(named: "T_Plastic")
-        case "mixedPaper":
-            image = UIImage(named: "T_Mixed")
-        case "bigRefuse_date":
-            if weekdayOriginal == areaData["bigRefuse_1"] as! Int || weekdayOriginal == areaData["bigRefuse_2"] as! Int {
-                image = UIImage(named: "T_BigRefuse")
-            }
-        default: break
-        }
-        
-        if todayCategory != "" && weekDay == areaData["bigRefuse_date"] as! String {
-            if weekdayOriginal == areaData["bigRefuse_1"] as! Int || weekdayOriginal == areaData["bigRefuse_2"] as! Int {
-                switch todayCategory {
-                case "normal_1", "normal_2":
-                    image = UIImage(named: "T_W_Normal")
-                case "bottle":
-                    image = UIImage(named: "T_W_Can")
-                case "plastic":
-                    image = UIImage(named: "T_W_Plastic")
-                case "mixedPaper":
-                    image = UIImage(named: "T_W_Mixed")
-                default: break
-                }
-            }
-        }
-        
+    
+    // MARK: - HomeModelDelegate
+    func setLocation(location: String) {
+        self.locationLabel.text = location
+    }
+    
+    func setTrashImage(image: UIImage?) {
         self.trashImageView.image = image
     }
     

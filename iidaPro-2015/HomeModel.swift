@@ -12,6 +12,7 @@ protocol HomeModelDelegate {
     func setLocation(location: String)
     func setTrashImage(image: UIImage?)
     func changeWeatherThema(weather: Weather)
+    func setEvent(title: String, url: String)
 }
 
 class HomeModel: NSObject {
@@ -20,6 +21,8 @@ class HomeModel: NSObject {
     
     var weatherThema: Weather
     var areaData: [String:AnyObject]?
+    var eventTitle: String?
+    var eventURL: String?
     
     override init() {
         self.weatherThema = .Sunny
@@ -41,6 +44,16 @@ class HomeModel: NSObject {
         self.weatherThema = Weather.Sunny
         
         self.delegate?.changeWeatherThema(self.weatherThema)
+    }
+    
+    func fetchEvent() {
+        // TODO: APIから取得
+        self.eventTitle = "年末年始のごみ収集日程のお知らせ"
+        self.eventURL = ""
+        
+        if let title = self.eventTitle, url = self.eventURL {
+            self.delegate?.setEvent(title, url: url)
+        }
     }
     
     

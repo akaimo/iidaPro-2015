@@ -34,8 +34,7 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         self.homeModel.updateAreaData()
-        
-        self.setEvent()
+        self.homeModel.fetchEvent()
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,13 +45,6 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    
-    // MARK: - Private methods
-    private func setEvent() {
-        // TODO: set up from api server
-        self.eventLabel.text = "年末年始のごみ収集日程のお知らせ"
     }
     
     
@@ -84,6 +76,10 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
             ]
             self.colorView.layer.insertSublayer(gradient, atIndex: 0)
         }
+    }
+    
+    func setEvent(title: String, url: String) {
+        self.eventLabel.text = title
     }
     
 

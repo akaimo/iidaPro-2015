@@ -26,6 +26,7 @@
 		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
 		99801E581C28173C00D46A8B /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99801E571C28173C00D46A8B /* HomeModel.swift */; };
+		99801E601C2A607B00D46A8B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99801E5F1C2A607B00D46A8B /* SearchViewController.swift */; };
 		998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998992921B33B6A5000B7FD2 /* Images.xcassets */; };
 		998992961B33B6A5000B7FD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998992941B33B6A5000B7FD2 /* LaunchScreen.xib */; };
 		998992A21B33B6A5000B7FD2 /* iidaPro_2015Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 998992A11B33B6A5000B7FD2 /* iidaPro_2015Tests.m */; };
@@ -102,6 +103,7 @@
 		99781C601B835D3C0083CC7D /* RealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmController.h; sourceTree = "<group>"; };
 		99781C611B835D3C0083CC7D /* RealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmController.m; sourceTree = "<group>"; };
 		99801E571C28173C00D46A8B /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		99801E5F1C2A607B00D46A8B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		998992821B33B6A5000B7FD2 /* iidaPro-2015.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iidaPro-2015.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		998992861B33B6A5000B7FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		998992921B33B6A5000B7FD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */,
 				99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */,
+				99801E5F1C2A607B00D46A8B /* SearchViewController.swift */,
 				99EADFEE1C0B220E00655BE6 /* SearchDetailViewController.h */,
 				99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */,
 				9976453A1BBE8C3E007A5C78 /* Cell */,
@@ -656,6 +659,7 @@
 				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
 				991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */,
+				99801E601C2A607B00D46A8B /* SearchViewController.swift in Sources */,
 				99F7439A1BEB50BB00AF8195 /* AlarmPopUpView.m in Sources */,
 				9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */,
 				99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */,

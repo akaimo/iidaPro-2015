@@ -23,6 +23,45 @@
             </objects>
             <point key="canvasLocation" x="556" y="224"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="E7y-2e-UKz">
+            <objects>
+                <viewController storyboardIdentifier="Search" id="zS7-3Z-RqE" customClass="SearchViewController" customModule="iidaPro_2015" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gwF-DP-fMa"/>
+                        <viewControllerLayoutGuide type="bottom" id="ugH-Ub-Tc7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Se2-eU-kkX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KcB-U7-DWO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KcB-U7-DWO" firstAttribute="top" secondItem="gwF-DP-fMa" secondAttribute="bottom" id="2c2-54-2Uc"/>
+                            <constraint firstAttribute="trailing" secondItem="KcB-U7-DWO" secondAttribute="trailing" id="7kH-wq-39X"/>
+                            <constraint firstItem="KcB-U7-DWO" firstAttribute="top" secondItem="Se2-eU-kkX" secondAttribute="topMargin" id="djl-I6-sL0"/>
+                            <constraint firstItem="ugH-Ub-Tc7" firstAttribute="top" secondItem="KcB-U7-DWO" secondAttribute="bottom" id="gih-tZ-J1s"/>
+                            <constraint firstItem="KcB-U7-DWO" firstAttribute="leading" secondItem="Se2-eU-kkX" secondAttribute="leading" id="hHb-PG-KoP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2c2-54-2Uc"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="searchTableView" destination="KcB-U7-DWO" id="pn0-Xm-Wc7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ym6-hF-jaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228" y="-446"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="Ixf-Ad-4k8">
             <objects>
@@ -159,7 +198,7 @@
         <!--Search Result View Controller-->
         <scene sceneID="pI3-BP-ugR">
             <objects>
-                <viewController storyboardIdentifier="Search" id="Ecc-V6-wdr" customClass="SearchResultViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchResult" id="Ecc-V6-wdr" customClass="SearchResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mYh-N8-UBj"/>
                         <viewControllerLayoutGuide type="bottom" id="fYy-so-LVZ"/>

@@ -325,8 +325,7 @@
 		998992791B33B6A5000B7FD2 = {
 			isa = PBXGroup;
 			children = (
-				9920C7801C2C04C5009C3942 /* Realm.framework */,
-				9920C7811C2C04C5009C3942 /* RealmSwift.framework */,
+				99B9476F1C2C18F100971539 /* Carthage */,
 				998992841B33B6A5000B7FD2 /* iidaPro-2015 */,
 				9989929E1B33B6A5000B7FD2 /* iidaPro-2015Tests */,
 				998992831B33B6A5000B7FD2 /* Products */,
@@ -399,6 +398,15 @@
 				99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		99B9476F1C2C18F100971539 /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				9920C7801C2C04C5009C3942 /* Realm.framework */,
+				9920C7811C2C04C5009C3942 /* RealmSwift.framework */,
+			);
+			name = Carthage;
 			sourceTree = "<group>";
 		};
 		99C158031C1ABF9800DC527D /* Cell */ = {

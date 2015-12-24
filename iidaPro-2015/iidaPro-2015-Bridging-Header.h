@@ -9,5 +9,3 @@
 #import "AlarmViewController.h"
 #import "ContactViewController.h"
 #import "SettingViewController.h"
-
-#import <Realm/Realm.h>

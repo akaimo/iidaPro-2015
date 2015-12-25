@@ -27,14 +27,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
         Utilities().setNavigation(self)
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        // TODO: delete search view
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        self.navigationController?.navigationBar.backIndicatorImage = nil
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = nil
+        self.removeSearchBar()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -47,6 +45,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
         let baseFrame = CGRectMake(0, -22, self.view.bounds.width, 66)
         let baseView = UIView(frame: baseFrame)
         baseView.backgroundColor = UIColor.blackColor()
+        baseView.tag = 11
         
         let frame = CGRectMake(0, 0, self.view.bounds.width, 66)
         let searchView = UIView(frame: frame)
@@ -67,5 +66,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
         baseView.addSubview(searchView)
         searchView.addSubview(searchBar)
         self.navigationController?.navigationBar.addSubview(baseView)
+    }
+    
+    private func removeSearchBar() {
+        let view = self.navigationController?.navigationBar.viewWithTag(11)
+        view?.removeFromSuperview()
+        self.navigationController?.navigationBar.backIndicatorImage = nil
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = nil
+    }
+    
+    // MARK: - UISearchBarDelegate
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.removeSearchBar()
     }
 }

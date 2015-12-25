@@ -79,4 +79,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.removeSearchBar()
     }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        // TODO: search
+        print("search")
+    }
+    
 }

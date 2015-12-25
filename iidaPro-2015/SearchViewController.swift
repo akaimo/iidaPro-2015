@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var searchTableView: UITableView!
     
     var searchModel: SearchModel!
@@ -19,8 +19,6 @@ class SearchViewController: UIViewController, UITableViewDelegate {
         self.searchModel = SearchModel()
         self.searchTableView.delegate = self
         self.searchTableView.dataSource = self.searchModel
-
-        self.title = "分別辞典"
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -28,9 +26,46 @@ class SearchViewController: UIViewController, UITableViewDelegate {
         
         Utilities().setNavigation(self)
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        // TODO: delete search view
+        
+        self.navigationController?.navigationBar.backIndicatorImage = nil
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = nil
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    @IBAction func tapSearch(sender: AnyObject) {
+        self.setSearchBar()
+    }
+    
+    private func setSearchBar() {
+        let baseFrame = CGRectMake(0, -22, self.view.bounds.width, 66)
+        let baseView = UIView(frame: baseFrame)
+        baseView.backgroundColor = UIColor.blackColor()
+        
+        let frame = CGRectMake(0, 0, self.view.bounds.width, 66)
+        let searchView = UIView(frame: frame)
+        searchView.backgroundColor = UIColor(red: 86/255.0, green: 96/255.0, blue: 133/255.0, alpha: 1.0)
+        
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
+        
+        let searchFrame = CGRectMake(10, 22, self.view.bounds.width - 10, 44)
+        let searchBar = UISearchBar(frame: searchFrame)
+        searchBar.delegate = self
+        searchBar.placeholder = "Search"
+        searchBar.showsCancelButton = true
+        searchBar.backgroundImage = UIImage()
+        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.blueColor()
+        searchBar.becomeFirstResponder()
+        
+        baseView.addSubview(searchView)
+        searchView.addSubview(searchBar)
+        self.navigationController?.navigationBar.addSubview(baseView)
+    }
 }

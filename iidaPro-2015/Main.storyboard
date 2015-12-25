@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-233" y="224"/>
         </scene>
-        <!--Search View Controller-->
+        <!--分別辞典-->
         <scene sceneID="E7y-2e-UKz">
             <objects>
                 <viewController storyboardIdentifier="Search" id="zS7-3Z-RqE" customClass="SearchViewController" customModule="iidaPro_2015" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,6 +54,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="分別辞典" id="aV3-Pa-Qsx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="mhr-Iv-IIh">
+                            <connections>
+                                <action selector="tapSearch:" destination="zS7-3Z-RqE" id="qtL-cj-cHS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchTableView" destination="KcB-U7-DWO" id="pn0-Xm-Wc7"/>
                     </connections>

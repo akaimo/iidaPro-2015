@@ -21,7 +21,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3k-Ig-RwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="224"/>
+            <point key="canvasLocation" x="-233" y="224"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="E7y-2e-UKz">
@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ym6-hF-jaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1228" y="-446"/>
+            <point key="canvasLocation" x="1227" y="224"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Ixf-Ad-4k8">
@@ -189,11 +189,12 @@
                         <outlet property="menuCollectionView" destination="F95-r2-yiq" id="GR5-fg-4Oh"/>
                         <outlet property="trashImageView" destination="OmS-Lf-IJn" id="TwA-qy-Gpr"/>
                         <outlet property="weatherImageView" destination="81X-O4-n3N" id="jYP-sh-xWc"/>
+                        <segue destination="zS7-3Z-RqE" kind="show" identifier="Search" id="K6P-WX-s1H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIq-mm-bR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1227" y="224"/>
+            <point key="canvasLocation" x="490" y="224"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="pI3-BP-ugR">
@@ -268,7 +269,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1227" y="929"/>
+            <point key="canvasLocation" x="2143" y="965"/>
         </scene>
         <!--Search Detail View Controller-->
         <scene sceneID="qbD-G2-QHB">
@@ -370,7 +371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1p3-z5-wnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="929"/>
+            <point key="canvasLocation" x="2824" y="1025"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="hqa-M0-fLW">

@@ -91,7 +91,8 @@ class SearchModel: NSObject, UITableViewDataSource {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
         cell.textLabel?.text = self.sectionArray[indexPath.section][UInt(indexPath.row)]["title"] as? String
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
-
+    
 }

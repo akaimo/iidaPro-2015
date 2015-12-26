@@ -6,9 +6,9 @@
 //  Copyright © 2015 akaimo. All rights reserved.
 //
 
-#import "SearchDetailViewController.h"
+#import "SearchDetailViewController-old.h"
 
-@interface SearchDetailViewController ()
+@interface SearchDetailViewControllerOld ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *genreView;
 @property (weak, nonatomic) IBOutlet UILabel *genreLabel;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation SearchDetailViewController
+@implementation SearchDetailViewControllerOld
 
 - (void)viewDidLoad {
     [super viewDidLoad];

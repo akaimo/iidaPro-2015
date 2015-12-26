@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchDetailViewController : UIViewController
+@interface SearchDetailViewControllerOld : UIViewController
 
 @property (retain, nonatomic) NSDictionary *trashData;
 

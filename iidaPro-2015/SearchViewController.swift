@@ -127,4 +127,26 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
         return self.searchModel.result ? 0 : 22.0
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("SearchDetail", sender: indexPath)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case "SearchDetail":
+            let vc: SearchDetailViewController = segue.destinationViewController as! SearchDetailViewController
+            guard let indexPath = sender as? NSIndexPath else { return }
+            
+            if self.searchModel.result == true && self.searchModel.searchResultArray.count != 0 {
+                vc.trashData = self.searchModel.searchResultArray[UInt(indexPath.row)]
+            } else {
+                vc.trashData = self.searchModel.sectionArray[indexPath.section][UInt(indexPath.row)]
+            }
+            
+        default: break
+        }
+    }
+    
 }

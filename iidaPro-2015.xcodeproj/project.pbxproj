@@ -14,8 +14,6 @@
 		8B88A8851B4C9FFE000D970B /* TipsNextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B88A8841B4C9FFE000D970B /* TipsNextViewController.m */; };
 		8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9387851B4DF37E004E70E2 /* TipsViewController.m */; };
 		8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CFBA41C0C694900A14020 /* TipsObject.m */; };
-		991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 991997FE1B889FE9005DD65F /* SearchTableViewCell.m */; };
-		991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */; };
 		9920C7821C2C04C5009C3942 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9920C7801C2C04C5009C3942 /* Realm.framework */; };
 		9920C7831C2C04C5009C3942 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9920C7801C2C04C5009C3942 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9920C7841C2C04C5009C3942 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9920C7811C2C04C5009C3942 /* RealmSwift.framework */; };
@@ -25,6 +23,7 @@
 		9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */; };
 		996162CA1C2E514C000A1C10 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162C81C2E514C000A1C10 /* SearchCell.swift */; };
 		996162CB1C2E514C000A1C10 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162C91C2E514C000A1C10 /* SearchCell.xib */; };
+		996162CD1C2E8A30000A1C10 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */; };
 		996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 996AE94D1C01F0F100A85464 /* DataViewController.m */; };
 		9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453C1BBEADCB007A5C78 /* CalendarViewController.m */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
@@ -49,7 +48,7 @@
 		99C1732E1C22BA29006C4ED9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732D1C22BA29006C4ED9 /* Weather.swift */; };
 		99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732F1C22E6D3006C4ED9 /* NSDateEx.swift */; };
 		99D14E2E1C2BDFC300A1E62A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D14E2D1C2BDFC300A1E62A /* Utilities.swift */; };
-		99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */; };
+		99EADFF01C0B220E00655BE6 /* SearchDetailViewController-old.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFEF1C0B220E00655BE6 /* SearchDetailViewController-old.m */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
 		99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */; };
 		99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F7438F1BEB354800AF8195 /* noMyAlarmCell.m */; };
@@ -57,7 +56,6 @@
 		99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743941BEB3BB500AF8195 /* MyAlarmCell.m */; };
 		99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */; };
 		99F7439A1BEB50BB00AF8195 /* AlarmPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */; };
-		99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */; };
 		99FEB67F1C1DB6F0007C352A /* RandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FEB67E1C1DB6F0007C352A /* RandomNumber.m */; };
 		99FEB6BC1C1EE644007C352A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FEB6BB1C1EE644007C352A /* AppDelegate.swift */; };
 		FFB5FC4A92362B27A409D612 /* libPods-iidaPro-2015.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */; };
@@ -104,9 +102,6 @@
 		8B9387851B4DF37E004E70E2 /* TipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsViewController.m; sourceTree = "<group>"; };
 		8B9CFBA31C0C694900A14020 /* TipsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsObject.h; sourceTree = "<group>"; };
 		8B9CFBA41C0C694900A14020 /* TipsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsObject.m; sourceTree = "<group>"; };
-		991997FD1B889FE9005DD65F /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
-		991997FE1B889FE9005DD65F /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
-		991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		9920C7801C2C04C5009C3942 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9920C7811C2C04C5009C3942 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		9931E7821BF7711600BDB1E1 /* District.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = District.h; sourceTree = "<group>"; };
@@ -117,6 +112,7 @@
 		9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTownViewController.m; sourceTree = "<group>"; };
 		996162C81C2E514C000A1C10 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		996162C91C2E514C000A1C10 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		996AE94C1C01F0F100A85464 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
 		996AE94D1C01F0F100A85464 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
 		9976453B1BBEADCB007A5C78 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
@@ -155,8 +151,8 @@
 		99C1732D1C22BA29006C4ED9 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		99C1732F1C22E6D3006C4ED9 /* NSDateEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateEx.swift; sourceTree = "<group>"; };
 		99D14E2D1C2BDFC300A1E62A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		99EADFEE1C0B220E00655BE6 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
-		99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDetailViewController.m; sourceTree = "<group>"; };
+		99EADFEE1C0B220E00655BE6 /* SearchDetailViewController-old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchDetailViewController-old.h"; sourceTree = "<group>"; };
+		99EADFEF1C0B220E00655BE6 /* SearchDetailViewController-old.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SearchDetailViewController-old.m"; sourceTree = "<group>"; };
 		99F743881BEA3EFD00AF8195 /* TrashAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashAlarmCell.h; sourceTree = "<group>"; };
 		99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashAlarmCell.m; sourceTree = "<group>"; };
 		99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrashAlarmCell.xib; sourceTree = "<group>"; };
@@ -168,8 +164,6 @@
 		99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAlarmCell.xib; sourceTree = "<group>"; };
 		99F743981BEB50BB00AF8195 /* AlarmPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmPopUpView.h; sourceTree = "<group>"; };
 		99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmPopUpView.m; sourceTree = "<group>"; };
-		99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
-		99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		99FEB67D1C1DB6F0007C352A /* RandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomNumber.h; sourceTree = "<group>"; };
 		99FEB67E1C1DB6F0007C352A /* RandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomNumber.m; sourceTree = "<group>"; };
 		99FEB6BA1C1EE644007C352A /* iidaPro-2015-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iidaPro-2015-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -246,12 +240,11 @@
 		991998021B88A239005DD65F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				99FDB3591B79BA5D00DB12E3 /* SearchResultViewController.h */,
-				99FDB35A1B79BA5D00DB12E3 /* SearchResultViewController.m */,
 				99801E5F1C2A607B00D46A8B /* SearchViewController.swift */,
 				99801E611C2A6E9600D46A8B /* SearchModel.swift */,
-				99EADFEE1C0B220E00655BE6 /* SearchDetailViewController.h */,
-				99EADFEF1C0B220E00655BE6 /* SearchDetailViewController.m */,
+				996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */,
+				99EADFEE1C0B220E00655BE6 /* SearchDetailViewController-old.h */,
+				99EADFEF1C0B220E00655BE6 /* SearchDetailViewController-old.m */,
 				9976453A1BBE8C3E007A5C78 /* Cell */,
 			);
 			name = Search;
@@ -286,9 +279,6 @@
 		9976453A1BBE8C3E007A5C78 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				991997FD1B889FE9005DD65F /* SearchTableViewCell.h */,
-				991997FE1B889FE9005DD65F /* SearchTableViewCell.m */,
-				991997FF1B889FE9005DD65F /* SearchTableViewCell.xib */,
 				996162C81C2E514C000A1C10 /* SearchCell.swift */,
 				996162C91C2E514C000A1C10 /* SearchCell.xib */,
 			);
@@ -580,7 +570,6 @@
 				99C158021C1ABF9200DC527D /* GPSSearchTableViewCell.xib in Resources */,
 				998992931B33B6A5000B7FD2 /* Images.xcassets in Resources */,
 				8B7F9CCF1B4B8763008A825F /* TipsCustomCell.xib in Resources */,
-				991998011B889FE9005DD65F /* SearchTableViewCell.xib in Resources */,
 				996162CB1C2E514C000A1C10 /* SearchCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,12 +662,10 @@
 				99FEB67F1C1DB6F0007C352A /* RandomNumber.m in Sources */,
 				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
-				991998001B889FE9005DD65F /* SearchTableViewCell.m in Sources */,
 				99801E601C2A607B00D46A8B /* SearchViewController.swift in Sources */,
 				996162CA1C2E514C000A1C10 /* SearchCell.swift in Sources */,
 				99F7439A1BEB50BB00AF8195 /* AlarmPopUpView.m in Sources */,
 				9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */,
-				99FDB35B1B79BA5D00DB12E3 /* SearchResultViewController.m in Sources */,
 				99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */,
 				99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */,
 				99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */,
@@ -689,6 +676,7 @@
 				99D14E2E1C2BDFC300A1E62A /* Utilities.swift in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
 				996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */,
+				996162CD1C2E8A30000A1C10 /* SearchDetailViewController.swift in Sources */,
 				99C1732E1C22BA29006C4ED9 /* Weather.swift in Sources */,
 				99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */,
 				99801E621C2A6E9600D46A8B /* SearchModel.swift in Sources */,
@@ -696,7 +684,7 @@
 				8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */,
 				99C1732C1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift in Sources */,
 				997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */,
-				99EADFF01C0B220E00655BE6 /* SearchDetailViewController.m in Sources */,
+				99EADFF01C0B220E00655BE6 /* SearchDetailViewController-old.m in Sources */,
 				99A036781C20451B00E7AA1C /* MenuCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

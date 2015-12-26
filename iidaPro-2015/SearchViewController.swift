@@ -128,7 +128,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("SearchDetail", sender: indexPath)
+        if self.searchModel.result != true || self.searchModel.searchResultArray.count != 0 {
+            performSegueWithIdentifier("SearchDetail", sender: indexPath)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

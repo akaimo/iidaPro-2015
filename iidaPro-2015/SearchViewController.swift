@@ -17,8 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
         super.viewDidLoad()
         
         self.searchModel = SearchModel()
-        self.searchTableView.delegate = self
-        self.searchTableView.dataSource = self.searchModel
+        
         self.setupView()
     }
     
@@ -44,10 +43,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
     
     
     private func setupView() {
+        self.searchTableView.delegate = self
+        self.searchTableView.dataSource = self.searchModel
+        
         self.view.layer.contents = UIImage(named: "Base")?.CGImage
         self.searchTableView.backgroundColor = UIColor.clearColor()
         self.searchTableView.sectionIndexColor = UIColor.whiteColor()
         self.searchTableView.sectionIndexBackgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.1)
+        
+        let nib = UINib(nibName: "SearchCell", bundle: nil)
+        self.searchTableView.registerNib(nib, forCellReuseIdentifier: "Trash")
     }
     
     private func setSearchBar() {

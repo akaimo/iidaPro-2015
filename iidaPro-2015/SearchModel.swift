@@ -64,6 +64,26 @@ class SearchModel: NSObject, UITableViewDataSource {
         return TrashCategory.objectsWithPredicate(pred).sortedResultsUsingProperty("read", ascending: true)
     }
     
+    private func selectTrashImage(category: String) -> UIImage {
+        var img: UIImage?
+        
+        switch category {
+        case "普通ごみ": img = UIImage(named: "S_Normal")
+        case "ミックスペーパー": img = UIImage(named: "S_Mixed")
+        case "プラスチック製容器包装": img = UIImage(named: "S_plastic")
+        case "小物金属": img = UIImage(named: "S_Metal")
+        case "使用済み乾電池": img = UIImage(named: "S_battery")
+        case "空き缶・ペットボトル": img = UIImage(named: "C_Can")
+        case "空きびん": img = UIImage(named: "C_Can")
+        case "粗大ごみ": img = UIImage(named: "S_BigRefuse")
+        case "複数": img = UIImage(named: "S_What")
+        case "収集しない": img = UIImage(named: "S_No")
+        default: break
+        }
+        
+        guard let image = img else { return UIImage() }
+        return image
+    }
     
     
     // MARK: - UITableViewDataSource
@@ -88,10 +108,13 @@ class SearchModel: NSObject, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        
-        cell.textLabel?.text = self.sectionArray[indexPath.section][UInt(indexPath.row)]["title"] as? String
+        let cell: SearchCell = tableView.dequeueReusableCellWithIdentifier("Trash", forIndexPath: indexPath) as! SearchCell
         cell.backgroundColor = UIColor.clearColor()
+        cell.trashLabel.text = self.sectionArray[indexPath.section][UInt(indexPath.row)]["title"] as? String
+        if let category = self.sectionArray[indexPath.section][UInt(indexPath.row)]["category"] as? String {
+            cell.trashImageView.image = self.selectTrashImage(category)
+        }
+        
         return cell
     }
     

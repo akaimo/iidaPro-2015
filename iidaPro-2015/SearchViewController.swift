@@ -50,6 +50,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
         self.searchTableView.backgroundColor = UIColor.clearColor()
         self.searchTableView.sectionIndexColor = UIColor.whiteColor()
         self.searchTableView.sectionIndexBackgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.1)
+        self.searchTableView.tableFooterView = UIView()
         
         let nib = UINib(nibName: "SearchCell", bundle: nil)
         self.searchTableView.registerNib(nib, forCellReuseIdentifier: "Trash")
@@ -92,11 +93,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
     // MARK: - UISearchBarDelegate
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.removeSearchBar()
+        self.searchModel.result = false
+        self.searchTableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        // TODO: search
-        print("search")
+        guard let text = searchBar.text else { return }
+        self.searchModel.fetchTrashData(text)
+        searchBar.resignFirstResponder()
+        self.searchTableView.reloadData()
     }
     
     // MARK: - UITableViewDelegate
@@ -119,7 +124,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 22.0
+        return self.searchModel.result ? 0 : 22.0
     }
     
 }

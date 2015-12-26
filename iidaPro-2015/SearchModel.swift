@@ -12,8 +12,11 @@ import RealmSwift
 class SearchModel: NSObject, UITableViewDataSource {
     var sectionArray: [RLMResults] = []
     let sectionList = ["あ", "か", "さ", "た", "な", "は", "ま", "や", "ら", "わ"]
+    var result: Bool
+    var searchResultArray: RLMResults!
     
     override init() {
+        self.result = false
         super.init()
         self.fetchData()
     }
@@ -64,6 +67,12 @@ class SearchModel: NSObject, UITableViewDataSource {
         return TrashCategory.objectsWithPredicate(pred).sortedResultsUsingProperty("read", ascending: true)
     }
     
+    func fetchTrashData(str: String) {
+        let pred = NSPredicate(format: "title CONTAINS[c] %@ OR read CONTAINS %@", str, str)
+        self.searchResultArray = TrashCategory.objectsWithPredicate(pred).sortedResultsUsingProperty("read", ascending: true)
+        self.result = true
+    }
+    
     private func selectTrashImage(category: String) -> UIImage {
         var img: UIImage?
         
@@ -88,15 +97,15 @@ class SearchModel: NSObject, UITableViewDataSource {
     
     // MARK: - UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.sectionArray.count
+        return self.result ? 1 : self.sectionArray.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sectionList[section]
+        return self.result ? "" : self.sectionList[section]
     }
     
     func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
-        return self.sectionList
+        return self.result ? nil : self.sectionList
     }
     
     func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
@@ -104,15 +113,37 @@ class SearchModel: NSObject, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(self.sectionArray[section].count)
+        if self.result == true && self.searchResultArray.count == 0 {
+            return 1
+        } else if self.result == true {
+            return Int(self.searchResultArray.count)
+        } else {
+            return Int(self.sectionArray[section].count)
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: SearchCell = tableView.dequeueReusableCellWithIdentifier("Trash", forIndexPath: indexPath) as! SearchCell
         cell.backgroundColor = UIColor.clearColor()
-        cell.trashLabel.text = self.sectionArray[indexPath.section][UInt(indexPath.row)]["title"] as? String
-        if let category = self.sectionArray[indexPath.section][UInt(indexPath.row)]["category"] as? String {
-            cell.trashImageView.image = self.selectTrashImage(category)
+        
+        if self.result == true && self.searchResultArray.count == 0 {
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+            cell.backgroundColor = UIColor.clearColor()
+            cell.textLabel?.textColor = UIColor.whiteColor()
+            cell.textLabel?.text = "該当する品目はありません"
+            return cell
+            
+        } else if result == true {
+            cell.trashLabel.text = self.searchResultArray[UInt(indexPath.row)]["title"] as? String
+            if let Category = self.searchResultArray[UInt(indexPath.row)]["category"] as? String {
+                cell.trashImageView.image = self.selectTrashImage(Category)
+            }
+            
+        } else {
+            cell.trashLabel.text = self.sectionArray[indexPath.section][UInt(indexPath.row)]["title"] as? String
+            if let category = self.sectionArray[indexPath.section][UInt(indexPath.row)]["category"] as? String {
+                cell.trashImageView.image = self.selectTrashImage(category)
+            }
         }
         
         return cell

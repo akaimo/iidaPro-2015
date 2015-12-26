@@ -57,7 +57,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
     }
     
     private func setSearchBar() {
-        let baseFrame = CGRectMake(0, -22, self.view.bounds.width, 66)
+        let baseFrame = CGRectMake(0, 0, self.view.bounds.width, 66)
         let baseView = UIView(frame: baseFrame)
         baseView.backgroundColor = UIColor.blackColor()
         baseView.tag = 11
@@ -66,28 +66,25 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchBarDe
         let searchView = UIView(frame: frame)
         searchView.backgroundColor = UIColor(red: 86/255.0, green: 96/255.0, blue: 133/255.0, alpha: 1.0)
         
-        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
-        
         let searchFrame = CGRectMake(10, 22, self.view.bounds.width - 10, 44)
         let searchBar = UISearchBar(frame: searchFrame)
         searchBar.delegate = self
         searchBar.placeholder = "Search"
         searchBar.showsCancelButton = true
         searchBar.backgroundImage = UIImage()
+        searchBar.tintColor = UIColor.whiteColor()
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.blueColor()
         searchBar.becomeFirstResponder()
         
         baseView.addSubview(searchView)
         searchView.addSubview(searchBar)
-        self.navigationController?.navigationBar.addSubview(baseView)
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        app.window?.addSubview(baseView)
     }
     
     private func removeSearchBar() {
-        let view = self.navigationController?.navigationBar.viewWithTag(11)
-        view?.removeFromSuperview()
-        self.navigationController?.navigationBar.backIndicatorImage = nil
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = nil
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        app.window?.viewWithTag(11)?.removeFromSuperview()
     }
     
     // MARK: - UISearchBarDelegate

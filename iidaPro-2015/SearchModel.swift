@@ -129,6 +129,7 @@ class SearchModel: NSObject, UITableViewDataSource {
         if self.result == true && self.searchResultArray.count == 0 {
             let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
             cell.backgroundColor = UIColor.clearColor()
+            cell.selectionStyle = .None
             cell.textLabel?.textColor = UIColor.whiteColor()
             cell.textLabel?.text = "該当する品目はありません"
             return cell

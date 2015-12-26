@@ -238,9 +238,9 @@
 			isa = PBXGroup;
 			children = (
 				99801E5F1C2A607B00D46A8B /* SearchViewController.swift */,
-				99801E611C2A6E9600D46A8B /* SearchModel.swift */,
 				996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */,
-				9976453A1BBE8C3E007A5C78 /* Cell */,
+				996162CF1C2EA7CE000A1C10 /* Model */,
+				9976453A1BBE8C3E007A5C78 /* View */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -257,6 +257,14 @@
 			name = Setting;
 			sourceTree = "<group>";
 		};
+		996162CF1C2EA7CE000A1C10 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99801E611C2A6E9600D46A8B /* SearchModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		996AE94F1C01F15100A85464 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,13 +279,13 @@
 			name = Calendar;
 			sourceTree = "<group>";
 		};
-		9976453A1BBE8C3E007A5C78 /* Cell */ = {
+		9976453A1BBE8C3E007A5C78 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				996162C81C2E514C000A1C10 /* SearchCell.swift */,
 				996162C91C2E514C000A1C10 /* SearchCell.xib */,
 			);
-			name = Cell;
+			name = View;
 			sourceTree = "<group>";
 		};
 		99781C591B8355540083CC7D /* Realm */ = {

@@ -48,7 +48,6 @@
 		99C1732E1C22BA29006C4ED9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732D1C22BA29006C4ED9 /* Weather.swift */; };
 		99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732F1C22E6D3006C4ED9 /* NSDateEx.swift */; };
 		99D14E2E1C2BDFC300A1E62A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D14E2D1C2BDFC300A1E62A /* Utilities.swift */; };
-		99EADFF01C0B220E00655BE6 /* SearchDetailViewController-old.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EADFEF1C0B220E00655BE6 /* SearchDetailViewController-old.m */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
 		99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */; };
 		99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F7438F1BEB354800AF8195 /* noMyAlarmCell.m */; };
@@ -151,8 +150,6 @@
 		99C1732D1C22BA29006C4ED9 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		99C1732F1C22E6D3006C4ED9 /* NSDateEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateEx.swift; sourceTree = "<group>"; };
 		99D14E2D1C2BDFC300A1E62A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		99EADFEE1C0B220E00655BE6 /* SearchDetailViewController-old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchDetailViewController-old.h"; sourceTree = "<group>"; };
-		99EADFEF1C0B220E00655BE6 /* SearchDetailViewController-old.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SearchDetailViewController-old.m"; sourceTree = "<group>"; };
 		99F743881BEA3EFD00AF8195 /* TrashAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashAlarmCell.h; sourceTree = "<group>"; };
 		99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashAlarmCell.m; sourceTree = "<group>"; };
 		99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrashAlarmCell.xib; sourceTree = "<group>"; };
@@ -243,8 +240,6 @@
 				99801E5F1C2A607B00D46A8B /* SearchViewController.swift */,
 				99801E611C2A6E9600D46A8B /* SearchModel.swift */,
 				996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */,
-				99EADFEE1C0B220E00655BE6 /* SearchDetailViewController-old.h */,
-				99EADFEF1C0B220E00655BE6 /* SearchDetailViewController-old.m */,
 				9976453A1BBE8C3E007A5C78 /* Cell */,
 			);
 			name = Search;
@@ -684,7 +679,6 @@
 				8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */,
 				99C1732C1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift in Sources */,
 				997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */,
-				99EADFF01C0B220E00655BE6 /* SearchDetailViewController-old.m in Sources */,
 				99A036781C20451B00E7AA1C /* MenuCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

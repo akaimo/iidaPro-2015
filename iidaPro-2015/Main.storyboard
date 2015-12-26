@@ -297,6 +297,7 @@
                         <outlet property="genreImageView1" destination="C9P-In-6Od" id="W4W-l2-Oka"/>
                         <outlet property="genreImageView2" destination="d4Q-q9-dWB" id="DJ4-wE-8qA"/>
                         <outlet property="genreImageView3" destination="PP6-XN-TzV" id="e0U-wc-UjU"/>
+                        <outlet property="genreView" destination="iAq-MX-D4D" id="GdG-j8-1Aa"/>
                         <outlet property="titleLabel" destination="Kkm-xt-Xi9" id="sKn-Ol-ajC"/>
                     </connections>
                 </viewController>

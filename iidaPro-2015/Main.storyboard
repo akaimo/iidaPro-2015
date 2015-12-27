@@ -198,6 +198,7 @@
                         <outlet property="trashImageView" destination="OmS-Lf-IJn" id="TwA-qy-Gpr"/>
                         <outlet property="weatherImageView" destination="81X-O4-n3N" id="jYP-sh-xWc"/>
                         <segue destination="zS7-3Z-RqE" kind="show" identifier="Search" id="K6P-WX-s1H"/>
+                        <segue destination="hnL-Qe-1HR" kind="show" id="F2w-mp-B4G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIq-mm-bR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAQ-bU-StN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1228" y="1635"/>
+            <point key="canvasLocation" x="1939" y="999"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="TTf-vF-Bwd">
@@ -340,6 +341,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Hq-bd-FyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1939" y="1666"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="ojn-dT-Jny">
+            <objects>
+                <viewController id="hnL-Qe-1HR" customClass="CalendarViewController" customModule="iidaPro_2015" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nXy-Yj-5pR"/>
+                        <viewControllerLayoutGuide type="bottom" id="5sT-mg-abT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xP9-JL-bEd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mtN-SU-rgR">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5sT-mg-abT" firstAttribute="top" secondItem="mtN-SU-rgR" secondAttribute="bottom" id="Lza-aG-aM9"/>
+                            <constraint firstItem="mtN-SU-rgR" firstAttribute="leading" secondItem="xP9-JL-bEd" secondAttribute="leading" id="P26-ud-Jl6"/>
+                            <constraint firstItem="mtN-SU-rgR" firstAttribute="top" secondItem="nXy-Yj-5pR" secondAttribute="bottom" id="buF-4m-pTE"/>
+                            <constraint firstAttribute="trailing" secondItem="mtN-SU-rgR" secondAttribute="trailing" id="dKT-0N-Tnz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarTableView" destination="mtN-SU-rgR" id="JI9-xu-nmU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wN8-3O-zNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228" y="1641"/>
         </scene>
         <!--Alarm View Controller-->
         <scene sceneID="tz4-Od-57r">
@@ -841,7 +875,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOI-pO-Zz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1115.5" y="931.5"/>
+            <point key="canvasLocation" x="1339.5" y="933.5"/>
         </scene>
         <!--Tips Next View Controller-->
         <scene sceneID="D5F-Nr-nc3">

@@ -24,6 +24,7 @@
 		996162CA1C2E514C000A1C10 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162C81C2E514C000A1C10 /* SearchCell.swift */; };
 		996162CB1C2E514C000A1C10 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162C91C2E514C000A1C10 /* SearchCell.xib */; };
 		996162CD1C2E8A30000A1C10 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */; };
+		996162D11C2FBE2B000A1C10 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162D01C2FBE2B000A1C10 /* CalendarViewController.swift */; };
 		996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 996AE94D1C01F0F100A85464 /* DataViewController.m */; };
 		9976453D1BBEADCB007A5C78 /* CalendarViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453C1BBEADCB007A5C78 /* CalendarViewControllerOld.m */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
@@ -112,6 +113,7 @@
 		996162C81C2E514C000A1C10 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		996162C91C2E514C000A1C10 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
+		996162D01C2FBE2B000A1C10 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		996AE94C1C01F0F100A85464 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
 		996AE94D1C01F0F100A85464 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
 		9976453B1BBEADCB007A5C78 /* CalendarViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewControllerOld.h; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				996AE94D1C01F0F100A85464 /* DataViewController.m */,
 				99FEB67D1C1DB6F0007C352A /* RandomNumber.h */,
 				99FEB67E1C1DB6F0007C352A /* RandomNumber.m */,
+				996162D01C2FBE2B000A1C10 /* CalendarViewController.swift */,
 				99A86FEF1C05EDA900B979BA /* Cell */,
 			);
 			name = Calendar;
@@ -659,6 +662,7 @@
 				99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */,
 				9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */,
 				99801E581C28173C00D46A8B /* HomeModel.swift in Sources */,
+				996162D11C2FBE2B000A1C10 /* CalendarViewController.swift in Sources */,
 				9931E7841BF7711600BDB1E1 /* District.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */,

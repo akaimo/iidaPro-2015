@@ -198,7 +198,7 @@
                         <outlet property="trashImageView" destination="OmS-Lf-IJn" id="TwA-qy-Gpr"/>
                         <outlet property="weatherImageView" destination="81X-O4-n3N" id="jYP-sh-xWc"/>
                         <segue destination="zS7-3Z-RqE" kind="show" identifier="Search" id="K6P-WX-s1H"/>
-                        <segue destination="hnL-Qe-1HR" kind="show" id="F2w-mp-B4G"/>
+                        <segue destination="hnL-Qe-1HR" kind="show" identifier="Calendar" id="F2w-mp-B4G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIq-mm-bR6" userLabel="First Responder" sceneMemberID="firstResponder"/>

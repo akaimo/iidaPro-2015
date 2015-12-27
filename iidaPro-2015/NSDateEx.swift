@@ -10,7 +10,7 @@ import Foundation
 
 extension NSDate {
     // 曜日を日本語で取得
-    func nowWeekday(date: NSDate) -> String {
+    class func nowWeekday(date: NSDate) -> String {
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let comps = calendar.components(.Weekday, fromDate: date)
         
@@ -21,7 +21,7 @@ extension NSDate {
     }
     
     // 月単位の週数を取得
-    func weekdayOriginal(date: NSDate) -> Int {
+    class func weekdayOriginal(date: NSDate) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let comps = calendar.components(.WeekdayOrdinal, fromDate: date)
         return comps.weekdayOrdinal

@@ -3,11 +3,9 @@
 //
 
 #import "RealmController.h"
-#import "SearchResultViewCOntroller.h"
 #import "TipsViewController.h"
 #import "CalendarViewController.h"
 #import "AlarmViewController.h"
 #import "ContactViewController.h"
 #import "SettingViewController.h"
-
-#import <Realm/Realm.h>
+#import "TrashCategory.h"

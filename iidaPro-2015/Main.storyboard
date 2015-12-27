@@ -21,7 +21,54 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3k-Ig-RwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="224"/>
+            <point key="canvasLocation" x="-233" y="224"/>
+        </scene>
+        <!--分別辞典-->
+        <scene sceneID="E7y-2e-UKz">
+            <objects>
+                <viewController storyboardIdentifier="Search" id="zS7-3Z-RqE" customClass="SearchViewController" customModule="iidaPro_2015" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gwF-DP-fMa"/>
+                        <viewControllerLayoutGuide type="bottom" id="ugH-Ub-Tc7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Se2-eU-kkX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KcB-U7-DWO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KcB-U7-DWO" firstAttribute="top" secondItem="gwF-DP-fMa" secondAttribute="bottom" id="2c2-54-2Uc"/>
+                            <constraint firstAttribute="trailing" secondItem="KcB-U7-DWO" secondAttribute="trailing" id="7kH-wq-39X"/>
+                            <constraint firstItem="KcB-U7-DWO" firstAttribute="top" secondItem="Se2-eU-kkX" secondAttribute="topMargin" id="djl-I6-sL0"/>
+                            <constraint firstItem="ugH-Ub-Tc7" firstAttribute="top" secondItem="KcB-U7-DWO" secondAttribute="bottom" id="gih-tZ-J1s"/>
+                            <constraint firstItem="KcB-U7-DWO" firstAttribute="leading" secondItem="Se2-eU-kkX" secondAttribute="leading" id="hHb-PG-KoP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2c2-54-2Uc"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="分別辞典" id="aV3-Pa-Qsx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="mhr-Iv-IIh">
+                            <connections>
+                                <action selector="tapSearch:" destination="zS7-3Z-RqE" id="qtL-cj-cHS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchTableView" destination="KcB-U7-DWO" id="pn0-Xm-Wc7"/>
+                        <segue destination="hLq-0W-Jlj" kind="show" identifier="SearchDetail" id="C63-Ii-vG2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ym6-hF-jaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1227" y="224"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Ixf-Ad-4k8">
@@ -150,91 +197,17 @@
                         <outlet property="menuCollectionView" destination="F95-r2-yiq" id="GR5-fg-4Oh"/>
                         <outlet property="trashImageView" destination="OmS-Lf-IJn" id="TwA-qy-Gpr"/>
                         <outlet property="weatherImageView" destination="81X-O4-n3N" id="jYP-sh-xWc"/>
+                        <segue destination="zS7-3Z-RqE" kind="show" identifier="Search" id="K6P-WX-s1H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIq-mm-bR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1227" y="224"/>
-        </scene>
-        <!--Search Result View Controller-->
-        <scene sceneID="pI3-BP-ugR">
-            <objects>
-                <viewController storyboardIdentifier="Search" id="Ecc-V6-wdr" customClass="SearchResultViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mYh-N8-UBj"/>
-                        <viewControllerLayoutGuide type="bottom" id="fYy-so-LVZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iRq-3Y-csp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EAn-PY-EQu">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="pjg-yt-p8V">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <color key="barTintColor" red="0.33725490196078434" green="0.37647058823529411" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="Ecc-V6-wdr" id="BBV-oZ-cxv"/>
-                                    </connections>
-                                </searchBar>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7ga-4N-65h">
-                                        <rect key="frame" x="0.0" y="66" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7ga-4N-65h" id="3jS-vv-RSP">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Ecc-V6-wdr" id="wAG-Tq-HNH"/>
-                                    <outlet property="delegate" destination="Ecc-V6-wdr" id="mdJ-tv-cIL"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="EAn-PY-EQu" firstAttribute="bottom" secondItem="fYy-so-LVZ" secondAttribute="top" id="AC6-5k-LqU"/>
-                            <constraint firstItem="EAn-PY-EQu" firstAttribute="leading" secondItem="iRq-3Y-csp" secondAttribute="leading" id="IeT-Jg-pjF"/>
-                            <constraint firstAttribute="trailing" secondItem="EAn-PY-EQu" secondAttribute="trailing" id="SwP-LF-nHw"/>
-                            <constraint firstItem="EAn-PY-EQu" firstAttribute="top" secondItem="iRq-3Y-csp" secondAttribute="top" id="Tms-qt-mns"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="searchBar" destination="pjg-yt-p8V" id="lC1-XQ-BYu"/>
-                        <outlet property="searchDisplayController" destination="sT8-rs-WAU" id="SZG-tH-yXl"/>
-                        <outlet property="searchTableView" destination="EAn-PY-EQu" id="jTB-WY-85M"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HaF-kv-4IJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="HpR-zV-72s">
-                    <connections>
-                        <outlet property="delegate" destination="Ecc-V6-wdr" id="8sC-rB-Wh1"/>
-                        <outlet property="searchContentsController" destination="Ecc-V6-wdr" id="xlX-0v-Dya"/>
-                        <outlet property="searchResultsDataSource" destination="Ecc-V6-wdr" id="23U-9j-8Ym"/>
-                        <outlet property="searchResultsDelegate" destination="Ecc-V6-wdr" id="Vo5-47-5WY"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="sT8-rs-WAU">
-                    <connections>
-                        <outlet property="delegate" destination="Ecc-V6-wdr" id="3s7-XR-7tW"/>
-                        <outlet property="searchBar" destination="pjg-yt-p8V" id="5Am-Nc-1n8"/>
-                        <outlet property="searchContentsController" destination="Ecc-V6-wdr" id="geB-Rr-kd0"/>
-                        <outlet property="searchResultsDataSource" destination="Ecc-V6-wdr" id="5VI-U6-5ql"/>
-                        <outlet property="searchResultsDelegate" destination="Ecc-V6-wdr" id="8fp-m9-3Mp"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="1227" y="929"/>
+            <point key="canvasLocation" x="490" y="224"/>
         </scene>
         <!--Search Detail View Controller-->
         <scene sceneID="qbD-G2-QHB">
             <objects>
-                <viewController storyboardIdentifier="SearchDetail" id="hLq-0W-Jlj" customClass="SearchDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" id="hLq-0W-Jlj" customClass="SearchDetailViewController" customModule="iidaPro_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sGl-WE-Z4L"/>
                         <viewControllerLayoutGuide type="bottom" id="B4C-DB-rtD"/>
@@ -244,13 +217,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkm-xt-Xi9">
-                                <rect key="frame" x="0.0" y="55" width="600" height="24"/>
+                                <rect key="frame" x="0.0" y="99" width="600" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAq-MX-D4D">
-                                <rect key="frame" x="35" y="104" width="530" height="60"/>
+                                <rect key="frame" x="35" y="148" width="530" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分類：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZA-eG-F9N">
                                         <rect key="frame" x="20" y="19" width="51" height="21"/>
@@ -294,7 +267,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reC-Yj-oNn">
-                                <rect key="frame" x="35" y="189" width="530" height="376"/>
+                                <rect key="frame" x="35" y="233" width="530" height="332"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -320,18 +293,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="detailTextView" destination="reC-Yj-oNn" id="5fs-C1-kvI"/>
-                        <outlet property="genreImageView1" destination="C9P-In-6Od" id="YIA-zE-3Oj"/>
-                        <outlet property="genreImageView2" destination="d4Q-q9-dWB" id="zAX-Ep-kp2"/>
-                        <outlet property="genreImageView3" destination="PP6-XN-TzV" id="OJd-QC-1ot"/>
-                        <outlet property="genreLabel" destination="7ZA-eG-F9N" id="UVx-C4-Lx5"/>
-                        <outlet property="genreView" destination="iAq-MX-D4D" id="b8w-Qm-9st"/>
-                        <outlet property="titleLabel" destination="Kkm-xt-Xi9" id="FBU-5Z-q8T"/>
+                        <outlet property="detailTextView" destination="reC-Yj-oNn" id="M8r-BM-LId"/>
+                        <outlet property="genreImageView1" destination="C9P-In-6Od" id="W4W-l2-Oka"/>
+                        <outlet property="genreImageView2" destination="d4Q-q9-dWB" id="DJ4-wE-8qA"/>
+                        <outlet property="genreImageView3" destination="PP6-XN-TzV" id="e0U-wc-UjU"/>
+                        <outlet property="genreView" destination="iAq-MX-D4D" id="GdG-j8-1Aa"/>
+                        <outlet property="titleLabel" destination="Kkm-xt-Xi9" id="sKn-Ol-ajC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1p3-z5-wnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="929"/>
+            <point key="canvasLocation" x="1986" y="224"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="hqa-M0-fLW">
@@ -869,7 +841,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOI-pO-Zz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058.5" y="156.5"/>
+            <point key="canvasLocation" x="1115.5" y="931.5"/>
         </scene>
         <!--Tips Next View Controller-->
         <scene sceneID="D5F-Nr-nc3">

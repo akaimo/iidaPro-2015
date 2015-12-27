@@ -26,4 +26,11 @@ class CalendarCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        self.weekdayLabel.text = nil
+        self.dayLabel.text = nil
+        self.icon1ImageView.image = nil
+        self.icon2ImageView.image = nil
+    }
+    
 }

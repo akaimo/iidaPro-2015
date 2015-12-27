@@ -25,7 +25,7 @@
 		996162CB1C2E514C000A1C10 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162C91C2E514C000A1C10 /* SearchCell.xib */; };
 		996162CD1C2E8A30000A1C10 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */; };
 		996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 996AE94D1C01F0F100A85464 /* DataViewController.m */; };
-		9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453C1BBEADCB007A5C78 /* CalendarViewController.m */; };
+		9976453D1BBEADCB007A5C78 /* CalendarViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453C1BBEADCB007A5C78 /* CalendarViewControllerOld.m */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
 		997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewController.m */; };
 		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
@@ -114,8 +114,8 @@
 		996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		996AE94C1C01F0F100A85464 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
 		996AE94D1C01F0F100A85464 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
-		9976453B1BBEADCB007A5C78 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
-		9976453C1BBEADCB007A5C78 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		9976453B1BBEADCB007A5C78 /* CalendarViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewControllerOld.h; sourceTree = "<group>"; };
+		9976453C1BBEADCB007A5C78 /* CalendarViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewControllerOld.m; sourceTree = "<group>"; };
 		9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		997645411BBEB0FB007A5C78 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
@@ -268,8 +268,8 @@
 		996AE94F1C01F15100A85464 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				9976453B1BBEADCB007A5C78 /* CalendarViewController.h */,
-				9976453C1BBEADCB007A5C78 /* CalendarViewController.m */,
+				9976453B1BBEADCB007A5C78 /* CalendarViewControllerOld.h */,
+				9976453C1BBEADCB007A5C78 /* CalendarViewControllerOld.m */,
 				996AE94C1C01F0F100A85464 /* DataViewController.h */,
 				996AE94D1C01F0F100A85464 /* DataViewController.m */,
 				99FEB67D1C1DB6F0007C352A /* RandomNumber.h */,
@@ -668,7 +668,7 @@
 				99801E601C2A607B00D46A8B /* SearchViewController.swift in Sources */,
 				996162CA1C2E514C000A1C10 /* SearchCell.swift in Sources */,
 				99F7439A1BEB50BB00AF8195 /* AlarmPopUpView.m in Sources */,
-				9976453D1BBEADCB007A5C78 /* CalendarViewController.m in Sources */,
+				9976453D1BBEADCB007A5C78 /* CalendarViewControllerOld.m in Sources */,
 				99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */,
 				99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */,
 				99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */,

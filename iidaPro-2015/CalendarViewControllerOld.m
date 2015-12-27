@@ -6,17 +6,17 @@
 //  Copyright © 2015年 akaimo. All rights reserved.
 //
 
-#import "CalendarViewController.h"
+#import "CalendarViewControllerOld.h"
 #import "DataViewController.h"
 
-@interface CalendarViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
+@interface CalendarViewControllerOld () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (readonly, strong, nonatomic) NSMutableArray *pageData;
 
 @end
 
-@implementation CalendarViewController
+@implementation CalendarViewControllerOld
 
 - (void)viewDidLoad {
     [super viewDidLoad];

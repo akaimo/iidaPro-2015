@@ -4,7 +4,7 @@
 
 #import "RealmController.h"
 #import "TipsViewController.h"
-#import "CalendarViewController.h"
+#import "CalendarViewControllerOld.h"
 #import "AlarmViewController.h"
 #import "ContactViewController.h"
 #import "SettingViewController.h"

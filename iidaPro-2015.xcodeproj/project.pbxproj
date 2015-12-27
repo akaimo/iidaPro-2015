@@ -27,6 +27,7 @@
 		996162D11C2FBE2B000A1C10 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162D01C2FBE2B000A1C10 /* CalendarViewController.swift */; };
 		996162D41C2FC1F7000A1C10 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162D21C2FC1F7000A1C10 /* CalendarCell.swift */; };
 		996162D51C2FC1F7000A1C10 /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162D31C2FC1F7000A1C10 /* CalendarCell.xib */; };
+		996162D71C2FE162000A1C10 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162D61C2FE162000A1C10 /* CalendarModel.swift */; };
 		996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 996AE94D1C01F0F100A85464 /* DataViewController.m */; };
 		9976453D1BBEADCB007A5C78 /* CalendarViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453C1BBEADCB007A5C78 /* CalendarViewControllerOld.m */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
@@ -118,6 +119,7 @@
 		996162D01C2FBE2B000A1C10 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		996162D21C2FC1F7000A1C10 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		996162D31C2FC1F7000A1C10 /* CalendarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
+		996162D61C2FE162000A1C10 /* CalendarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		996AE94C1C01F0F100A85464 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
 		996AE94D1C01F0F100A85464 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
 		9976453B1BBEADCB007A5C78 /* CalendarViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewControllerOld.h; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				99FEB67D1C1DB6F0007C352A /* RandomNumber.h */,
 				99FEB67E1C1DB6F0007C352A /* RandomNumber.m */,
 				996162D01C2FBE2B000A1C10 /* CalendarViewController.swift */,
+				996162D61C2FE162000A1C10 /* CalendarModel.swift */,
 				99A86FEF1C05EDA900B979BA /* Cell */,
 			);
 			name = Calendar;
@@ -684,6 +687,7 @@
 				99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */,
 				99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */,
 				99FEB6BC1C1EE644007C352A /* AppDelegate.swift in Sources */,
+				996162D71C2FE162000A1C10 /* CalendarModel.swift in Sources */,
 				99A036761C20370B00E7AA1C /* HomeViewController.swift in Sources */,
 				997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */,
 				99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */,

@@ -355,7 +355,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mtN-SU-rgR">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -365,7 +365,13 @@
                             <constraint firstItem="mtN-SU-rgR" firstAttribute="leading" secondItem="xP9-JL-bEd" secondAttribute="leading" id="P26-ud-Jl6"/>
                             <constraint firstItem="mtN-SU-rgR" firstAttribute="top" secondItem="nXy-Yj-5pR" secondAttribute="bottom" id="buF-4m-pTE"/>
                             <constraint firstAttribute="trailing" secondItem="mtN-SU-rgR" secondAttribute="trailing" id="dKT-0N-Tnz"/>
+                            <constraint firstItem="mtN-SU-rgR" firstAttribute="top" secondItem="xP9-JL-bEd" secondAttribute="topMargin" id="qcv-AO-hDz"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="buF-4m-pTE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="calendarTableView" destination="mtN-SU-rgR" id="JI9-xu-nmU"/>

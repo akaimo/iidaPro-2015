@@ -9,6 +9,8 @@
 import UIKit
 
 class CalendarModel: NSObject, UITableViewDataSource {
+    var myAlarm: [[String:String]] = []
+    var myAlarmDate: [String] = []
     var monthNumArray: [Int] = []
     var monthStrArray: [String] = []
     var separateMonthArray: [[NSDate]] = []
@@ -19,6 +21,7 @@ class CalendarModel: NSObject, UITableViewDataSource {
         self.now = NSDate()
         super.init()
         self.setupCalendarDate()
+        self.setupAlarmDate()
     }
     
     private func setupCalendarDate() {
@@ -80,6 +83,15 @@ class CalendarModel: NSObject, UITableViewDataSource {
             ary.enumerate().filter { $0.1 == self.now }.forEach { j, _ in
                 self.todayIndexPath = NSIndexPath(forRow: i, inSection: j)
             }
+        }
+    }
+    
+    private func setupAlarmDate() {
+        self.myAlarm = NSUserDefaults.standardUserDefaults().objectForKey("myAlarm") as! [[String:String]]
+        self.myAlarmDate = self.myAlarm.map { dic in
+            guard let str = dic["time"] else { return "" }
+            let array = str.characters.split(" ").map { String($0) }
+            return array.isEmpty ? "" : array[0]
         }
     }
     

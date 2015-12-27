@@ -26,4 +26,19 @@ extension NSDate {
         let comps = calendar.components(.WeekdayOrdinal, fromDate: date)
         return comps.weekdayOrdinal
     }
+    
+    // NSDateから月をIntで取得
+    class func getMonthNum(date: NSDate) -> Int {
+        let cal = NSCalendar.currentCalendar()
+        let comps = cal.components(.Month, fromDate: date)
+        return comps.month
+    }
+    
+    // Intから月の名前を英語で取得
+    class func getMonthStr(num: Int) -> String {
+        let df = NSDateFormatter()
+        df.locale = NSLocale(localeIdentifier: "en")
+        
+        return df.monthSymbols[num-1]
+    }
 }

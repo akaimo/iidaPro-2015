@@ -43,15 +43,15 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
         let nib = UINib(nibName: "CalendarCell", bundle: nil)
         self.calendarTableView.registerNib(nib, forCellReuseIdentifier: "Calendar")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    // MARK: - UITableViewDelefate
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 55.0
     }
-    */
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // poptip nil
+    }
 
 }

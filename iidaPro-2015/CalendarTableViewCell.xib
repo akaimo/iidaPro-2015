@@ -78,7 +78,7 @@
                 <outlet property="iconImageView" destination="ufb-Wd-Tca" id="617-Vy-sKg"/>
                 <outlet property="weekdayLabel" destination="LmW-wg-I2k" id="8CX-WY-Y5d"/>
             </connections>
-            <point key="canvasLocation" x="455" y="315.5"/>
+            <point key="canvasLocation" x="549" y="525.5"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -33,9 +33,7 @@ class CalendarModel: NSObject, UITableViewDataSource {
         for monthNum in self.monthNumArray {
             var ary: [NSDate] = []
             for date in useDate {
-                if monthNum == NSDate.getMonthNum(date) {
-                    ary.append(date)
-                }
+                if monthNum == NSDate.getMonthNum(date) { ary.append(date) }
             }
             self.separateMonthArray.append(ary)
         }
@@ -81,7 +79,7 @@ class CalendarModel: NSObject, UITableViewDataSource {
     private func setupTodayIndexPath(array: [[NSDate]]) {
         array.enumerate().forEach { i, ary in
             ary.enumerate().filter { $0.1 == self.now }.forEach { j, _ in
-                self.todayIndexPath = NSIndexPath(forRow: i, inSection: j)
+                self.todayIndexPath = NSIndexPath(forRow: j, inSection: i)
             }
         }
     }
@@ -135,6 +133,25 @@ class CalendarModel: NSObject, UITableViewDataSource {
         return image
     }
     
+    private func selectDayColor(weekday: String) -> (UIColor, UIColor) {
+        var weekdayColor: UIColor
+        var dayColor: UIColor
+        
+        switch weekday {
+        case "土":
+            weekdayColor = UIColor.blueColor()
+            dayColor = UIColor.blueColor()
+        case "日":
+            weekdayColor = UIColor.redColor()
+            dayColor = UIColor.redColor()
+        default:
+            weekdayColor = UIColor.whiteColor()
+            dayColor = UIColor.whiteColor()
+        }
+        
+        return (weekdayColor, dayColor)
+    }
+    
     // MARK: - UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.separateMonthArray.count
@@ -156,9 +173,13 @@ class CalendarModel: NSObject, UITableViewDataSource {
             cell.backgroundColor = UIColor.clearColor()
         }
         
-        let today = self.separateMonthArray[indexPath.section][indexPath.row]
+        let today: NSDate = self.separateMonthArray[indexPath.section][indexPath.row]
         cell.weekdayLabel.text = NSDate.getShortWeekdayEn(today)
         cell.dayLabel.text = NSDate.getDayStr(today)
+        
+        let labelColor = self.selectDayColor(NSDate.nowWeekday(today))
+        cell.weekdayLabel.textColor = labelColor.0
+        cell.dayLabel.textColor = labelColor.1
         
         let ary = self.trashImage(today)
         cell.icon1ImageView.image = ary[0]

@@ -28,8 +28,6 @@
 		996162D41C2FC1F7000A1C10 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162D21C2FC1F7000A1C10 /* CalendarCell.swift */; };
 		996162D51C2FC1F7000A1C10 /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162D31C2FC1F7000A1C10 /* CalendarCell.xib */; };
 		996162D71C2FE162000A1C10 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162D61C2FE162000A1C10 /* CalendarModel.swift */; };
-		996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 996AE94D1C01F0F100A85464 /* DataViewController.m */; };
-		9976453D1BBEADCB007A5C78 /* CalendarViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453C1BBEADCB007A5C78 /* CalendarViewControllerOld.m */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
 		997645431BBEB0FB007A5C78 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewController.m */; };
 		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
@@ -44,8 +42,6 @@
 		99A036761C20370B00E7AA1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A036751C20370B00E7AA1C /* HomeViewController.swift */; };
 		99A036781C20451B00E7AA1C /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A036771C20451B00E7AA1C /* MenuCollectionViewCell.swift */; };
 		99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A408181BF232AD00FC0DDB /* AdjustNSDate.m */; };
-		99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */; };
-		99A86FEE1C05EDA400B979BA /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */; };
 		99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */; };
 		99C158021C1ABF9200DC527D /* GPSSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */; };
 		99C1732C1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */; };
@@ -59,7 +55,6 @@
 		99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743941BEB3BB500AF8195 /* MyAlarmCell.m */; };
 		99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */; };
 		99F7439A1BEB50BB00AF8195 /* AlarmPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */; };
-		99FEB67F1C1DB6F0007C352A /* RandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FEB67E1C1DB6F0007C352A /* RandomNumber.m */; };
 		99FEB6BC1C1EE644007C352A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FEB6BB1C1EE644007C352A /* AppDelegate.swift */; };
 		FFB5FC4A92362B27A409D612 /* libPods-iidaPro-2015.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FBAFA4A7BFE8E0388ADD9C /* libPods-iidaPro-2015.a */; };
 /* End PBXBuildFile section */
@@ -120,10 +115,6 @@
 		996162D21C2FC1F7000A1C10 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		996162D31C2FC1F7000A1C10 /* CalendarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
 		996162D61C2FE162000A1C10 /* CalendarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
-		996AE94C1C01F0F100A85464 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
-		996AE94D1C01F0F100A85464 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
-		9976453B1BBEADCB007A5C78 /* CalendarViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewControllerOld.h; sourceTree = "<group>"; };
-		9976453C1BBEADCB007A5C78 /* CalendarViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewControllerOld.m; sourceTree = "<group>"; };
 		9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
 		997645411BBEB0FB007A5C78 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
@@ -148,9 +139,6 @@
 		99A036771C20451B00E7AA1C /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		99A408171BF232AD00FC0DDB /* AdjustNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustNSDate.h; sourceTree = "<group>"; };
 		99A408181BF232AD00FC0DDB /* AdjustNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustNSDate.m; sourceTree = "<group>"; };
-		99A86FEA1C05EDA400B979BA /* CalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTableViewCell.h; sourceTree = "<group>"; };
-		99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTableViewCell.m; sourceTree = "<group>"; };
-		99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarTableViewCell.xib; sourceTree = "<group>"; };
 		99C157FE1C1ABF9200DC527D /* GPSSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSSearchTableViewCell.h; sourceTree = "<group>"; };
 		99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSSearchTableViewCell.m; sourceTree = "<group>"; };
 		99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSSearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -169,8 +157,6 @@
 		99F743951BEB3BB500AF8195 /* MyAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAlarmCell.xib; sourceTree = "<group>"; };
 		99F743981BEB50BB00AF8195 /* AlarmPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmPopUpView.h; sourceTree = "<group>"; };
 		99F743991BEB50BB00AF8195 /* AlarmPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmPopUpView.m; sourceTree = "<group>"; };
-		99FEB67D1C1DB6F0007C352A /* RandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomNumber.h; sourceTree = "<group>"; };
-		99FEB67E1C1DB6F0007C352A /* RandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomNumber.m; sourceTree = "<group>"; };
 		99FEB6BA1C1EE644007C352A /* iidaPro-2015-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iidaPro-2015-Bridging-Header.h"; sourceTree = "<group>"; };
 		99FEB6BB1C1EE644007C352A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B724D6246FB52462BBC8C540 /* Pods-iidaPro-2015.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iidaPro-2015.release.xcconfig"; path = "Pods/Target Support Files/Pods-iidaPro-2015/Pods-iidaPro-2015.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,15 +262,9 @@
 		996AE94F1C01F15100A85464 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				9976453B1BBEADCB007A5C78 /* CalendarViewControllerOld.h */,
-				9976453C1BBEADCB007A5C78 /* CalendarViewControllerOld.m */,
-				996AE94C1C01F0F100A85464 /* DataViewController.h */,
-				996AE94D1C01F0F100A85464 /* DataViewController.m */,
-				99FEB67D1C1DB6F0007C352A /* RandomNumber.h */,
-				99FEB67E1C1DB6F0007C352A /* RandomNumber.m */,
 				996162D01C2FBE2B000A1C10 /* CalendarViewController.swift */,
-				996162D61C2FE162000A1C10 /* CalendarModel.swift */,
-				99A86FEF1C05EDA900B979BA /* Cell */,
+				99CC42661C328B1D003A0E0D /* Model */,
+				99A86FEF1C05EDA900B979BA /* View */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -399,16 +379,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		99A86FEF1C05EDA900B979BA /* Cell */ = {
+		99A86FEF1C05EDA900B979BA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				99A86FEA1C05EDA400B979BA /* CalendarTableViewCell.h */,
-				99A86FEB1C05EDA400B979BA /* CalendarTableViewCell.m */,
-				99A86FEC1C05EDA400B979BA /* CalendarTableViewCell.xib */,
 				996162D21C2FC1F7000A1C10 /* CalendarCell.swift */,
 				996162D31C2FC1F7000A1C10 /* CalendarCell.xib */,
 			);
-			name = Cell;
+			name = View;
 			sourceTree = "<group>";
 		};
 		99B9476F1C2C18F100971539 /* Carthage */ = {
@@ -428,6 +405,14 @@
 				99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		99CC42661C328B1D003A0E0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				996162D61C2FE162000A1C10 /* CalendarModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		99EADFEB1C089B3800655BE6 /* Top */ = {
@@ -578,7 +563,6 @@
 			files = (
 				996162D51C2FC1F7000A1C10 /* CalendarCell.xib in Resources */,
 				99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */,
-				99A86FEE1C05EDA400B979BA /* CalendarTableViewCell.xib in Resources */,
 				8B18F1861B467B5A0060BF02 /* Main.storyboard in Resources */,
 				99F743921BEB354800AF8195 /* noMyAlarmCell.xib in Resources */,
 				99F743971BEB3BB500AF8195 /* MyAlarmCell.xib in Resources */,
@@ -676,14 +660,11 @@
 				9931E7841BF7711600BDB1E1 /* District.m in Sources */,
 				8B88A87D1B4C949E000D970B /* TipsCustomTableCell.m in Sources */,
 				99A408191BF232AD00FC0DDB /* AdjustNSDate.m in Sources */,
-				99FEB67F1C1DB6F0007C352A /* RandomNumber.m in Sources */,
 				997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */,
 				99781C621B835D3C0083CC7D /* RealmController.m in Sources */,
 				99801E601C2A607B00D46A8B /* SearchViewController.swift in Sources */,
 				996162CA1C2E514C000A1C10 /* SearchCell.swift in Sources */,
 				99F7439A1BEB50BB00AF8195 /* AlarmPopUpView.m in Sources */,
-				9976453D1BBEADCB007A5C78 /* CalendarViewControllerOld.m in Sources */,
-				99A86FED1C05EDA400B979BA /* CalendarTableViewCell.m in Sources */,
 				99F743911BEB354800AF8195 /* noMyAlarmCell.m in Sources */,
 				99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */,
 				99FEB6BC1C1EE644007C352A /* AppDelegate.swift in Sources */,
@@ -693,7 +674,6 @@
 				99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */,
 				99D14E2E1C2BDFC300A1E62A /* Utilities.swift in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,
-				996AE94E1C01F0F100A85464 /* DataViewController.m in Sources */,
 				996162CD1C2E8A30000A1C10 /* SearchDetailViewController.swift in Sources */,
 				99C1732E1C22BA29006C4ED9 /* Weather.swift in Sources */,
 				99F743961BEB3BB500AF8195 /* MyAlarmCell.m in Sources */,

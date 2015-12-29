@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Calendar" rowHeight="66" id="KGk-i7-Jjw" customClass="CalendarCell" customModule="iidaPro_2015" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQk-1L-KZ6">
+                        <rect key="frame" x="20" y="21" width="31" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2R-xn-EXP">
+                        <rect key="frame" x="85" y="21" width="20" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOx-bT-WTZ">
+                        <rect key="frame" x="135" y="13" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="GuZ-CG-EOp"/>
+                            <constraint firstAttribute="width" constant="40" id="vPl-oA-0fG"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="Image-3"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="klY-Gb-jFN">
+                        <rect key="frame" x="265" y="13" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="NRq-On-N9F"/>
+                            <constraint firstAttribute="height" constant="40" id="rOg-gG-ywO"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2DG-Gs-8e4">
+                        <rect key="frame" x="210" y="13" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="5wc-Ya-7Da"/>
+                            <constraint firstAttribute="width" constant="40" id="G55-Fd-og0"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HQk-1L-KZ6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="8sN-yd-sbg"/>
+                    <constraint firstItem="C2R-xn-EXP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="85" id="NL3-mx-0Zf"/>
+                    <constraint firstItem="klY-Gb-jFN" firstAttribute="leading" secondItem="2DG-Gs-8e4" secondAttribute="trailing" constant="15" id="QSb-uE-ygB"/>
+                    <constraint firstItem="qOx-bT-WTZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bjU-bd-fUH"/>
+                    <constraint firstItem="C2R-xn-EXP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bk7-FY-ofd"/>
+                    <constraint firstItem="HQk-1L-KZ6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ceP-iQ-DN4"/>
+                    <constraint firstItem="klY-Gb-jFN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hXE-wi-FLs"/>
+                    <constraint firstAttribute="trailing" secondItem="klY-Gb-jFN" secondAttribute="trailing" constant="15" id="kt1-Y3-hAj"/>
+                    <constraint firstItem="2DG-Gs-8e4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vSW-23-5eP"/>
+                    <constraint firstItem="qOx-bT-WTZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="135" id="yh1-yY-Jzd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="alarmButton" destination="qOx-bT-WTZ" id="gNM-qJ-Dpj"/>
+                <outlet property="dayLabel" destination="C2R-xn-EXP" id="2BY-kY-Xbi"/>
+                <outlet property="icon1ImageView" destination="klY-Gb-jFN" id="w6g-Ff-cgQ"/>
+                <outlet property="icon2ImageView" destination="2DG-Gs-8e4" id="J40-Y9-eiu"/>
+                <outlet property="weekdayLabel" destination="HQk-1L-KZ6" id="MIu-s0-94j"/>
+            </connections>
+            <point key="canvasLocation" x="492" y="402"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Image-3" width="59" height="59"/>
+    </resources>
+</document>

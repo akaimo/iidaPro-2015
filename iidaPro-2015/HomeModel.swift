@@ -67,8 +67,8 @@ class HomeModel: NSObject {
     
     private func updateTrashImage() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let weekDay = NSDate().nowWeekday(NSDate())
-        let weekdayOriginal = NSDate().weekdayOriginal(NSDate())
+        let weekDay = NSDate.nowWeekday(NSDate())
+        let weekdayOriginal = NSDate.weekdayOriginal(NSDate())
         var todayCategory: String = ""
         
         guard let areaData = self.areaData else { return }

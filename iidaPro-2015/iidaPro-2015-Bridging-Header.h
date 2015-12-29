@@ -9,3 +9,4 @@
 #import "ContactViewController.h"
 #import "SettingViewController.h"
 #import "TrashCategory.h"
+#import "CMPopTipView.h"

@@ -8,14 +8,16 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController, UITableViewDelegate {
+class CalendarViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate,  CalendarModelDelegate, CMPopTipViewDelegate {
     @IBOutlet weak var calendarTableView: UITableView!
     var calendarModel: CalendarModel!
+    var roundRectButtonPopTipView: CMPopTipView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.calendarModel = CalendarModel()
+        self.calendarModel.delegate = self
         self.setupView()
     }
     
@@ -76,7 +78,34 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // poptip nil
+        self.roundRectButtonPopTipView?.dismissAnimated(true)
+        self.roundRectButtonPopTipView = nil
+    }
+    
+    // MARK: - UIScrollViewDelegate
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.roundRectButtonPopTipView?.dismissAnimated(false)
+        self.roundRectButtonPopTipView = nil
     }
 
+    // MARK: - CalendarModelDelegate
+    func tapPopTip(sender: UIButton) {
+        if let view = self.roundRectButtonPopTipView {
+            view.dismissAnimated(true)
+            self.roundRectButtonPopTipView = nil
+        } else {
+            self.roundRectButtonPopTipView = CMPopTipView(message: self.calendarModel.popTipMessage[String(sender.tag)])
+            self.roundRectButtonPopTipView?.delegate = self
+            self.roundRectButtonPopTipView?.backgroundColor = UIColor.blackColor()
+            self.roundRectButtonPopTipView?.textColor = UIColor.whiteColor()
+            self.roundRectButtonPopTipView?.has3DStyle = false
+            
+            self.roundRectButtonPopTipView?.presentPointingAtView(sender, inView: self.view, animated: true)
+        }
+    }
+    
+    // MARK: - CMPopTipViewDelegate
+    func popTipViewWasDismissedByUser(popTipView: CMPopTipView!) {
+        self.roundRectButtonPopTipView = nil
+    }
 }

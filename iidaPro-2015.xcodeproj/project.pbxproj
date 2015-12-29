@@ -863,7 +863,6 @@
 		};
 		998992A91B33B6A5000B7FD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEDB9DFAF44AABBF0346C543 /* Pods-iidaPro-2015Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -884,7 +883,6 @@
 		};
 		998992AA1B33B6A5000B7FD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46F83707640A8F08C706D118 /* Pods-iidaPro-2015Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

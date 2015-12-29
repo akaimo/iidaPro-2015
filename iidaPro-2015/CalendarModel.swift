@@ -8,13 +8,20 @@
 
 import UIKit
 
+protocol CalendarModelDelegate {
+    func tapPopTip(sender: UIButton)
+}
+
 class CalendarModel: NSObject, UITableViewDataSource {
+    var delegate: CalendarModelDelegate?
+    
     var myAlarm: [[String:String]] = []
     var myAlarmDate: [String] = []
     var monthNumArray: [Int] = []
     var monthStrArray: [String] = []
     var separateMonthArray: [[NSDate]] = []
     var todayIndexPath = NSIndexPath()
+    var popTipMessage: [String:String] = [:]
     let now: NSDate
 
     override init() {
@@ -152,6 +159,10 @@ class CalendarModel: NSObject, UITableViewDataSource {
         return (weekdayColor, dayColor)
     }
     
+    func popTip(sender: UIButton) {
+        self.delegate?.tapPopTip(sender)
+    }
+    
     // MARK: - UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.separateMonthArray.count
@@ -187,7 +198,17 @@ class CalendarModel: NSObject, UITableViewDataSource {
         
         let monthDay = NSDate.getMonthDayStr(today)
         cell.alarmButton.hidden = true
-        self.myAlarmDate.enumerate().filter { $0.1 == monthDay && self.myAlarm[$0.0]["switch"] == "on" }.forEach { _,_ in cell.alarmButton.hidden = false }
+        self.myAlarmDate.enumerate().filter { $0.1 == monthDay && self.myAlarm[$0.0]["switch"] == "on" }.forEach { i, _ in
+            cell.alarmButton.hidden = false
+            if cell.alarmButton.tag == 0 {
+                let num = indexPath.section * 1000 + indexPath.row
+                let time = self.myAlarm[i]["time"]!.characters.split(" ").map { String($0) }
+                let message = self.myAlarm[i]["title"]! + " " + time[1]
+                self.popTipMessage[String(num)] = message
+                cell.alarmButton.tag = num
+            }
+            cell.alarmButton.addTarget(self, action: "popTip:", forControlEvents: .TouchUpInside)
+        }
         
         return cell
     }

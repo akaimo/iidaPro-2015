@@ -41,4 +41,28 @@ extension NSDate {
         
         return df.monthSymbols[num-1]
     }
+    
+    // 曜日を短英で取得
+    class func getShortWeekdayEn(date: NSDate) -> String {
+        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let comps = cal.component(.Weekday, fromDate: date)
+        let df = NSDateFormatter()
+        df.locale = NSLocale(localeIdentifier: "en")
+        
+        return df.shortWeekdaySymbols[comps-1]
+    }
+    
+    // 日にちをStringで取得
+    class func getDayStr(date: NSDate) -> String {
+        let comps = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.components(.Day, fromDate: date)
+        return String(format: "%d", comps.day)
+    }
+    
+    // NSDateから00/00をStringで取得
+    class func getMonthDayStr(date: NSDate) -> String {
+        let df = NSDateFormatter()
+        df.dateFormat = "MM/dd"
+        
+        return df.stringFromDate(date)
+    }
 }

@@ -95,16 +95,78 @@ class CalendarModel: NSObject, UITableViewDataSource {
         }
     }
     
+    private func trashImage(date: NSDate) -> [UIImage?] {
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let areaData = NSUserDefaults.standardUserDefaults().objectForKey("district") as! [String:AnyObject]
+        let weekday = NSDate.nowWeekday(date)
+        var todayCategory = ""
+        
+        for category in app.categoryArray_en {
+            if weekday == areaData[category] as! String {
+                todayCategory = category
+                break
+            }
+        }
+        
+        var ary: [UIImage?] = []
+        ary.append(self.getCategoryImage(todayCategory))
+        
+        if todayCategory != "" && weekday == areaData["bigRefuse_date"] as! String {
+            let original = NSDate.weekdayOriginal(date)
+            if original == areaData["bigRefuse_1"] as! Int || original == areaData["bigRefuse_2"] as! Int {
+                ary.append(UIImage(named: "C_BigRefuse"))
+            }
+        }
+        
+        return ary
+    }
+    
+    private func getCategoryImage(category: String) -> UIImage? {
+        var image: UIImage?
+        
+        switch category {
+        case "normal_1", "normal_2":    image = UIImage(named: "S_Normal")
+        case "bottle":                  image = UIImage(named: "C_Can")
+        case "plastic":                 image = UIImage(named: "S_plastic")
+        case "mixedPaper":              image = UIImage(named: "S_Mixed")
+        default:                        image = UIImage()
+        }
+        
+        return image
+    }
+    
     // MARK: - UITableViewDataSource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.separateMonthArray.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.monthStrArray[section]
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 45
+        return self.separateMonthArray[section].count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Calendar", forIndexPath: indexPath) as! CalendarCell
-        cell.backgroundColor = UIColor.clearColor()
+        if self.todayIndexPath == indexPath {
+            cell.backgroundColor = UIColor(red: 41/255.0, green: 52/255.0, blue: 92/255.0, alpha: 0.6)
+        } else {
+            cell.backgroundColor = UIColor.clearColor()
+        }
         
-        cell.weekdayLabel.text = "hoge"
+        let today = self.separateMonthArray[indexPath.section][indexPath.row]
+        cell.weekdayLabel.text = NSDate.getShortWeekdayEn(today)
+        cell.dayLabel.text = NSDate.getDayStr(today)
+        
+        let ary = self.trashImage(today)
+        cell.icon1ImageView.image = ary[0]
+        if ary.count == 2 { cell.icon2ImageView.image = ary[1] }
+        
+        let monthDay = NSDate.getMonthDayStr(today)
+        cell.alarmButton.hidden = true
+        self.myAlarmDate.enumerate().filter { $0.1 == monthDay && self.myAlarm[$0.0]["switch"] == "on" }.forEach { _,_ in cell.alarmButton.hidden = false }
         
         return cell
     }

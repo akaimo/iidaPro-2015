@@ -19,7 +19,7 @@ class ContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.setupView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,14 +28,10 @@ class ContactViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setupView() {
+        self.title = "問い合わせ"
+        self.view.layer.contents = UIImage(named: "Base")?.CGImage
+        Utilities().setNavigation(self)
     }
-    */
-
+    
 }

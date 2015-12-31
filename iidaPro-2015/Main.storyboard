@@ -199,6 +199,7 @@
                         <outlet property="weatherImageView" destination="81X-O4-n3N" id="jYP-sh-xWc"/>
                         <segue destination="zS7-3Z-RqE" kind="show" identifier="Search" id="K6P-WX-s1H"/>
                         <segue destination="hnL-Qe-1HR" kind="show" identifier="Calendar" id="F2w-mp-B4G"/>
+                        <segue destination="Ctb-GV-Uzk" kind="show" identifier="Contact" id="Vxj-Ry-SD1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIq-mm-bR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -393,7 +394,7 @@
         <!--Contact View Controller-->
         <scene sceneID="3BG-6R-kEr">
             <objects>
-                <viewController storyboardIdentifier="Contact" automaticallyAdjustsScrollViewInsets="NO" id="Ctb-GV-Uzk" customClass="ContactViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Contact" automaticallyAdjustsScrollViewInsets="NO" id="Ctb-GV-Uzk" customClass="ContactViewController" customModule="iidaPro_2015" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1N6-tM-hb1"/>
                         <viewControllerLayoutGuide type="bottom" id="aZw-rf-Vbr"/>
@@ -402,8 +403,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="川崎市事業所" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-uQ-4Ws">
+                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="25m-Er-Z2l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2sw-tj-MFh">
-                                <rect key="frame" x="0.0" y="75" width="600" height="36"/>
+                                <rect key="frame" x="0.0" y="119" width="600" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="250" constant="30" id="cVx-vD-YNh"/>
@@ -413,17 +423,8 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="川崎市事業所" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-uQ-4Ws">
-                                <rect key="frame" x="0.0" y="20" width="600" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="25m-Er-Z2l"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粗大ごみ受付センター" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ks-5p-bkO">
-                                <rect key="frame" x="0.0" y="136" width="600" height="45"/>
+                                <rect key="frame" x="0.0" y="180" width="600" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="76m-EK-RXL"/>
                                 </constraints>
@@ -432,7 +433,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vao-X6-RSh">
-                                <rect key="frame" x="0.0" y="191" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="235" width="600" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="WwL-wA-qy6"/>
@@ -443,7 +444,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="川崎市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1u-25-JpS">
-                                <rect key="frame" x="0.0" y="276" width="600" height="45"/>
+                                <rect key="frame" x="0.0" y="320" width="600" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="7Wc-jz-Yzf"/>
                                 </constraints>
@@ -452,7 +453,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="000-000-0000" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BFV-xI-ILg">
-                                <rect key="frame" x="0.0" y="331" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="375" width="600" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="1i8-KD-UpE"/>
@@ -487,12 +488,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="firstLabel" destination="pZi-uQ-4Ws" id="YR4-ol-SbJ"/>
-                        <outlet property="firstTextView" destination="2sw-tj-MFh" id="n42-eY-J2E"/>
-                        <outlet property="secondLabel" destination="9Ks-5p-bkO" id="MWE-ep-n8K"/>
-                        <outlet property="secondTextView" destination="Vao-X6-RSh" id="ql3-HR-X07"/>
-                        <outlet property="therdLabel" destination="A1u-25-JpS" id="EsD-AN-MGZ"/>
-                        <outlet property="therdTextView" destination="BFV-xI-ILg" id="vyp-Sy-WhI"/>
+                        <outlet property="firstLabel" destination="pZi-uQ-4Ws" id="uuY-Pr-GFR"/>
+                        <outlet property="firstTextView" destination="2sw-tj-MFh" id="64u-em-qso"/>
+                        <outlet property="secondLabel" destination="9Ks-5p-bkO" id="jyt-SP-l5t"/>
+                        <outlet property="secondTextView" destination="Vao-X6-RSh" id="0jg-Nq-bi5"/>
+                        <outlet property="thirdLabel" destination="A1u-25-JpS" id="cFT-Dr-d4e"/>
+                        <outlet property="thirdTextView" destination="A1u-25-JpS" id="9jd-CB-aYo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02X-BL-0we" userLabel="First Responder" sceneMemberID="firstResponder"/>

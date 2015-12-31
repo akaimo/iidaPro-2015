@@ -47,6 +47,7 @@
 		99C1732C1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */; };
 		99C1732E1C22BA29006C4ED9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732D1C22BA29006C4ED9 /* Weather.swift */; };
 		99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1732F1C22E6D3006C4ED9 /* NSDateEx.swift */; };
+		99CC42681C34FA05003A0E0D /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC42671C34FA05003A0E0D /* ContactViewController.swift */; };
 		99D14E2E1C2BDFC300A1E62A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D14E2D1C2BDFC300A1E62A /* Utilities.swift */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
 		99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */; };
@@ -145,6 +146,7 @@
 		99C1732B1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGradientLayer_swift.swift; sourceTree = "<group>"; };
 		99C1732D1C22BA29006C4ED9 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		99C1732F1C22E6D3006C4ED9 /* NSDateEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateEx.swift; sourceTree = "<group>"; };
+		99CC42671C34FA05003A0E0D /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		99D14E2D1C2BDFC300A1E62A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		99F743881BEA3EFD00AF8195 /* TrashAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashAlarmCell.h; sourceTree = "<group>"; };
 		99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashAlarmCell.m; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 			children = (
 				997645411BBEB0FB007A5C78 /* ContactViewControllerOld.h */,
 				997645421BBEB0FB007A5C78 /* ContactViewControllerOld.m */,
+				99CC42671C34FA05003A0E0D /* ContactViewController.swift */,
 			);
 			name = Contact;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */,
 				999A74591BF1C62000F25449 /* LocalNotificationManager.m in Sources */,
 				99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */,
+				99CC42681C34FA05003A0E0D /* ContactViewController.swift in Sources */,
 				9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */,
 				99801E581C28173C00D46A8B /* HomeModel.swift in Sources */,
 				996162D11C2FBE2B000A1C10 /* CalendarViewController.swift in Sources */,

@@ -6,9 +6,9 @@
 //  Copyright © 2015年 akaimo. All rights reserved.
 //
 
-#import "ContactViewController.h"
+#import "ContactViewControllerOld.h"
 
-@interface ContactViewController ()
+@interface ContactViewControllerOld ()
 @property (weak, nonatomic) IBOutlet UILabel *firstLabel;
 @property (weak, nonatomic) IBOutlet UITextView *firstTextView;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation ContactViewController
+@implementation ContactViewControllerOld
 
 - (void)viewDidLoad {
     [super viewDidLoad];

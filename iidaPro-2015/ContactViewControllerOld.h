@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContactViewController : UIViewController
+@interface ContactViewControllerOld : UIViewController
 
 @end

@@ -32,6 +32,25 @@ class ContactViewController: UIViewController {
         self.title = "問い合わせ"
         self.view.layer.contents = UIImage(named: "Base")?.CGImage
         Utilities().setNavigation(self)
+        self.firstTextView.text = self.selectOfficeText()
+    }
+    
+    private func selectOfficeText() -> String? {
+        let areaData: [String:AnyObject]? = NSUserDefaults.standardUserDefaults().objectForKey("district") as? [String:AnyObject]
+        guard let data = areaData else { return nil }
+        guard let office = data["office"] as? String else { return nil }
+        
+        var text: String?
+        switch office {
+        case "南部": text = "南部生活環境事業所 044-266-5747"
+        case "川崎": text = "川崎生活環境事業所 044-541-2043"
+        case "中原": text = "中原生活環境事業所 044-411-9220"
+        case "宮前": text = "宮前生活環境事業所 044-866-9131"
+        case "多摩": text = "多摩生活環境事業所 044-933-4111"
+        default: break
+        }
+        
+        return text
     }
     
 }

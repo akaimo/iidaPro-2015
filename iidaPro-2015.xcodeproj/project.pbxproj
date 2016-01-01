@@ -29,7 +29,6 @@
 		996162D51C2FC1F7000A1C10 /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162D31C2FC1F7000A1C10 /* CalendarCell.xib */; };
 		996162D71C2FE162000A1C10 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162D61C2FE162000A1C10 /* CalendarModel.swift */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
-		997645431BBEB0FB007A5C78 /* ContactViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645421BBEB0FB007A5C78 /* ContactViewControllerOld.m */; };
 		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
 		99801E581C28173C00D46A8B /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99801E571C28173C00D46A8B /* HomeModel.swift */; };
@@ -118,8 +117,6 @@
 		996162D61C2FE162000A1C10 /* CalendarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
-		997645411BBEB0FB007A5C78 /* ContactViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewControllerOld.h; sourceTree = "<group>"; };
-		997645421BBEB0FB007A5C78 /* ContactViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewControllerOld.m; sourceTree = "<group>"; };
 		997645441BBEB1C9007A5C78 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		997645451BBEB1C9007A5C78 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		99781C601B835D3C0083CC7D /* RealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmController.h; sourceTree = "<group>"; };
@@ -430,8 +427,6 @@
 		99EADFEC1C089B4900655BE6 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
-				997645411BBEB0FB007A5C78 /* ContactViewControllerOld.h */,
-				997645421BBEB0FB007A5C78 /* ContactViewControllerOld.m */,
 				99CC42671C34FA05003A0E0D /* ContactViewController.swift */,
 			);
 			name = Contact;
@@ -674,7 +669,6 @@
 				99FEB6BC1C1EE644007C352A /* AppDelegate.swift in Sources */,
 				996162D71C2FE162000A1C10 /* CalendarModel.swift in Sources */,
 				99A036761C20370B00E7AA1C /* HomeViewController.swift in Sources */,
-				997645431BBEB0FB007A5C78 /* ContactViewControllerOld.m in Sources */,
 				99C158011C1ABF9200DC527D /* GPSSearchTableViewCell.m in Sources */,
 				99D14E2E1C2BDFC300A1E62A /* Utilities.swift in Sources */,
 				9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */,

@@ -126,7 +126,7 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
         case 1: vc = self.storyboard?.instantiateViewControllerWithIdentifier("tips") as! TipsViewController
         case 2: performSegueWithIdentifier("Calendar", sender: indexPath)
         case 3: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Alarm") as! AlarmViewController
-        case 4: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Contact") as! ContactViewController
+        case 4: performSegueWithIdentifier("Contact", sender: indexPath)
         case 5: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Setting") as! SettingViewController
         default: break
         }

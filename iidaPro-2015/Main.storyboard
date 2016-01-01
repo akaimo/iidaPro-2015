@@ -200,6 +200,7 @@
                         <segue destination="zS7-3Z-RqE" kind="show" identifier="Search" id="K6P-WX-s1H"/>
                         <segue destination="hnL-Qe-1HR" kind="show" identifier="Calendar" id="F2w-mp-B4G"/>
                         <segue destination="Ctb-GV-Uzk" kind="show" identifier="Contact" id="Vxj-Ry-SD1"/>
+                        <segue destination="HN8-PE-Zbx" kind="show" identifier="Tips" id="6WD-hW-5IC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIq-mm-bR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -848,7 +849,7 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="TipsTableView" destination="WCQ-KH-zWv" id="ayc-pR-H3G"/>
-                        <segue destination="JBd-KT-tjW" kind="push" identifier="pushDetailView" id="vVm-39-T7Z"/>
+                        <segue destination="JBd-KT-tjW" kind="show" identifier="pushDetailView" id="vVm-39-T7Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOI-pO-Zz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -994,7 +995,7 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRu-yl-DHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2877.5" y="290.5"/>
+            <point key="canvasLocation" x="1873.5" y="933.5"/>
         </scene>
     </scenes>
     <resources>

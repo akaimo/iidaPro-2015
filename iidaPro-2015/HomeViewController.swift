@@ -123,7 +123,7 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
         
         switch indexPath.row {
         case 0: performSegueWithIdentifier("Search", sender: indexPath)
-        case 1: vc = self.storyboard?.instantiateViewControllerWithIdentifier("tips") as! TipsViewController
+        case 1: performSegueWithIdentifier("Tips", sender: indexPath)
         case 2: performSegueWithIdentifier("Calendar", sender: indexPath)
         case 3: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Alarm") as! AlarmViewController
         case 4: performSegueWithIdentifier("Contact", sender: indexPath)

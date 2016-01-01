@@ -119,20 +119,14 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
     
     // MARK: - UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        var vc: UIViewController?
-        
         switch indexPath.row {
         case 0: performSegueWithIdentifier("Search", sender: indexPath)
         case 1: performSegueWithIdentifier("Tips", sender: indexPath)
         case 2: performSegueWithIdentifier("Calendar", sender: indexPath)
-        case 3: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Alarm") as! AlarmViewController
+        case 3: performSegueWithIdentifier("Alarm", sender: indexPath)
         case 4: performSegueWithIdentifier("Contact", sender: indexPath)
-        case 5: vc = self.storyboard?.instantiateViewControllerWithIdentifier("Setting") as! SettingViewController
+        case 5: performSegueWithIdentifier("Setting", sender: indexPath)
         default: break
-        }
-        
-        if let vc = vc {
-            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 

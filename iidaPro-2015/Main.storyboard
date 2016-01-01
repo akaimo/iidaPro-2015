@@ -201,11 +201,13 @@
                         <segue destination="hnL-Qe-1HR" kind="show" identifier="Calendar" id="F2w-mp-B4G"/>
                         <segue destination="Ctb-GV-Uzk" kind="show" identifier="Contact" id="Vxj-Ry-SD1"/>
                         <segue destination="HN8-PE-Zbx" kind="show" identifier="Tips" id="6WD-hW-5IC"/>
+                        <segue destination="EhU-hB-EbK" kind="show" identifier="Alarm" id="x4A-VO-Hn6"/>
+                        <segue destination="pVY-57-a4J" kind="show" identifier="Setting" id="SUo-UO-YUi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIq-mm-bR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="2324"/>
+            <point key="canvasLocation" x="150" y="2324"/>
         </scene>
         <!--Search Detail View Controller-->
         <scene sceneID="qbD-G2-QHB">

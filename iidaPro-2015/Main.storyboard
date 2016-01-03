@@ -203,6 +203,7 @@
                         <segue destination="HN8-PE-Zbx" kind="show" identifier="Tips" id="6WD-hW-5IC"/>
                         <segue destination="EhU-hB-EbK" kind="show" identifier="Alarm" id="x4A-VO-Hn6"/>
                         <segue destination="pVY-57-a4J" kind="show" identifier="SettingOld" id="SUo-UO-YUi"/>
+                        <segue destination="wS4-rV-18u" kind="show" identifier="Setting" id="mcb-qq-H12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIq-mm-bR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -546,6 +547,39 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbD-Wu-M7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1227" y="3735"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="zFL-qI-ZTe">
+            <objects>
+                <viewController id="wS4-rV-18u" customClass="SettingViewController" customModule="iidaPro_2015" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DEV-iP-MP9"/>
+                        <viewControllerLayoutGuide type="bottom" id="i2m-em-8ox"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r0w-A8-o8v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BN0-5I-web">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i2m-em-8ox" firstAttribute="top" secondItem="BN0-5I-web" secondAttribute="bottom" id="ChW-UO-fhJ"/>
+                            <constraint firstItem="BN0-5I-web" firstAttribute="top" secondItem="DEV-iP-MP9" secondAttribute="bottom" id="VuG-Td-beF"/>
+                            <constraint firstItem="BN0-5I-web" firstAttribute="leading" secondItem="r0w-A8-o8v" secondAttribute="leading" id="oqV-lx-ZYG"/>
+                            <constraint firstAttribute="trailing" secondItem="BN0-5I-web" secondAttribute="trailing" id="twq-in-Uq8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="settingTableView" destination="BN0-5I-web" id="gLC-od-fUa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZ3-wY-2Hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1227" y="4443"/>
         </scene>
         <!--Setting Town View Controller-->
         <scene sceneID="STU-Xy-tfd">

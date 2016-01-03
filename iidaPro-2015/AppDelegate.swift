@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let navigation = storyboard.instantiateViewControllerWithIdentifier("Navigation") as! UINavigationController
-        let setting = storyboard.instantiateViewControllerWithIdentifier("Setting") as! SettingViewController
+        let setting = storyboard.instantiateViewControllerWithIdentifier("Setting") as! SettingViewControllerOld
         setting.isFirstRun = true
         
         navigation.pushViewController(setting, animated: false)

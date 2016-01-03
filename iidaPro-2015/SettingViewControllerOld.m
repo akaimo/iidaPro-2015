@@ -6,14 +6,14 @@
 //  Copyright © 2015年 akaimo. All rights reserved.
 //
 
-#import "SettingViewController.h"
+#import "SettingViewControllerOld.h"
 #import "SettingTownViewController.h"
 #import "GPSSearchTableViewCell.h"
 #import "AFNetworking.h"
 #import "District.h"
 #import  <CoreLocation/CoreLocation.h>
 
-@interface SettingViewController () <CLLocationManagerDelegate>
+@interface SettingViewControllerOld () <CLLocationManagerDelegate>
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UITableView *settingTableView;
 @property (retain, nonatomic) NSArray *sectionArray;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation SettingViewController
+@implementation SettingViewControllerOld
 
 - (void)viewDidLoad {
     [super viewDidLoad];

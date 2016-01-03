@@ -125,7 +125,7 @@ class HomeViewController: UIViewController, HomeModelDelegate, UICollectionViewD
         case 2: performSegueWithIdentifier("Calendar", sender: indexPath)
         case 3: performSegueWithIdentifier("Alarm", sender: indexPath)
         case 4: performSegueWithIdentifier("Contact", sender: indexPath)
-        case 5: performSegueWithIdentifier("Setting", sender: indexPath)
+        case 5: performSegueWithIdentifier("SettingOld", sender: indexPath)
         default: break
         }
     }

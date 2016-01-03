@@ -29,7 +29,7 @@
 		996162D51C2FC1F7000A1C10 /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162D31C2FC1F7000A1C10 /* CalendarCell.xib */; };
 		996162D71C2FE162000A1C10 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162D61C2FE162000A1C10 /* CalendarModel.swift */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
-		997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewController.m */; };
+		997645461BBEB1C9007A5C78 /* SettingViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewControllerOld.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
 		99801E581C28173C00D46A8B /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99801E571C28173C00D46A8B /* HomeModel.swift */; };
 		99801E601C2A607B00D46A8B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99801E5F1C2A607B00D46A8B /* SearchViewController.swift */; };
@@ -117,8 +117,8 @@
 		996162D61C2FE162000A1C10 /* CalendarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
-		997645441BBEB1C9007A5C78 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		997645451BBEB1C9007A5C78 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		997645441BBEB1C9007A5C78 /* SettingViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewControllerOld.h; sourceTree = "<group>"; };
+		997645451BBEB1C9007A5C78 /* SettingViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewControllerOld.m; sourceTree = "<group>"; };
 		99781C601B835D3C0083CC7D /* RealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmController.h; sourceTree = "<group>"; };
 		99781C611B835D3C0083CC7D /* RealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmController.m; sourceTree = "<group>"; };
 		99801E571C28173C00D46A8B /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
@@ -241,8 +241,8 @@
 		9931E7881BFF5C1700BDB1E1 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				997645441BBEB1C9007A5C78 /* SettingViewController.h */,
-				997645451BBEB1C9007A5C78 /* SettingViewController.m */,
+				997645441BBEB1C9007A5C78 /* SettingViewControllerOld.h */,
+				997645451BBEB1C9007A5C78 /* SettingViewControllerOld.m */,
 				9931E7891BFF668E00BDB1E1 /* SettingTownViewController.h */,
 				9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */,
 				99C158031C1ABF9800DC527D /* Cell */,
@@ -680,7 +680,7 @@
 				996162D41C2FC1F7000A1C10 /* CalendarCell.swift in Sources */,
 				8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */,
 				99C1732C1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift in Sources */,
-				997645461BBEB1C9007A5C78 /* SettingViewController.m in Sources */,
+				997645461BBEB1C9007A5C78 /* SettingViewControllerOld.m in Sources */,
 				99A036781C20451B00E7AA1C /* MenuCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

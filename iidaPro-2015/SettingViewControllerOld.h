@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingViewController : UIViewController
+@interface SettingViewControllerOld : UIViewController
 
 @property (nonatomic) BOOL isFirstRun;
 

@@ -10,11 +10,19 @@ import UIKit
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var settingTableView: UITableView!
+    
+    var settingModel: SettingModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.settingModel = SettingModel()
+        self.setupView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,14 +31,9 @@ class SettingViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setupView() {
+        Utilities().setNavigation(self)
+        self.title = "地域設定"
     }
-    */
 
 }

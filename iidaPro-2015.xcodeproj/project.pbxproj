@@ -20,7 +20,7 @@
 		9920C7851C2C04C5009C3942 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9920C7811C2C04C5009C3942 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9931E7841BF7711600BDB1E1 /* District.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7831BF7711600BDB1E1 /* District.m */; };
 		9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7861BFF201700BDB1E1 /* TrashCategory.m */; };
-		9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */; };
+		9931E78B1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E78A1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m */; };
 		996162CA1C2E514C000A1C10 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162C81C2E514C000A1C10 /* SearchCell.swift */; };
 		996162CB1C2E514C000A1C10 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162C91C2E514C000A1C10 /* SearchCell.xib */; };
 		996162CD1C2E8A30000A1C10 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */; };
@@ -108,8 +108,8 @@
 		9931E7831BF7711600BDB1E1 /* District.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = District.m; sourceTree = "<group>"; };
 		9931E7851BFF201700BDB1E1 /* TrashCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashCategory.h; sourceTree = "<group>"; };
 		9931E7861BFF201700BDB1E1 /* TrashCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashCategory.m; sourceTree = "<group>"; };
-		9931E7891BFF668E00BDB1E1 /* SettingTownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTownViewController.h; sourceTree = "<group>"; };
-		9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTownViewController.m; sourceTree = "<group>"; };
+		9931E7891BFF668E00BDB1E1 /* SettingTownViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTownViewControllerOld.h; sourceTree = "<group>"; };
+		9931E78A1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTownViewControllerOld.m; sourceTree = "<group>"; };
 		996162C81C2E514C000A1C10 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		996162C91C2E514C000A1C10 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
@@ -249,8 +249,8 @@
 				997645451BBEB1C9007A5C78 /* SettingViewControllerOld.m */,
 				99CC42691C394F75003A0E0D /* SettingViewController.swift */,
 				99CC426B1C3950AF003A0E0D /* SettingModel.swift */,
-				9931E7891BFF668E00BDB1E1 /* SettingTownViewController.h */,
-				9931E78A1BFF668E00BDB1E1 /* SettingTownViewController.m */,
+				9931E7891BFF668E00BDB1E1 /* SettingTownViewControllerOld.h */,
+				9931E78A1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m */,
 				99C158031C1ABF9800DC527D /* Cell */,
 			);
 			name = Setting;
@@ -659,7 +659,7 @@
 				999A74591BF1C62000F25449 /* LocalNotificationManager.m in Sources */,
 				99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */,
 				99CC42681C34FA05003A0E0D /* ContactViewController.swift in Sources */,
-				9931E78B1BFF668E00BDB1E1 /* SettingTownViewController.m in Sources */,
+				9931E78B1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m in Sources */,
 				99CC426C1C3950AF003A0E0D /* SettingModel.swift in Sources */,
 				99CC426A1C394F75003A0E0D /* SettingViewController.swift in Sources */,
 				99801E581C28173C00D46A8B /* HomeModel.swift in Sources */,

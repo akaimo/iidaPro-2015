@@ -6,17 +6,17 @@
 //  Copyright © 2015 akaimo. All rights reserved.
 //
 
-#import "SettingTownViewController.h"
+#import "SettingTownViewControllerOld.h"
 #import "District.h"
 
-@interface SettingTownViewController ()
+@interface SettingTownViewControllerOld ()
 @property (weak, nonatomic) IBOutlet UITableView *townTableView;
 @property (retain, nonatomic) NSArray *sectionList;
 @property (retain, nonatomic) NSMutableArray *sectionArray;
 
 @end
 
-@implementation SettingTownViewController
+@implementation SettingTownViewControllerOld
 
 - (void)viewDidLoad {
     [super viewDidLoad];

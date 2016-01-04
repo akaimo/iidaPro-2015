@@ -587,10 +587,10 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
             </objects>
             <point key="canvasLocation" x="1227" y="4443"/>
         </scene>
-        <!--Setting Town View Controller-->
+        <!--Setting Town View Controller Old-->
         <scene sceneID="STU-Xy-tfd">
             <objects>
-                <viewController storyboardIdentifier="Town" id="Icu-bM-myF" customClass="SettingTownViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Town" id="Icu-bM-myF" customClass="SettingTownViewControllerOld" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o3O-v3-hBV"/>
                         <viewControllerLayoutGuide type="bottom" id="9Vh-BO-ZBn"/>

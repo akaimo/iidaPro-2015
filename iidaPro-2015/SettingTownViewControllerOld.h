@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingTownViewController : UIViewController
+@interface SettingTownViewControllerOld : UIViewController
 
 @property (retain, nonatomic) NSString *area;
 

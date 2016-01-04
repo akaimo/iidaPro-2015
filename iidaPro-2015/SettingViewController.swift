@@ -75,5 +75,12 @@ class SettingViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20.0
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 {
+            performSegueWithIdentifier("SettingTown", sender: indexPath)
+
+        }
+    }
 
 }

@@ -581,11 +581,45 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
                     </view>
                     <connections>
                         <outlet property="settingTableView" destination="BN0-5I-web" id="gLC-od-fUa"/>
+                        <segue destination="fib-IP-Mda" kind="show" identifier="SettingTown" id="FZM-eo-KRC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZ3-wY-2Hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1227" y="4443"/>
+        </scene>
+        <!--Setting Town View Controller-->
+        <scene sceneID="QrH-Jh-cUG">
+            <objects>
+                <viewController id="fib-IP-Mda" customClass="SettingTownViewController" customModule="iidaPro_2015" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JXT-kF-hC2"/>
+                        <viewControllerLayoutGuide type="bottom" id="9C7-YG-TFO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="InA-Kt-tXa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SzC-Rg-S87">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9C7-YG-TFO" firstAttribute="top" secondItem="SzC-Rg-S87" secondAttribute="bottom" id="43u-QI-YZW"/>
+                            <constraint firstItem="SzC-Rg-S87" firstAttribute="top" secondItem="InA-Kt-tXa" secondAttribute="top" id="R08-d5-a6y"/>
+                            <constraint firstItem="SzC-Rg-S87" firstAttribute="leading" secondItem="InA-Kt-tXa" secondAttribute="leading" id="qNz-KF-185"/>
+                            <constraint firstAttribute="trailing" secondItem="SzC-Rg-S87" secondAttribute="trailing" id="yOr-Lc-8In"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="townTableView" destination="SzC-Rg-S87" id="OLE-Ro-h7C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGB-KA-y8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986" y="4443"/>
         </scene>
         <!--Setting Town View Controller Old-->
         <scene sceneID="STU-Xy-tfd">

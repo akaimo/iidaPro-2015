@@ -8,3 +8,4 @@
 #import "SettingViewControllerOld.h"
 #import "TrashCategory.h"
 #import "CMPopTipView.h"
+#import "GPSSearchTableViewCell.h"

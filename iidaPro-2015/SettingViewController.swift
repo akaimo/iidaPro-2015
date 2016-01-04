@@ -17,6 +17,8 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
 
         self.settingModel = SettingModel()
+        self.settingTableView.dataSource = self.settingModel
+        
         self.setupView()
     }
     
@@ -34,6 +36,9 @@ class SettingViewController: UIViewController {
     private func setupView() {
         Utilities().setNavigation(self)
         self.title = "地域設定"
+        
+        let nib = UINib(nibName: "GPSSearchTableViewCell", bundle: nil)
+        self.settingTableView.registerNib(nib, forCellReuseIdentifier: "GPSSearch")
     }
 
 }

@@ -32,6 +32,8 @@ class SettingModel: NSObject, UITableViewDataSource {
         if indexPath.section == 1 {
             let cell: GPSSearchTableViewCell = tableView.dequeueReusableCellWithIdentifier("GPSSearch", forIndexPath: indexPath) as! GPSSearchTableViewCell
             cell.backgroundColor = UIColor.clearColor()
+            cell.searchBtn?.addTarget(self, action: "gpsSearch:", forControlEvents: .TouchUpInside)
+            cell.searchBtn?.setBackgroundImage(UIImage(named: "tappedBtnColor"), forState: .Highlighted)
             
             return cell
         }
@@ -42,6 +44,11 @@ class SettingModel: NSObject, UITableViewDataSource {
         cell.textLabel?.textColor = UIColor.whiteColor()
         
         return cell
+    }
+    
+    
+    func gpsSearch(sender: UIButton) {
+        // TODO: gps search
     }
 
 }

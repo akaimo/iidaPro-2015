@@ -12,6 +12,7 @@ class SettingViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var settingTableView: UITableView!
     
     var settingModel: SettingModel!
+    var isFirstRun: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,12 @@ class SettingViewController: UIViewController, UITableViewDelegate {
         self.settingTableView.backgroundColor = UIColor.clearColor()
         self.settingTableView.tableFooterView = UIView()
         self.view.layer.contents = UIImage(named: "Base")?.CGImage
+        
+        guard let first = self.isFirstRun else { return }
+        if first == true {
+            self.navigationItem.setHidesBackButton(true, animated: false)
+            self.isFirstRun = false
+        }
     }
     
     

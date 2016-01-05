@@ -50,6 +50,7 @@
 		99CC426A1C394F75003A0E0D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC42691C394F75003A0E0D /* SettingViewController.swift */; };
 		99CC426C1C3950AF003A0E0D /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC426B1C3950AF003A0E0D /* SettingModel.swift */; };
 		99CC426E1C3A943E003A0E0D /* SettingTownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC426D1C3A943E003A0E0D /* SettingTownViewController.swift */; };
+		99CC42701C3B681F003A0E0D /* SettingTownModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CC426F1C3B681F003A0E0D /* SettingTownModel.swift */; };
 		99D14E2E1C2BDFC300A1E62A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D14E2D1C2BDFC300A1E62A /* Utilities.swift */; };
 		99F7438B1BEA3EFD00AF8195 /* TrashAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */; };
 		99F7438C1BEA3EFD00AF8195 /* TrashAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F7438A1BEA3EFD00AF8195 /* TrashAlarmCell.xib */; };
@@ -150,6 +151,7 @@
 		99CC42691C394F75003A0E0D /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		99CC426B1C3950AF003A0E0D /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		99CC426D1C3A943E003A0E0D /* SettingTownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTownViewController.swift; sourceTree = "<group>"; };
+		99CC426F1C3B681F003A0E0D /* SettingTownModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTownModel.swift; sourceTree = "<group>"; };
 		99D14E2D1C2BDFC300A1E62A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		99F743881BEA3EFD00AF8195 /* TrashAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashAlarmCell.h; sourceTree = "<group>"; };
 		99F743891BEA3EFD00AF8195 /* TrashAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashAlarmCell.m; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				9931E7891BFF668E00BDB1E1 /* SettingTownViewControllerOld.h */,
 				9931E78A1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m */,
 				99CC426D1C3A943E003A0E0D /* SettingTownViewController.swift */,
+				99CC426F1C3B681F003A0E0D /* SettingTownModel.swift */,
 				99C158031C1ABF9800DC527D /* Cell */,
 			);
 			name = Setting;
@@ -660,6 +663,7 @@
 			files = (
 				8B9387861B4DF37E004E70E2 /* TipsViewController.m in Sources */,
 				999A74591BF1C62000F25449 /* LocalNotificationManager.m in Sources */,
+				99CC42701C3B681F003A0E0D /* SettingTownModel.swift in Sources */,
 				99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */,
 				99CC42681C34FA05003A0E0D /* ContactViewController.swift in Sources */,
 				9931E78B1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m in Sources */,

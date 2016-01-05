@@ -8,14 +8,17 @@
 
 import UIKit
 
-class SettingTownViewController: UIViewController {
+class SettingTownViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var townTableView: UITableView!
+    
+    var townModel: SettingTownModel!
     var townName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = self.townName
+        
+        self.townModel = SettingTownModel(town: self.townName!)
+        self.setupView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,14 +27,14 @@ class SettingTownViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setupView() {
+        self.title = self.townName
+        
+        self.view.layer.contents = UIImage(named: "Base")?.CGImage
+        self.townTableView.backgroundColor = UIColor.clearColor()
+        self.townTableView.tableFooterView = UIView()
+        self.townTableView.delegate = self
+        self.townTableView.dataSource = self.townModel
     }
-    */
 
 }

@@ -79,7 +79,14 @@ class SettingViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             performSegueWithIdentifier("SettingTown", sender: indexPath)
-
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SettingTown" {
+            let vc: SettingTownViewController = segue.destinationViewController as! SettingTownViewController
+            let indexPath: NSIndexPath = sender as! NSIndexPath
+            vc.townName = self.settingModel.areaData[indexPath.row]
         }
     }
 

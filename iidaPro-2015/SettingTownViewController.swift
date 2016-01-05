@@ -10,11 +10,12 @@ import UIKit
 
 class SettingTownViewController: UIViewController {
     @IBOutlet weak var townTableView: UITableView!
+    var townName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.title = self.townName
     }
 
     override func didReceiveMemoryWarning() {

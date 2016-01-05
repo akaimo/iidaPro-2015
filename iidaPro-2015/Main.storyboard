@@ -202,7 +202,6 @@
                         <segue destination="Ctb-GV-Uzk" kind="show" identifier="Contact" id="Vxj-Ry-SD1"/>
                         <segue destination="HN8-PE-Zbx" kind="show" identifier="Tips" id="6WD-hW-5IC"/>
                         <segue destination="EhU-hB-EbK" kind="show" identifier="Alarm" id="x4A-VO-Hn6"/>
-                        <segue destination="pVY-57-a4J" kind="show" identifier="SettingOld" id="SUo-UO-YUi"/>
                         <segue destination="wS4-rV-18u" kind="show" identifier="Setting" id="mcb-qq-H12"/>
                     </connections>
                 </viewController>
@@ -511,43 +510,6 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
             </objects>
             <point key="canvasLocation" x="1227" y="3037"/>
         </scene>
-        <!--Setting View Controller Old-->
-        <scene sceneID="QdV-8o-74X">
-            <objects>
-                <viewController storyboardIdentifier="SettingOld" id="pVY-57-a4J" customClass="SettingViewControllerOld" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="D54-k8-cOX"/>
-                        <viewControllerLayoutGuide type="bottom" id="nXS-Xv-Wc4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rqE-Yh-suR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="opV-zM-KeD">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="pVY-57-a4J" id="Ean-3V-ebU"/>
-                                    <outlet property="delegate" destination="pVY-57-a4J" id="Nb1-ju-6zz"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="opV-zM-KeD" firstAttribute="leading" secondItem="rqE-Yh-suR" secondAttribute="leading" id="1Lh-ib-yMc"/>
-                            <constraint firstItem="opV-zM-KeD" firstAttribute="top" secondItem="rqE-Yh-suR" secondAttribute="top" id="RJH-73-tJe"/>
-                            <constraint firstItem="opV-zM-KeD" firstAttribute="bottom" secondItem="nXS-Xv-Wc4" secondAttribute="top" id="ZHT-Vd-Nza"/>
-                            <constraint firstAttribute="trailing" secondItem="opV-zM-KeD" secondAttribute="trailing" id="v8j-cs-0Sp"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="settingTableView" destination="opV-zM-KeD" id="S67-Um-tEV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vbD-Wu-M7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1227" y="3735"/>
-        </scene>
         <!--Setting View Controller-->
         <scene sceneID="zFL-qI-ZTe">
             <objects>
@@ -586,7 +548,7 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZ3-wY-2Hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1227" y="4443"/>
+            <point key="canvasLocation" x="1222" y="3762"/>
         </scene>
         <!--Setting Town View Controller-->
         <scene sceneID="QrH-Jh-cUG">
@@ -619,44 +581,7 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGB-KA-y8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1986" y="4443"/>
-        </scene>
-        <!--Setting Town View Controller Old-->
-        <scene sceneID="STU-Xy-tfd">
-            <objects>
-                <viewController storyboardIdentifier="Town" id="Icu-bM-myF" customClass="SettingTownViewControllerOld" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="o3O-v3-hBV"/>
-                        <viewControllerLayoutGuide type="bottom" id="9Vh-BO-ZBn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7PL-Xr-0Qv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6js-lS-vKv">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Icu-bM-myF" id="1gF-YJ-xFS"/>
-                                    <outlet property="delegate" destination="Icu-bM-myF" id="3x7-Yo-Cek"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="6js-lS-vKv" firstAttribute="leading" secondItem="7PL-Xr-0Qv" secondAttribute="leading" id="1do-O5-wO5"/>
-                            <constraint firstAttribute="trailing" secondItem="6js-lS-vKv" secondAttribute="trailing" id="X2Z-pJ-wG8"/>
-                            <constraint firstAttribute="bottom" secondItem="6js-lS-vKv" secondAttribute="bottom" id="bZ8-Qc-bYt"/>
-                            <constraint firstItem="6js-lS-vKv" firstAttribute="top" secondItem="7PL-Xr-0Qv" secondAttribute="top" id="fNx-Uw-WkC"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="townTableView" destination="6js-lS-vKv" id="oBy-fX-kWu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4jz-fz-AF7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1986" y="3735"/>
+            <point key="canvasLocation" x="1976" y="3762"/>
         </scene>
         <!--Tips View Controller-->
         <scene sceneID="Sd7-pW-jkC">
@@ -944,8 +869,8 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-r2-3PC">
-                                <rect key="frame" x="27" y="40" width="320" height="210"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzN-r2-3PC">
+                                <rect key="frame" x="27" y="84" width="320" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="2Ym-Kd-9nC"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="5sY-3b-mSP"/>
@@ -968,8 +893,8 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="テキストが入る" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-2w-1Mi">
-                                <rect key="frame" x="16" y="311" width="343" height="346"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="テキストが入る" translatesAutoresizingMaskIntoConstraints="NO" id="eW6-2w-1Mi">
+                                <rect key="frame" x="16" y="355" width="343" height="302"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="8Lh-3i-635"/>
@@ -1000,8 +925,8 @@ Mail https://www.contact.city.kawasaki.jp/cgi-bin/jp/mail/input.cgi</string>
                                     </mask>
                                 </variation>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="番号とタイトルが入る" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRf-x4-Tab">
-                                <rect key="frame" x="102" y="270" width="170" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番号とタイトルが入る" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRf-x4-Tab">
+                                <rect key="frame" x="102" y="314" width="170" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

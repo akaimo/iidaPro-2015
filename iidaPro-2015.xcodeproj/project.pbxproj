@@ -20,7 +20,6 @@
 		9920C7851C2C04C5009C3942 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9920C7811C2C04C5009C3942 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9931E7841BF7711600BDB1E1 /* District.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7831BF7711600BDB1E1 /* District.m */; };
 		9931E7871BFF201700BDB1E1 /* TrashCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E7861BFF201700BDB1E1 /* TrashCategory.m */; };
-		9931E78B1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 9931E78A1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m */; };
 		996162CA1C2E514C000A1C10 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162C81C2E514C000A1C10 /* SearchCell.swift */; };
 		996162CB1C2E514C000A1C10 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162C91C2E514C000A1C10 /* SearchCell.xib */; };
 		996162CD1C2E8A30000A1C10 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */; };
@@ -29,7 +28,6 @@
 		996162D51C2FC1F7000A1C10 /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 996162D31C2FC1F7000A1C10 /* CalendarCell.xib */; };
 		996162D71C2FE162000A1C10 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996162D61C2FE162000A1C10 /* CalendarModel.swift */; };
 		997645401BBEAFFB007A5C78 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */; };
-		997645461BBEB1C9007A5C78 /* SettingViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 997645451BBEB1C9007A5C78 /* SettingViewControllerOld.m */; };
 		99781C621B835D3C0083CC7D /* RealmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99781C611B835D3C0083CC7D /* RealmController.m */; };
 		99801E581C28173C00D46A8B /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99801E571C28173C00D46A8B /* HomeModel.swift */; };
 		99801E601C2A607B00D46A8B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99801E5F1C2A607B00D46A8B /* SearchViewController.swift */; };
@@ -110,8 +108,6 @@
 		9931E7831BF7711600BDB1E1 /* District.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = District.m; sourceTree = "<group>"; };
 		9931E7851BFF201700BDB1E1 /* TrashCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashCategory.h; sourceTree = "<group>"; };
 		9931E7861BFF201700BDB1E1 /* TrashCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashCategory.m; sourceTree = "<group>"; };
-		9931E7891BFF668E00BDB1E1 /* SettingTownViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTownViewControllerOld.h; sourceTree = "<group>"; };
-		9931E78A1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTownViewControllerOld.m; sourceTree = "<group>"; };
 		996162C81C2E514C000A1C10 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		996162C91C2E514C000A1C10 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		996162CC1C2E8A30000A1C10 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
@@ -121,8 +117,6 @@
 		996162D61C2FE162000A1C10 /* CalendarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		9976453E1BBEAFFB007A5C78 /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmViewController.h; sourceTree = "<group>"; };
 		9976453F1BBEAFFB007A5C78 /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmViewController.m; sourceTree = "<group>"; };
-		997645441BBEB1C9007A5C78 /* SettingViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewControllerOld.h; sourceTree = "<group>"; };
-		997645451BBEB1C9007A5C78 /* SettingViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewControllerOld.m; sourceTree = "<group>"; };
 		99781C601B835D3C0083CC7D /* RealmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmController.h; sourceTree = "<group>"; };
 		99781C611B835D3C0083CC7D /* RealmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmController.m; sourceTree = "<group>"; };
 		99801E571C28173C00D46A8B /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
@@ -249,15 +243,10 @@
 		9931E7881BFF5C1700BDB1E1 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				997645441BBEB1C9007A5C78 /* SettingViewControllerOld.h */,
-				997645451BBEB1C9007A5C78 /* SettingViewControllerOld.m */,
 				99CC42691C394F75003A0E0D /* SettingViewController.swift */,
-				99CC426B1C3950AF003A0E0D /* SettingModel.swift */,
-				9931E7891BFF668E00BDB1E1 /* SettingTownViewControllerOld.h */,
-				9931E78A1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m */,
 				99CC426D1C3A943E003A0E0D /* SettingTownViewController.swift */,
-				99CC426F1C3B681F003A0E0D /* SettingTownModel.swift */,
-				99C158031C1ABF9800DC527D /* Cell */,
+				99CC42711C3B9C3B003A0E0D /* Model */,
+				99C158031C1ABF9800DC527D /* View */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -408,20 +397,29 @@
 			name = Carthage;
 			sourceTree = "<group>";
 		};
-		99C158031C1ABF9800DC527D /* Cell */ = {
+		99C158031C1ABF9800DC527D /* View */ = {
 			isa = PBXGroup;
 			children = (
 				99C157FE1C1ABF9200DC527D /* GPSSearchTableViewCell.h */,
 				99C157FF1C1ABF9200DC527D /* GPSSearchTableViewCell.m */,
 				99C158001C1ABF9200DC527D /* GPSSearchTableViewCell.xib */,
 			);
-			name = Cell;
+			name = View;
 			sourceTree = "<group>";
 		};
 		99CC42661C328B1D003A0E0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				996162D61C2FE162000A1C10 /* CalendarModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		99CC42711C3B9C3B003A0E0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99CC426B1C3950AF003A0E0D /* SettingModel.swift */,
+				99CC426F1C3B681F003A0E0D /* SettingTownModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -666,7 +664,6 @@
 				99CC42701C3B681F003A0E0D /* SettingTownModel.swift in Sources */,
 				99C173301C22E6D3006C4ED9 /* NSDateEx.swift in Sources */,
 				99CC42681C34FA05003A0E0D /* ContactViewController.swift in Sources */,
-				9931E78B1BFF668E00BDB1E1 /* SettingTownViewControllerOld.m in Sources */,
 				99CC426C1C3950AF003A0E0D /* SettingModel.swift in Sources */,
 				99CC426A1C394F75003A0E0D /* SettingViewController.swift in Sources */,
 				99801E581C28173C00D46A8B /* HomeModel.swift in Sources */,
@@ -696,7 +693,6 @@
 				996162D41C2FC1F7000A1C10 /* CalendarCell.swift in Sources */,
 				8B9CFBA51C0C694900A14020 /* TipsObject.m in Sources */,
 				99C1732C1C21AE22006C4ED9 /* CircleGradientLayer_swift.swift in Sources */,
-				997645461BBEB1C9007A5C78 /* SettingViewControllerOld.m in Sources */,
 				99A036781C20451B00E7AA1C /* MenuCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

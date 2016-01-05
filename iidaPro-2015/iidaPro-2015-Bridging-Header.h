@@ -5,7 +5,6 @@
 #import "RealmController.h"
 #import "TipsViewController.h"
 #import "AlarmViewController.h"
-#import "SettingViewControllerOld.h"
 #import "TrashCategory.h"
 #import "District.h"
 #import "CMPopTipView.h"
